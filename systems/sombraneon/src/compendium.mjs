@@ -21,6 +21,7 @@ const FIELDS = [
   'system.tier',
   'system.slot',
   'system.category',
+  'system.mount',
   'system.rollIndex',
   'system.price',
   'system.knowledge',
@@ -56,6 +57,7 @@ export class CompendiumIndex {
             tier: foundry.utils.getProperty(e, 'system.tier') ?? 0,
             slot: foundry.utils.getProperty(e, 'system.slot') ?? '',
             category: foundry.utils.getProperty(e, 'system.category') ?? '',
+            mount: foundry.utils.getProperty(e, 'system.mount') ?? '',
             rollIndex: foundry.utils.getProperty(e, 'system.rollIndex') ?? 0,
             price: foundry.utils.getProperty(e, 'system.price') ?? 0,
             knowledge: foundry.utils.getProperty(e, 'system.knowledge') ?? '',
@@ -109,10 +111,13 @@ export class CompendiumIndex {
 
 /** Tabela do sistema por identifier (RollTable). */
 export async function getTable(identifier) {
-  const pack = game.packs.get(`${SN.id}.tabelas`);
-  if (!pack) return null;
-  const index = await pack.getIndex({ fields: ['flags.sombraneon.identifier'] });
-  const entry = [...index].find((e) => foundry.utils.getProperty(e, 'flags.sombraneon.identifier') === identifier) ?? null;
-  if (entry) return pack.getDocument(entry._id);
+  // tabelas do sistema e, se o módulo estiver ativo, as tabelas do Mestre
+  for (const key of [`${SN.id}.tabelas`, `${SN.moduleId}.tabelas-do-mestre`]) {
+    const pack = game.packs.get(key);
+    if (!pack) continue;
+    const index = await pack.getIndex({ fields: ['flags.sombraneon.identifier'] });
+    const entry = [...index].find((e) => foundry.utils.getProperty(e, 'flags.sombraneon.identifier') === identifier) ?? null;
+    if (entry) return pack.getDocument(entry._id);
+  }
   return null;
 }

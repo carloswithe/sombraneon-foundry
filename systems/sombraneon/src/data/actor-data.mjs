@@ -1,5 +1,5 @@
 import { SN } from '../config.mjs';
-import { int, num, nullableInt, str, bool, html, obj, numArray } from './fields.mjs';
+import { int, num, nullableInt, str, bool, html, obj, numArray, strArray } from './fields.mjs';
 
 const f = () => foundry.data.fields;
 
@@ -25,6 +25,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }),
       currency: new (f().SchemaField)({ credits: int(0, { min: 0 }) }),
       slots: new (f().SchemaField)({ manualBonus: int(0) }),
+      vehicleTraining: strArray(),
       details: new (f().SchemaField)({
         civilName: str(),
         drive: str(),
@@ -57,10 +58,13 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       level: int(1, { min: 0 }),
       hp: new (f().SchemaField)({ value: int(4), max: int(4) }),
       ac: int(10),
+      armor: int(0, { min: 0 }),
+      movement: str(),
+      alignment: str(),
       initiative: int(0),
-      morale: new (f().SchemaField)({ enabled: bool(true), mod: int(0), cd: int(15) }),
+      morale: new (f().SchemaField)({ enabled: bool(true), kind: str('normal'), mod: int(0), cd: int(15) }),
       attacks: new (f().ArrayField)(
-        new (f().SchemaField)({ name: str(), bonus: int(0), damage: str('d6'), range: str('close'), notes: str() }),
+        new (f().SchemaField)({ name: str(), bonus: int(0), damage: str('d6'), range: str('close'), notes: str(), heavy: bool(false) }),
         { required: true, initial: () => [] }
       ),
       traits: html(),

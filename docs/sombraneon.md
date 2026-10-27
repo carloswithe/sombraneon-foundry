@@ -2,8 +2,9 @@
 
 *RPG cyberpunk de regras enxutas, adaptado do Shadowdark*
 
-> **Status:** v0.3, completo para o primeiro teste de mesa.
+> **Status:** v0.5, completo para o primeiro teste de mesa.
 > **Referências de projeto:** Shadowdark (base de regras), CyberDark (slots de implante, Edge, alinhamentos) e Dark Space (estrutura de arquétipos, traços de espécie, motivações).
+> **Compêndios companheiros:** *SombraNeon: Compêndio de Ameaças* (inimigos, facções, corporações, ameaças digitais, IAs e cultos) e *SombraNeon: Compêndio de Veículos e Armamento* (veículos, armas pesadas, armas de cerco e mechas).
 
 **Decisões de projeto:**
 - 6 classes: Solo, Netrunner, Hyperdoc, Ghost, Rocker, Rigger.
@@ -11,22 +12,14 @@
 - Fixer é um antecedente, não uma classe.
 - Hacking usa a estrutura de magia do Shadowdark (programas por tier) mais um marcador de Alerta. Sem tríade e sem glitch.
 - Cromo tem 4 slots corporais: Neural, Corpo, Braços e Pernas.
+- Veículos em 4 categorias (Leve, Médio, Pesado e Mecha), com **acesso por classe** (4.7). Detalhes e fichas no Compêndio de Veículos e Armamento.
+- Ameaças com **Nível de Ameaça (NA)** de 0 a 10, no Compêndio de Ameaças.
 - Alinhamentos: Controle, Sobrevivência e Liberdade, cada um com gatilhos para ganhar Edge e modificadores de reação por facção.
 - Um único recurso de grupo: o **Edge**.
 - Economia: créditos (cr). **10 cr equivalem a 1 peça de ouro do Shadowdark.** Para usar tesouros e tabelas dele, multiplique o ouro por 10. Equipamento inicial: 2d6 x 100 cr.
+- Progressão: o XP vem do **butim extraído** em missões (Sucata 0, Normal 1, Valioso 3, Lendário 10), como o tesouro do Shadowdark.
 
-**O que mudou da v0.2 para a v0.3:**
-- O jogo agora se chama SombraNeon.
-- A origem Carne virou **Nat**.
-- O **Sintético** ganhou mais habilidades.
-- A tabela de mutações do Biomod virou um **d20**, baseada nos traços de espécie do Dark Space.
-- Todos os preços foram multiplicados por 10, e as armaduras foram reajustadas.
-- Entrou uma tabela de custos de vida, serviços e lazer.
-- Os implantes ganharam as versões Corp e Militar e 4 opções novas.
-- Os gatilhos de Edge passaram para 6 por alinhamento, e entrou a tabela de reação por facção.
-- Programas e protocolos foram completados, com mais opções nos tiers baixos.
-- O drone do Rigger agora **voa**.
-- Imersão total e Firewall viraram regra do livro.
+**Novidades desta versão:** veja as Notas de versão no final do documento.
 
 ---
 
@@ -41,7 +34,13 @@
 7. Cromo e implantes
 8. Equipamento
 9. Hacking e a Rede
-10. Apêndice
+10. Missões e progressão
+11. Apêndice
+12. Notas de versão
+
+**Compêndios companheiros (arquivos separados):**
+- *SombraNeon: Compêndio de Ameaças*
+- *SombraNeon: Compêndio de Veículos e Armamento*
 
 ---
 
@@ -103,8 +102,10 @@ Diferença entre INT e SAB: SAB é instinto, percepção e dados sensoriais. INT
 - **Cobertura:** alvo com pelo menos metade do corpo protegido ganha +2 de CA. Sem ver o alvo, não dá para atacá-lo.
 - **Terreno difícil** (entulho, lama, fios): reduz o deslocamento à metade.
 - **Nocaute:** em vez de matar, você pode deixar o alvo inconsciente ao levá-lo a 0 HP.
-- **Moral:** quando metade do grupo inimigo cai (ou metade do HP de um inimigo solo), ele foge se falhar num teste de SAB CD 15. Em grupos grandes, o Mestre rola uma vez com o líder.
+- **Moral:** quando metade do grupo inimigo cai (ou metade do HP de um inimigo solo), ele foge se falhar num teste de SAB CD 15. Em grupos grandes, o Mestre rola uma vez com o líder. As ameaças do Compêndio de Ameaças têm a própria Moral (Fraca CD 18, Normal CD 15, Firme CD 12, Fanática nunca foge).
 - **Armas gêmeas:** a mesma arma em cada mão. Faça um único ataque, e em caso de acerto role o dano com vantagem.
+- **Inimigos:** fichas, facções e encontros estão no *Compêndio de Ameaças*.
+- **Veículos, mechas e armas pesadas:** pilotagem, perseguição, Blindagem e armas de cerco estão no *Compêndio de Veículos e Armamento*. A regra essencial: a **Blindagem (BL)** de um alvo reduz cada dano de armas comuns, e armas **Pesadas** e explosões a ignoram.
 
 ### 1.5 Pontos de vida e morte
 
@@ -118,8 +119,7 @@ Diferença entre INT e SAB: SAB é instinto, percepção e dados sensoriais. INT
 
 - Nível máximo: **10**.
 - Para subir do nível N para N+1 são necessários **N x 10 XP**.
-- O Mestre concede XP ao fim da sessão: 1 (feito pequeno), 3 (relevante), 5 (grande), 10 (épico).
-- Cumprir o seu **Drive** pessoal ou um **objetivo do grupo** (Capítulo 2) também rende XP.
+- O XP vem do **butim que o grupo extrai** nas missões (Sucata 0, Normal 1, Valioso 3, Lendário 10) e de avanços no **Drive** pessoal e nos **objetivos do grupo** (Capítulo 2). Tudo está no Capítulo 10.
 - Todas as classes rolam um **talento** no nível 1 e nos níveis **3, 5, 7 e 9**.
 
 ### 1.7 Edge
@@ -156,9 +156,9 @@ Sete passos:
 
 Depois: anote HP e CA, role o talento de nível 1 da classe, escolha um **nome de rua**, aparência e um **Drive**.
 
-**Drive (objetivo pessoal):** combine com o Mestre um objetivo seu. Pode ser público ou segredo entre você e o Mestre. Cumpri-lo em jogo rende XP. Exemplos: caçar uma IA descontrolada, juntar créditos e cromo raros, subir na hierarquia da corporação, crescer na fama da rua, descobrir segredos e intrigas, simplesmente sobreviver.
+**Drive (objetivo pessoal):** combine com o Mestre um objetivo seu. Pode ser público ou segredo entre você e o Mestre. Avançar nele e cumpri-lo em jogo rende XP (10.4). Exemplos: caçar uma IA descontrolada, juntar créditos e cromo raros, subir na hierarquia da corporação, crescer na fama da rua, descobrir segredos e intrigas, simplesmente sobreviver.
 
-**Objetivos do grupo:** no início da campanha, o grupo escolhe 2 objetivos compartilhados que definem o tom. Persegui-los rende XP. Role ou escolha:
+**Objetivos do grupo:** no início da campanha, o grupo escolhe 2 objetivos compartilhados que definem o tom. Persegui-los rende XP (10.4). Role ou escolha:
 
 | d6 | Objetivo do grupo |
 |---|---|
@@ -252,6 +252,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d8.
 - **Atributo-chave:** FOR ou DES.
 - **Armas:** todas. **Armaduras:** todas.
+- **Veículos:** treinado em Leves, Médios, Pesados e Mechas (4.7).
 
 **Habilidades base:**
 - **Domínio de arma:** escolha um tipo de arma (lâminas, pistolas, armas pesadas, etc.). Ganha +1 em acerto e dano, mais metade do seu nível (arredondando para baixo).
@@ -274,6 +275,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d4.
 - **Atributo-chave:** INT.
 - **Armas:** facas, pistolas leves, armas de choque. **Armaduras:** nenhuma.
+- **Veículos:** treinado em Leves (4.7).
 
 **Habilidades base:**
 - **Deck:** você precisa de um deck para executar programas (Capítulo 8). Sem deck, sem programas.
@@ -296,6 +298,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d6.
 - **Atributo-chave:** SAB.
 - **Armas:** facas, pistolas leves, bastões. **Armaduras:** leves e médias.
+- **Veículos:** treinado em Leves e Médios (4.7).
 
 **Habilidades base:**
 - **Nanokit:** você precisa de um nanokit (1 slot) para usar protocolos.
@@ -319,6 +322,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d4.
 - **Atributo-chave:** DES.
 - **Armas:** facas, pistolas leves, armas silenciadas, armas de uma mão. **Armaduras:** leves.
+- **Veículos:** treinado em Leves e Médios (4.7).
 
 **Habilidades base:**
 - **Ataque furtivo:** ao atacar alvo desatento, flanqueado ou pelas costas, role **1 dado de arma extra**, e mais 1 a cada 2 níveis (níveis 3, 5, 7 e 9).
@@ -340,6 +344,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d6.
 - **Atributo-chave:** CAR.
 - **Armas:** facas, pistolas leves, armas de uma mão. **Armaduras:** leves.
+- **Veículos:** treinado em Leves e Médios (4.7).
 
 **Habilidades base:**
 - **Rig de palco:** instrumento, sintetizador ou implante vocal (1 slot). Sem rig, sem Sets.
@@ -373,6 +378,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Dado de vida:** d6.
 - **Atributo-chave:** DES (INT para o drone).
 - **Armas:** pistolas, fuzis leves, facas. **Armaduras:** leves e médias.
+- **Veículos:** treinado em todas as categorias, inclusive Mechas e Colossos (4.7).
 
 **Habilidades base:**
 - **Drone voador:** você começa com um drone aéreo. Ele age no seu turno, **uma ação por rodada**, além da sua.
@@ -390,7 +396,9 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Voo:** o drone ignora terreno difícil e obstáculos no chão, alcança tetos, janelas e dutos e sobrevoa abismos. Em troca, é barulhento (desvantagem em furtividade), carrega apenas 1 item pequeno e sofre programas e EMP como qualquer dispositivo.
 - **Link:** você vê o que o drone vê e pode controlá-lo a distância Longe.
 - **Batedor:** vantagem em iniciativa e em testes para perceber emboscadas.
-- **Condutor:** vantagem em testes de pilotagem de veículos e drones.
+- **Condutor:** vantagem em testes de pilotagem de veículos, mechas e drones.
+- **Interface veicular:** com um jack de interface, você pilota qualquer veículo ou mecha por link neural e usa as armas montadas sem precisar de atirador. Seu drone serve de **observador** para armas de cerco: o primeiro disparo contra um alvo Distante não tem a desvantagem normal.
+- **Mecânico de campo:** ao reparar um veículo, recupera **2d6 HP** por hora, no lugar de 1d6.
 
 | 2d6 | Talento |
 |---|---|
@@ -400,11 +408,31 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 | 10-11 | **Chassi reforçado:** o drone ganha +4 HP e +1 de CA. |
 | 12 | Escolha qualquer talento acima ou +2 pontos de atributo. |
 
+### 4.7 Veículos e mechas
+
+Veículos se dividem em quatro categorias: **Leve**, **Médio**, **Pesado** e **Mecha**. Cada classe é **treinada** em certas categorias, e isso decide quem pilota o quê.
+
+| Classe | Leves | Médios | Pesados | Mechas |
+|---|---|---|---|---|
+| **Solo** | Treinado | Treinado | Treinado | Treinado (exoesqueletos, leves, médios e pesados) |
+| **Netrunner** | Treinado | Destreinado | Destreinado | Destreinado |
+| **Hyperdoc** | Treinado | Treinado | Destreinado | Destreinado |
+| **Ghost** | Treinado | Treinado | Destreinado | Destreinado |
+| **Rocker** | Treinado | Treinado | Destreinado | Destreinado |
+| **Rigger** | Treinado | Treinado | Treinado | Treinado (todos, inclusive colossos) |
+
+- **Treinado:** pilota sem penalidade e usa as armas montadas do veículo.
+- **Destreinado:** pilota com desvantagem nos testes de pilotagem, não usa as armas montadas e **não opera Pesados nem Mechas**.
+- **Treino:** qualquer runner pode se tornar treinado em uma categoria com **1 semana de downtime** e um custo: **3.000 cr** (Médios), **6.000 cr** (Pesados) ou **10.000 cr** (Mechas).
+- **Antecedentes que treinam:** Piloto de transporte (Leves, Médios e Pesados), Mecânico (Leves e Médios) e Mercenário (Médios e Pesados). O treino vem na criação.
+
+As fichas, as regras de pilotagem e perseguição e os mechas estão no *Compêndio de Veículos e Armamento*.
+
 ---
 
 ## 5. Antecedentes
 
-O antecedente é o que você fazia antes. Ele dá **um conhecimento** (o Mestre concede vantagem nos testes em que isso faria diferença) e **um contato** na cidade. Role d20 ou escolha. Combinado com a classe, o antecedente muda o personagem: um Solo ex-segurança corp é bem diferente de um Solo ex-gangue.
+O antecedente é o que você fazia antes. Ele dá **um conhecimento** (o Mestre concede vantagem nos testes em que isso faria diferença) e **um contato** na cidade. Role d20 ou escolha. Combinado com a classe, o antecedente muda o personagem: um Solo ex-segurança corp é bem diferente de um Solo ex-gangue. Os antecedentes **Piloto de transporte**, **Mecânico** e **Mercenário** também dão treino em veículos (4.7).
 
 | d20 | Antecedente | Conhecimento |
 |---|---|---|
@@ -494,6 +522,9 @@ O alinhamento influencia como as facções reagem a você, mas só quando o NPC 
 | Cultos e fanáticos de IA | -1 | 0 | +1 |
 | Punks e hackers anarquistas | -2 | 0 | +2 |
 | Sintéticos livres e redes de refúgio | -1 | 0 | +2 |
+| Mercenários e companhias privadas | 0 | +1 | 0 |
+
+As facções, corporações e cultos nomeados da cidade (Guarda Metropolitana, Cães de Vidro, Banco Cobalto, Igreja do Cromo Sagrado e outras) estão no *Compêndio de Ameaças*, e cada um indica qual linha desta tabela usar.
 
 | 2d6 | Reação |
 |---|---|
@@ -643,6 +674,8 @@ Os bônus de atributo dos implantes somam ao valor do atributo (não ao modifica
 | Rifle de precisão | d12 | Longe | 2 | 600 cr | Duas mãos, mira |
 | Arma inteligente | d6 | Próximo | 1 | 500 cr | +1 em acerto |
 
+**Armas pesadas, explosivos e armas de cerco** (metralhadoras, lança-foguetes, canhões antiaéreos, artilharia) estão no *Compêndio de Veículos e Armamento*.
+
 ### 8.4 Armaduras
 
 | Armadura | CA | Slots | Custo | Notas |
@@ -688,16 +721,20 @@ Pensados para o valor médio de equipamento inicial (cerca de 700 cr). Se sobrar
 
 **Kit de Runner (opcional):** 300 cr, 4 slots. Contém rig utilitário, 3 rações, 2 baterias, lanterna e cabo de interface.
 
-### 8.7 Veículos e módulos de drone
+### 8.7 Veículos, mechas e módulos de drone
 
-| Veículo | Custo | Passageiros | CA / HP | Notas |
-|---|---|---|---|---|
-| Moto urbana | 3.000 cr | 1 a 2 | 12 / 10 | Rápida, sem blindagem |
-| Carro compacto | 8.000 cr | 4 | 11 / 20 | |
-| Van de carga | 12.000 cr | 6 e carga | 11 / 30 | |
-| Aerocarro civil | 40.000 cr | 4 | 12 / 25 | Voa, exige licença |
+Veículos se dividem em quatro categorias. O *Compêndio de Veículos e Armamento* traz as fichas completas, os módulos, as regras de pilotagem e perseguição, e as armas pesadas.
 
-Manobras sob pressão exigem teste de DES CD 12.
+| Categoria | Exemplos | Preço | Quem pilota (4.7) |
+|---|---|---|---|
+| **Leve** | Moto urbana (3.000 cr), carro compacto (8.000 cr), buggy, lancha, hoverbike | 1.000 a 15.000 cr | Todas as classes |
+| **Médio** | Van de carga (12.000 cr), aerocarro civil (40.000 cr), SUV tático, helicóptero leve | 12.000 a 150.000 cr | Todas, menos Netrunner |
+| **Pesado** | Blindado de transporte, tanque, helicóptero de ataque, VTOL | 150.000 a 900.000 cr | Solo e Rigger |
+| **Mecha** | Exoesqueleto, mecha leve, médio, pesado e colosso | 60.000 a 1.000.000 cr | Solo e Rigger |
+
+- **Pilotagem sob pressão:** d20 + mod. de DES + Manobra do veículo contra CD 12 (ou outra, a critério do Mestre).
+- **Blindagem (BL):** reduz cada dano de armas comuns. Armas Pesadas e explosões ignoram.
+- **Pesados e Mechas** são, na prática, **butim Lendário** de missões Elite, ou contratos de aluguel da Companhia Lâmina Negra.
 
 | Módulo de drone (Rigger) | Custo | Efeito |
 |---|---|---|
@@ -927,6 +964,8 @@ ICE (Intrusion Countermeasures Electronics) funciona como um monstro: tem nível
 | **Executor** | 4 | 14 | 22 | Golpe +5 (1d10 neural) | **Trava:** o alvo atingido faz teste de CON CD 12 ou 1 programa seu entra em Crash. |
 | **Muralha** | 5 | 15 | 30 | 2 ataques +5 (1d6) | **Barreira:** só sofre dano de programas de tier 2 ou mais. |
 
+Mais ICE (Labirinto, Sanguessuga, Espelho, Cadeado, Caçador, Carrasco e Hidra), malware, hackers inimigos, a resposta ao Alerta 4 e as IAs estão no *Compêndio de Ameaças* (Capítulos 5 e 6).
+
 ### 9.6 Gerador de Rede
 
 Uma Rede tem de 3 a 5 nós. Para cada nó, role d6:
@@ -953,9 +992,323 @@ Na imersão total, a mente do netrunner mergulha na Rede e age como um avatar.
 
 ---
 
-## 10. Apêndice
+## 10. Missões e progressão
 
-### 10.1 Ficha de personagem (modelo)
+Em SombraNeon, ninguém cresce por matar inimigos. Cresce quem **entra, pega o que veio buscar e sai vivo**. É a lógica do Shadowdark transposta para a cidade: o XP vem do **butim que você leva de volta**, e o butim vale mais quanto mais perigoso foi pegá-lo.
+
+### 10.1 O ciclo da missão
+
+Toda sessão gira em torno de uma **missão**: um trabalho arriscado que alguém paga para ser feito. O ciclo tem cinco fases:
+
+1. **Briefing:** o contratante apresenta o trabalho, o Prêmio e o pagamento. A equipe pode negociar (teste de CAR) e investigar antes de aceitar.
+2. **Preparação:** a equipe compra equipamento, levanta informação (contatos, antecedentes, hack de rua) e monta o plano.
+3. **Infiltração:** a equipe chega ao local e enfrenta o que há entre ela e o Prêmio.
+4. **Extração:** a equipe sai com o butim. É a fase mais perigosa, porque **o XP só vale se o butim chegar em segurança**.
+5. **Debrief:** na **Toca** (qualquer local de descanso Seguro), o grupo recebe o pagamento, conta o XP, vende o butim, sobe de nível e gasta créditos.
+
+**Regra de ouro do Mestre:** a saída deve ser tão tensa quanto a entrada. Reforços, perseguição, um trecho sem cobertura, um prazo que estoura. Quem carrega o butim é o alvo número um.
+
+### 10.2 Contratos
+
+Para montar uma missão, escolha ou role: contratante (d6), tipo (d12), local (d8) e complicação (d8). Depois defina o **tier** (10.2.5).
+
+#### 10.2.1 Contratante
+
+| d6 | Contratante | Como paga |
+|---|---|---|
+| 1 | **Fixer de rua** | Paga o combinado, menos 10% de comissão. Se alguém do grupo tem o antecedente Fixer, não há comissão. |
+| 2 | **Corporação, por intermediário** | Paga o combinado e nega tudo se der errado. |
+| 3 | **Gangue ou facção** | Metade em créditos, metade em favores (um contato ou uma dívida a cobrar). |
+| 4 | **Cliente privado** | Paga o combinado. O motivo é pessoal e o cliente costuma esconder algo. |
+| 5 | **Rede de refúgio ou ativistas** | Paga metade do combinado, mas oferece abrigo seguro e um contato. |
+| 6 | **Anônimo** | Paga metade adiantado. Ninguém sabe quem é. Role a complicação duas vezes e use as duas. |
+
+#### 10.2.2 Tipo de missão e Prêmio
+
+O **Prêmio** é o objetivo principal da missão, o que prova o sucesso.
+
+| d12 | Tipo | Prêmio |
+|---|---|---|
+| 1 | **Extração** | A pessoa-alvo, viva, no ponto de encontro. |
+| 2 | **Roubo de dados** | O arquivo ou a credencial, copiado e entregue. |
+| 3 | **Roubo de objeto** | O protótipo, o implante ou a mala. |
+| 4 | **Sabotagem** | A instalação destruída ou a rede derrubada, com prova (vídeo, log). |
+| 5 | **Eliminação** | O alvo neutralizado, com prova. |
+| 6 | **Escolta** | A pessoa ou a carga entregue no destino. |
+| 7 | **Resgate** | O refém, o sintético ou o aliado, livre e em segurança. |
+| 8 | **Recuperação** | O item, o veículo ou o corpo perdido, trazido de volta. |
+| 9 | **Caça a recompensa** | O alvo capturado vivo e entregue. |
+| 10 | **Investigação** | A resposta, com provas que o contratante aceite. |
+| 11 | **Defesa** | O local ou a pessoa, de pé ao fim da noite. |
+| 12 | **Entrega** | O pacote, intacto, nas mãos do destinatário. |
+
+#### 10.2.3 Local
+
+| d8 | Local |
+|---|---|
+| 1 | **Torre corporativa:** andares de escritórios, segurança pesada e câmeras. |
+| 2 | **Laboratório ou clínica subterrânea:** pesquisa ilegal, cobaias e cofres. |
+| 3 | **Armazém no porto ou zona industrial:** contêineres, guindastes e contrabando. |
+| 4 | **Boate de elite ou cassino:** muita gente, câmeras, segurança discreta e armada. |
+| 5 | **Colmeia:** favela vertical e mercado negro, cheia de olhos e atalhos. |
+| 6 | **Data center:** corredores de servidores, ICE e sensores. |
+| 7 | **Estação de transporte ou trem:** horário fixo e multidão. |
+| 8 | **Zona abandonada:** ruínas, ratoeiras, gangues e coisas que ninguém explicou. |
+
+#### 10.2.4 Complicação
+
+| d8 | Complicação |
+|---|---|
+| 1 | **Traição:** o contratante quer se livrar da equipe ou não vai pagar. |
+| 2 | **Rival:** outra equipe foi contratada para o mesmo trabalho. |
+| 3 | **O alvo não é quem parece:** a pessoa ou o objeto esconde uma verdade que muda o jogo. |
+| 4 | **Segurança reforçada:** mais guardas, ICE de um nível acima ou sensores extras. |
+| 5 | **Relógio correndo:** a equipe tem 1 hora real de mesa, ou um evento marca a hora da saída. |
+| 6 | **Polícia por perto:** uma patrulha ou uma operação cobre a região. |
+| 7 | **Rastreador:** o Prêmio tem um rastreador, uma IA ou uma agenda própria. |
+| 8 | **Inocente no caminho:** uma testemunha, um refém ou alguém que não devia estar ali. |
+
+#### 10.2.5 Tier da missão
+
+O tier mede o perigo e define o Prêmio e o pagamento. Ele não precisa seguir o nível do grupo à risca: uma equipe fraca pode topar um trabalho Corp, desde que saiba onde está se metendo.
+
+| Tier | Níveis sugeridos | Oposição típica | Prêmio | Pagamento por runner |
+|---|---|---|---|---|
+| **Rua** | 1 a 2 | Gangues, seguranças privados, ICE de nível 1 e 2 | Normal ou Valioso | d6 x 150 cr |
+| **Corp** | 3 a 5 | Segurança corporativa, mercenários, ICE de nível 2 a 4 | Valioso, às vezes Lendário | d6 x 500 cr |
+| **Elite** | 6 a 10 | Esquadrões militares, ciborgues pesados, mechas, ICE de nível 4 e 5, IAs | Lendário | d6 x 1.500 cr |
+
+As fichas dessa oposição, as facções, as corporações, as IAs, os cultos e os encontros por local estão no *Compêndio de Ameaças*. Veículos e mechas hostis estão no *Compêndio de Veículos e Armamento*.
+
+### 10.3 Butim e Prêmio
+
+**Butim** é qualquer coisa de valor que a equipe leva do local: dados, peças, armas, implantes, credenciais, pessoas. O Prêmio da missão é o butim principal. Todo o resto é **butim extra**.
+
+#### 10.3.1 Categorias
+
+Cada item de butim pertence a uma categoria, que define o XP e o valor de venda.
+
+| Categoria | XP | Valor de venda | Peso | Exemplos |
+|---|---|---|---|---|
+| **Sucata** | 0 | até 100 cr | 0 a 1 slot | Credsticks quase vazios, armas velhas, peças soltas. |
+| **Normal** | 1 | d10 x 100 cr | 1 slot | Arma boa, peça de deck, dados de mercado, joias, um implante Rua. |
+| **Valioso** | 3 | d10 x 1.000 cr | 1 a 2 slots | Implante Corp, protótipo pequeno, dados corporativos, obra de arte. |
+| **Lendário** | 10 | d6 x 10.000 cr | 2 a 4 slots | Implante Militar, IA, mecha ou veículo pesado, segredo que derruba uma corporação, base de dados mestre. |
+
+O Mestre decide a categoria pela **importância narrativa**, não só pelo preço. Um vídeo que derruba um prefeito é Lendário, mesmo que não valha nada no mercado.
+
+#### 10.3.2 Onde está o butim
+
+- Quanto melhor o butim, mais difícil o acesso: atrás de ICE, cofre, guarda ou armadilha.
+- Por **área importante** do local, o Mestre coloca 1 item de butim extra. Em missões Rua, itens Normal (às vezes um Valioso). Em Corp, itens Normal e Valioso. Em Elite, itens Valioso e Lendário.
+- Sucata está em toda parte e serve só de cena e de troco.
+- O Prêmio de um tipo sem objeto (Sabotagem, Eliminação, Defesa) vale como butim da categoria que o tier indica, desde que haja prova.
+
+#### 10.3.3 Butim físico e digital
+
+- **Físico:** ocupa os slots da tabela, somando-se ao resto do equipamento (Capítulo 8). Um runner que passa do limite de slots fica **sobrecarregado**: desvantagem em testes de DES e deslocamento reduzido à metade. O grupo pode dividir o peso, mas o runner que carrega o butim vira alvo.
+- **Veículo ou mecha:** não ocupa slots, mas precisa ser **pilotado ou rebocado** para fora do local. O piloto precisa ser treinado (4.7), e a saída vira uma cena de perseguição (Compêndio de Veículos e Armamento, 2.3).
+- **Digital:** não ocupa slots. Para copiar, o Netrunner (ou qualquer runner com deck) gasta uma ação conectado ao sistema, e o download leva rodadas: Normal 1 rodada, Valioso 1d4 rodadas, Lendário 1d6 rodadas. Ao iniciar um download Valioso ou Lendário, o **Alerta sobe em 1**. Interromper o download perde os dados.
+
+#### 10.3.4 Extração
+
+Butim **só conta** quando chega à Toca ou ao contratante.
+
+- Se o runner que carrega o butim cai, o butim fica no chão. Outro runner pode pegá-lo.
+- Se o runner morre, o butim cai com ele e pode ser saqueado.
+- Butim destruído, roubado ou deixado para trás não rende XP.
+- O XP é concedido na extração, **mesmo que o grupo venda, entregue ou use o butim depois**. Trair o contratante também não tira o XP, mas custa o pagamento e cria um inimigo.
+
+### 10.4 XP e subir de nível
+
+#### 10.4.1 Fontes de XP
+
+| Fonte | XP |
+|---|---|
+| Cada item de butim extraído (incluindo o Prêmio) | Pela categoria: 0, 1, 3 ou 10 |
+| **Drive** pessoal: avanço relevante | +1 (no máximo 1 por missão) |
+| **Drive** pessoal: cumprido de vez | +3 (e o jogador escolhe um novo Drive) |
+| **Objetivo do grupo**: avanço relevante | +1 para todos (no máximo 1 por missão) |
+| **Objetivo do grupo**: concluído | +5 para todos (e o grupo escolhe um novo) |
+
+- Os XP de butim e de Prêmio são concedidos **por inteiro a cada runner que participou da missão**. Não se divide.
+- Um runner que ficou de fora da missão ganha **metade** do XP de butim e de Prêmio (arredondado para baixo) e nada de Drive.
+- O XP é contado no **Debrief**, nunca no meio da missão.
+
+#### 10.4.2 Subindo de nível
+
+- Para subir do nível N para N+1 são necessários **N x 10 XP**.
+- Ao subir, o XP **volta a zero**, e a sobra fica para o próximo nível. Só se sobe **1 nível por Debrief**.
+- Subir de nível acontece **no Debrief**, em local seguro.
+
+**Ao subir de nível:**
+1. Role o **dado de vida** da classe + mod. de CON (mínimo 1) e some ao seu HP máximo.
+2. Se for nível 3, 5, 7 ou 9, role um **talento** na tabela da classe.
+3. Aplique os ganhos de classe da tabela abaixo.
+4. Se for Netrunner ou Hyperdoc, aprenda **1 novo programa ou protocolo**, de qualquer tier que seu nível permita.
+
+| Nível | XP para o próximo | Talento | Tier máx. de programas | Marcos de classe |
+|---|---|---|---|---|
+| 1 | 10 | Sim (inicial) | T1 | Habilidades base. |
+| 2 | 20 | | T1 | Solo: domínio de arma +1. |
+| 3 | 30 | Sim | T2 | Ghost: +1 dado de ataque furtivo. |
+| 4 | 40 | | T2 | Solo: domínio +1. Rocker: 4º Set. |
+| 5 | 50 | Sim | T3 | Ghost: +1 dado furtivo. Rigger: dano do drone passa a d6. |
+| 6 | 60 | | T3 | Solo: domínio +1. |
+| 7 | 70 | Sim | T4 | Ghost: +1 dado furtivo. Rocker: 5º Set. |
+| 8 | 80 | | T4 | Solo: domínio +1. |
+| 9 | 90 | Sim | T5 | Ghost: +1 dado furtivo. Rigger: dano do drone passa a d8. |
+| 10 | máximo | | T5 | Solo: domínio +1. Rocker: 6º Set. |
+
+O drone do Rigger também ganha **+2 HP por nível**. O nível 10 é o teto: na maioria das campanhas, é a hora de um grande final.
+
+#### 10.4.3 Runner novo
+
+Se um personagem morre ou entra um novo jogador, o runner novo começa no **nível do runner mais fraco do grupo**, com 0 XP, **2d6 x 100 cr** e apenas os implantes que a origem dá. Se o grupo estiver num nível alto, o Mestre pode permitir que ele comece com um implante Rua a mais.
+
+### 10.5 Pagamento, receptação e farra
+
+#### 10.5.1 Pagamento
+
+O pagamento é rolado uma vez, na tabela de tier (10.2.5), e vale **para cada runner**. Ele depende do desfecho:
+
+| Desfecho | Pagamento |
+|---|---|
+| Prêmio entregue, no prazo e intacto | Integral. |
+| Prêmio entregue com atraso, danificado ou com a missão exposta | Metade. |
+| Prêmio perdido ou missão fracassada | Nada. |
+
+Descontos e ajustes seguem a tabela de contratante (10.2.1).
+
+#### 10.5.2 Receptação
+
+O butim extra pode ser vendido pelo valor da categoria:
+
+- **Para um fixer:** 50% do valor, sem complicação.
+- **Direto a um comprador** (corporação, colecionador, gangue): 100% do valor, mas é preciso um contato, um teste de CAR CD 12 e o risco de o comprador trair ou denunciar.
+
+O **Prêmio** não se vende: ele é entregue ao contratante e rende o pagamento. O grupo pode traí-lo e vender o Prêmio a outra pessoa, mas perde o pagamento e o contratante vira inimigo.
+
+#### 10.5.3 Farra
+
+*Regra opcional.* No Debrief, um runner pode gastar créditos numa noite de excessos: boate de elite, mesa VIP, compras, apostas, tatuagens, cromo estético. Veja a tabela de preços do Capítulo 8.
+
+- **Custo:** nível x 500 cr.
+- **Ganho:** 1 XP e uma rolagem na tabela abaixo.
+- **Limite:** 1 farra por runner por Debrief.
+
+| d6 | Resultado |
+|---|---|
+| 1 | **Ressaca brava:** desvantagem no primeiro teste da próxima missão. |
+| 2 | **Encrenca:** alguém (gangue, segurança, ex) quer acertar contas. |
+| 3 | **Contato novo:** o Mestre apresenta um contato útil. |
+| 4 | **Boato quente:** o Mestre revela um gancho para a próxima missão. |
+| 5 | **Noite de sorte:** o runner começa a próxima missão com 1 ficha de Edge. |
+| 6 | **Noite perfeita:** 1 ficha de Edge e vantagem no primeiro teste da próxima missão. |
+
+### 10.6 Investindo o ganho
+
+Os créditos ganhos rendem poder de outras formas, sem passar pelo XP.
+
+**Evoluir um implante:** pague a diferença de custo entre as qualidades, mais 10% de instalação (sem esse custo extra se um Hyperdoc fizer o serviço com kit cirúrgico).
+
+| Evolução | Custo da diferença |
+|---|---|
+| Rua para Corp | 700 cr |
+| Corp para Militar | 2.000 cr |
+| Rua para Militar | 2.700 cr |
+
+**Programas e protocolos avulsos:** um Netrunner ou Hyperdoc pode comprar, achar como butim ou copiar um cartucho com um programa. Aprender a partir de um cartucho exige um teste de **INT** (programa) ou **SAB** (protocolo) **CD 10 + tier**. O programa precisa estar no tier que o seu nível permite. Em falha, o cartucho queima.
+
+| Tier | Preço do cartucho |
+|---|---|
+| T1 | 400 cr |
+| T2 | 1.000 cr |
+| T3 | 2.500 cr |
+| T4 | 6.000 cr |
+| T5 | 15.000 cr |
+
+Um programa avulso aprendido assim **não substitui** o ganho por nível: é um programa extra.
+
+**Outros investimentos:** armadura melhor, deck melhor, veículo (Leves e Médios estão ao alcance de um grupo Corp, Pesados e Mechas só em campanhas Elite), módulos de veículo e de drone, treino em novas categorias de veículo (4.7), aluguel de um apartamento seguro (que melhora a qualidade da área de descanso). Veja o Capítulo 8 e o *Compêndio de Veículos e Armamento*.
+
+### 10.7 Ritmo de campanha
+
+O ritmo se ajusta pelo butim. Para uma campanha mais curta, use categorias mais altas. Para uma mais longa, use mais Sucata e Normal.
+
+| Tier | Níveis | XP típico por missão | Missões por nível |
+|---|---|---|---|
+| Rua | 1 a 2 | 5 a 8 | 2 a 4 |
+| Corp | 3 a 5 | 10 a 16 | 3 a 5 |
+| Elite | 6 a 10 | 20 a 40 | 2 a 4 |
+
+Uma campanha completa, do nível 1 ao 10, leva cerca de **20 a 30 missões**.
+
+### 10.8 Títulos de rua
+
+A rua dá nomes a quem sobrevive. O título muda conforme o nível e adorna o nome de rua do runner. Ele não tem efeito mecânico, mas o Mestre pode usá-lo na reação de NPCs que conhecem o runner.
+
+| Classe | Níveis 1 a 2 | Níveis 3 a 4 | Níveis 5 a 6 | Níveis 7 a 8 | Níveis 9 a 10 |
+|---|---|---|---|---|---|
+| **Solo** | Cão de rua | Mão armada | Matador de aluguel | Lâmina da cidade | Lenda do asfalto |
+| **Netrunner** | Aprendiz de código | Invasor | Quebra-gelo | Mestre de redes | Arquiteto da Rede |
+| **Hyperdoc** | Enfermeiro de beco | Curandeiro | Cirurgião de rua | Mestre dos nanos | Arquiteto da carne |
+| **Ghost** | Ladrão de beco | Sombra | Fantasma | Espectro | Mito invisível |
+| **Rocker** | Banda de garagem | Voz da quebrada | Estrela local | Ícone da rua | Hino da cidade |
+| **Rigger** | Piloto de garagem | Operador | Condutor de enxame | Mestre dos céus | Senhor dos drones |
+
+### 10.9 Exemplo de missão
+
+**A Cobaia de Vidro**, para um grupo de quatro runners de nível 3 (um Solo, um Netrunner, um Ghost e um Hyperdoc Sintético).
+
+**Rolagens:** contratante 2 (Corporação), tipo 1 (Extração), local 2 (Laboratório subterrâneo), complicação 3 (O alvo não é quem parece). Tier **Corp**. Pagamento rolado: 4, ou seja, 2.000 cr por runner.
+
+**Briefing:** um intermediário da Kessler-Tanaka contrata a equipe para tirar uma pesquisadora, a Dra. Imai, de um laboratório clandestino e levá-la a um ponto de encontro. O que o intermediário não diz: a Dra. Imai é uma sintética em fuga, e a corporação a quer de volta como propriedade.
+
+**Prêmio:** a Dra. Imai, categoria **Valioso** (3 XP).
+
+**Butim extra:**
+- Protótipo de implante Corp no cofre do laboratório: Valioso, 3 XP, 1 slot.
+- Dados do servidor, copiados pelo Netrunner: Normal, 1 XP, digital. Ao iniciar a cópia, o Alerta sobe em 1.
+- Pistola militar de um segurança: Normal, 1 XP, 1 slot.
+- Dois credsticks quase vazios: Sucata, 0 XP.
+
+**Extração:** a rampa de saída está bloqueada por uma patrulha. O grupo foge pelo duto de serviço, e o runner que carrega o protótipo precisa de um teste de DES CD 12 para não deixá-lo cair.
+
+**Debrief, caminho A: entregar a Dra. Imai à corporação.**
+- XP: 3 (Prêmio) + 3 (protótipo) + 1 (dados) + 1 (pistola) = **8 XP** por runner.
+- Pagamento: 2.000 cr por runner.
+
+**Debrief, caminho B: libertar a Dra. Imai numa rede de refúgio.**
+- XP: os mesmos 8, porque o Prêmio chegou em segurança. O Hyperdoc Sintético avança o seu Drive (**+1 XP** só para ele) e o grupo avança o objetivo "Libertar sintéticos" (**+1 XP** para todos). Total: **9 XP** para a maioria e **10** para o Hyperdoc.
+- Pagamento: nenhum. A Kessler-Tanaka passa a ser inimiga do grupo.
+
+### 10.10 Ficha de missão (Mestre)
+
+```
+MISSÃO: ________________________   TIER: Rua / Corp / Elite
+CONTRATANTE: ___________________   TIPO: ___________________
+LOCAL: _________________________   COMPLICAÇÃO: ____________
+PRÊMIO: ________________________   CATEGORIA: ______ (XP: __)
+PAGAMENTO POR RUNNER: ________ cr  PRAZO: ___________________
+
+OPOSIÇÃO: _____________________________________________________
+
+BUTIM EXTRA (item | categoria | onde está | como pegar)
+1 _____________________________________________________________
+2 _____________________________________________________________
+3 _____________________________________________________________
+4 _____________________________________________________________
+
+SAÍDA / EXTRAÇÃO: ______________________________________________
+SE DER ERRADO: ________________________________________________
+```
+
+---
+
+## 11. Apêndice
+
+### 11.1 Ficha de personagem (modelo)
 
 ```
 NOME DE RUA: ________________   ORIGEM: ________   CLASSE: ________
@@ -979,21 +1332,30 @@ EQUIPAMENTO (slots: __)
 1 ____ 2 ____ 3 ____ 4 ____ 5 ____ 6 ____ 7 ____ 8 ____
 9 ____ 10 ___ 11 ___ 12 ___ 13 ___ 14 ___ 15 ___ 16 ___
 
+VEÍCULOS TREINADOS: Leves [ ]  Médios [ ]  Pesados [ ]  Mechas [ ]
+VEÍCULO / DRONE: ______________________________________
+
 CRÉDITOS: ______      CONTATOS: ________________________
 ```
 
-### 10.2 Tabelas rápidas
+### 11.2 Tabelas rápidas
 
 - CDs: 9, 12, 15, 18.
+- XP para subir: nível atual x 10. Butim: Sucata 0, Normal 1, Valioso 3, Lendário 10.
+- Pagamento por runner: Rua d6 x 150 cr, Corp d6 x 500 cr, Elite d6 x 1.500 cr.
 - Alcances: Perto (1,5 m), Próximo (9 m), Longe (linha de visão).
 - Alerta: 0 a 4.
+- Moral dos inimigos: Fraca CD 18, Normal CD 15, Firme CD 12, Fanática nunca foge.
+- Encontro (soma dos NA contra a soma dos níveis do grupo): Fácil 1/2, Normal 3/4, Difícil 1x, Mortal 1,5x.
+- Blindagem (BL): reduz o dano de armas comuns. Armas Pesadas e explosões ignoram.
+- Pilotagem sob pressão: d20 + DES + Manobra contra CD 9/12/15/18.
 - Morte: 1d4 + mod. de CON rodadas, 20 natural volta com 1 HP.
 - Descanso: 8 horas e 1 ração.
 - Edge: 1 ficha por vez, gasta para repetir uma rolagem.
 - Programas e protocolos: d20 + atributo contra CD 10 + tier.
 - Ciberpsicose: SAB CD 12 (3 slots) ou CD 14 (4 slots).
 
-### 10.3 Mapa Shadowdark para SombraNeon
+### 11.3 Mapa Shadowdark para SombraNeon
 
 | Shadowdark | SombraNeon |
 |---|---|
@@ -1014,15 +1376,112 @@ CRÉDITOS: ______      CONTATOS: ________________________
 | Tocha de 1 hora real | Bateria e Firewall de 1 hora real |
 | Slots de equipamento | Slots de equipamento |
 | Itens mágicos | Implantes (4 slots corporais) |
+| XP por tesouro (Poor 0, Normal 1, Fabulous 3, Legendary 10) | XP por butim (Sucata 0, Normal 1, Valioso 3, Lendário 10) |
+| Tesouro carregado para fora da masmorra | Butim extraído para a Toca ou o contratante |
+| Carousing (opcional) | Farra (opcional) |
 
-### 10.4 Ideias futuras (opcionais)
+### 11.4 Ideias futuras (opcionais)
 
-- Títulos de rua (handles) por nível, como o CyberDark faz.
+- Aventura introdutória para a primeira sessão, usando o Capítulo 10 e os dois compêndios.
+- Mapa e bairros da cidade, com um gerador de distritos.
+- Cultura de rua: modas, gírias, estações de rádio e esportes (mechas de arena).
 - Nível 0 (funil de recrutas), como o Gauntlet do Shadowdark e os Citizens do Dark Space.
 - Reputação por facção e recompensas por cabeça, como no Dark Space.
 - Tabelas de Feedback separadas por tier, caso o d6 único fique simples demais.
 - Mais talentos por classe, para dar variedade na faixa 12 da tabela.
 
-### 10.5 Nota de licença
+### 11.5 Nota de licença
 
 Se o livro for publicado: conferir a licença de terceiros do Shadowdark e usar apenas texto próprio. Os textos do CyberDark e do Dark Space servem só de referência.
+
+---
+
+## 12. Notas de versão
+
+### v0.5 (27/10/2026)
+
+**Mudança principal:** o jogo ganhou **dois compêndios companheiros**, em arquivos separados, e o livro principal passou a se conectar a eles: ameaças e oposição de um lado, veículos, armamento pesado e mechas do outro.
+
+**Novo: *Compêndio de Ameaças* (v0.1)**
+- Nível de Ameaça (NA), tabela de criação rápida, Moral por categoria, traços padrão, régua de encontros e oposição por tier de missão.
+- 46 fichas: gente da rua, gangues, lei e segurança, mercenários e militares, ciborgues e aberrações, máquinas, fauna, executivos, hackers e cultistas.
+- Perigos do ambiente e tabela de saque por NA.
+- 7 facções, 7 corporações, 6 cultos, com ganchos de missão, segredos e relações entre eles.
+- 7 ICE novos, 5 malwares, ataques a implantes por slot e respostas ao Alerta 4.
+- 7 IAs de exemplo e um gerador de IAs.
+- Encontros por local (d6 para cada um dos 8 locais do Capítulo 10), gerador de NPC e nomes de rua.
+
+**Novo: *Compêndio de Veículos e Armamento* (v0.1)**
+- 4 categorias de veículo (Leve, Médio, Pesado e Mecha) e a regra de **Blindagem (BL)**.
+- Regras de pilotagem, perseguição por faixas de distância, avarias, destruição, colisão, reparo e hacking de veículos.
+- 26 veículos, 18 módulos, 10 armas pesadas pessoais, 8 explosivos, 15 armas montadas e de cerco (incluindo canhões antiaéreos e artilharia) e a torreta sentinela autônoma.
+- 3 exoesqueletos e 8 mechas, com regras de combate de mecha.
+- 10 veículos e mechas como ameaças.
+
+**Alterado no livro principal**
+- **Cabeçalho, decisões de projeto e sumário:** apontam para os compêndios.
+- **1.4 Combate:** Moral própria para as ameaças dos compêndios (Fraca, Normal, Firme e Fanática), remissões e a regra essencial de Blindagem.
+- **Capítulo 4:** cada classe ganhou uma linha **Veículos**, e entrou a **seção 4.7, Veículos e mechas**, com o acesso por classe, o treino e os antecedentes que treinam.
+- **Rigger:** o **Condutor** foi ampliado (mechas), e ganhou **Interface veicular** e **Mecânico de campo**.
+- **Capítulo 5:** os antecedentes Piloto de transporte, Mecânico e Mercenário dão treino em veículos.
+- **6.2 Reação por facção:** nova linha "Mercenários e companhias privadas" e remissão às facções nomeadas.
+- **8.3 e 8.7:** remissão às armas pesadas, e a seção de veículos foi reescrita por categorias.
+- **9.5 ICE:** remissão a ICE adicional, malware e IAs.
+- **Capítulo 10:** a oposição Elite inclui mechas, o butim Lendário inclui mechas e veículos pesados (que precisam ser pilotados ou rebocados para fora), e os investimentos incluem veículos e treino.
+- **Apêndice:** a ficha ganhou campos de veículos treinados e de veículo ou drone, as tabelas rápidas ganharam Moral, encontros e Blindagem, e as ideias futuras foram atualizadas.
+
+**O que muda na mesa em relação à v0.4**
+- Solo e Rigger passam a pilotar veículos pesados e mechas. As outras classes pilotam Leves e (quase todas) Médios.
+- O Rigger ganha identidade de piloto e mecânico, além do drone.
+- Inimigos têm Moral própria, e armas Pesadas e explosões ignoram Blindagem.
+
+**Não mudou**
+- Origens, alinhamentos, cromo e implantes, hacking básico, Edge, XP e progressão.
+
+### v0.4 (27/10/2026)
+
+**Mudança principal:** a progressão passou a ser por **missões e butim**, no estilo do tesouro do Shadowdark. Antes, o Mestre concedia XP por feitos. Agora o XP vem do que o grupo traz de volta em segurança.
+
+**Novo**
+- **Capítulo 10, Missões e progressão**, com:
+  - Ciclo da missão em 5 fases: briefing, preparação, infiltração, extração e debrief (10.1).
+  - Geradores de contrato: contratante (d6), tipo de missão e Prêmio (d12), local (d8) e complicação (d8), mais 3 tiers de perigo: Rua, Corp e Elite (10.2).
+  - Butim e Prêmio: 4 categorias (Sucata 0 XP, Normal 1, Valioso 3, Lendário 10) com valor de venda e peso em slots, butim digital com download e Alerta, e regras de extração (10.3).
+  - Fontes de XP, regras para subir de nível, tabela do nível 1 ao 10 e regra de runner novo (10.4).
+  - Pagamento por tier, receptação do butim e Farra opcional (10.5).
+  - Evolução de implantes e preços de cartuchos de programa (10.6).
+  - Ritmo de campanha esperado, de 20 a 30 missões do nível 1 ao 10 (10.7).
+  - Títulos de rua por classe e faixa de nível (10.8).
+  - Missão de exemplo, "A Cobaia de Vidro" (10.9), e ficha de missão para o Mestre (10.10).
+- Regra de **sobrecarga**: passar do limite de slots dá desvantagem em testes de DES e reduz o deslocamento à metade (10.3.3). Antes, o livro não dizia o que acontecia.
+
+**Alterado**
+- **1.6 Evolução:** saiu a regra "o Mestre concede 1, 3, 5 ou 10 XP por feito". Entrou o XP por butim, por Drive e por objetivos do grupo, com remissão ao Capítulo 10.
+- **Capítulo 2:** o Drive e os objetivos do grupo agora apontam para as regras de XP do 10.4 (+1 por avanço, +3 ao cumprir o Drive, +5 ao concluir o objetivo do grupo).
+- **Apêndice:** passou a ser o Capítulo 11, e as seções viraram 11.1 a 11.5.
+- **11.2 Tabelas rápidas:** incluídas as linhas de XP, butim e pagamento por tier.
+- **11.3 Mapa Shadowdark:** três linhas novas (XP por tesouro, tesouro levado para fora da masmorra, carousing e Farra).
+- **11.4 Ideias futuras:** os títulos de rua saíram da lista, porque foram feitos. Entrou o capítulo do Mestre.
+- **Cabeçalho e sumário:** status v0.4, decisão de projeto sobre progressão e novo capítulo no sumário.
+
+**O que muda na mesa em relação à v0.3**
+- O XP não é mais dado por feitos soltos: só conta butim extraído, mais os avanços de Drive e de objetivos do grupo.
+- A fórmula continua sendo nível x 10 XP, mas agora o XP **volta a zero** ao subir (a sobra fica) e só se sobe **1 nível por Debrief**.
+- Subir de nível passa a acontecer no Debrief, em local seguro.
+- Missões Rua, Corp e Elite pagam por runner d6 x 150, d6 x 500 e d6 x 1.500 cr.
+
+**Não mudou**
+- Origens, classes, antecedentes, alinhamentos, cromo e implantes, equipamento e preços, hacking e a Rede.
+
+### v0.3 (27/10/2026)
+
+- O jogo recebeu o nome **SombraNeon**.
+- A origem Carne virou **Nat**, e o **Sintético** ganhou mais habilidades.
+- A tabela de mutações do Biomod virou um **d20**, baseada nos traços de espécie do Dark Space.
+- Todos os preços foram multiplicados por 10, as armaduras foram reajustadas e entrou a tabela de custos de vida, serviços e lazer.
+- Os implantes ganharam as versões Corp e Militar e 4 opções novas.
+- Os gatilhos de Edge passaram para 6 por alinhamento, e entrou a tabela de reação por facção.
+- Programas e protocolos foram completados, com mais opções nos tiers baixos.
+- O drone do Rigger passou a **voar**.
+- Imersão total e Firewall viraram regra do livro.
+- O antecedente Técnico de rede foi trocado por Mercenário, e saíram todos os marcadores de pendência do texto.

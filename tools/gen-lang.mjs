@@ -145,7 +145,8 @@ const L = {
     blackMarket: 'Mercado negro e fixers',
     cults: 'Cultos e fanáticos de IA',
     punks: 'Punks e hackers anarquistas',
-    syntheticsFree: 'Sintéticos livres e redes de refúgio'
+    syntheticsFree: 'Sintéticos livres e redes de refúgio',
+    mercenaries: 'Mercenários e companhias privadas'
   },
   Family: {
     blades: 'Lâminas',
@@ -201,6 +202,22 @@ const L = {
     reaction_cults: 'Reação: cultos',
     reaction_punks: 'Reação: punks',
     reaction_syntheticsFree: 'Reação: sintéticos livres',
+    reaction_mercenaries: 'Reação: mercenários',
+    vehicle_category: 'Categoria do veículo',
+    vehicle_terrain: 'Terreno',
+    vehicle_bl: 'Blindagem (BL)',
+    vehicle_maneuver: 'Manobra',
+    vehicle_speed: 'Velocidade',
+    vehicle_cargo: 'Carga (slots)',
+    vehicle_hardpoints: 'Hardpoints',
+    vehicle_license: 'Licença',
+    vehicle_size: 'Tamanho',
+    vehicle_strength: 'FOR do mecha',
+    vehicle_strike: 'Golpe',
+    vehicle_extraSlots: 'Slots extras',
+    mount: 'Montagem (L, M ou P)',
+    crew: 'Tripulação',
+    vehicles: 'Veículos treinados',
     kind: 'Tipo',
     activation: 'Ativação',
     uses_max: 'Usos (máximo)',
@@ -268,9 +285,32 @@ const L = {
     light: 'Iluminação',
     cable: 'Cabo',
     vehicle: 'Veículo',
-    'drone-module': 'Módulo de drone'
+    'drone-module': 'Módulo de drone',
+    'vehicle-module': 'Módulo de veículo',
+    explosive: 'Explosivo'
+  },
+  Vehicle: {
+    Category: { light: 'Leve', medium: 'Médio', heavy: 'Pesado', mecha: 'Mecha' },
+    CategoryPlural: { light: 'Leves', medium: 'Médios', heavy: 'Pesados', mecha: 'Mechas' },
+    Terrain: { land: 'Terrestre', air: 'Aéreo', water: 'Aquático' },
+    Trained: 'Treinado',
+    Untrained: 'Destreinado',
+    TrainingTitle: 'Veículos treinados',
+    TrainingHint: 'Treino extra: 1 semana de downtime e 3.000 cr (Médios), 6.000 cr (Pesados) ou 10.000 cr (Mechas). Destreinado pilota com desvantagem, não usa armas montadas e não opera Pesados nem Mechas.',
+    ToggleTraining: 'Marcar ou desmarcar treino pago'
+  },
+  StreetTitle: {
+    Label: 'Título de rua',
+    solo: { 1: 'Cão de rua', 2: 'Mão armada', 3: 'Matador de aluguel', 4: 'Lâmina da cidade', 5: 'Lenda do asfalto' },
+    netrunner: { 1: 'Aprendiz de código', 2: 'Invasor', 3: 'Quebra-gelo', 4: 'Mestre de redes', 5: 'Arquiteto da Rede' },
+    hyperdoc: { 1: 'Enfermeiro de beco', 2: 'Curandeiro', 3: 'Cirurgião de rua', 4: 'Mestre dos nanos', 5: 'Arquiteto da carne' },
+    ghost: { 1: 'Ladrão de beco', 2: 'Sombra', 3: 'Fantasma', 4: 'Espectro', 5: 'Mito invisível' },
+    rocker: { 1: 'Banda de garagem', 2: 'Voz da quebrada', 3: 'Estrela local', 4: 'Ícone da rua', 5: 'Hino da cidade' },
+    rigger: { 1: 'Piloto de garagem', 2: 'Operador', 3: 'Condutor de enxame', 4: 'Mestre dos céus', 5: 'Senhor dos drones' }
   },
   Goals: { Title: 'Objetivos do grupo' },
+  Mission: { Title: 'Gerador de missão', Contractor: 'Contratante', Type: 'Tipo e Prêmio', Location: 'Local', Complication: 'Complicação' },
+  Encounter: { Title: 'Encontro aleatório', Location: 'Local' },
   Grant: {
     RollTitle: 'Mutações de {name}',
     programs: 'Programas de tier 1',
@@ -330,6 +370,7 @@ const L = {
     Flees: 'Foge.',
     Holds: 'Mantém a posição.',
     Hint: '{name} chegou à metade do HP: hora de testar a moral.',
+    Kind: { Label: 'Moral', weak: 'Fraca (CD 18)', normal: 'Normal (CD 15)', firm: 'Firme (CD 12)', fanatic: 'Fanática (nunca foge)' },
     Roll: 'Teste de moral',
     Enabled: 'Testa moral'
   },
@@ -364,7 +405,7 @@ const L = {
     HackImmune: 'Sem implante Neural: hacks não conseguem afetar você diretamente.',
     GeneratorTitle: 'Gerador de Rede ({n} nós)'
   },
-  Npc: { NewAttack: 'Novo ataque', AddAttack: 'Adicionar ataque', NoAttacks: 'Nenhum ataque. Adicione um ou arraste uma arma.', Traits: 'Traços', Loot: 'Saque' },
+  Npc: { Threat: 'NA', Armor: 'BL', ArmorHint: 'Blindagem: reduz cada dano de armas comuns. Armas Pesadas e explosões ignoram.', Movement: 'Movimento', Alignment: 'Alinhamento', EditText: 'Editar texto', NewAttack: 'Novo ataque', AddAttack: 'Adicionar ataque', NoAttacks: 'Nenhum ataque. Adicione um ou arraste uma arma.', Traits: 'Traços', Loot: 'Saque' },
   Ice: { Attack: 'Ataque', Trick: 'Truque', TrickName: 'Nome do truque', Role: 'Função na rede' },
   Program: {
     Kind: { program: 'Programa', protocol: 'Protocolo', set: 'Set' },
@@ -386,7 +427,7 @@ const L = {
     CrashedNote: 'O programa entrou em Crash até o descanso.',
     SpentNote: 'O Set foi usado e só volta no descanso.'
   },
-  Prop: { light: 'Leve', thrown: 'Arremessável', twoHanded: 'Duas mãos', burst: 'Rajada', aim: 'Mira', stun: 'Atordoa', ignoreArmor: 'Ignora CA', noProficiency: 'Sem proficiência' },
+  Prop: { light: 'Leve', thrown: 'Arremessável', twoHanded: 'Duas mãos', burst: 'Rajada', aim: 'Mira', stun: 'Atordoa', heavyWeapon: 'Pesada', indirect: 'Indireta', guided: 'Guiada', antiAir: 'Anti-aérea', blastClose: 'Raio Perto', blastNear: 'Raio Próximo', mounted: 'Montada', ignoreCover: 'Ignora cobertura parcial', suppressed: 'Silenciada', ignoreArmor: 'Ignora CA', noProficiency: 'Sem proficiência' },
   Purchase: {
     Title: 'Adicionar item',
     Text: '{name}: custo {price} (saldo {balance}).',
@@ -396,7 +437,7 @@ const L = {
     Balance: 'Saldo: {balance}'
   },
   Quality: { street: 'Rua', corp: 'Corp', military: 'Militar' },
-  Range: { close: 'Perto', near: 'Próximo', far: 'Longe' },
+  Range: { close: 'Perto', near: 'Próximo', far: 'Longe', distant: 'Distante' },
   Reaction: {
     Title: 'Reação de facção',
     Faction: 'Facção',
@@ -462,6 +503,8 @@ const L = {
     Disadvantage: 'Desvantagem',
     AdvShort: 'vant.',
     NextAction: 'Próxima ação',
+    Overloaded: 'Sobrecarregado',
+    HeavyIgnoresBl: 'Arma Pesada: ignora a Blindagem do alvo.',
     NatTrait: 'Humanidade firme',
     Knowledge: 'Conhecimento',
     Manual: 'Manual',
@@ -734,13 +777,15 @@ const L = {
     multipleArmor: 'Mais de uma armadura equipada.',
     pendingChoice: 'Escolha pendente em {name}.',
     noArmorProficiency: 'Armadura sem proficiência: {name}.',
-    slotsOver: 'Slots estourados: {used} de {max}.',
-    slotOccupied: 'Mais de um implante no slot {slot}.',
+    slotsOver: 'Slots estourados: {used} de {max}. Sobrecarregado: desvantagem em testes de DES e deslocamento pela metade.',
+    slotOccupied: 'Mais de um implante instalado no slot {slot} ({names}). Desinstale os que sobram.',
     noProficiency: 'Arma sem proficiência: {name}.',
     tooManyHands: 'Mãos ocupadas além de 2: {hands}.',
     knownOver: 'Mais itens conhecidos ({count}) que o limite ({max}).',
     tierOver: 'Tier acima do máximo: {name}.',
-    grantsPending: 'Escolhas pendentes em {name}.'
+    grantsPending: 'Escolhas pendentes em {name}.',
+    fixSlots: 'Desinstalar os implantes que sobram',
+    slotsFixed: 'Desinstalados: {names}.'
   },
   Wizard: {
     Title: 'Assistente de criação',

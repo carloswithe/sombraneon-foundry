@@ -150,7 +150,7 @@ export class CreationWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     const triggers = d.alignment ? triggersFor(d.alignment).map((e) => ({ id: e.identifier, name: e.name, selected: d.trigger === e.identifier })) : [];
     const backgrounds = CompendiumIndex.list('background').map((e) => ({ uuid: e.uuid, name: e.name, knowledge: e.knowledge, highlight: e.highlight, selected: d.background.uuid === e.uuid }));
     const shopType = this.shopTab;
-    const shop = catalog ? CompendiumIndex.list(shopType).filter((e) => !(shopType === 'gear' && e.category === 'vehicle')).map((e) => ({ type: e.type, id: e.identifier, name: e.name, img: e.img, price: format(e.price) })) : [];
+    const shop = catalog ? CompendiumIndex.list(shopType).filter((e) => !(shopType === 'gear' && ['vehicle', 'vehicle-module'].includes(e.category)) && !e.mount).map((e) => ({ type: e.type, id: e.identifier, name: e.name, img: e.img, price: format(e.price) })) : [];
     const cart = d.cart.map((c, i) => {
       const e = CompendiumIndex.resolve(c.type, c.identifier);
       return { index: i, name: e?.name ?? c.identifier, qty: c.qty, price: format((e?.price ?? 0) * c.qty) };

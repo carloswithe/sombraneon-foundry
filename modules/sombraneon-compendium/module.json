@@ -1,29 +1,166 @@
 {
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
-  "description": "Armas, armaduras, equipamento, implantes, veículos, ICE, fichas prontas e macros para o sistema SombraNeon.",
-  "version": "0.1.1",
-  "compatibility": { "minimum": "13", "verified": "13.351" },
-  "authors": [{ "name": "Carlos Withe (Cacá)", "url": "https://github.com/carloswithe" }],
+  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas e macros para o sistema SombraNeon.",
+  "version": "0.2.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "authors": [
+    {
+      "name": "Carlos Withe (Cacá)",
+      "url": "https://github.com/carloswithe"
+    }
+  ],
   "url": "https://github.com/carloswithe/sombraneon-foundry",
   "manifest": "https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/module.json",
   "download": "https://github.com/carloswithe/sombraneon-foundry/releases/download/v0.1.0/module.zip",
   "bugs": "https://github.com/carloswithe/sombraneon-foundry/issues",
   "license": "LICENSE",
   "readme": "README.md",
-  "esmodules": ["sombraneon-compendium.mjs"],
-  "languages": [{ "lang": "pt-BR", "name": "Português (Brasil)", "path": "lang/pt-BR.json" }],
+  "esmodules": [
+    "sombraneon-compendium.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
   "packs": [
-    { "name": "armas", "label": "Armas", "path": "packs/armas", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "armaduras", "label": "Armaduras", "path": "packs/armaduras", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "equipamento", "label": "Equipamento", "path": "packs/equipamento", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "implantes", "label": "Implantes (Cromo)", "path": "packs/implantes", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "veiculos", "label": "Veículos e Drones", "path": "packs/veiculos", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "ice", "label": "ICE", "path": "packs/ice", "type": "Actor", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "fichas-prontas", "label": "Fichas Prontas", "path": "packs/fichas-prontas", "type": "Actor", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
-    { "name": "macros", "label": "Macros", "path": "packs/macros", "type": "Macro", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } }
+    {
+      "name": "armas",
+      "label": "Armas",
+      "path": "packs/armas",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "armaduras",
+      "label": "Armaduras",
+      "path": "packs/armaduras",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "equipamento",
+      "label": "Equipamento",
+      "path": "packs/equipamento",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "implantes",
+      "label": "Implantes (Cromo)",
+      "path": "packs/implantes",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "veiculos",
+      "label": "Veículos, Mechas e Drones",
+      "path": "packs/veiculos",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "ice",
+      "label": "ICE e Malware",
+      "path": "packs/ice",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "ameacas",
+      "label": "Ameaças",
+      "path": "packs/ameacas",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "fichas-prontas",
+      "label": "Fichas Prontas",
+      "path": "packs/fichas-prontas",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "tabelas-do-mestre",
+      "label": "Tabelas do Mestre",
+      "path": "packs/tabelas-do-mestre",
+      "type": "RollTable",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "referencias",
+      "label": "Compêndios de Referência",
+      "path": "packs/referencias",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros",
+      "type": "Macro",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
   ],
   "relationships": {
-    "systems": [{ "id": "sombraneon", "type": "system", "compatibility": { "minimum": "0.1.0" } }]
+    "systems": [
+      {
+        "id": "sombraneon",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.1.0"
+        }
+      }
+    ]
   }
 }

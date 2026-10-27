@@ -111,6 +111,7 @@
   <details class="sn-warnings" open>
     <summary><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'SOMBRANEON.Sheet.Warnings'}} ({{warnings.length}})</summary>
     <ul>{{#each warnings}}<li>{{this}}</li>{{/each}}</ul>
+    {{#if hasSlotConflict}}<button type="button" class="sn-chip-btn" data-action="fixSlots">{{localize 'SOMBRANEON.Warning.fixSlots'}}</button>{{/if}}
     {{#if hasPendingGrants}}<button type="button" class="sn-chip-btn" data-action="resumeGrants">{{localize 'SOMBRANEON.Sheet.ResumeGrants'}}</button>{{/if}}
   </details>
   {{/if}}
@@ -153,7 +154,12 @@
               {{#if (ne casting.kind 'set')}}<li><span>{{localize 'SOMBRANEON.Program.TierMax'}}</span><strong>{{casting.tierMax}}</strong></li>{{/if}}
               {{/if}}
               <li class="{{#if chrome.cd}}sn-warn-text{{/if}}"><span>{{localize 'SOMBRANEON.Chrome.Psychosis'}}</span><strong>{{chrome.text}}</strong></li>
+              {{#if streetTitle}}<li><span>{{localize 'SOMBRANEON.StreetTitle.Label'}}</span><strong>{{streetTitle}}</strong></li>{{/if}}
             </ul>
+            <div class="sn-vehicles" title="{{localize 'SOMBRANEON.Vehicle.TrainingHint'}}">
+              <span class="sn-label">{{localize 'SOMBRANEON.Vehicle.TrainingTitle'}}</span>
+              {{#each vehicleChips}}<button type="button" class="sn-chip-btn {{#if trained}}sn-active{{/if}}" {{#if fixed}}disabled{{else}}{{#if @root.editable}}data-action="toggleVehicle" data-category="{{key}}"{{else}}disabled{{/if}}{{/if}}>{{label}}</button>{{/each}}
+            </div>
             {{#if statuses.length}}<div class="sn-statuses">{{#each statuses}}<span class="sn-status">{{label}}</span>{{/each}}</div>{{/if}}
           </div>
 

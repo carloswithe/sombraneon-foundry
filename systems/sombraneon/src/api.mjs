@@ -25,6 +25,8 @@ const gmOnly = () => {
   return true;
 };
 
+const stripTags = (html) => String(html ?? '').replace(/<[^>]+>/g, '').trim();
+
 async function drawTable(identifier) {
   const table = await getTable(identifier);
   if (!table) return notify('warn', 'Warn.TableMissing', { name: identifier });
@@ -120,6 +122,52 @@ export const api = {
     }
     const lines = [...picked].map((n) => table.getResultsForRoll(n)[0]?.description.replace(/<[^>]+>/g, '') ?? '');
     return postEvent(null, t('Goals.Title'), lines, { rolls });
+  },
+
+  /** Gerador de missão (livro 10.2): contratante, tipo, local e complicação. */
+  async rollMission() {
+    if (!gmOnly()) return;
+    const specs = [
+      ['missao-contratante', 'Mission.Contractor'],
+      ['missao-tipo', 'Mission.Type'],
+      ['missao-local', 'Mission.Location'],
+      ['missao-complicacao', 'Mission.Complication']
+    ];
+    const lines = [];
+    const rolls = [];
+    for (const [id, label] of specs) {
+      const table = await getTable(id);
+      if (!table) return notify('warn', 'Warn.TableMissing', { name: id });
+      const roll = await evaluate(table.formula);
+      rolls.push(roll);
+      const r = table.getResultsForRoll(roll.total)[0];
+      lines.push(`${t(label)}: ${r.name ? `${r.name}. ` : ''}${stripTags(r.description)}`);
+      // contratante anônimo: role a complicação duas vezes
+      if (id === 'missao-contratante' && roll.total === 6) specs.push(['missao-complicacao', 'Mission.Complication']);
+    }
+    return postEvent(null, t('Mission.Title'), lines, { rolls });
+  },
+
+  /** Encontro aleatório por local (Compêndio de Ameaças, capítulo 8). */
+  async rollEncounter() {
+    if (!gmOnly()) return;
+    const places = [
+      ['torre-corporativa', 'Torre corporativa'],
+      ['laboratorio-ou-clinica-subterranea', 'Laboratório ou clínica subterrânea'],
+      ['armazem-no-porto-ou-zona-industrial', 'Armazém no porto ou zona industrial'],
+      ['boate-de-elite-ou-cassino', 'Boate de elite ou cassino'],
+      ['colmeia-favela-vertical', 'Colmeia (favela vertical)'],
+      ['data-center', 'Data center'],
+      ['estacao-de-transporte-ou-trem', 'Estação de transporte ou trem'],
+      ['zona-abandonada', 'Zona abandonada']
+    ];
+    const place = await selectPrompt({ title: t('Encounter.Title'), label: t('Encounter.Location'), options: places.map(([value, label]) => ({ value, label })) });
+    if (!place) return;
+    const table = await getTable(`encontros-${place}`);
+    if (!table) return notify('warn', 'Warn.TableMissing', { name: place });
+    const roll = await evaluate(table.formula);
+    const r = table.getResultsForRoll(roll.total)[0];
+    return postEvent(null, `${t('Encounter.Title')}: ${places.find(([v]) => v === place)[1]}`, [stripTags(r.description)], { rolls: [roll] });
   },
 
   /** Teste rápido de grupo: cada personagem selecionado rola o atributo contra uma CD. */

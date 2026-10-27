@@ -1,6 +1,6 @@
 {
   "name": "sombraneon-foundry",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "SombraNeon para Foundry VTT: sistema e módulo de compêndio",
   "private": true,
   "type": "module",

@@ -43,6 +43,7 @@ export class SNActor extends Actor {
       slotsManualBonus: sys.slots.manualBonus,
       network: { deckFried: sys.network.deckFried, nanokitBroken: sys.network.nanokitBroken },
       unarmedDie,
+      vehicleTraining: sys.vehicleTraining,
       items: this.items.map(snapshotItem)
     });
   }
@@ -77,6 +78,8 @@ export class SNActor extends Actor {
     sys.talents = d.talents;
     sys.casting = d.casting;
     sys.chrome = d.chrome;
+    sys.vehicles = d.vehicles;
+    sys.streetTitle = d.streetTitle;
     sys.attacks = d.attacks;
     sys.warnings = d.warnings;
   }
@@ -141,8 +144,11 @@ export class SNActor extends Actor {
    * Aplica dano. Reduções (resist.*) arredondam o dano final para cima.
    * @returns {Promise<number>} dano efetivamente aplicado
    */
-  async applyDamage(amount, { type = '', nonlethal = false } = {}) {
+  async applyDamage(amount, { type = '', nonlethal = false, heavy = false } = {}) {
     let dmg = Math.max(0, Math.floor(Number(amount) || 0));
+    // Blindagem (BL): reduz cada dano de armas comuns; armas Pesadas e explosões ignoram (compêndio de veículos, 1.2)
+    const bl = this.type === 'npc' ? Number(this.system.armor) || 0 : 0;
+    if (bl && !heavy) dmg = Math.max(0, dmg - bl);
     dmg = Math.ceil(dmg * this.damageMultiplier(type));
     const reduce = Number(this.getFlag(ID, 'damageReduce') ?? 0);
     if (reduce) dmg = Math.max(0, dmg - reduce);
@@ -150,7 +156,7 @@ export class SNActor extends Actor {
     const hp = this.system.hp;
     const next = Math.max(0, hp.value - dmg);
     await this.update({ 'system.hp.value': next }, { sombraneon: { nonlethal, damageType: type } });
-    Hooks.callAll('sombraneon.damageApplied', this, dmg, { type, nonlethal });
+    Hooks.callAll('sombraneon.damageApplied', this, dmg, { type, nonlethal, heavy });
     return dmg;
   }
 

@@ -96,6 +96,7 @@ export async function checkRoll(spec) {
       advSources.push(...a.advantage);
       disSources.push(...a.disadvantage);
     }
+    if (ability === 'des' && sn.slots?.over) disSources.push(t('Rolls.Overloaded'));
     if (ability === 'sab' && (spec.tags ?? []).includes('cyberpsychosis') && sn.chrome.advantage) advSources.push(t('Rolls.NatTrait'));
   }
   if (spec.knowledge) advSources.push(`${t('Rolls.Knowledge')}: ${spec.knowledge}`);
@@ -159,7 +160,7 @@ export function findAttackLine(actor, attackId) {
   }
   if (actor.type === 'npc') {
     const l = actor.system.attackLines.find((a) => a.id === attackId);
-    return l ? { ...l, attackBonus: l.bonus, dice: l.damage, damageBonus: 0, properties: [], kind: l.range === 'close' ? 'melee' : 'ranged', parts: [{ label: t('Sheet.Bonus'), value: l.bonus }], advantage: [], disadvantage: [], ignoreArmor: 0, stunOn: '' } : null;
+    return l ? { ...l, attackBonus: l.bonus, dice: l.damage, damageBonus: 0, properties: l.heavy ? ['heavyWeapon'] : [], kind: l.range === 'close' ? 'melee' : 'ranged', parts: [{ label: t('Sheet.Bonus'), value: l.bonus }], advantage: [], disadvantage: [], ignoreArmor: 0, stunOn: '' } : null;
   }
   if (actor.type === 'ice') {
     const a = actor.system.attack;
@@ -273,8 +274,9 @@ export async function damageRoll(spec) {
   const actor = await fromUuid(spec.actorUuid);
   if (!actor) return null;
   const line = findAttackLine(actor, spec.attackId);
-  if (!line) return notify('warn', 'Warn.NoAttack');
+  if (!line?.dice) return notify('warn', 'Warn.NoAttack');
   const options = spec.options ?? {};
+  const heavy = !!line.properties?.includes('heavyWeapon');
   const sn = actor.sn;
   const faces = Number(/d(\d+)/.exec(line.dice)?.[1] ?? 6);
   const extra = [];
@@ -302,7 +304,7 @@ export async function damageRoll(spec) {
     template: 'chat/damage.hbs',
     flavor: `${line.name}: ${t('Rolls.Damage')}`,
     rolls,
-    flags: { rollKind: 'damage', damage: { type: line.damageType ?? '', lines: lines.map((l) => ({ total: l.total, uuid: l.uuid })), nonlethal: false } },
+    flags: { rollKind: 'damage', damage: { type: line.damageType ?? '', heavy, lines: lines.map((l) => ({ total: l.total, uuid: l.uuid })), nonlethal: false } },
     data: {
       title: `${line.name}: ${t('Rolls.Damage')}`,
       actorName: actor.name,
@@ -310,6 +312,7 @@ export async function damageRoll(spec) {
       critical: !!spec.critical,
       lines,
       ignoreArmor: line.ignoreArmor,
+      heavy,
       stun: !!spec.stun
     }
   });

@@ -27,8 +27,8 @@ for (const img of imgs) {
 }
 
 // 3. tabelas cobrem todos os valores da fórmula sem lacunas ou sobreposição
-const span = { '1d6': [1, 6], '1d20': [1, 20], '2d6': [2, 12] };
-const tables = PACKS.find((p) => p.name === 'tabelas').docs;
+const span = { '1d6': [1, 6], '1d8': [1, 8], '1d12': [1, 12], '1d20': [1, 20], '2d6': [2, 12] };
+const tables = PACKS.filter((p) => p.docType === 'RollTable').flatMap((p) => p.docs);
 for (const t of tables) {
   const [lo, hi] = span[t.formula];
   for (let v = lo; v <= hi; v++) {
@@ -79,7 +79,12 @@ for (const p of PACKS) {
     const want = p.docs.reduce((s, d) => s + d.results.length, 0);
     if (r !== want) fail(`${p.name}: ${r} resultados, esperado ${want}`);
   }
-  if (p.docType === 'JournalEntry' && keys.filter((k) => k.startsWith('!journal.pages!')).length !== 10) fail('regras: o livro deve ter 10 páginas');
+  if (p.docType === 'JournalEntry') {
+    const want = p.docs.reduce((n, d) => n + d.pages.length, 0);
+    const got = keys.filter((k) => k.startsWith('!journal.pages!')).length;
+    if (got !== want) fail(`${p.name}: ${got} páginas, esperado ${want}`);
+    if (p.name === 'regras' && got !== 12) fail('regras: o livro deve ter 12 páginas');
+  }
 }
 
 // 7. manifestos

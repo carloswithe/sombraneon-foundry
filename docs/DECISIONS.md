@@ -4,8 +4,9 @@ Onde o livro (`docs/sombraneon.md`) é omisso ou diverge da especificação (`do
 
 | Tema | Decisão | Como mudar |
 |---|---|---|
+| Livro e compêndios | Fonte de verdade: livro v0.5 (`docs/sombraneon.md`), Compêndio de Ameaças v0.1 e Compêndio de Veículos e Armamento v0.1. Os dados do módulo são extraídos desses arquivos por `data/content/companions.mjs`. | Trocar os arquivos em `docs/` e rodar `npm run build:packs` |
 | Versão do Foundry | v13 (build 351). `compatibility.minimum` 13. A spec assumia v14. | `system.json`, `module.json` |
-| Características | 99, não 105. As tabelas de talento do livro têm 3 talentos específicos por classe (2, 3-6 e 10-11), mais o "+2 em atributo" (7-9) e o resultado 12; a contagem da spec (4 por classe) não fecha. O livro vence. | `data/content/features.mjs` |
+| Características | 101, não 105 (99 do livro v0.3 mais Interface veicular e Mecânico de campo do Rigger). As tabelas de talento do livro têm 3 talentos específicos por classe (2, 3-6 e 10-11), mais o "+2 em atributo" (7-9) e o resultado 12; a contagem da spec (4 por classe) não fecha. O livro vence. | `data/content/features.mjs` |
 | Conteúdo | Fica em módulos JS (`data/content/`) com texto e tabelas extraídos do livro, em vez de YAML. | `data/content/` |
 | HP retroativo | Sempre retroativo ao CON atual (sem configuração). | `logic/rules.mjs` |
 | Dano desarmado | d4 (configurável). | Setting `unarmedDie` |
@@ -19,4 +20,11 @@ Onde o livro (`docs/sombraneon.md`) é omisso ou diverge da especificação (`do
 | "Fuzis leves" do Rigger | Fuzil. | Dados da classe |
 | Kit de Runner | "3 rações" é 1 pacote de 3 usos (fecha os 4 slots do livro). | `module-items.mjs` |
 | Edge, reação e drone | Drone criado pelo Mestre (ou por quem pode criar atores) ao concluir o assistente ou importar a ficha. | `automation/drone.mjs` |
+| Ameaças | NPC com NA no campo de nível. Ataques ligados por "e" viram linhas separadas (o Mestre escolhe). Traços e habilidades ficam como texto formatado. Moral Fanática e "Sem medo" desligam o teste. IAs são NPCs sem ataques, com Núcleo e servidor no texto. | `data/content/companions.mjs` |
+| Blindagem | Só em NPCs (campo BL). Armas com a propriedade Pesada (`heavyWeapon`) ignoram; explosões e granadas são itens e não rolam dano automático. | `actor.applyDamage` |
+| Veículos | Itens do módulo (gear, categoria Veículo) sem automação: pilotagem, perseguição, avarias (tabela) e treino pago são manuais. O treino em Leves, Médios, Pesados e Mechas é mostrado na ficha. Pilotar destreinado não é bloqueado nem rola com desvantagem sozinho. | `logic/character.mjs` |
+| Exoesqueletos e mechas | Itens com os números do livro; FOR, slots extras e HP do exoesqueleto não são aplicados ao runner automaticamente. | Itens do módulo |
+| Armas montadas | Itens (propriedade Montada, hardpoint e tripulação) sem controle de hardpoints. Ficam fora da loja do assistente. | Dados das armas |
+| Sobrecarga | Desvantagem em testes de DES é automática. Deslocamento pela metade fica por conta da mesa. | `rolls.mjs` |
+| XP e nível | O XP continua em campo manual; o Mestre conta o butim no Debrief. A sobra de XP segue a configuração "XP ao subir de nível". | Setting `xpOnLevelUp` |
 | Não implementado | `en.json`, migrações de mundo, botão "Sincronizar com o compêndio", escolha manual de mutação pelo Mestre, temporizador de bateria. | |

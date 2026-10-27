@@ -50,6 +50,7 @@ export function deriveCharacter(input) {
     slotsManualBonus = 0,
     network = {},
     unarmedDie = SN.unarmedDie,
+    vehicleTraining = [],
     items = []
   } = input;
 
@@ -175,11 +176,13 @@ export function deriveCharacter(input) {
 
   /* ---- 9. Cromo ---- */
   const chromeSlots = { neural: null, body: null, arms: null, legs: null };
+  const conflicts = {};
   for (const imp of installed) {
     const s = imp.system.slot;
-    if (chromeSlots[s]) warn('slotOccupied', { slot: s });
+    if (chromeSlots[s]) (conflicts[s] ??= [chromeSlots[s].name]).push(imp.name);
     else chromeSlots[s] = imp;
   }
+  for (const [slot, names] of Object.entries(conflicts)) warn('slotOccupied', { slot, names: names.join(', ') });
   const count = Object.values(chromeSlots).filter(Boolean).length;
   const adjust = sum(mods, 'cyber.adjust', {}, rollData).total;
   const cy = cyberpsychosis({ count, adjust });
@@ -344,7 +347,13 @@ export function deriveCharacter(input) {
   /* ---- 11. Furtivo ---- */
   const sneak = features.some((f) => f.identifier === 'ataque-furtivo') ? sneakAttackDice(level) : 0;
 
-  /* ---- 12. Avisos restantes ---- */
+  /* ---- 12. Veículos (livro 4.7) e título de rua (10.8) ---- */
+  const trained = new Set([...(cls?.system.vehicles ?? []), ...(background?.system.vehicles ?? []), ...(vehicleTraining ?? [])]);
+  const vehicles = Object.fromEntries(SN.vehicleCategories.map((c) => [c, trained.has(c)]));
+  vehicles.fromClass = Object.fromEntries(SN.vehicleCategories.map((c) => [c, (cls?.system.vehicles ?? []).includes(c) || (background?.system.vehicles ?? []).includes(c)]));
+  const streetTitle = cls ? { classId: cls.identifier, band: Math.min(5, Math.ceil(Math.max(1, level) / 2)) } : null;
+
+  /* ---- 13. Avisos restantes ---- */
   if (casting.kind) {
     if (casting.known.count > casting.known.max) warn('knownOver', { count: casting.known.count, max: casting.known.max });
     for (const p of programs) {
@@ -368,6 +377,8 @@ export function deriveCharacter(input) {
     slots,
     casting,
     chrome,
+    vehicles,
+    streetTitle,
     attacks,
     domains: [...domains],
     sneakDice: sneak,

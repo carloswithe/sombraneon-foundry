@@ -169,6 +169,26 @@ async function hpAdjust(event, target) {
   return actor.applyHealing(delta);
 }
 
+/** Mantém só o primeiro implante instalado de cada slot e desinstala os que sobram. */
+async function fixSlots() {
+  const seen = new Set();
+  const extras = [];
+  for (const imp of this.document.items.filter((i) => i.type === 'implant' && i.system.installed)) {
+    if (seen.has(imp.system.slot)) extras.push(imp);
+    else seen.add(imp.system.slot);
+  }
+  for (const imp of extras) await imp.update({ 'system.installed': false });
+  if (extras.length) ui.notifications.info(t('Warning.slotsFixed', { names: extras.map((i) => i.name).join(', ') }));
+}
+
+async function toggleVehicle(event, target) {
+  const key = target.dataset.category;
+  const list = new Set(this.document.system.vehicleTraining ?? []);
+  if (list.has(key)) list.delete(key);
+  else list.add(key);
+  return this.document.update({ 'system.vehicleTraining': [...list] });
+}
+
 async function toggleCover() {
   return this.document.update({ 'system.ac.cover': !this.document.system.ac.cover });
 }
@@ -225,6 +245,8 @@ const actions = {
   usesAdjust,
   hpAdjust,
   toggleCover,
+  toggleVehicle,
+  fixSlots,
   removeSel,
   rollBackground,
   rollTrigger,
@@ -413,7 +435,7 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
 
     const warnings = sn.warnings
       .filter((w) => !(w.code === 'noProficiency' && safeSetting('proficiencyPenalty', 'warn') === 'none'))
-      .map((w) => t(`Warning.${w.code}`, w.args));
+      .map((w) => t(`Warning.${w.code}`, w.args.slot ? { ...w.args, slot: t(`Slot.${w.args.slot}`) } : w.args));
     for (const g of actor.items.filter((i) => i.getFlag(ID, 'grantsPending'))) warnings.push(t('Warning.grantsPending', { name: g.name }));
 
     // Habilidades
@@ -593,9 +615,16 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
     for (const key of ['appearance', 'biography', 'contacts', 'notes', 'groupGoals']) bio[key] = { raw: sys.details[key], html: await this.enrich(sys.details[key]) };
     const reaction = alignment ? SN.factions.map((f) => ({ label: t(`Faction.${f}`), value: signed(alignment.system.reaction[f] ?? 0) })) : [];
 
+    const veh = sn.vehicles ?? {};
+    const vehicleChips = SN.vehicleCategories.map((key) => ({ key, label: t(`Vehicle.CategoryPlural.${key}`), trained: !!veh[key], fixed: !!veh.fromClass?.[key] }));
+    const streetTitle = sn.streetTitle && tExists(`StreetTitle.${sn.streetTitle.classId}.${sn.streetTitle.band}`) ? t(`StreetTitle.${sn.streetTitle.classId}.${sn.streetTitle.band}`) : '';
+
     return {
       ...context,
       sn,
+      hasSlotConflict: sn.warnings.some((w) => w.code === 'slotOccupied'),
+      vehicleChips,
+      streetTitle,
       selectors,
       abilities,
       hp,

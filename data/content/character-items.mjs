@@ -18,6 +18,7 @@ const CLASS_DEFS = [
     weapons: { all: true, allowed: [] },
     armor: ['light', 'medium', 'heavy'],
     casting: null,
+    vehicles: ['light', 'medium', 'heavy', 'mecha'],
     features: ['dominio-de-arma', 'chassi', 'resistente', 'duro-de-matar'],
     pkg: [['pistola-pesada', 1], ['jaqueta-blindada', 1], ['faca', 1], ['carregador', 2], ['rig-utilitario', 1], ['racao', 1]]
   },
@@ -30,6 +31,7 @@ const CLASS_DEFS = [
     weapons: { all: false, allowed: ['faca', 'pistola-leve', 'bastao-de-choque'] },
     armor: ['none'],
     casting: { kind: 'program', ability: 'int', startKnown: 2, perLevel: 1, extraAtLevels: [], tierMaxByLevel: true },
+    vehicles: ['light'],
     features: ['deck', 'programas'],
     choose: grantChoose('program', { kind: 'program', tier: 1 }, 2, { key: 'programs' }),
     pkg: [['deck-de-rua', 1], ['pistola-leve', 1], ['carregador', 1], ['cabo-de-interface', 1], ['bateria', 1], ['rig-utilitario', 1], ['racao', 1]]
@@ -43,6 +45,7 @@ const CLASS_DEFS = [
     weapons: { all: false, allowed: ['faca', 'pistola-leve', 'bastao-de-choque'] },
     armor: ['light', 'medium'],
     casting: { kind: 'protocol', ability: 'sab', startKnown: 2, perLevel: 1, extraAtLevels: [], tierMaxByLevel: true },
+    vehicles: ['light', 'medium'],
     features: ['nanokit', 'protocolos', 'primeiros-socorros', 'cirurgiao'],
     choose: grantChoose('program', { kind: 'protocol', tier: 1 }, 2, { key: 'protocols' }),
     pkg: [['nanokit', 1], ['kit-medico', 1], ['pistola-leve', 1], ['faca', 1], ['carregador', 1], ['rig-utilitario', 1], ['racao', 1]]
@@ -56,6 +59,7 @@ const CLASS_DEFS = [
     weapons: { all: false, allowed: ['faca', 'pistola-leve', 'suppressed', 'hands:1'] },
     armor: ['light'],
     casting: null,
+    vehicles: ['light', 'medium'],
     features: ['ataque-furtivo', 'fantasma', 'edge-de-rua'],
     pkg: [['pistola-leve', 1], ['faca', 1], ['jaqueta-blindada', 1], ['kit-de-ferramentas', 1], ['lanterna', 1], ['rig-utilitario', 1], ['racao', 1]]
   },
@@ -68,6 +72,7 @@ const CLASS_DEFS = [
     weapons: { all: false, allowed: ['faca', 'pistola-leve', 'hands:1'] },
     armor: ['light'],
     casting: { kind: 'set', ability: 'car', startKnown: 3, perLevel: 0, extraAtLevels: [4, 7, 10], tierMaxByLevel: false },
+    vehicles: ['light', 'medium'],
     features: ['rig-de-palco', 'sets', 'palco', 'fama', 'ressonancia'],
     choose: grantChoose('program', { kind: 'set' }, 3, { key: 'sets' }),
     pkg: [['rig-de-palco', 1], ['pistola-leve', 1], ['jaqueta-blindada', 1], ['faca', 1], ['rig-utilitario', 1], ['racao', 1]]
@@ -81,7 +86,8 @@ const CLASS_DEFS = [
     weapons: { all: false, allowed: ['pistols', 'fuzil', 'faca'] },
     armor: ['light', 'medium'],
     casting: null,
-    features: ['drone-voador', 'voo', 'link', 'batedor', 'condutor'],
+    vehicles: ['light', 'medium', 'heavy', 'mecha'],
+    features: ['drone-voador', 'voo', 'link', 'batedor', 'condutor', 'interface-veicular', 'mecanico-de-campo'],
     pkg: [['pistola-leve', 1], ['jaqueta-blindada', 1], ['radio', 1], ['kit-de-ferramentas', 1], ['rig-utilitario', 1], ['racao', 1]]
   }
 ];
@@ -98,14 +104,15 @@ function classes() {
     if (c.choose) grants.push(c.choose);
     const s = book.section(c.section);
     const armas = s.bullets['Armas'] ?? '';
-    const text = [classIntro(c.section), `Dado de vida: ${c.hitDie}.`, armas ? `Armas: ${armas}` : ''].filter(Boolean);
+    const veiculos = s.bullets['Veículos'] ?? '';
+    const text = [classIntro(c.section), `Dado de vida: ${c.hitDie}.`, armas ? `Armas: ${armas}` : '', veiculos ? `Veículos: ${veiculos}` : ''].filter(Boolean);
     return item({
       type: 'class',
       name: c.name,
       identifier: c.id,
       img: ICON('class'),
       sort: (i + 1) * 100,
-      source: `Livro v0.3, ${c.section}`,
+      source: `Livro v0.5, ${c.section}`,
       description: text.map((t) => html(t)).join(''),
       system: {
         hitDie: c.hitDie,
@@ -115,6 +122,7 @@ function classes() {
         casting: c.casting ?? { kind: '', ability: '', startKnown: 0, perLevel: 0, extraAtLevels: [], tierMaxByLevel: false },
         talentTable: `talentos-${c.id}`,
         talentLevels: [1, 3, 5, 7, 9],
+        vehicles: c.vehicles,
         grants,
         startingPackage: c.pkg.map(([ref, qty]) => ({ ref, qty })),
         modifiers: [],
@@ -159,7 +167,7 @@ function origins() {
       identifier: o.id,
       img: ICON('origin'),
       sort: (i + 1) * 100,
-      source: `Livro v0.3, ${o.section}`,
+      source: `Livro v0.5, ${o.section}`,
       description: html(originIntro(o.section)),
       system: {
         grants,
@@ -178,6 +186,14 @@ function origins() {
 /* Antecedentes (20)                                                   */
 /* ------------------------------------------------------------------ */
 
+/** Antecedentes que dão treino em veículos (livro 4.7). */
+const BACKGROUND_VEHICLES = {
+  'piloto-de-transporte': ['light', 'medium', 'heavy'],
+  mecanico: ['light', 'medium'],
+  mercenario: ['medium', 'heavy']
+};
+const VEHICLE_NAMES = { light: 'Leves', medium: 'Médios', heavy: 'Pesados', mecha: 'Mechas' };
+
 function backgrounds() {
   return book.table('5').rows.map((row) => {
     const n = Number(row[0]);
@@ -190,9 +206,9 @@ function backgrounds() {
       identifier: slug(name),
       img: ICON('background'),
       sort: n * 100,
-      source: 'Livro v0.3, 5',
-      description: html(`**Conhecimento:** ${knowledge}`),
-      system: { knowledge, contactPrompt: 'Quem você conhece na cidade?', rollIndex: n, highlight }
+      source: 'Livro v0.5, 5',
+      description: html(`**Conhecimento:** ${knowledge}`) + (BACKGROUND_VEHICLES[slug(name)] ? html(`**Treino em veículos:** ${BACKGROUND_VEHICLES[slug(name)].map((v) => VEHICLE_NAMES[v]).join(', ')} (livro 4.7).`) : ''),
+      system: { knowledge, contactPrompt: 'Quem você conhece na cidade?', rollIndex: n, highlight, vehicles: BACKGROUND_VEHICLES[slug(name)] ?? [] }
     });
   });
 }
@@ -202,9 +218,9 @@ function backgrounds() {
 /* ------------------------------------------------------------------ */
 
 const REACTIONS = {
-  controle: { police: 2, execs: 2, citizens: 1, gangs: -1, blackMarket: -1, cults: -1, punks: -2, syntheticsFree: -1 },
-  sobrevivencia: { police: 0, execs: 0, citizens: 0, gangs: 1, blackMarket: 2, cults: 0, punks: 0, syntheticsFree: 0 },
-  liberdade: { police: -2, execs: -2, citizens: -1, gangs: 1, blackMarket: 0, cults: 1, punks: 2, syntheticsFree: 2 }
+  controle: { police: 2, execs: 2, citizens: 1, gangs: -1, blackMarket: -1, cults: -1, punks: -2, syntheticsFree: -1, mercenaries: 0 },
+  sobrevivencia: { police: 0, execs: 0, citizens: 0, gangs: 1, blackMarket: 2, cults: 0, punks: 0, syntheticsFree: 0, mercenaries: 1 },
+  liberdade: { police: -2, execs: -2, citizens: -1, gangs: 1, blackMarket: 0, cults: 1, punks: 2, syntheticsFree: 2, mercenaries: 0 }
 };
 const MAPS_TO = { controle: 'order', sobrevivencia: 'neutral', liberdade: 'chaos' };
 
@@ -218,7 +234,7 @@ function alignments() {
       identifier: a.id,
       img: ICON(`alignment-${a.id}`),
       sort: (i + 1) * 100,
-      source: 'Livro v0.3, 6',
+      source: 'Livro v0.5, 6',
       description: html(`${plain(row[2])} (equivale a ${plain(row[1])} no Shadowdark).`),
       system: {
         mapsTo: MAPS_TO[a.id],

@@ -74,7 +74,7 @@ async function handle(message, action, button) {
       const targets = targetActors((dmg.lines ?? []).map((l) => l.uuid).filter(Boolean));
       if (!targets.length) return notify('warn', 'Warn.NoTarget');
       const nonlethal = !!button.closest('.sn-card')?.querySelector('input[name="nonlethal"]')?.checked;
-      for (const a of targets) await dealDamage(a, total, { type: dmg.type, nonlethal });
+      for (const a of targets) await dealDamage(a, total, { type: dmg.type, nonlethal, heavy: !!dmg.heavy });
       return;
     }
     case 'applyHealing': {

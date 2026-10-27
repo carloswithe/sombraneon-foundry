@@ -308,3 +308,11 @@
   .sombraneon .sn-grid-2 { grid-template-columns: 1fr; }
   .sombraneon .sn-header { flex-direction: column; }
 }
+
+/* Veículos treinados e texto formatado de NPC */
+.sombraneon .sn-vehicles { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 8px; }
+.sombraneon .sn-vehicles .sn-label { margin-right: 4px; }
+.sombraneon .sn-vehicles .sn-chip-btn:disabled { opacity: 1; cursor: default; }
+.sombraneon .sn-vehicles .sn-chip-btn:not(.sn-active) { color: var(--sn-dim); }
+.sombraneon .sn-rich p { margin: 0 0 4px; }
+.sombraneon details > summary { cursor: pointer; }

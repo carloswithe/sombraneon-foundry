@@ -55,10 +55,17 @@ export class SNNpcSheet extends SNSheetMixin(ActorSheetV2) {
     return {
       ...context,
       attacks: sys.attackLines.map((a, i) => ({ ...a, index: i, bonusText: signed(a.bonus), editable: a.id.startsWith('npc-'), rangeLabel: t(`Range.${a.range}`) })),
+      moraleKinds: Object.keys(SN.moraleKinds).map((k) => ({ value: k, label: t(`Morale.Kind.${k}`), selected: sys.morale.kind === k })),
       traits: await this.enrich(sys.traits),
       loot: await this.enrich(sys.loot),
       hasLoot: !!sys.loot
     };
+  }
+
+  async _onChangeAction(action, event, input) {
+    if (action !== 'moraleKind') return;
+    const cd = SN.moraleKinds[input.value];
+    return this.document.update({ 'system.morale.kind': input.value, 'system.morale.enabled': cd !== null, ...(cd !== null ? { 'system.morale.cd': cd } : {}) });
   }
 
   async _dropItem(item) {

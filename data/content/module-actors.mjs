@@ -55,6 +55,8 @@ const MACROS = [
   ['Nova invasão', 'newRun()', 'Mestre'],
   ['Reação de facção', 'reaction()', 'Mestre'],
   ['Gerador de Rede', 'rollNetwork()', 'Mestre'],
+  ['Gerador de missão', 'rollMission()', 'Mestre'],
+  ['Encontro por local', 'rollEncounter()', 'Mestre'],
   ['Objetivos do grupo', 'rollGroupGoals()', 'Mestre'],
   ['Teste rápido de grupo', 'groupCheck()', 'Mestre'],
   ['Teste de moral', 'moraleCheck()', 'Mestre'],

@@ -31,15 +31,16 @@ const DETAILS = {
     list('system.casting.extraAtLevels'),
     check('system.casting.tierMaxByLevel'),
     text('system.talentTable'),
-    list('system.talentLevels')
+    list('system.talentLevels'),
+    list('system.vehicles')
   ],
   origin: () => [number('system.extraTalents'), number('system.cyberAdjust'), check('system.cyberAdvantage')],
-  background: () => [text('system.knowledge'), text('system.contactPrompt'), number('system.rollIndex'), check('system.highlight')],
+  background: () => [text('system.knowledge'), text('system.contactPrompt'), number('system.rollIndex'), check('system.highlight'), list('system.vehicles')],
   alignment: () => [
     text('system.mapsTo'),
     text('system.summary'),
     text('system.edgeTriggerTable'),
-    ...['police', 'execs', 'citizens', 'gangs', 'blackMarket', 'cults', 'punks', 'syntheticsFree'].map((k) => number(`system.reaction.${k}`))
+    ...['police', 'execs', 'citizens', 'gangs', 'blackMarket', 'cults', 'punks', 'syntheticsFree', 'mercenaries'].map((k) => number(`system.reaction.${k}`))
   ],
   feature: () => [
     select('system.kind', opt(['class', 'origin', 'talent', 'mutation', 'edge-trigger', 'background', 'other'], 'Feature.Kind')),
@@ -54,7 +55,7 @@ const DETAILS = {
     select('system.kind', opt(['melee', 'ranged'], 'Weapon.Kind')),
     select('system.family', opt(FAMILIES, 'Family')),
     text('system.damage'),
-    select('system.range', opt(['close', 'near', 'far'], 'Range')),
+    select('system.range', opt(['close', 'near', 'far', 'distant'], 'Range')),
     number('system.hands'),
     number('system.slots'),
     number('system.price'),
@@ -64,6 +65,8 @@ const DETAILS = {
     select('system.stunOn', [{ value: '', label: '-' }, ...opt(['hit', 'nat20'], 'Stun')]),
     check('system.usesMagazines'),
     select('system.abilityOverride', [{ value: '', label: t('Fields.auto') }, ...opt(['for', 'des'], 'Abilities')]),
+    text('system.mount'),
+    number('system.crew'),
     check('system.equipped')
   ],
   armor: () => [
@@ -85,9 +88,21 @@ const DETAILS = {
     number('system.bonus'),
     number('system.uses.max'),
     number('system.uses.value'),
+    select('system.vehicle.category', [{ value: '', label: '-' }, ...opt(SN.vehicleCategories, 'Vehicle.Category')]),
+    select('system.vehicle.terrain', [{ value: '', label: '-' }, ...opt(SN.vehicleTerrains, 'Vehicle.Terrain')]),
     text('system.vehicle.passengers'),
     number('system.vehicle.ac'),
     number('system.vehicle.hp'),
+    number('system.vehicle.bl'),
+    number('system.vehicle.maneuver'),
+    text('system.vehicle.speed'),
+    number('system.vehicle.cargo'),
+    text('system.vehicle.hardpoints'),
+    text('system.vehicle.license'),
+    text('system.vehicle.size'),
+    number('system.vehicle.strength'),
+    text('system.vehicle.strike'),
+    number('system.vehicle.extraSlots'),
     text('system.vehicle.notes'),
     number('system.module.ac'),
     text('system.module.effect')

@@ -15,6 +15,7 @@
   {{/each}}
   {{#if critical}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.CritDamage'}}</p>{{/if}}
   {{#if ignoreArmor}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Prop.ignoreArmor'}} {{ignoreArmor}}</p>{{/if}}
+  {{#if heavy}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.HeavyIgnoresBl'}}</p>{{/if}}
   {{#if save}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.Save' ability=save.ability cd=save.cd}}{{#if save.half}} ({{localize 'SOMBRANEON.Rolls.HalfOnSave'}}){{/if}}</p>{{/if}}
   {{#unless healing}}<label class="sn-check"><input type="checkbox" name="nonlethal"> {{localize 'SOMBRANEON.Rolls.Nonlethal'}}</label>{{/unless}}
 </div>

@@ -1,13 +1,13 @@
 # SombraNeon para Foundry VTT
 
-RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.3 em `docs/sombraneon.md`).
+RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.5 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
 
 Dois pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
-| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas, armaduras, equipamento, implantes, veículos, ICE, fichas prontas e macros. |
+| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 64 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas e macros. |
 
 ## Instalação
 
@@ -31,7 +31,9 @@ Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndi
 - **Seletores:** origem, classe, antecedente, alinhamento e gatilho de Edge preenchem habilidades, dado de vida, proficiências e conjuração.
 - **Arrastar e soltar:** solte armas, armaduras, equipamento, implantes, programas, protocolos e Sets do compêndio em qualquer lugar da ficha. A compra segue a configuração "Compra ao soltar itens".
 - **Ataques:** cada arma equipada, implante com arma, arma natural e o desarmado viram linhas com bônus e dano calculados. Clique ataca, Ctrl ou Alt abre as opções.
-- **Mestre:** macros no compêndio do módulo (descanso em grupo, dar Edge, Alerta, gerador de Rede, reação de facção, moral e iniciativa por grupo).
+- **Mestre:** macros no compêndio do módulo (descanso em grupo, dar Edge, Alerta, gerador de Rede, gerador de missão, encontro por local, reação de facção, moral e iniciativa por grupo).
+- **Ameaças:** os NPCs do compêndio trazem NA, CA, HP, Blindagem (BL), Moral e ataques prontos. A BL reduz o dano de armas comuns; armas com a propriedade Pesada (e explosões) ignoram. Moral Fanática ou "Sem medo" desliga o teste de moral.
+- **Veículos:** a ficha mostra os veículos treinados (classe, antecedente e treino pago). Veículos, mechas, exoesqueletos e módulos são itens do módulo, com todos os números do compêndio; pilotagem e perseguição são rolagens manuais (d20 + DES + Manobra).
 
 ## Desenvolvimento
 

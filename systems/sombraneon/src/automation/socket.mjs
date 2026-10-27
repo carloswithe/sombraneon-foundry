@@ -8,10 +8,10 @@ const TIMEOUT = 10000;
  * O executor revalida tudo e responde com o mesmo requestId.
  */
 export const HANDLERS = {
-  async applyDamage({ uuid, amount, type, nonlethal }) {
+  async applyDamage({ uuid, amount, type, nonlethal, heavy }) {
     const actor = await resolveActor(uuid);
     if (!actor) return { ok: false };
-    return { ok: true, applied: await actor.applyDamage(amount, { type, nonlethal }) };
+    return { ok: true, applied: await actor.applyDamage(amount, { type, nonlethal, heavy }) };
   },
   async applyHealing({ uuid, amount }) {
     const actor = await resolveActor(uuid);

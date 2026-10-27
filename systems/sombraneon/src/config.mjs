@@ -1,5 +1,5 @@
 /**
- * Constantes de regra do SombraNeon (livro v0.3). Sem dependência do Foundry.
+ * Constantes de regra do SombraNeon (livro v0.5). Sem dependência do Foundry.
  */
 export const SN = {
   id: 'sombraneon',
@@ -17,7 +17,7 @@ export const SN = {
     [16, 17, 3],
     [18, 99, 4]
   ],
-  ranges: { close: '1,5 m', near: '9 m', far: 'linha de visão' },
+  ranges: { close: '1,5 m', near: '9 m', far: 'linha de visão', distant: 'além da linha de visão' },
   maxLevel: 10,
   implantSlots: ['neural', 'body', 'arms', 'legs'],
   implantQualities: { street: 300, corp: 1000, military: 3000 },
@@ -42,12 +42,16 @@ export const SN = {
     'interact-machines', 'resist-injury', 'resist-poison', 'resist-disease', 'resist-chrome', 'disarm',
     'stay-connected', 'perform', 'fame', 'ambush', 'strength-arms', 'avoid-knockdown'
   ],
-  factions: ['police', 'execs', 'citizens', 'gangs', 'blackMarket', 'cults', 'punks', 'syntheticsFree'],
+  factions: ['police', 'execs', 'citizens', 'gangs', 'blackMarket', 'cults', 'punks', 'syntheticsFree', 'mercenaries'],
   reaction: {
-    controle: { police: 2, execs: 2, citizens: 1, gangs: -1, blackMarket: -1, cults: -1, punks: -2, syntheticsFree: -1 },
-    sobrevivencia: { police: 0, execs: 0, citizens: 0, gangs: 1, blackMarket: 2, cults: 0, punks: 0, syntheticsFree: 0 },
-    liberdade: { police: -2, execs: -2, citizens: -1, gangs: 1, blackMarket: 0, cults: 1, punks: 2, syntheticsFree: 2 }
+    controle: { police: 2, execs: 2, citizens: 1, gangs: -1, blackMarket: -1, cults: -1, punks: -2, syntheticsFree: -1, mercenaries: 0 },
+    sobrevivencia: { police: 0, execs: 0, citizens: 0, gangs: 1, blackMarket: 2, cults: 0, punks: 0, syntheticsFree: 0, mercenaries: 1 },
+    liberdade: { police: -2, execs: -2, citizens: -1, gangs: 1, blackMarket: 0, cults: 1, punks: 2, syntheticsFree: 2, mercenaries: 0 }
   },
+  vehicleCategories: ['light', 'medium', 'heavy', 'mecha'],
+  vehicleTerrains: ['land', 'air', 'water'],
+  vehicleLicenses: ['C', 'R', 'M', 'I'],
+  moraleKinds: { weak: 18, normal: 15, firm: 12, fanatic: null },
   statuses: [
     'dead', 'unconscious', 'dying', 'stunned', 'blind', 'immobile', 'sick', 'frightened', 'surprised',
     'immersed', 'prone', 'invisible', 'tremor'

@@ -31,6 +31,7 @@ export class ClassData extends ItemDataBase {
       }),
       talentTable: str(),
       talentLevels: numArray(),
+      vehicles: strArray(),
       grants: grants(),
       startingPackage: new (f().ArrayField)(new (f().SchemaField)({ ref: str(), qty: int(1) }), { required: true, initial: () => [] }),
       modifiers: modifiers(),
@@ -61,7 +62,8 @@ export class BackgroundData extends ItemDataBase {
       knowledge: str(),
       contactPrompt: str(),
       rollIndex: int(0),
-      highlight: bool(false)
+      highlight: bool(false),
+      vehicles: strArray()
     };
   }
 }
@@ -81,7 +83,8 @@ export class AlignmentData extends ItemDataBase {
         blackMarket: int(0),
         cults: int(0),
         punks: int(0),
-        syntheticsFree: int(0)
+        syntheticsFree: int(0),
+        mercenaries: int(0)
       })
     };
   }
@@ -127,6 +130,8 @@ export class WeaponData extends ItemDataBase {
       usesMagazines: bool(false),
       magEmpty: bool(false),
       abilityOverride: str(),
+      mount: str(),
+      crew: int(0),
       equipped: bool(false)
     };
   }
@@ -159,7 +164,24 @@ export class GearData extends ItemDataBase {
       price: int(0),
       bonus: int(0),
       uses: usesSchema(),
-      vehicle: new (f().SchemaField)({ passengers: str(), ac: int(0), hp: int(0), notes: str() }),
+      vehicle: new (f().SchemaField)({
+        category: str(),
+        terrain: str(),
+        passengers: str(),
+        ac: int(0),
+        hp: int(0),
+        bl: int(0, { min: 0 }),
+        maneuver: int(0),
+        speed: str(),
+        cargo: int(0),
+        hardpoints: str(),
+        license: str(),
+        size: str(),
+        strength: int(0),
+        strike: str(),
+        extraSlots: int(0),
+        notes: str()
+      }),
       module: new (f().SchemaField)({ ac: int(0), effect: str() })
     };
   }

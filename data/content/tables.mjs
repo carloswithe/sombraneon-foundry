@@ -6,7 +6,7 @@ import { classList, alignmentList, talentSlots } from './features.mjs';
  * ou texto. Ver docs/spec/05, seção 7.
  */
 
-const table = ({ identifier, name, formula, results, flags = {}, folder = null }) => ({
+export const table = ({ identifier, name, formula, results, flags = {}, folder = null }) => ({
   identifier,
   name,
   type: 'RollTable',
@@ -23,7 +23,7 @@ const table = ({ identifier, name, formula, results, flags = {}, folder = null }
 const single = (n) => [n, n];
 
 /** Resultado de texto com título opcional (negrito do livro). */
-function textResult(range, cell) {
+export function textResult(range, cell) {
   const [title, rest] = splitBold(cell);
   const hasTitle = /^\*\*/.test(cell.trim());
   return hasTitle ? { range, name: title, text: rest } : { range, name: '', text: cell };
@@ -123,6 +123,19 @@ function tables() {
   );
 
   out.push(simpleTable('gerador-de-rede', 'Gerador de Rede', '1d6', '9.6', 0, 'Hacking'));
+
+  // Capítulo 10: geradores de missão e Farra
+  const missionRows = (n, titled) =>
+    book.section('10.2').tables[n].rows.map((row) => ({
+      range: single(Number(row[0])),
+      ...(titled ? { name: plain(row[1]), text: plain(row[2]) } : textResult(single(Number(row[0])), row[1]))
+    }));
+  out.push(table({ identifier: 'missao-contratante', name: 'Missão: contratante', formula: '1d6', folder: 'Missões', results: missionRows(0, true) }));
+  out.push(table({ identifier: 'missao-tipo', name: 'Missão: tipo e Prêmio', formula: '1d12', folder: 'Missões', results: missionRows(1, true) }));
+  out.push(table({ identifier: 'missao-local', name: 'Missão: local', formula: '1d8', folder: 'Missões', results: missionRows(2) }));
+  out.push(table({ identifier: 'missao-complicacao', name: 'Missão: complicação', formula: '1d8', folder: 'Missões', results: missionRows(3) }));
+  const farra = book.section('10.5').tables.find((t) => t.header[0] === 'd6');
+  out.push(table({ identifier: 'farra', name: 'Farra (regra opcional)', formula: '1d6', folder: 'Missões', results: farra.rows.map((row) => textResult(single(Number(row[0])), row[1])) }));
   return out;
 }
 

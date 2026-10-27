@@ -93,6 +93,8 @@ const ICONS = {
   'gear-cable': ['cable', CYAN],
   'gear-vehicle': ['car', CYAN],
   'gear-drone-module': ['drone', GRN],
+  'gear-vehicle-module': ['gear', MAG],
+  'gear-explosive': ['flame', YEL],
   weapon: ['blade', MAG],
   gear: ['box', CYAN],
   implant: ['chip', CYAN],

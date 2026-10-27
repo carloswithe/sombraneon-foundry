@@ -36,7 +36,7 @@ const familyChoice = { key: 'family', kind: 'weaponFamily', options: FAMILIES };
 /* ------------------------------------------------------------------ */
 
 const T = (section, name) => book.bullet(section, name);
-const CLASS_SRC = (n) => `Livro v0.3, ${n}`;
+const CLASS_SRC = (n) => `Livro v0.5, ${n}`;
 
 function classFeatures() {
   const out = [];
@@ -103,6 +103,8 @@ function classFeatures() {
   add('Rigger', '4.6', 'Link', {});
   add('Rigger', '4.6', 'Batedor', { modifiers: [F('initiative.advantage'), ADV('check.ambush')] });
   add('Rigger', '4.6', 'Condutor', { modifiers: [ADV('check.piloting')] });
+  add('Rigger', '4.6', 'Interface veicular', {});
+  add('Rigger', '4.6', 'Mecânico de campo', {});
   return out;
 }
 
@@ -193,7 +195,7 @@ function mutations() {
       name,
       kind: 'mutation',
       text,
-      source: 'Livro v0.3, 3.4',
+      source: 'Livro v0.5, 3.4',
       folder: 'Mutações do Biomod',
       sort: (i + 1) * 100,
       flags: { mutationRoll: n },
@@ -310,7 +312,7 @@ function talents() {
       identifier: 'escolha-livre',
       kind: 'talent',
       text: 'Resultado 12 da tabela de talentos: escolha qualquer talento da tabela da sua classe ou +2 pontos de atributo, divididos como quiser.',
-      source: 'Livro v0.3, 4 (tabelas de talentos)',
+      source: 'Livro v0.5, 4 (tabelas de talentos)',
       folder: 'Talentos: Genéricos',
       sort,
       automation: 'talent-free-choice',
@@ -321,7 +323,7 @@ function talents() {
       identifier: 'ajuste-de-atributo',
       kind: 'talent',
       text: '+2 pontos de atributo, divididos como você quiser (resultado 12 da tabela de talentos). Os modificadores são preenchidos ao criar o talento.',
-      source: 'Livro v0.3, 4 (tabelas de talentos)',
+      source: 'Livro v0.5, 4 (tabelas de talentos)',
       folder: 'Talentos: Genéricos',
       sort: sort + 100,
       stackable: true
@@ -350,7 +352,7 @@ function edgeTriggers() {
           name,
           kind: 'edge-trigger',
           text,
-          source: 'Livro v0.3, 6.1',
+          source: 'Livro v0.5, 6.1',
           folder: `Gatilhos: ${al.label}`,
           sort: (i + 1) * 100,
           identifier: `gatilho-${slug(name)}`,

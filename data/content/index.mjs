@@ -5,6 +5,7 @@ import { tableDocs } from './tables.mjs';
 import { journalDoc } from './journal.mjs';
 import { weaponItems, armorItems, gearItems, vehicleItems, implantItems } from './module-items.mjs';
 import { iceActors, macroDocs, pregenActors } from './module-actors.mjs';
+import { threatActors, extraIceActors, vehiclePackItems, companionWeapons, explosiveItems, masterTableDocs, referenceJournals } from './companions.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -20,13 +21,16 @@ export const PACKS = [
   { scope: 'system', name: 'tabelas', label: 'Tabelas', docType: 'RollTable', docs: tableDocs },
   { scope: 'system', name: 'regras', label: 'Livro de Regras', docType: 'JournalEntry', docs: [journalDoc] },
 
-  { scope: 'module', name: 'armas', label: 'Armas', docType: 'Item', docs: weaponItems },
+  { scope: 'module', name: 'armas', label: 'Armas', docType: 'Item', docs: [...weaponItems, ...companionWeapons] },
   { scope: 'module', name: 'armaduras', label: 'Armaduras', docType: 'Item', docs: armorItems },
-  { scope: 'module', name: 'equipamento', label: 'Equipamento', docType: 'Item', docs: gearItems },
+  { scope: 'module', name: 'equipamento', label: 'Equipamento', docType: 'Item', docs: [...gearItems, ...explosiveItems] },
   { scope: 'module', name: 'implantes', label: 'Implantes (Cromo)', docType: 'Item', docs: implantItems },
-  { scope: 'module', name: 'veiculos', label: 'Veículos e Drones', docType: 'Item', docs: vehicleItems },
-  { scope: 'module', name: 'ice', label: 'ICE', docType: 'Actor', docs: iceActors },
+  { scope: 'module', name: 'veiculos', label: 'Veículos, Mechas e Drones', docType: 'Item', docs: [...vehicleItems, ...vehiclePackItems] },
+  { scope: 'module', name: 'ice', label: 'ICE e Malware', docType: 'Actor', docs: [...iceActors, ...extraIceActors] },
+  { scope: 'module', name: 'ameacas', label: 'Ameaças', docType: 'Actor', docs: threatActors },
   { scope: 'module', name: 'fichas-prontas', label: 'Fichas Prontas', docType: 'Actor', docs: pregenActors },
+  { scope: 'module', name: 'tabelas-do-mestre', label: 'Tabelas do Mestre', docType: 'RollTable', docs: masterTableDocs },
+  { scope: 'module', name: 'referencias', label: 'Compêndios de Referência', docType: 'JournalEntry', docs: referenceJournals },
   { scope: 'module', name: 'macros', label: 'Macros', docType: 'Macro', docs: macroDocs }
 ];
 
@@ -36,16 +40,19 @@ export const EXPECTED_COUNTS = {
   origens: 4,
   antecedentes: 20,
   alinhamentos: 3,
-  caracteristicas: 99,
+  caracteristicas: 101,
   programas: 45,
-  tabelas: 17,
+  tabelas: 22,
   regras: 1,
-  armas: 12,
+  armas: 37,
   armaduras: 3,
-  equipamento: 18,
+  equipamento: 26,
   implantes: 28,
-  veiculos: 7,
-  ice: 5,
+  veiculos: 58,
+  ice: 17,
+  ameacas: 64,
+  referencias: 2,
+  'tabelas-do-mestre': 17,
   'fichas-prontas': 6,
-  macros: 10
+  macros: 12
 };
