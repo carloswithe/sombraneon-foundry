@@ -50,12 +50,12 @@ export class SNActor extends Actor {
 
   prepareDerivedData() {
     super.prepareDerivedData();
-    if (this.type === 'character') this.#prepareCharacter();
-    else if (this.type === 'drone') this.#prepareDrone();
-    else if (this.type === 'npc') this.#prepareNpc();
+    if (this.type === 'character') this._prepareCharacter();
+    else if (this.type === 'drone') this._prepareDrone();
+    else if (this.type === 'npc') this._prepareNpc();
   }
 
-  #prepareCharacter() {
+  _prepareCharacter() {
     const sys = this.system;
     const d = this.computeCharacter();
     this._sn = d;
@@ -84,7 +84,7 @@ export class SNActor extends Actor {
     sys.warnings = d.warnings;
   }
 
-  #prepareNpc() {
+  _prepareNpc() {
     const sys = this.system;
     sys.attackLines = sys.attacks.map((a, i) => ({ ...a, id: `npc-${i}` }));
     for (const w of this.items.filter((i) => i.type === 'weapon')) {
@@ -99,7 +99,7 @@ export class SNActor extends Actor {
     }
   }
 
-  #prepareDrone() {
+  _prepareDrone() {
     const sys = this.system;
     const owner = uuidSync(sys.ownerUuid);
     const d = owner?.type === 'character' ? owner._sn ?? owner.computeCharacter() : null;

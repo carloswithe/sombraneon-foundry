@@ -13,7 +13,7 @@
           {{#if editing}}<input type="number" name="system.xp.value" value="{{xp.value}}" min="0">{{else}}<strong>{{xp.value}}</strong>{{/if}}
           <span class="sn-xp-next">/ {{#if xp.next}}{{xp.next}}{{else}}-{{/if}}</span>
           <div class="sn-bar sn-xp"><span style="width:{{xp.pct}}%"></span></div>
-          {{#if xp.ready}}<button type="button" class="sn-btn sn-primary" data-action="levelUp">{{localize 'SOMBRANEON.Sheet.LevelUp'}}</button>{{/if}}
+          {{#if xp.canLevel}}<button type="button" class="sn-btn {{#if xp.ready}}sn-primary{{else}}sn-disabled{{/if}}" data-action="levelUp" title="{{localize 'SOMBRANEON.Sheet.LevelUpHint'}}">{{localize 'SOMBRANEON.Sheet.LevelUp'}}</button>{{/if}}
         </div>
       </div>
 

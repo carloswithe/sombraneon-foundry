@@ -316,3 +316,4 @@
 .sombraneon .sn-vehicles .sn-chip-btn:not(.sn-active) { color: var(--sn-dim); }
 .sombraneon .sn-rich p { margin: 0 0 4px; }
 .sombraneon details > summary { cursor: pointer; }
+.sombraneon .sn-btn.sn-disabled { opacity: 0.6; }

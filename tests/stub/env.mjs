@@ -222,6 +222,8 @@ class Actor extends FakeDocument {
     this.items = new Collection();
     this.sheet = { render() {} };
     this._rawItems = data.items ?? [];
+    // como o Foundry: os derivados são preparados dentro do construtor, antes de a classe filha existir por completo
+    this.prepareData();
   }
   /** Chamado após construir a classe filha (precisa de SNItem). */
   loadItems(ItemClass) {

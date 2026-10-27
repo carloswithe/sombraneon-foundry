@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-10-27
+
+### Corrigido
+- Fichas de ameaças, fichas prontas e outros atores dos compêndios não abriam, e fichas recém-criadas ficavam sem os valores derivados (HP, CA, slots, XP). Causa: o ator usava métodos privados que o Foundry chama durante a construção do documento (erro `Receiver must be an instance of class SNActor`). Trocados por métodos comuns, e o ambiente de testes agora reproduz essa ordem de construção.
+- O botão Subir de nível agora aparece sempre (esmaecido enquanto falta XP). Antes só aparecia com o XP completo, então parecia que a mecânica não existia. O Mestre pode subir de nível a qualquer momento.
+
 ## [0.2.0] - 2026-10-27
 
 Atualização para o livro v0.5 e os dois compêndios companheiros.

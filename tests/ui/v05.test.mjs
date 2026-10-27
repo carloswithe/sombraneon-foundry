@@ -205,3 +205,36 @@ describe('fichas dos compêndios companheiros renderizam sem erro', () => {
     }
   });
 });
+
+describe('fichas novas e subir de nível', () => {
+  it('uma ficha em branco já nasce com os derivados preparados', () => {
+    const a = E.blank();
+    expect(a.system.xp.next).toBe(10);
+    expect(a.sn).not.toBeNull();
+  });
+
+  it('o botão Subir de nível aparece mesmo sem XP suficiente', async () => {
+    const { default: Handlebars } = await import('handlebars');
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const { ROOT } = await import('../../tools/lib/book.mjs');
+    const a = E.blank();
+    const sheet = new M.sheets.SNCharacterSheet({ document: a });
+    const ctx = await sheet._prepareContext({});
+    expect(ctx.xp.ready).toBe(false);
+    const html = Handlebars.compile(fs.readFileSync(path.join(ROOT, 'systems/sombraneon/templates/actor/character.hbs'), 'utf8'))(ctx);
+    expect(html).toContain('data-action="levelUp"');
+    expect(html).toContain('sn-disabled" data-action="levelUp"');
+  });
+
+  it('documentos do sistema não usam membros privados (o Foundry prepara os dados dentro do construtor)', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const { ROOT } = await import('../../tools/lib/book.mjs');
+    const dir = path.join(ROOT, 'systems/sombraneon/src/documents');
+    for (const f of fs.readdirSync(dir)) {
+      const src = fs.readFileSync(path.join(dir, f), 'utf8');
+      expect(/(^|[^\w'"`/])#[a-zA-Z_]\w*/m.exec(src)?.[0], f).toBeUndefined();
+    }
+  });
+});

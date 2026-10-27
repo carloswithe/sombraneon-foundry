@@ -431,7 +431,7 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
     const edge = { value: sys.edge.value, max: sys.edge.max, pips: Array.from({ length: sys.edge.max }, (_, i) => ({ on: i < sys.edge.value })), canClaim: !!trigger && sys.edge.value < sys.edge.max && !sys.edge.triggerUsed };
 
     const slots = { used: sys.slots.used, max: sys.slots.max, over: sys.slots.over, tooltip: partsTooltip(sys.slots.parts) };
-    const xp = { value: sys.xp.value, next: sys.xp.next, ready: sys.xp.ready, pct: sys.xp.next ? Math.min(100, Math.round((sys.xp.value / sys.xp.next) * 100)) : 100 };
+    const xp = { value: sys.xp.value, next: sys.xp.next, ready: sys.xp.ready, canLevel: sys.level < SN.maxLevel, pct: sys.xp.next ? Math.min(100, Math.round((sys.xp.value / sys.xp.next) * 100)) : 100 };
 
     const warnings = sn.warnings
       .filter((w) => !(w.code === 'noProficiency' && safeSetting('proficiencyPenalty', 'warn') === 'none'))

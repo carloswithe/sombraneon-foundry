@@ -572,6 +572,7 @@ const L = {
     CivilName: 'Nome civil',
     Level: 'Nível',
     LevelUp: 'Subir de nível',
+    LevelUpHint: 'Sobe um nível quando o XP chega ao necessário. O Mestre pode subir a qualquer momento.',
     Drive: 'Drive',
     DrivePlaceholder: 'Objetivo pessoal',
     Wizard: 'Assistente de criação',
