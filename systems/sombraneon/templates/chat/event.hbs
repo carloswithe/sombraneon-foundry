@@ -1,0 +1,7 @@
+<div class="sombraneon sn-card">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{title}}</h3>{{#if actorName}}<span>{{actorName}}</span>{{/if}}</div>
+  </header>
+  {{#each lines}}<p>{{this}}</p>{{/each}}
+</div>

@@ -1,0 +1,50 @@
+<form class="sn-sheet-body sn-compact" autocomplete="off">
+  <header class="sn-header sn-header-compact">
+    <div class="sn-portrait"><img src="{{actor.img}}" alt="" data-action="editImage" data-edit="img"></div>
+    <div class="sn-ident">
+      <input class="sn-name" type="text" name="name" value="{{actor.name}}">
+      <div class="sn-row">
+        <label>{{localize 'SOMBRANEON.Sheet.Level'}}<input type="number" name="system.level" value="{{system.level}}" min="0"></label>
+        <label>HP<input type="number" name="system.hp.value" value="{{system.hp.value}}"> / <input type="number" name="system.hp.max" value="{{system.hp.max}}"></label>
+        <label>{{localize 'SOMBRANEON.Sheet.AC'}}<input type="number" name="system.ac" value="{{system.ac}}"></label>
+        <label>{{localize 'SOMBRANEON.Sheet.Initiative'}}<input type="number" name="system.initiative" value="{{system.initiative}}"></label>
+      </div>
+    </div>
+  </header>
+  <section class="sn-scroll">
+    <div class="sn-panel">
+      <h3>{{localize 'SOMBRANEON.Sheet.Attacks'}}
+        <button type="button" class="sn-chip-btn" data-action="rollInit">{{localize 'SOMBRANEON.Sheet.Initiative'}}</button>
+        <button type="button" class="sn-chip-btn" data-action="addAttack">{{localize 'SOMBRANEON.Npc.AddAttack'}}</button>
+      </h3>
+      {{#each attacks}}
+      <div class="sn-npc-attack">
+        {{#if editable}}
+        <input type="text" data-array-field="name" data-array="system.attacks" data-index="{{index}}" value="{{name}}">
+        <input type="number" data-array-field="bonus" data-array="system.attacks" data-index="{{index}}" value="{{bonus}}">
+        <input type="text" data-array-field="damage" data-array="system.attacks" data-index="{{index}}" value="{{damage}}">
+        <select data-array-field="range" data-array="system.attacks" data-index="{{index}}">
+          {{#each (array 'close' 'near' 'far')}}<option value="{{this}}" {{#if (eq this ../range)}}selected{{/if}}>{{localize (concat 'SOMBRANEON.Range.' this)}}</option>{{/each}}
+        </select>
+        <button type="button" class="sn-icon sn-danger" data-action="removeAttack" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button>
+        {{else}}
+        <strong>{{name}}</strong><span class="sn-mono">{{bonusText}}</span><span class="sn-mono">{{damage}}</span><span>{{rangeLabel}}</span>
+        {{/if}}
+        <button type="button" class="sn-btn sn-primary" data-action="rollAttack" data-attack-id="{{id}}">{{localize 'SOMBRANEON.Attack.Roll'}}</button>
+      </div>
+      {{/each}}
+      {{#unless attacks.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Npc.NoAttacks'}}</p>{{/unless}}
+    </div>
+    <div class="sn-panel">
+      <h3>{{localize 'SOMBRANEON.Morale.Title'}} <button type="button" class="sn-chip-btn" data-action="moraleCheck">{{localize 'SOMBRANEON.Morale.Roll'}}</button></h3>
+      <div class="sn-row">
+        <label class="sn-check"><input type="checkbox" name="system.morale.enabled" {{#if system.morale.enabled}}checked{{/if}}> {{localize 'SOMBRANEON.Morale.Enabled'}}</label>
+        <label>{{localize 'SOMBRANEON.Bonus'}}<input type="number" name="system.morale.mod" value="{{system.morale.mod}}"></label>
+        <label>CD<input type="number" name="system.morale.cd" value="{{system.morale.cd}}"></label>
+      </div>
+    </div>
+    <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Npc.Traits'}}</h3><textarea name="system.traits" rows="4">{{system.traits}}</textarea></div>
+    <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Npc.Loot'}}</h3><textarea name="system.loot" rows="3">{{system.loot}}</textarea>
+      <label>{{localize 'SOMBRANEON.Sheet.Credits'}}<input type="number" name="system.credits" value="{{system.credits}}" min="0"></label></div>
+  </section>
+</form>

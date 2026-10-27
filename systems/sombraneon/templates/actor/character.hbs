@@ -1,0 +1,481 @@
+<form class="sn-sheet-body" autocomplete="off">
+  <header class="sn-header">
+    <div class="sn-portrait">
+      <img src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img" title="{{localize 'SOMBRANEON.Sheet.ChangeImage'}}">
+    </div>
+    <div class="sn-ident">
+      <div class="sn-row sn-row-top">
+        <input class="sn-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'SOMBRANEON.Sheet.StreetName'}}">
+        <div class="sn-level">
+          <span class="sn-label">{{localize 'SOMBRANEON.Sheet.Level'}}</span>
+          {{#if editing}}<input type="number" name="system.level" value="{{level}}" min="1" max="10">{{else}}<strong>{{level}}</strong>{{/if}}
+          <span class="sn-label">XP</span>
+          {{#if editing}}<input type="number" name="system.xp.value" value="{{xp.value}}" min="0">{{else}}<strong>{{xp.value}}</strong>{{/if}}
+          <span class="sn-xp-next">/ {{#if xp.next}}{{xp.next}}{{else}}-{{/if}}</span>
+          <div class="sn-bar sn-xp"><span style="width:{{xp.pct}}%"></span></div>
+          {{#if xp.ready}}<button type="button" class="sn-btn sn-primary" data-action="levelUp">{{localize 'SOMBRANEON.Sheet.LevelUp'}}</button>{{/if}}
+        </div>
+      </div>
+
+      <div class="sn-selectors">
+        {{#each (array selectors.origin selectors.class selectors.background selectors.alignment) as |s|}}
+        <div class="sn-selector {{#unless s.current}}sn-empty{{/unless}}">
+          <label>{{localize (concat 'SOMBRANEON.Selector.' s.type)}}</label>
+          <div class="sn-selector-row">
+            <select data-change="select{{capitalize s.type}}" {{#unless @root.editable}}disabled{{/unless}}>
+              {{#unless s.current}}<option value="">{{localize (concat 'SOMBRANEON.Selector.Choose.' s.type)}}</option>{{/unless}}
+              {{#each s.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select>
+            {{#if (eq s.type 'background')}}<button type="button" class="sn-icon" data-action="rollBackground" title="{{localize 'SOMBRANEON.Selector.RollD20'}}"><i class="fa-solid fa-dice-d20"></i></button>{{/if}}
+            {{#if s.current}}
+            <button type="button" class="sn-icon" data-action="openInfo" data-type="{{s.type}}" title="{{localize 'SOMBRANEON.Selector.Info'}}"><i class="fa-solid fa-circle-info"></i></button>
+            <button type="button" class="sn-icon sn-danger" data-action="removeSel" data-type="{{s.type}}" title="{{localize 'SOMBRANEON.Selector.Remove'}}"><i class="fa-solid fa-trash"></i></button>
+            {{/if}}
+          </div>
+          {{#if (eq s.type 'background')}}
+          <input type="text" class="sn-custom-bg" data-change="customBackground" placeholder="{{localize 'SOMBRANEON.Selector.CustomBackground'}}" value="{{#if s.custom}}{{s.name}}{{/if}}">
+          {{/if}}
+        </div>
+        {{/each}}
+        <div class="sn-selector {{#unless trigger}}sn-empty{{/unless}}">
+          <label>{{localize 'SOMBRANEON.Selector.trigger'}}</label>
+          <div class="sn-selector-row">
+            <select data-change="selectTrigger" {{#if selectors.trigger.disabled}}disabled{{/if}}>
+              {{#unless trigger}}<option value="">{{localize 'SOMBRANEON.Selector.Choose.trigger'}}</option>{{/unless}}
+              {{#each selectors.trigger.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select>
+            <button type="button" class="sn-icon" data-action="rollTrigger" title="{{localize 'SOMBRANEON.Selector.RollD6'}}" {{#if selectors.trigger.disabled}}disabled{{/if}}><i class="fa-solid fa-dice-d6"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sn-row sn-row-bottom">
+        <label class="sn-drive"><span class="sn-label">{{localize 'SOMBRANEON.Sheet.Drive'}}</span>
+          <input type="text" name="system.details.drive" value="{{system.details.drive}}" placeholder="{{localize 'SOMBRANEON.Sheet.DrivePlaceholder'}}"></label>
+        {{#if wizard}}<button type="button" class="sn-btn sn-pulse" data-action="openWizard"><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize 'SOMBRANEON.Sheet.Wizard'}}</button>{{/if}}
+        <button type="button" class="sn-btn {{#if editing}}sn-active{{/if}}" data-action="toggleEdit" title="{{localize 'SOMBRANEON.Sheet.EditMode'}}"><i class="fa-solid {{#if editing}}fa-lock-open{{else}}fa-lock{{/if}}"></i> {{localize 'SOMBRANEON.Sheet.Edit'}}</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="sn-vitals">
+    <div class="sn-vital sn-hp">
+      <span class="sn-label">HP</span>
+      <div class="sn-hp-bar"><span class="sn-hp-fill sn-{{hp.color}}" style="width:{{hp.pct}}%"></span></div>
+      <div class="sn-hp-controls">
+        <button type="button" class="sn-icon" data-action="hpAdjust" data-delta="-1">-</button>
+        <input type="number" name="system.hp.value" value="{{hp.value}}">
+        <span title="{{hp.tooltip}}">/ {{hp.max}}</span>
+        <button type="button" class="sn-icon" data-action="hpAdjust" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="sn-vital sn-ac" title="{{acTooltip}}">
+      <span class="sn-label">{{localize 'SOMBRANEON.Sheet.AC'}}</span>
+      <strong class="sn-big">{{system.ac.value}}</strong>
+      <button type="button" class="sn-chip-btn {{#if system.ac.cover}}sn-active{{/if}}" data-action="toggleCover" title="{{localize 'SOMBRANEON.Sheet.CoverHint'}}">{{localize 'SOMBRANEON.Sheet.Cover'}} +2</button>
+      {{#if acMelee}}<small>{{localize 'SOMBRANEON.Sheet.MeleeAC'}} +{{acMelee}}</small>{{/if}}
+    </div>
+    <div class="sn-vital sn-init">
+      <span class="sn-label">{{localize 'SOMBRANEON.Sheet.Initiative'}}</span>
+      <button type="button" class="sn-big sn-link" data-action="rollInitiative" title="{{localize 'SOMBRANEON.Sheet.RollInitiative'}}">{{initiativeText}}</button>
+      {{#if sn.initiative.advantage}}<small class="sn-adv" title="{{localize 'SOMBRANEON.Rolls.Advantage'}}">{{localize 'SOMBRANEON.Rolls.AdvShort'}}</small>{{/if}}
+    </div>
+    <div class="sn-vital sn-edge">
+      <span class="sn-label">Edge</span>
+      <div class="sn-pips">{{#each edge.pips}}<span class="sn-pip {{#if on}}on{{/if}}"></span>{{/each}}</div>
+      <div class="sn-edge-actions">
+        {{#if (gt edge.value 0)}}<button type="button" class="sn-chip-btn" data-action="giveEdge">{{localize 'SOMBRANEON.Edge.Give'}}</button>{{/if}}
+        {{#if edge.canClaim}}<button type="button" class="sn-chip-btn" data-action="claimTrigger">{{localize 'SOMBRANEON.Edge.Claim'}}</button>{{/if}}
+      </div>
+    </div>
+    <div class="sn-vital sn-slots {{#if slots.over}}sn-over{{/if}}" title="{{slots.tooltip}}">
+      <span class="sn-label">{{localize 'SOMBRANEON.Sheet.Slots'}}</span>
+      <strong class="sn-big">{{slots.used}}/{{slots.max}}</strong>
+    </div>
+    <div class="sn-vital sn-actions">
+      <button type="button" class="sn-btn" data-action="rest"><i class="fa-solid fa-bed"></i> {{localize 'SOMBRANEON.Sheet.Rest'}}</button>
+      <button type="button" class="sn-btn" data-action="openCheck"><i class="fa-solid fa-dice-d20"></i> {{localize 'SOMBRANEON.Sheet.Test'}}</button>
+    </div>
+  </section>
+
+  {{#if dying.active}}
+  <section class="sn-banner sn-dying">
+    <strong>{{localize 'SOMBRANEON.Dying.Banner'}}</strong>
+    <span>{{localize 'SOMBRANEON.Dying.Remaining'}}: {{dying.remaining}}{{#if dying.stable}} ({{localize 'SOMBRANEON.Dying.StableShort'}}){{/if}}</span>
+    <button type="button" class="sn-chip-btn" data-action="stabilize">{{localize 'SOMBRANEON.Dying.Stabilize'}}</button>
+    <button type="button" class="sn-chip-btn" data-action="dyingTurn">{{localize 'SOMBRANEON.Dying.Advance'}}</button>
+  </section>
+  {{/if}}
+
+  {{#if warnings.length}}
+  <details class="sn-warnings" open>
+    <summary><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'SOMBRANEON.Sheet.Warnings'}} ({{warnings.length}})</summary>
+    <ul>{{#each warnings}}<li>{{this}}</li>{{/each}}</ul>
+    {{#if hasPendingGrants}}<button type="button" class="sn-chip-btn" data-action="resumeGrants">{{localize 'SOMBRANEON.Sheet.ResumeGrants'}}</button>{{/if}}
+  </details>
+  {{/if}}
+
+  <nav class="sn-tabs">
+    {{#each tabs}}<button type="button" data-action="tab" data-tab="{{id}}" class="{{#if active}}active{{/if}}">{{label}}</button>{{/each}}
+  </nav>
+
+  <section class="sn-scroll">
+    {{!-- RESUMO --}}
+    <div class="sn-tab {{#if (eq tab 'summary')}}active{{/if}}" data-tab-panel="summary">
+      <div class="sn-grid sn-grid-2">
+        <div>
+          <div class="sn-panel">
+            <h3>{{localize 'SOMBRANEON.Sheet.Abilities'}}</h3>
+            <div class="sn-abilities">
+              {{#each abilities}}
+              <div class="sn-ability" title="{{tooltip}}">
+                <button type="button" class="sn-ability-roll" data-action="rollAbility" data-ability="{{key}}">
+                  <span class="sn-label">{{label}}</span>
+                  <strong class="sn-mod">{{modText}}</strong>
+                </button>
+                {{#if @root.editing}}
+                <input type="number" name="system.abilities.{{key}}.base" value="{{base}}" min="1" max="30">
+                {{else}}
+                <span class="sn-val">{{value}}{{#if hasBonus}} <small>({{base}} {{snSigned bonus}})</small>{{/if}}</span>
+                {{/if}}
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <div class="sn-panel">
+            <h3>{{localize 'SOMBRANEON.Sheet.Combat'}}</h3>
+            <ul class="sn-kv">
+              <li><span>{{localize 'SOMBRANEON.Sheet.HitDie'}}</span><strong>{{#if system.hp.hitDie}}{{system.hp.hitDie}}{{else}}-{{/if}}</strong></li>
+              {{#if casting.kind}}
+              <li title="{{casting.tooltip}}"><span>{{localize 'SOMBRANEON.Sheet.CastBonus'}}</span><strong>{{casting.execBonus}}</strong></li>
+              <li><span>{{localize 'SOMBRANEON.Sheet.CastCd'}}</span><strong>{{casting.cdBase}} {{#if (ne casting.kind 'set')}}+ {{localize 'SOMBRANEON.Program.Tier'}}{{/if}}</strong></li>
+              {{#if (ne casting.kind 'set')}}<li><span>{{localize 'SOMBRANEON.Program.TierMax'}}</span><strong>{{casting.tierMax}}</strong></li>{{/if}}
+              {{/if}}
+              <li class="{{#if chrome.cd}}sn-warn-text{{/if}}"><span>{{localize 'SOMBRANEON.Chrome.Psychosis'}}</span><strong>{{chrome.text}}</strong></li>
+            </ul>
+            {{#if statuses.length}}<div class="sn-statuses">{{#each statuses}}<span class="sn-status">{{label}}</span>{{/each}}</div>{{/if}}
+          </div>
+
+          <div class="sn-panel">
+            <h3>{{localize 'SOMBRANEON.Sheet.AttacksShort'}}</h3>
+            {{#each attackSummary}}
+            <div class="sn-attack-mini">
+              <button type="button" class="sn-btn sn-primary" data-action="attack" data-attack-id="{{id}}" {{#if magEmpty}}disabled{{/if}}>{{label}} {{bonusText}}</button>
+              <span>{{damage}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div>
+          <div class="sn-panel">
+            <h3>{{localize 'SOMBRANEON.Sheet.Features'}}</h3>
+            {{#each classFeatures}}{{> "systems/sombraneon/templates/partials/feature-row.hbs" this}}{{/each}}
+            {{#each originFeatures}}{{> "systems/sombraneon/templates/partials/feature-row.hbs" this}}{{/each}}
+            {{#if trigger}}{{> "systems/sombraneon/templates/partials/feature-row.hbs" trigger}}{{/if}}
+            {{#if knowledge}}<div class="sn-feature"><div class="sn-feature-head"><strong>{{localize 'SOMBRANEON.Roll.Knowledge'}}</strong></div><p class="sn-desc">{{knowledge}}</p></div>{{/if}}
+            {{#unless (or classFeatures.length originFeatures.length)}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoFeatures'}}</p>{{/unless}}
+          </div>
+          <div class="sn-panel">
+            <h3>{{localize 'SOMBRANEON.Sheet.Talents'}}
+              {{#if talentsPending}}<span class="sn-count">{{talentsPending}} {{localize 'SOMBRANEON.Sheet.Pending'}}</span>{{/if}}
+              <button type="button" class="sn-chip-btn" data-action="rollTalent">{{localize 'SOMBRANEON.Sheet.RollTalent'}}</button>
+            </h3>
+            {{#each talents}}{{> "systems/sombraneon/templates/partials/feature-row.hbs" this}}{{/each}}
+            {{#unless talents.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoTalents'}}</p>{{/unless}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- ATAQUES --}}
+    <div class="sn-tab {{#if (eq tab 'attacks')}}active{{/if}}" data-tab-panel="attacks">
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Attacks'}} <small class="sn-hint">{{localize 'SOMBRANEON.Sheet.AttackHint'}}</small></h3>
+        <table class="sn-table">
+          <thead><tr><th></th><th>{{localize 'SOMBRANEON.Sheet.Name'}}</th><th>{{localize 'SOMBRANEON.Sheet.Hit'}}</th><th>{{localize 'SOMBRANEON.Rolls.Damage'}}</th><th>{{localize 'SOMBRANEON.Sheet.Range'}}</th><th></th></tr></thead>
+          <tbody>
+          {{#each attacks}}
+          <tr class="sn-attack-row {{#if magEmpty}}sn-disabled{{/if}}" draggable="true" data-drag="{{snDragData 'attack' @root.actor.uuid attackId=id name=label img=image}}">
+            <td><img class="sn-ico" src="{{image}}" alt=""></td>
+            <td><strong>{{label}}</strong><div class="sn-props">{{#each props}}<span class="sn-prop">{{this}}</span>{{/each}}</div></td>
+            <td class="sn-mono" title="{{tooltip}}">{{bonusText}}</td>
+            <td class="sn-mono" title="{{damageTooltip}}">{{damage}}</td>
+            <td>{{rangeLabel}}</td>
+            <td class="sn-row-actions">
+              {{#if magEmpty}}
+              <button type="button" class="sn-chip-btn" data-action="reload" data-item-id="{{itemId}}">{{localize 'SOMBRANEON.Attack.Reload'}}</button>
+              {{else}}
+              <button type="button" class="sn-btn sn-primary" data-action="attack" data-attack-id="{{id}}">{{localize 'SOMBRANEON.Attack.Roll'}}</button>
+              <button type="button" class="sn-icon" data-action="rollDamageOnly" data-attack-id="{{id}}" title="{{localize 'SOMBRANEON.Rolls.Damage'}}"><i class="fa-solid fa-burst"></i></button>
+              <button type="button" class="sn-icon" data-action="attack" data-attack-id="{{id}}" data-options="true" title="{{localize 'SOMBRANEON.Attack.Options'}}"><i class="fa-solid fa-sliders"></i></button>
+              {{#if hasAim}}<button type="button" class="sn-icon" data-action="aim" title="{{localize 'SOMBRANEON.Attack.AimButton'}}"><i class="fa-solid fa-crosshairs"></i></button>{{/if}}
+              {{/if}}
+            </td>
+          </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+      {{#if drone}}
+      <div class="sn-panel sn-drone-card">
+        <h3>{{localize 'SOMBRANEON.Drone.Title'}}</h3>
+        <div class="sn-row">
+          <strong>{{drone.name}}</strong>
+          <span>HP {{drone.hp}}/{{drone.hpMax}}</span><span>{{localize 'SOMBRANEON.Sheet.AC'}} {{drone.ac}}</span>
+          <span>{{drone.attack}}</span><span>{{drone.damage}}</span>
+          {{#if drone.destroyed}}<span class="sn-warn-text">{{localize 'SOMBRANEON.Drone.Destroyed'}}</span>{{/if}}
+        </div>
+        <div class="sn-row">
+          {{#unless drone.destroyed}}<button type="button" class="sn-btn sn-primary" data-action="attackDrone" data-drone-uuid="{{drone.uuid}}">{{localize 'SOMBRANEON.Drone.Attack'}}</button>{{/unless}}
+          <button type="button" class="sn-btn" data-action="openDrone" data-drone-uuid="{{drone.uuid}}">{{localize 'SOMBRANEON.Drone.Open'}}</button>
+          {{#if drone.destroyed}}<button type="button" class="sn-btn" data-action="rebuildDrone" data-drone-uuid="{{drone.uuid}}">{{localize 'SOMBRANEON.Drone.Rebuild'}}</button>{{/if}}
+        </div>
+      </div>
+      {{else}}{{#if needsDrone}}
+      <div class="sn-panel"><button type="button" class="sn-btn sn-primary" data-action="createDrone">{{localize 'SOMBRANEON.Drone.Create'}}</button></div>
+      {{/if}}{{/if}}
+    </div>
+
+    {{!-- CROMO --}}
+    <div class="sn-tab {{#if (eq tab 'chrome')}}active{{/if}}" data-tab-panel="chrome">
+      <div class="sn-panel sn-cyber">
+        <h3>{{localize 'SOMBRANEON.Chrome.Psychosis'}}</h3>
+        <p>{{localize 'SOMBRANEON.Chrome.Count' count=chrome.count effective=chrome.effective}} {{#if chrome.adjust}}({{localize 'SOMBRANEON.Chrome.Adjust'}} {{snSigned chrome.adjust}}){{/if}}</p>
+        <p class="{{#if chrome.cd}}sn-warn-text{{/if}}"><strong>{{chrome.text}}</strong>{{#if chrome.advantage}} ({{localize 'SOMBRANEON.Rolls.Advantage'}}){{/if}}</p>
+        {{#if chrome.cd}}<button type="button" class="sn-btn" data-action="cyberTest">{{localize 'SOMBRANEON.Chrome.Test'}}</button>{{/if}}
+        {{#unless chrome.catalog}}<p class="sn-hint">{{localize 'SOMBRANEON.Warn.CatalogMissing'}}</p>{{/unless}}
+      </div>
+      <div class="sn-grid sn-grid-2">
+        {{#each chrome.slots}}
+        <div class="sn-panel sn-slot">
+          <h3>{{label}}</h3>
+          {{#if item}}
+          <div class="sn-implant" data-item-id="{{item.id}}" draggable="true">
+            <img class="sn-ico" src="{{item.img}}" alt="">
+            <div class="sn-implant-body">
+              <strong>{{item.name}}</strong>
+              <select data-change="implantQuality" data-item-id="{{item.id}}">{{#each item.qualities}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+              <p class="sn-desc">{{item.summary}}</p>
+              {{#if item.next}}<p class="sn-next">{{localize 'SOMBRANEON.Chrome.Next'}}: {{item.next}}</p>{{/if}}
+              {{#if item.hasUses}}
+              <div class="sn-uses" data-item-id="{{item.id}}">
+                <button type="button" class="sn-icon" data-action="usesAdjust" data-delta="-1">-</button>
+                <span>{{item.uses.value}}/{{item.uses.max}}</span>
+                <button type="button" class="sn-icon" data-action="usesAdjust" data-delta="1">+</button>
+                <button type="button" class="sn-chip-btn" data-action="use" data-item-id="{{item.id}}">{{localize 'SOMBRANEON.Item.Use'}}</button>
+              </div>
+              {{/if}}
+            </div>
+            <div class="sn-row-actions">
+              <button type="button" class="sn-icon" data-action="showItem" data-item-id="{{item.id}}" title="{{localize 'SOMBRANEON.Item.Show'}}"><i class="fa-solid fa-comment"></i></button>
+              <button type="button" class="sn-icon" data-action="editItem" data-item-id="{{item.id}}" title="{{localize 'SOMBRANEON.Item.Edit'}}"><i class="fa-solid fa-pen"></i></button>
+              <button type="button" class="sn-icon" data-action="install" data-item-id="{{item.id}}" title="{{localize 'SOMBRANEON.Chrome.Remove'}}"><i class="fa-solid fa-eject"></i></button>
+            </div>
+          </div>
+          {{else}}
+          <p class="sn-empty-text">{{localize 'SOMBRANEON.Chrome.DropHere'}}</p>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{#if chrome.stored.length}}
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Chrome.Stored'}}</h3>
+        {{#each chrome.stored}}
+        <div class="sn-item-row" data-item-id="{{id}}" draggable="true">
+          <img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong><span>{{slot}} / {{quality}}</span>
+          <span class="sn-row-actions">
+            <button type="button" class="sn-chip-btn" data-action="install" data-item-id="{{id}}">{{localize 'SOMBRANEON.Chrome.Install'}}</button>
+            <button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button>
+          </span>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+
+    {{!-- PROGRAMAS --}}
+    <div class="sn-tab {{#if (eq tab 'programs')}}active{{/if}}" data-tab-panel="programs">
+      {{#if casting.kind}}
+      <div class="sn-panel">
+        <h3>{{casting.label}}
+          <span class="sn-count">{{casting.known.count}} / {{casting.known.max}}</span>
+          {{#if (ne casting.kind 'set')}}<small>{{localize 'SOMBRANEON.Program.TierMax'}}: {{casting.tierMax}}</small>{{/if}}
+          <button type="button" class="sn-chip-btn" data-action="learnProgram">{{localize 'SOMBRANEON.Program.Learn'}}</button>
+        </h3>
+        {{#if casting.requirement}}<p class="sn-warn-text">{{casting.requirement}}</p>{{/if}}
+        {{#each casting.groups}}
+        <h4 class="sn-tier">{{label}}</h4>
+        {{#each items}}
+        <div class="sn-program {{state}}" data-item-id="{{id}}" draggable="true" data-drag="{{snDragData 'execute' @root.actor.uuid programId=id name=name img=img}}">
+          <img class="sn-ico" src="{{img}}" alt="">
+          <div class="sn-program-body">
+            <strong>{{name}}</strong>
+            <span class="sn-props">{{#if range}}<span class="sn-prop">{{range}}</span>{{/if}}{{#if damage}}<span class="sn-prop">{{damage}}</span>{{/if}}{{#if healing}}<span class="sn-prop">{{healing}}</span>{{/if}}
+              <span class="sn-prop" title="{{tooltip}}">CD {{cd}} / {{bonusText}}</span></span>
+            <p class="sn-desc">{{description}}</p>
+            {{#if hasUses}}<span class="sn-uses">{{uses.value}}/{{uses.max}}</span>{{/if}}
+          </div>
+          <div class="sn-row-actions">
+            {{#if crashed}}
+            <span class="sn-state">{{#if (eq state 'spent')}}{{localize 'SOMBRANEON.Program.Spent'}}{{else}}{{localize 'SOMBRANEON.Program.Crash'}}{{/if}}</span>
+            <button type="button" class="sn-chip-btn" data-action="restoreProgram" data-item-id="{{id}}" title="{{localize 'SOMBRANEON.Program.RestoreHint'}}">{{localize 'SOMBRANEON.Program.Restore'}}</button>
+            {{else}}
+            <button type="button" class="sn-btn sn-primary" data-action="executeProgram" data-item-id="{{id}}">{{localize 'SOMBRANEON.Program.Execute'}}</button>
+            {{/if}}
+            <button type="button" class="sn-icon" data-action="showItem" data-item-id="{{id}}"><i class="fa-solid fa-comment"></i></button>
+            <button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+        {{/each}}
+        {{/each}}
+        {{#unless casting.groups.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Program.Empty'}}</p>{{/unless}}
+      </div>
+      {{else}}
+      <div class="sn-panel"><p class="sn-empty-text">{{localize 'SOMBRANEON.Program.NoCasting'}}</p></div>
+      {{/if}}
+    </div>
+
+    {{!-- POSSES --}}
+    <div class="sn-tab {{#if (eq tab 'gear')}}active{{/if}}" data-tab-panel="gear">
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Slots'}} <span class="sn-count {{#if slots.over}}sn-over{{/if}}">{{slots.used}} / {{slots.max}}</span>
+          {{#if inventory.hasPackage}}<button type="button" class="sn-chip-btn" data-action="addStarterPackage">{{localize 'SOMBRANEON.Sheet.AddPackage'}}</button>{{/if}}</h3>
+        <div class="sn-slot-grid">{{#each slotGrid}}<span class="sn-cell {{cls}} {{#if over}}over{{/if}}">{{n}}</span>{{/each}}</div>
+      </div>
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Credits'}}: <strong>{{inventory.creditsText}}</strong></h3>
+        <div class="sn-row">
+          <input type="number" name="system.currency.credits" value="{{inventory.credits}}" min="0">
+          <input type="number" data-credits-delta value="0" min="0" placeholder="0">
+          <button type="button" class="sn-icon" data-action="adjustCredits" data-sign="-1">-</button>
+          <button type="button" class="sn-icon" data-action="adjustCredits" data-sign="1">+</button>
+        </div>
+        {{#if inventory.ledger.length}}
+        <details><summary>{{localize 'SOMBRANEON.Sheet.Ledger'}}</summary>
+          <ul class="sn-ledger">{{#each inventory.ledger}}<li><span>{{date}}</span> {{item}} <strong>{{value}}</strong></li>{{/each}}</ul>
+        </details>
+        {{/if}}
+      </div>
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Weapons'}}</h3>
+        {{#each inventory.weapons}}
+        <div class="sn-item-row" data-item-id="{{id}}" draggable="true">
+          <label class="sn-check"><input type="checkbox" {{#if equipped}}checked{{/if}} data-action="equip" data-item-id="{{id}}"></label>
+          <img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong>
+          <span>{{damage}} / {{hands}} {{localize 'SOMBRANEON.Sheet.Hands'}} / {{slots}} {{localize 'SOMBRANEON.Sheet.SlotsShort'}} / {{price}}</span>
+          <span class="sn-props">{{props}}</span>
+          <span class="sn-row-actions">
+            {{#if magEmpty}}<button type="button" class="sn-chip-btn" data-action="reload" data-item-id="{{id}}">{{localize 'SOMBRANEON.Attack.Reload'}}</button>{{/if}}
+            <button type="button" class="sn-icon" data-action="showItem" data-item-id="{{id}}"><i class="fa-solid fa-comment"></i></button>
+            <button type="button" class="sn-icon" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button>
+            <button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button>
+          </span>
+        </div>
+        {{/each}}
+        {{#unless inventory.weapons.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoWeapons'}}</p>{{/unless}}
+      </div>
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Armor'}}</h3>
+        {{#each inventory.armors}}
+        <div class="sn-item-row" data-item-id="{{id}}" draggable="true">
+          <label class="sn-check"><input type="checkbox" {{#if equipped}}checked{{/if}} data-action="equip" data-item-id="{{id}}"></label>
+          <img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong>
+          <span>{{localize 'SOMBRANEON.Sheet.AC'}} {{ac}}{{#if addDex}} + DES{{/if}} / {{type}} / {{slots}} {{localize 'SOMBRANEON.Sheet.SlotsShort'}} / {{price}}</span>
+          <span class="sn-row-actions">
+            <button type="button" class="sn-icon" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button>
+            <button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button>
+          </span>
+        </div>
+        {{/each}}
+        {{#unless inventory.armors.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoArmor'}}</p>{{/unless}}
+      </div>
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.GearList'}}</h3>
+        {{#each inventory.gear}}
+        <div class="sn-item-row" data-item-id="{{id}}" draggable="true">
+          <img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong>
+          <span class="sn-qty">
+            <button type="button" class="sn-icon" data-action="qtyAdjust" data-delta="-1">-</button>{{quantity}}<button type="button" class="sn-icon" data-action="qtyAdjust" data-delta="1">+</button>
+          </span>
+          <span>{{categoryLabel}} / {{slots}} {{localize 'SOMBRANEON.Sheet.SlotsShort'}} / {{price}}</span>
+          {{#if hasUses}}<span class="sn-uses">{{uses.value}}/{{uses.max}}</span>{{/if}}
+          <span class="sn-row-actions">
+            <button type="button" class="sn-icon" data-action="showItem" data-item-id="{{id}}"><i class="fa-solid fa-comment"></i></button>
+            <button type="button" class="sn-icon" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button>
+            <button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button>
+          </span>
+        </div>
+        {{/each}}
+        {{#unless inventory.gear.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoGear'}}</p>{{/unless}}
+      </div>
+      {{#if inventory.vehicles.length}}
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Sheet.Vehicles'}}</h3>
+        {{#each inventory.vehicles}}
+        <div class="sn-item-row" data-item-id="{{id}}"><img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong><span>{{price}}</span>
+          <span class="sn-row-actions"><button type="button" class="sn-icon" data-action="editItem" data-item-id="{{id}}"><i class="fa-solid fa-pen"></i></button><button type="button" class="sn-icon" data-action="deleteItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button></span></div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+
+    {{!-- REDE --}}
+    <div class="sn-tab {{#if (eq tab 'network')}}active{{/if}}" data-tab-panel="network">
+      <div class="sn-grid sn-grid-2">
+        <div class="sn-panel">
+          <h3>{{localize 'SOMBRANEON.Alert.Title'}}</h3>
+          <div class="sn-pips sn-alert-pips">{{#each network.alertPips}}<span class="sn-pip {{#if on}}on{{/if}}"></span>{{/each}}</div>
+          <p>{{#if network.alert.active}}{{localize 'SOMBRANEON.Alert.Active'}}{{else}}{{localize 'SOMBRANEON.Alert.Inactive'}}{{/if}}: {{network.alert.value}}/4</p>
+          <div class="sn-row">
+            <button type="button" class="sn-btn" data-action="openAlert">{{localize 'SOMBRANEON.Alert.Open'}}</button>
+            <button type="button" class="sn-btn sn-primary" data-action="streetHack">{{localize 'SOMBRANEON.Network.StreetHack'}}</button>
+          </div>
+          {{#if network.hackImmune}}<p class="sn-hint">{{localize 'SOMBRANEON.Network.HackImmune'}}</p>{{/if}}
+        </div>
+        <div class="sn-panel">
+          <h3>{{localize 'SOMBRANEON.Network.Immersion'}}</h3>
+          {{#if network.immersed}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Network.ImmersedNow'}}</p>{{/if}}
+          {{#if network.firewallActive}}<p>{{localize 'SOMBRANEON.Network.Firewall'}}: <strong class="sn-mono">{{network.firewallTime}}</strong>{{#if network.paused}} ({{localize 'SOMBRANEON.Network.Paused'}}){{/if}}</p>{{/if}}
+          <div class="sn-row">
+            {{#if network.immersed}}
+            <button type="button" class="sn-btn" data-action="leaveNetwork">{{localize 'SOMBRANEON.Network.Leave'}}</button>
+            {{else}}
+            <button type="button" class="sn-btn sn-primary" data-action="immerse" {{#unless network.canImmerse}}disabled{{/unless}}>{{localize 'SOMBRANEON.Network.Immerse'}}</button>
+            {{/if}}
+            {{#if isGM}}{{#if network.firewallActive}}<button type="button" class="sn-btn" data-action="pauseFirewall">{{localize 'SOMBRANEON.Network.Pause'}}</button>{{/if}}{{/if}}
+          </div>
+          <ul class="sn-kv">
+            {{#if network.deckFried}}<li class="sn-warn-text">{{localize 'SOMBRANEON.Network.DeckFried'}}</li>{{/if}}
+            {{#if network.nanokitBroken}}<li class="sn-warn-text">{{localize 'SOMBRANEON.Network.NanokitBroken'}}</li>{{/if}}
+            {{#if network.traced}}<li class="sn-warn-text">{{localize 'SOMBRANEON.Network.Traced'}}</li>{{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {{!-- BIO --}}
+    <div class="sn-tab {{#if (eq tab 'bio')}}active{{/if}}" data-tab-panel="bio">
+      <div class="sn-grid sn-grid-2">
+        <div class="sn-panel">
+          <h3>{{localize 'SOMBRANEON.Sheet.Identity'}}</h3>
+          <label>{{localize 'SOMBRANEON.Sheet.CivilName'}}<input type="text" name="system.details.civilName" value="{{system.details.civilName}}"></label>
+          <label>{{localize 'SOMBRANEON.Sheet.Languages'}}<input type="text" name="system.details.languages" value="{{system.details.languages}}"></label>
+          <label>{{localize 'SOMBRANEON.Sheet.Appearance'}}<textarea name="system.details.appearance" rows="3">{{bio.appearance.raw}}</textarea></label>
+        </div>
+        <div class="sn-panel">
+          <h3>{{localize 'SOMBRANEON.Sheet.Reaction'}}</h3>
+          {{#if reaction.length}}
+          <ul class="sn-kv">{{#each reaction}}<li><span>{{label}}</span><strong>{{value}}</strong></li>{{/each}}</ul>
+          {{else}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Sheet.NoAlignment'}}</p>{{/if}}
+        </div>
+      </div>
+      <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Sheet.Biography'}}</h3><textarea name="system.details.biography" rows="5">{{bio.biography.raw}}</textarea></div>
+      <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Sheet.Contacts'}}</h3><textarea name="system.details.contacts" rows="3">{{bio.contacts.raw}}</textarea></div>
+      <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Sheet.GroupGoals'}}</h3><textarea name="system.details.groupGoals" rows="3">{{bio.groupGoals.raw}}</textarea></div>
+      <div class="sn-panel"><h3>{{localize 'SOMBRANEON.Sheet.Notes'}}</h3><textarea name="system.details.notes" rows="4">{{bio.notes.raw}}</textarea></div>
+    </div>
+  </section>
+</form>

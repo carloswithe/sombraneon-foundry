@@ -1,0 +1,15 @@
+<div class="sombraneon sn-card sn-{{outcome}}">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{title}}</h3>{{#if actorName}}<span>{{actorName}}</span>{{/if}}</div>
+  </header>
+  <div class="sn-roll">
+    <div class="sn-dice">{{#each dice}}<span class="sn-die {{#if discarded}}x{{/if}}">{{value}}</span>{{/each}}</div>
+    <div class="sn-total">{{total}}</div>
+    {{#if cd}}<div class="sn-vs">CD {{cd}}</div>{{/if}}
+    <div class="sn-outcome">{{outcomeLabel}}</div>
+  </div>
+  <p class="sn-parts">{{partsText}}</p>
+  {{#if modeLabel}}<p class="sn-mode-note">{{modeLabel}}{{#if advSources.length}}: {{#each advSources}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}{{#if disSources.length}} / {{#each disSources}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}</p>{{/if}}
+  {{#if canEdge}}<div class="sn-card-actions"><button type="button" data-action="edge"><i class="fa-solid fa-bolt"></i> {{localize 'SOMBRANEON.Edge.Spend'}}</button></div>{{/if}}
+</div>

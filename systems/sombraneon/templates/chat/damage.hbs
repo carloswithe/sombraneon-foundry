@@ -1,0 +1,20 @@
+<div class="sombraneon sn-card {{#if critical}}sn-crit{{/if}}">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{title}}</h3>{{#if actorName}}<span>{{actorName}}</span>{{/if}}</div>
+  </header>
+  {{#each lines}}
+  <div class="sn-roll sn-damage-line">
+    <div class="sn-total">{{total}}</div>
+    <div class="sn-vs">{{formula}}{{#if target}} / {{target}}{{/if}}</div>
+    <div class="sn-card-actions">
+      {{#if @root.healing}}<button type="button" data-action="applyHealing" data-total="{{total}}"><i class="fa-solid fa-heart-pulse"></i> {{localize 'SOMBRANEON.Rolls.ApplyHealing'}}</button>
+      {{else}}<button type="button" data-action="applyDamage" data-total="{{total}}"><i class="fa-solid fa-crosshairs"></i> {{localize 'SOMBRANEON.Rolls.ApplyDamage'}}</button>{{/if}}
+    </div>
+  </div>
+  {{/each}}
+  {{#if critical}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.CritDamage'}}</p>{{/if}}
+  {{#if ignoreArmor}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Prop.ignoreArmor'}} {{ignoreArmor}}</p>{{/if}}
+  {{#if save}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.Save' ability=save.ability cd=save.cd}}{{#if save.half}} ({{localize 'SOMBRANEON.Rolls.HalfOnSave'}}){{/if}}</p>{{/if}}
+  {{#unless healing}}<label class="sn-check"><input type="checkbox" name="nonlethal"> {{localize 'SOMBRANEON.Rolls.Nonlethal'}}</label>{{/unless}}
+</div>

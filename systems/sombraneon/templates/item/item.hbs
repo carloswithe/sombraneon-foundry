@@ -1,0 +1,119 @@
+<form class="sn-sheet-body sn-item-sheet" autocomplete="off">
+  <header class="sn-header sn-header-compact">
+    <div class="sn-portrait sn-portrait-sm"><img src="{{item.img}}" alt="" {{#unless locked}}data-action="editImage" data-edit="img"{{/unless}}></div>
+    <div class="sn-ident">
+      <input class="sn-name" type="text" name="name" value="{{item.name}}" {{#unless editable}}readonly{{/unless}}>
+      <div class="sn-row">
+        <span class="sn-prop">{{typeLabel}}</span>
+        <label class="sn-inline">{{localize 'SOMBRANEON.Item.Identifier'}}
+          <input type="text" name="system.identifier" value="{{system.identifier}}" {{#unless editable}}readonly{{/unless}}></label>
+        {{#if editable}}<button type="button" class="sn-chip-btn" data-action="genIdentifier">{{localize 'SOMBRANEON.Item.GenIdentifier'}}</button>{{/if}}
+      </div>
+      <div class="sn-row">
+        <label class="sn-inline">{{localize 'SOMBRANEON.Item.Source'}}
+          <input type="text" name="system.source" value="{{system.source}}" {{#unless editable}}readonly{{/unless}}></label>
+        <button type="button" class="sn-chip-btn" data-action="toChat">{{localize 'SOMBRANEON.Item.Show'}}</button>
+        {{#if locked}}<button type="button" class="sn-chip-btn sn-primary" data-action="addToSheet">{{localize 'SOMBRANEON.Item.AddToSheet'}}</button>{{/if}}
+      </div>
+    </div>
+  </header>
+
+  <nav class="sn-tabs">
+    {{#each tabs}}<button type="button" data-action="tab" data-tab="{{id}}" class="{{#if active}}active{{/if}}">{{label}}</button>{{/each}}
+  </nav>
+
+  <section class="sn-scroll">
+    <div class="sn-tab {{#if (eq tab 'description')}}active{{/if}}" data-tab-panel="description">
+      <div class="sn-desc sn-rich">{{{description}}}</div>
+      {{#if editable}}
+      <details><summary>{{localize 'SOMBRANEON.Item.EditHtml'}}</summary>
+        <textarea name="system.description" rows="8">{{rawDescription}}</textarea>
+      </details>
+      {{/if}}
+    </div>
+
+    <div class="sn-tab {{#if (eq tab 'details')}}active{{/if}}" data-tab-panel="details">
+      <div class="sn-fields">
+        {{#each details}}
+        <label class="sn-field {{#if isCheck}}sn-field-check{{/if}}">
+          <span>{{label}}</span>
+          {{#if isText}}<input type="text" name="{{fieldName}}" value="{{value}}" {{#unless @root.editable}}readonly{{/unless}}>{{/if}}
+          {{#if isNumber}}<input type="number" name="{{fieldName}}" value="{{value}}" {{#unless @root.editable}}readonly{{/unless}}>{{/if}}
+          {{#if isCheck}}<input type="checkbox" name="{{fieldName}}" {{#if value}}checked{{/if}} {{#unless @root.editable}}disabled{{/unless}}>{{/if}}
+          {{#if isSelect}}<select name="{{fieldName}}" {{#unless @root.editable}}disabled{{/unless}}>{{#each options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>{{/if}}
+          {{#if isList}}<input type="text" data-array-list="true" value="{{value}}" data-list-path="{{fieldName}}" {{#if numeric}}data-numeric="true"{{/if}} {{#unless @root.editable}}readonly{{/unless}}>{{/if}}
+        </label>
+        {{/each}}
+      </div>
+      {{#if pkg}}
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Item.StartingPackage'}}
+          {{#if editable}}<button type="button" class="sn-chip-btn" data-action="arrayAdd" data-array="system.startingPackage" data-blank="{{blankPkg}}">+</button>{{/if}}</h3>
+        {{#each pkg}}
+        <div class="sn-row">
+          <input type="text" data-array-field="ref" data-array="system.startingPackage" data-index="{{index}}" value="{{ref}}">
+          <input type="number" data-array-field="qty" data-array="system.startingPackage" data-index="{{index}}" value="{{qty}}">
+          {{#if @root.editable}}<button type="button" class="sn-icon sn-danger" data-action="arrayRemove" data-array="system.startingPackage" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+
+    {{#if modifierBlocks.length}}
+    <div class="sn-tab {{#if (eq tab 'modifiers')}}active{{/if}}" data-tab-panel="modifiers">
+      {{#each modifierBlocks}}{{> "systems/sombraneon/templates/partials/modifiers.hbs" this editable=@root.editable}}{{/each}}
+    </div>
+    {{/if}}
+
+    {{#if tiers.length}}
+    <div class="sn-tab {{#if (eq tab 'tiers')}}active{{/if}}" data-tab-panel="tiers">
+      {{#each tiers}}
+      <div class="sn-panel sn-tier-panel">
+        <h3>{{label}} ({{price}} cr)</h3>
+        <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.tier_summary'}}</span><input type="text" name="system.tiers.{{key}}.summary" value="{{summary}}"></label>
+        <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.tier_delta'}}</span><input type="text" name="system.tiers.{{key}}.delta" value="{{delta}}"></label>
+        <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.automation'}}</span><input type="text" name="system.tiers.{{key}}.automation" value="{{automation}}"></label>
+        <div class="sn-row">
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.uses_max'}}</span><input type="number" name="{{usesPath}}.max" value="{{usesMax}}"></label>
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.uses_value'}}</span><input type="number" name="{{usesPath}}.value" value="{{usesValue}}"></label>
+        </div>
+        {{#if weapon}}
+        <div class="sn-row sn-weapon-line">
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Sheet.Name'}}</span><input type="text" name="{{weaponPath}}.name" value="{{weapon.name}}"></label>
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Rolls.Damage'}}</span><input type="text" name="{{weaponPath}}.damage" value="{{weapon.damage}}"></label>
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Sheet.Range'}}</span><input type="text" name="{{weaponPath}}.range" value="{{weapon.range}}"></label>
+          <label class="sn-field"><span>{{localize 'SOMBRANEON.Fields.ignoreArmor'}}</span><input type="number" name="{{weaponPath}}.ignoreArmor" value="{{weapon.ignoreArmor}}"></label>
+          <button type="button" class="sn-icon sn-danger" data-action="removeWeaponLine" data-path="{{weaponPath}}"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        {{else}}
+        <button type="button" class="sn-chip-btn" data-action="addWeaponLine" data-path="{{weaponPath}}">{{localize 'SOMBRANEON.Item.AddWeaponLine'}}</button>
+        {{/if}}
+        {{> "systems/sombraneon/templates/partials/modifiers.hbs" modifiers title=(localize 'SOMBRANEON.Item.Modifiers') editable=@root.editable}}
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    {{#if grants}}
+    <div class="sn-tab {{#if (eq tab 'grants')}}active{{/if}}" data-tab-panel="grants">
+      <div class="sn-panel">
+        <h3>{{localize 'SOMBRANEON.Item.Grants'}}
+          {{#if editable}}<button type="button" class="sn-chip-btn" data-action="arrayAdd" data-array="system.grants" data-blank="{{blankGrant}}">+</button>{{/if}}</h3>
+        {{#each grants}}
+        <div class="sn-grant-row">
+          <select data-array-field="kind" data-array="system.grants" data-index="{{index}}">{{#each kinds}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+          <input type="text" data-array-field="ref" data-array="system.grants" data-index="{{index}}" value="{{ref}}" placeholder="tipo:identifier">
+          <input type="number" data-array-field="level" data-array="system.grants" data-index="{{index}}" value="{{level}}" title="{{localize 'SOMBRANEON.Item.GrantLevel'}}">
+          <input type="number" data-array-field="count" data-array="system.grants" data-index="{{index}}" value="{{count}}" title="{{localize 'SOMBRANEON.Item.GrantCount'}}">
+          <input type="text" data-array-field="key" data-array="system.grants" data-index="{{index}}" value="{{key}}" placeholder="key">
+          <input type="text" data-array-field="from.type" data-array="system.grants" data-index="{{index}}" value="{{from.type}}" placeholder="program/implant">
+          <input type="text" data-array-field="from.filter" data-json="true" data-array="system.grants" data-index="{{index}}" value="{{filter}}">
+          {{#if @root.editable}}<button type="button" class="sn-icon sn-danger" data-action="arrayRemove" data-array="system.grants" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </section>
+</form>

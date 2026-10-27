@@ -1,0 +1,15 @@
+<div class="sn-alert">
+  <div class="sn-alert-head"><strong>{{localize 'SOMBRANEON.Alert.Title'}}</strong> <span class="sn-prop {{#if state.active}}sn-active{{/if}}">{{statusLabel}}</span></div>
+  <div class="sn-alert-bar">{{#each pips}}<span class="sn-alert-pip {{#if on}}on{{/if}} level-{{level}}">{{level}}</span>{{/each}}</div>
+  {{#if atMax}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Alert.MaxText'}}</p>{{/if}}
+  <div class="sn-row">
+    <button type="button" class="sn-btn sn-primary" data-action="plus">+1</button>
+    <button type="button" class="sn-btn" data-action="noise" title="{{localize 'SOMBRANEON.Alert.NoiseHint'}}">{{localize 'SOMBRANEON.Alert.Noise'}}</button>
+    {{#if isGM}}
+    <button type="button" class="sn-btn" data-action="minus">-1</button>
+    <button type="button" class="sn-btn" data-action="reset">{{localize 'SOMBRANEON.Alert.Reset'}}</button>
+    <button type="button" class="sn-btn" data-action="newRun">{{localize 'SOMBRANEON.Alert.NewRun'}}</button>
+    <button type="button" class="sn-btn" data-action="toggle">{{#if state.active}}{{localize 'SOMBRANEON.Alert.Stop'}}{{else}}{{localize 'SOMBRANEON.Alert.Start'}}{{/if}}</button>
+    {{/if}}
+  </div>
+</div>

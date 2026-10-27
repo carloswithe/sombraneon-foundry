@@ -1,0 +1,9 @@
+<div class="sombraneon sn-card sn-info">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{name}}</h3>{{#if type}}<span>{{type}}</span>{{/if}}</div>
+  </header>
+  <div class="sn-desc">{{{description}}}</div>
+  {{#if price}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Item.Price'}}: {{price}} cr</p>{{/if}}
+  {{#if canAdd}}<div class="sn-card-actions"><button type="button" data-action="addToSheet" data-uuid="{{uuid}}"><i class="fa-solid fa-plus"></i> {{localize 'SOMBRANEON.Item.AddToSheet'}}</button></div>{{/if}}
+</div>

@@ -1,0 +1,29 @@
+{
+  "name": "sombraneon-foundry",
+  "version": "0.1.0",
+  "description": "SombraNeon para Foundry VTT: sistema e módulo de compêndio",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "vitest run",
+    "extract": "node tools/extract-book.mjs",
+    "build:packs": "node tools/build-packs.mjs",
+    "unpack:packs": "node tools/unpack-packs.mjs",
+    "validate": "node tools/validate.mjs",
+    "check": "node tools/check-syntax.mjs",
+    "fonts": "node tools/copy-fonts.mjs",
+    "release": "node tools/release.mjs",
+    "verify": "npm run check && npm test && npm run build:packs && npm run validate"
+  },
+  "devDependencies": {
+    "@fontsource/orbitron": "^5.1.0",
+    "@fontsource/rajdhani": "^5.1.0",
+    "@fontsource/share-tech-mono": "^5.1.0",
+    "@foundryvtt/foundryvtt-cli": "^3.0.2",
+    "archiver": "^7.0.1",
+    "handlebars": "^4.7.8",
+    "marked": "^15.0.0",
+    "vitest": "^3.0.0"
+  }
+}

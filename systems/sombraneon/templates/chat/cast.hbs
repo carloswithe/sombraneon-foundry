@@ -1,0 +1,24 @@
+<div class="sombraneon sn-card sn-cast sn-{{outcome}}">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{title}}</h3><span>{{kindLabel}}{{#if tier}} / {{localize 'SOMBRANEON.Program.TierN' n=tier}}{{/if}} / {{actorName}}</span></div>
+  </header>
+  <div class="sn-roll">
+    <div class="sn-dice">{{#each dice}}<span class="sn-die {{#if discarded}}x{{/if}}">{{value}}</span>{{/each}}</div>
+    <div class="sn-total">{{total}}</div>
+    <div class="sn-vs">CD {{cd}}</div>
+    <div class="sn-outcome">{{outcomeLabel}}</div>
+  </div>
+  <p class="sn-parts">{{partsText}}</p>
+  {{#if modeLabel}}<p class="sn-mode-note">{{modeLabel}}</p>{{/if}}
+  {{#if effect}}<div class="sn-desc">{{{effect}}}</div>{{/if}}
+  {{#if crashed}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Program.CrashedNote'}}</p>{{/if}}
+  {{#if spent}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Program.SpentNote'}}</p>{{/if}}
+  {{#each notes}}<p class="sn-mode-note">{{this}}</p>{{/each}}
+  {{#if save}}<p class="sn-mode-note">{{localize 'SOMBRANEON.Rolls.Save' ability=save.ability cd=save.cd}}{{#if save.half}} ({{localize 'SOMBRANEON.Rolls.HalfOnSave'}}){{/if}}</p>{{/if}}
+  <div class="sn-card-actions">
+    {{#if damage}}<button type="button" data-action="castDamage"><i class="fa-solid fa-burst"></i> {{localize 'SOMBRANEON.Rolls.Damage'}} ({{damage}})</button>{{/if}}
+    {{#if healing}}<button type="button" data-action="castHeal" data-formula="{{healing}}"><i class="fa-solid fa-heart-pulse"></i> {{localize 'SOMBRANEON.Rolls.Healing'}} ({{healing}})</button>{{/if}}
+    {{#if canEdge}}<button type="button" data-action="edge"><i class="fa-solid fa-bolt"></i> {{localize 'SOMBRANEON.Edge.Spend'}}</button>{{/if}}
+  </div>
+</div>

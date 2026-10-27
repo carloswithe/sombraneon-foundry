@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Os compêndios (LevelDB) têm arquivos binários e sensíveis a bytes (CURRENT, MANIFEST-*, *.ldb, *.log).
+# Nunca deixe o Git normalizar quebras de linha neles, ou o Foundry trata o compêndio como vazio.
+# Esta regra vem DEPOIS da genérica de propósito: vale a última que casar com o caminho.
+**/packs/** -text -diff
+*.woff2 binary
+*.png binary

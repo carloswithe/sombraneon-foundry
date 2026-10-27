@@ -1,0 +1,153 @@
+<div class="sn-wizard-shell">
+  <nav class="sn-steps">
+    {{#each steps}}<button type="button" data-action="goto" data-step="{{index}}" class="sn-step {{#if active}}active{{/if}} {{#if done}}done{{/if}}" {{#unless done}}{{#unless active}}disabled{{/unless}}{{/unless}}><span>{{n}}</span> {{label}}</button>{{/each}}
+  </nav>
+
+  <section class="sn-wizard-body">
+    {{#if (eq stepId 'intro')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.intro'}}</h2>
+    <p>{{localize 'SOMBRANEON.Wizard.IntroText'}}</p>
+    <label>{{localize 'SOMBRANEON.Sheet.StreetName'}}<input type="text" data-wiz="name" value="{{d.name}}"></label>
+    <label>{{localize 'SOMBRANEON.Sheet.CivilName'}}<input type="text" data-wiz="civilName" value="{{d.civilName}}"></label>
+    <ol class="sn-wizard-list">
+      {{#each steps}}{{#if (gt n 1)}}<li>{{label}}</li>{{/if}}{{/each}}
+    </ol>
+    {{/if}}
+
+    {{#if (eq stepId 'abilities')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.abilities'}}</h2>
+    <p>{{localize 'SOMBRANEON.Wizard.AbilitiesText'}}</p>
+    <div class="sn-abilities">
+      {{#each abilities}}
+      <div class="sn-ability"><span class="sn-label">{{label}}</span><strong class="sn-mod">{{mod}}</strong>
+        {{#if @root.allowManual}}<input type="number" data-wiz="ability" data-index="{{@index}}" value="{{value}}" min="3" max="18">{{else}}<span class="sn-val">{{value}}</span>{{/if}}</div>
+      {{/each}}
+    </div>
+    <div class="sn-row">
+      {{#unless rolledOnce}}<button type="button" class="sn-btn sn-primary" data-action="rollAbilities">{{localize 'SOMBRANEON.Wizard.RollAll'}}</button>{{/unless}}
+      {{#if rolledOnce}}
+      <button type="button" class="sn-btn" data-action="rollAbilities" {{#unless canRerollAbilities}}disabled{{/unless}}>{{localize 'SOMBRANEON.Wizard.RollAgain'}}</button>
+      <span class="sn-hint">{{#if canRerollAbilities}}{{localize 'SOMBRANEON.Wizard.RerollAllowed'}}{{else}}{{localize 'SOMBRANEON.Wizard.RerollDenied'}}{{/if}}</span>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    {{#if (eq stepId 'origin')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.origin'}}</h2>
+    <div class="sn-cards">
+      {{#each origins}}
+      <button type="button" class="sn-card-pick {{#if selected}}selected{{/if}}" data-action="pickOrigin" data-id="{{id}}">
+        <img src="{{img}}" alt=""><strong>{{name}}</strong><span>{{summary}}</span></button>
+      {{/each}}
+    </div>
+    {{#if originNeedsCatalog}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Warn.CatalogMissing'}}</p>{{/if}}
+    {{#if originPickLabel}}<p class="sn-picked"><strong>{{localize 'SOMBRANEON.Wizard.Picked'}}:</strong> {{originPickLabel}}</p>{{/if}}
+    {{/if}}
+
+    {{#if (eq stepId 'class')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.class'}}</h2>
+    <div class="sn-cards">
+      {{#each classes}}
+      <button type="button" class="sn-card-pick {{#if selected}}selected{{/if}}" data-action="pickClass" data-id="{{id}}">
+        <img src="{{img}}" alt=""><strong>{{name}}</strong><span>{{summary}}</span></button>
+      {{/each}}
+    </div>
+    {{#if chosenClass}}
+    <p><strong>{{chosenClass.name}}</strong>: {{localize 'SOMBRANEON.Sheet.HitDie'}} {{chosenClass.hitDie}}, {{localize 'SOMBRANEON.Wizard.KeyAbility'}} {{chosenClass.key}}.</p>
+    {{#if keyWarn}}<p class="sn-warn-text">{{keyWarn}}</p>{{/if}}
+    {{#if classPickLabel}}<p class="sn-picked"><strong>{{localize 'SOMBRANEON.Wizard.Picked'}}:</strong> {{classPickLabel}}</p>{{/if}}
+    {{/if}}
+    {{/if}}
+
+    {{#if (eq stepId 'background')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.background'}}</h2>
+    <div class="sn-row">
+      <button type="button" class="sn-btn sn-primary" data-action="rollBackground"><i class="fa-solid fa-dice-d20"></i> {{localize 'SOMBRANEON.Selector.RollD20'}}</button>
+      <select data-wiz="pickBackground">
+        <option value="">{{localize 'SOMBRANEON.Selector.Choose.background'}}</option>
+        {{#each backgrounds}}<option value="{{uuid}}" {{#if selected}}selected{{/if}}>{{name}} ({{knowledge}})</option>{{/each}}
+      </select>
+    </div>
+    <label>{{localize 'SOMBRANEON.Selector.CustomBackground'}}<input type="text" data-wiz="customBackground" value="{{d.background.custom}}"></label>
+    <label>{{localize 'SOMBRANEON.Wizard.Contact'}}<input type="text" data-wiz="contact" value="{{d.background.contact}}" placeholder="{{localize 'SOMBRANEON.Wizard.ContactPrompt'}}"></label>
+    {{/if}}
+
+    {{#if (eq stepId 'alignment')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.alignment'}}</h2>
+    <div class="sn-cards">
+      {{#each aligns}}
+      <button type="button" class="sn-card-pick {{#if selected}}selected{{/if}}" data-action="pickAlignment" data-id="{{id}}">
+        <img src="{{img}}" alt=""><strong>{{name}}</strong><span>{{summary}}</span></button>
+      {{/each}}
+    </div>
+    {{#if triggers.length}}
+    <h3>{{localize 'SOMBRANEON.Selector.trigger'}} <button type="button" class="sn-chip-btn" data-action="rollTrigger"><i class="fa-solid fa-dice-d6"></i> {{localize 'SOMBRANEON.Selector.RollD6'}}</button></h3>
+    <div class="sn-list">
+      {{#each triggers}}<button type="button" class="sn-list-pick {{#if selected}}selected{{/if}}" data-action="pickTrigger" data-id="{{id}}">{{name}}</button>{{/each}}
+    </div>
+    {{/if}}
+    {{/if}}
+
+    {{#if (eq stepId 'chrome')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.chrome'}}</h2>
+    <p class="sn-credits">{{localize 'SOMBRANEON.Wizard.Credits'}}: <strong>{{credits}} cr</strong> / {{localize 'SOMBRANEON.Wizard.Balance'}}: <strong class="{{#if overspent}}sn-warn-text{{/if}}">{{balanceText}}</strong></p>
+    <p class="{{#if cyberCount}}sn-hint{{/if}}">{{localize 'SOMBRANEON.Chrome.Count' count=cyberCount effective=cyberCount}} {{cyberText}}</p>
+    {{#if factoryImplants.length}}<p class="sn-picked"><strong>{{localize 'SOMBRANEON.Wizard.FactoryImplants'}}:</strong> {{#each factoryImplants}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>{{/if}}
+    {{#if catalog}}
+    <p class="sn-hint">{{localize 'SOMBRANEON.Implant.SurgeryHint'}}</p>
+    <div class="sn-list">
+      {{#each implantOptions}}<button type="button" class="sn-list-pick" data-action="addImplant" data-id="{{id}}">{{name}} <small>{{slot}}</small></button>{{/each}}
+    </div>
+    {{else}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Wizard.NoCatalog'}}</p>{{/if}}
+    {{#each chosenImplants}}<div class="sn-item-row"><strong>{{name}}</strong><span>{{quality}} / {{price}}</span><button type="button" class="sn-icon sn-danger" data-action="removeImplant" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button></div>{{/each}}
+    {{/if}}
+
+    {{#if (eq stepId 'gear')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.gear'}}</h2>
+    <p class="sn-credits">{{localize 'SOMBRANEON.Wizard.Balance'}}: <strong class="{{#if overspent}}sn-warn-text{{/if}}">{{balanceText}}</strong> / {{localize 'SOMBRANEON.Sheet.Slots'}}: {{slotUsed}}</p>
+    {{#if catalog}}
+    <div class="sn-row">
+      <button type="button" class="sn-btn sn-primary" data-action="addPackage">{{localize 'SOMBRANEON.Wizard.AddPackage'}} ({{packageCost}})</button>
+      <button type="button" class="sn-btn" data-action="addKit">{{localize 'SOMBRANEON.Wizard.AddKit'}}</button>
+    </div>
+    <p class="sn-hint">{{#each package}}{{name}}{{#if (gt qty 1)}} ×{{qty}}{{/if}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+    <nav class="sn-tabs">{{#each shopTabs}}<button type="button" data-action="shopTab" data-tab="{{id}}" class="{{#if active}}active{{/if}}">{{label}}</button>{{/each}}</nav>
+    <div class="sn-grid sn-grid-2">
+      <div class="sn-shop">
+        {{#each shop}}<div class="sn-item-row"><img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong><span>{{price}}</span><button type="button" class="sn-chip-btn" data-action="addCart" data-type="{{type}}" data-id="{{id}}">+</button></div>{{/each}}
+      </div>
+      <div class="sn-cart">
+        <h3>{{localize 'SOMBRANEON.Wizard.Cart'}}</h3>
+        {{#each cart}}<div class="sn-item-row"><strong>{{name}}</strong>{{#if (gt qty 1)}}<span>×{{qty}}</span>{{/if}}<span>{{price}}</span><button type="button" class="sn-icon sn-danger" data-action="removeCart" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button></div>{{/each}}
+        {{#unless cart.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Wizard.CartEmpty'}}</p>{{/unless}}
+      </div>
+    </div>
+    {{else}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Wizard.NoCatalog'}}</p>{{/if}}
+    {{/if}}
+
+    {{#if (eq stepId 'talents')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.talents'}}</h2>
+    <p>{{localize 'SOMBRANEON.Wizard.TalentsText' count=talentCount}}</p>
+    {{#each talentsRolled}}<div class="sn-item-row"><strong>{{name}}</strong><span>2d6: {{roll}}</span></div>{{/each}}
+    {{#if (gt talentsLeft 0)}}<button type="button" class="sn-btn sn-primary" data-action="rollTalent"><i class="fa-solid fa-dice"></i> {{localize 'SOMBRANEON.Sheet.RollTalent'}}</button>{{/if}}
+    {{/if}}
+
+    {{#if (eq stepId 'review')}}
+    <h2>{{localize 'SOMBRANEON.Wizard.Steps.review'}}</h2>
+    <ul class="sn-kv">{{#each summary}}<li><span>{{this.[0]}}</span><strong>{{this.[1]}}</strong></li>{{/each}}</ul>
+    <label>{{localize 'SOMBRANEON.Sheet.Drive'}}<input type="text" data-wiz="drive" value="{{d.drive}}"></label>
+    <div class="sn-list">{{#each drives}}<button type="button" class="sn-list-pick" data-action="pickDrive" data-id="{{id}}">{{label}}</button>{{/each}}</div>
+    <label>{{localize 'SOMBRANEON.Sheet.Appearance'}}<input type="text" data-wiz="appearance" value="{{d.appearance}}"></label>
+    <label>{{localize 'SOMBRANEON.Wizard.Language'}}<input type="text" data-wiz="language" value="{{d.language}}" placeholder="{{localize 'SOMBRANEON.Wizard.LanguagePlaceholder'}}"></label>
+    {{/if}}
+  </section>
+
+  <footer class="sn-wizard-foot">
+    <button type="button" class="sn-btn" data-action="back" {{#if isFirst}}disabled{{/if}}>{{localize 'SOMBRANEON.Wizard.Back'}}</button>
+    {{#if isLast}}
+    <button type="button" class="sn-btn sn-primary" data-action="finish" {{#unless canFinish}}disabled{{/unless}}>{{localize 'SOMBRANEON.Wizard.Finish'}}</button>
+    {{else}}
+    <button type="button" class="sn-btn sn-primary" data-action="next">{{localize 'SOMBRANEON.Wizard.Next'}}</button>
+    {{/if}}
+  </footer>
+</div>

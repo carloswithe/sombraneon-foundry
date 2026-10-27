@@ -1,0 +1,22 @@
+<div class="sn-feature" data-item-id="{{id}}" draggable="true">
+  <div class="sn-feature-head">
+    <img class="sn-ico" src="{{img}}" alt="">
+    <strong>{{name}}{{#if count}}{{#if (gt count 1)}} ×{{count}}{{/if}}{{/if}}</strong>
+    {{#if choice}}<span class="sn-prop">{{choice}}</span>{{/if}}
+    {{#if manual}}<span class="sn-prop sn-manual" title="{{localize 'SOMBRANEON.Sheet.ManualHint'}}">{{localize 'SOMBRANEON.Sheet.Manual'}}</span>{{/if}}
+    {{#if granted}}<span class="sn-prop sn-granted">{{localize 'SOMBRANEON.Sheet.Granted'}}</span>{{/if}}
+    <span class="sn-activation">{{activation}}</span>
+    <span class="sn-row-actions">
+      {{#if hasUses}}
+      <span class="sn-uses">
+        <button type="button" class="sn-icon" data-action="usesAdjust" data-delta="-1">-</button>{{uses.value}}/{{uses.max}}<button type="button" class="sn-icon" data-action="usesAdjust" data-delta="1">+</button>
+      </span>
+      {{/if}}
+      {{#if canUse}}<button type="button" class="sn-chip-btn" data-action="use" data-item-id="{{id}}">{{localize 'SOMBRANEON.Item.Use'}}</button>{{/if}}
+      <button type="button" class="sn-icon" data-action="showItem" data-item-id="{{id}}" title="{{localize 'SOMBRANEON.Item.Show'}}"><i class="fa-solid fa-comment"></i></button>
+      <button type="button" class="sn-icon" data-action="editItem" data-item-id="{{id}}" title="{{localize 'SOMBRANEON.Item.Edit'}}"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" class="sn-icon sn-danger" data-action="deleteItem" data-item-id="{{id}}" title="{{localize 'SOMBRANEON.Item.Delete'}}"><i class="fa-solid fa-trash"></i></button>
+    </span>
+  </div>
+  <p class="sn-desc">{{description}}</p>
+</div>

@@ -1,0 +1,2500 @@
+{
+  "1": {
+    "title": "Visão geral",
+    "tables": [],
+    "bullets": {}
+  },
+  "2": {
+    "title": "Criação de personagem",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d6",
+          "Objetivo do grupo"
+        ],
+        "rows": [
+          [
+            "1",
+            "Derrubar uma corporação ou um executivo específico."
+          ],
+          [
+            "2",
+            "Proteger o bairro e as pessoas que moram nele."
+          ],
+          [
+            "3",
+            "Juntar créditos e cromo para sair da cidade."
+          ],
+          [
+            "4",
+            "Descobrir e expor um segredo corporativo."
+          ],
+          [
+            "5",
+            "Libertar sintéticos ou pessoas presas a contratos e códigos."
+          ],
+          [
+            "6",
+            "Sobreviver à próxima temporada, custe o que custar."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "3": {
+    "title": "Origens",
+    "tables": [],
+    "bullets": {}
+  },
+  "4": {
+    "title": "Classes",
+    "tables": [],
+    "bullets": {}
+  },
+  "5": {
+    "title": "Antecedentes",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d20",
+          "Antecedente",
+          "Conhecimento"
+        ],
+        "rows": [
+          [
+            "1",
+            "Médico de beco",
+            "Curativos improvisados e clínicas clandestinas."
+          ],
+          [
+            "2",
+            "Corretor de dados",
+            "Valor de informação e quem compra."
+          ],
+          [
+            "3",
+            "Entregador",
+            "Atalhos e rotas da cidade."
+          ],
+          [
+            "4",
+            "Ex-segurança corp",
+            "Protocolos e rotinas corporativas."
+          ],
+          [
+            "5",
+            "**Fixer**",
+            "Quem contrata, quem paga e quem trai."
+          ],
+          [
+            "6",
+            "Streamer",
+            "Público, cultura pop e redes sociais."
+          ],
+          [
+            "7",
+            "Mecânico",
+            "Veículos, máquinas e reparos."
+          ],
+          [
+            "8",
+            "Sobrevivente da Zona",
+            "Áreas abandonadas e perigos urbanos."
+          ],
+          [
+            "9",
+            "Hacker de garagem",
+            "Sistemas antigos e gambiarras."
+          ],
+          [
+            "10",
+            "Dealer de stims",
+            "Mercado negro de químicos e estimulantes."
+          ],
+          [
+            "11",
+            "Piloto de transporte",
+            "Veículos de carga e passageiros."
+          ],
+          [
+            "12",
+            "Ex-gangue",
+            "Sinais, território e códigos de rua."
+          ],
+          [
+            "13",
+            "**Mercenário**",
+            "Contratos de combate, equipamento de guerra e quem paga melhor."
+          ],
+          [
+            "14",
+            "Cozinheiro de rua",
+            "Boatos, fofocas e quem passa por ali."
+          ],
+          [
+            "15",
+            "Catador de sucata",
+            "Peças, valor de lixo e ruínas."
+          ],
+          [
+            "16",
+            "Atendente de clínica",
+            "Prontuários, cirurgias e implantes."
+          ],
+          [
+            "17",
+            "DJ de clube",
+            "A noite, seus donos e seus clientes."
+          ],
+          [
+            "18",
+            "Ex-policial corrupto",
+            "Leis, delegacias e favores devidos."
+          ],
+          [
+            "19",
+            "Cobrador de dívidas",
+            "Intimidação e quem deve a quem."
+          ],
+          [
+            "20",
+            "Ex-funcionário de laboratório",
+            "Pesquisa corporativa e segredos de projeto."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "6": {
+    "title": "Alinhamentos",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Alinhamento",
+          "Equivale a",
+          "Em resumo"
+        ],
+        "rows": [
+          [
+            "**Controle**",
+            "Ordem",
+            "Acredita em estruturas, protocolos e eficiência. Desvio é falha a corrigir."
+          ],
+          [
+            "**Sobrevivência**",
+            "Neutro",
+            "Não serve a ideologia nenhuma, só à resistência. Adapta-se, negocia, mata quando acuado."
+          ],
+          [
+            "**Liberdade**",
+            "Caos",
+            "Recusa vigilância, destino predeterminado e obediência corporativa."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "7": {
+    "title": "Cromo e implantes",
+    "tables": [],
+    "bullets": {}
+  },
+  "8": {
+    "title": "Equipamento",
+    "tables": [],
+    "bullets": {}
+  },
+  "9": {
+    "title": "Hacking e a Rede",
+    "tables": [],
+    "bullets": {}
+  },
+  "10": {
+    "title": "Apêndice",
+    "tables": [],
+    "bullets": {}
+  },
+  "1.1": {
+    "title": "O jogo em um parágrafo",
+    "tables": [],
+    "bullets": {}
+  },
+  "1.2": {
+    "title": "A regra de ouro",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Dificuldade",
+          "CD"
+        ],
+        "rows": [
+          [
+            "Fácil",
+            "9"
+          ],
+          [
+            "Normal",
+            "12"
+          ],
+          [
+            "Difícil",
+            "15"
+          ],
+          [
+            "Extrema",
+            "18"
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Quando rolar": "só se houver risco, se a tarefa exigir perícia ou se o tempo for crítico. Se o runner é treinado e há calma, ele simplesmente consegue. Conversa vale mais que dado: argumentos bons dispensam teste.",
+      "20 natural": "sucesso crítico. Em ataque, acerta automaticamente e o dano dos dados é dobrado.",
+      "1 natural": "falha crítica. Em ataque, erra automaticamente.",
+      "Vantagem": "role 2d20 e fique com o melhor.",
+      "Desvantagem": "role 2d20 e fique com o pior.",
+      "Teste disputado": "os dois lados rolam, vence o maior resultado (empate, role de novo)."
+    }
+  },
+  "1.3": {
+    "title": "Atributos",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Valor",
+          "Mod"
+        ],
+        "rows": [
+          [
+            "1-3",
+            "-4"
+          ],
+          [
+            "4-5",
+            "-3"
+          ],
+          [
+            "6-7",
+            "-2"
+          ],
+          [
+            "8-9",
+            "-1"
+          ],
+          [
+            "10-11",
+            "0"
+          ],
+          [
+            "12-13",
+            "+1"
+          ],
+          [
+            "14-15",
+            "+2"
+          ],
+          [
+            "16-17",
+            "+3"
+          ],
+          [
+            "18 ou mais",
+            "+4"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "1.4": {
+    "title": "Combate",
+    "tables": [],
+    "bullets": {
+      "Iniciativa": "cada jogador rola d20 + mod. de DES e o Mestre rola 1d20 por grupo inimigo. Quem tirar mais age primeiro na rodada. Empate favorece os jogadores. A ordem se mantém até o fim do combate.",
+      "No seu turno": "você se move até o alcance **Próximo** e faz uma **ação** (atacar, executar um programa, usar um item). Se pular a ação, pode se mover Próximo de novo. Pequenas tarefas paralelas (dar uma ordem, levantar, ativar um aparelho) não custam a ação.",
+      "Alcances": "Perto (mão a mão, cerca de 1,5 m), Próximo (até cerca de 9 m, ou 30 pés) e Longe (dentro da linha de visão).",
+      "Ataque corpo a corpo": "d20 + mod. de FOR (ou DES com armas leves).",
+      "Ataque à distância": "d20 + mod. de DES.",
+      "Acerto": "o resultado iguala ou supera a **CA** do alvo.",
+      "CA base": "10 + mod. de DES + armadura.",
+      "Dano": "role os dados da arma (ou do programa) e some bônus relevantes. Em acerto crítico, dobre os dados.",
+      "Surpresa": "quem surpreende o inimigo age um turno inteiro antes da iniciativa. Ataques contra alvos surpresos têm vantagem.",
+      "Cobertura": "alvo com pelo menos metade do corpo protegido ganha +2 de CA. Sem ver o alvo, não dá para atacá-lo.",
+      "Terreno difícil": "(entulho, lama, fios): reduz o deslocamento à metade.",
+      "Nocaute": "em vez de matar, você pode deixar o alvo inconsciente ao levá-lo a 0 HP.",
+      "Moral": "quando metade do grupo inimigo cai (ou metade do HP de um inimigo solo), ele foge se falhar num teste de SAB CD 15. Em grupos grandes, o Mestre rola uma vez com o líder.",
+      "Armas gêmeas": "a mesma arma em cada mão. Faça um único ataque, e em caso de acerto role o dano com vantagem."
+    }
+  },
+  "1.5": {
+    "title": "Pontos de vida e morte",
+    "tables": [],
+    "bullets": {
+      "HP no nível 1": "dado de vida da classe + mod. de CON (mínimo 1).",
+      "A cada nível": "role o dado de vida da classe + mod. de CON (mínimo 1) e some ao total.",
+      "0 HP": "você cai inconsciente e está **morrendo**. Role **1d4 + mod. de CON** (mínimo 1): é o número de rodadas que você ainda tem. No início de cada turno seu, role 1d20: um **20 natural** te traz de volta com 1 HP. Se qualquer cura te levar acima de 0, você acorda e não está mais morrendo.",
+      "Estabilizar": "teste de INT CD 15, alcance Perto, com kit médico (vantagem em orgânicos). O alvo continua inconsciente, mas não morre.",
+      "Morte": "quando o tempo acaba sem ajuda, o personagem se foi."
+    }
+  },
+  "1.6": {
+    "title": "Evolução",
+    "tables": [],
+    "bullets": {}
+  },
+  "1.7": {
+    "title": "Edge",
+    "tables": [],
+    "bullets": {
+      "Gaste": "para repetir qualquer rolagem sua. O novo resultado vale.",
+      "Quantidade por sessão": "numa sessão cinematográfica, o Mestre pode dar 2 ou 3 fichas por jogador. Numa sessão sombria e mortal, pode não dar nenhuma."
+    }
+  },
+  "1.8": {
+    "title": "Tempo e descanso",
+    "tables": [],
+    "bullets": {
+      "Tempo real": "1 minuto de mesa equivale a 1 minuto de jogo. Isso importa para a **bateria** e para o **Firewall** (Capítulos 8 e 9), que duram 1 hora de mesa. Se não for possível cronometrar, 1 hora de jogo equivale a 10 rodadas.",
+      "Descanso (reboot)": "8 horas em local seguro, consumindo 1 ração. Recupera todos os HP e restaura o que volta por descanso (programas e protocolos em Crash, Sets, habilidades de classe).",
+      "Interrupção": "cada interrupção estressante (combate, alarme, perseguição) exige teste de CON CD 12. Se falhar, a ração é gasta e você não recupera nada.",
+      "Qualidade da área": "o Mestre rola 1d6 (1 é um encontro aleatório) a cada 3 horas em área **Insegura**, a cada 2 em área **Arriscada** e a cada 1 em área **Mortal**. Em área **Segura** não há rolagem."
+    }
+  },
+  "3.1": {
+    "title": "Nat",
+    "tables": [],
+    "bullets": {
+      "Corpo sem interface": "enquanto não tiver implante no slot Neural, hacks não conseguem te afetar diretamente.",
+      "Humanidade firme": "vantagem nos testes contra ciberpsicose.",
+      "Ambicioso": "role 1 talento extra no nível 1."
+    }
+  },
+  "3.2": {
+    "title": "Cromado",
+    "tables": [],
+    "bullets": {
+      "Instalação de fábrica": "começa com **2 implantes de qualidade Rua**, grátis, em slots à sua escolha.",
+      "Cromo estável": "conta 1 implante a menos ao verificar ciberpsicose.",
+      "Vulnerável": "desvantagem em testes de resistência contra hacking e EMP."
+    }
+  },
+  "3.3": {
+    "title": "Sintético",
+    "tables": [],
+    "bullets": {
+      "Corpo artificial": "não precisa comer, beber, respirar ou dormir. Seu descanso é manutenção (as mesmas 8 horas, sem ração). 1 vez por dia, ignore um efeito que mire sua fisiologia (veneno, doença ou sangramento).",
+      "Interface nativa": "você se conecta a decks, drones e terminais sem cabo, ao alcance Perto, e tem vantagem em hack de rua.",
+      "Casco de fábrica": "+1 de CA enquanto não usar armadura.",
+      "Registro": "qualquer scanner te identifica como sintético, e a lei costuma te tratar como propriedade. Polícia, segurança corporativa e executivos que saibam o que você é têm -2 na reação a você. Uma corporação pode reivindicar sua posse, um gancho de aventura à disposição do Mestre."
+    }
+  },
+  "3.4": {
+    "title": "Biomod",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d20",
+          "Mutação"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Anfíbio:** respira água e ar e nada em velocidade total."
+          ],
+          [
+            "2",
+            "**Poderoso:** +1 em acerto e dano com armas corpo a corpo."
+          ],
+          [
+            "3",
+            "**Pele blindada:** +1 de CA enquanto não usar armadura."
+          ],
+          [
+            "4",
+            "**Comunicação oculta:** comunica-se em segredo (feromônios, ultrassom) com quem entende."
+          ],
+          [
+            "5",
+            "**Mira biológica:** +1 em acerto e dano com armas à distância."
+          ],
+          [
+            "6",
+            "**Sentidos agudos:** você não pode ser surpreendido."
+          ],
+          [
+            "7",
+            "**Arma natural:** garras, presas ou chifres com dano d6, com os quais você tem proficiência."
+          ],
+          [
+            "8",
+            "**Planador:** membranas permitem planar. Você não sofre dano de queda e se move Próximo durante a descida. Não ganha altura."
+          ],
+          [
+            "9",
+            "**Camuflagem:** 1 vez por dia, fique invisível por 3 rodadas."
+          ],
+          [
+            "10",
+            "**Faro de caçador:** 1 vez por dia, escolha uma presa. Você tem vantagem em todos os testes para rastreá-la."
+          ],
+          [
+            "11",
+            "**Adaptado a extremos:** meio dano de fogo e calor, ou de gelo e frio (escolha ao rolar)."
+          ],
+          [
+            "12",
+            "**Técnico nato:** +1 em testes com tecnologia e máquinas."
+          ],
+          [
+            "13",
+            "**Afinidade com vivos e máquinas:** +1 em testes de interação com animais, drones e robôs."
+          ],
+          [
+            "14",
+            "**Resistência a choque e radiação:** meio dano de eletricidade (inclui EMP) e radiação."
+          ],
+          [
+            "15",
+            "**Filtro tóxico:** sobrevive em ambientes tóxicos e sofre meio dano de veneno."
+          ],
+          [
+            "16",
+            "**Escalador nato:** escala em velocidade total e reduz a CD de escalada em uma categoria."
+          ],
+          [
+            "17",
+            "**Braços extras:** 1 ação não ofensiva extra por turno e +2 slots de equipamento."
+          ],
+          [
+            "18",
+            "**Pernas extras:** move-se Próximo duas vezes no turno além da ação. A CD para te derrubar sobe uma categoria."
+          ],
+          [
+            "19",
+            "**Reflexos acelerados:** vantagem em iniciativa."
+          ],
+          [
+            "20",
+            "**Regeneração:** 1 vez por descanso, como ação, recupere 1d6 + nível HP."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Genoma instável": "role **2 mutações** na tabela abaixo (se repetir, role de novo). Ou escolha 1 e role a outra, se o Mestre concordar.",
+      "Corpo rejeita cromo": "conta 1 implante a mais ao verificar ciberpsicose."
+    }
+  },
+  "4.1": {
+    "title": "Solo",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Segundo domínio:** domínio de outro tipo de arma."
+          ],
+          [
+            "3-6",
+            "**Arma afinada:** +1 em acerto e dano com armas do seu domínio."
+          ],
+          [
+            "7-9",
+            "**+2 em FOR, DES ou CON.**"
+          ],
+          [
+            "10-11",
+            "**Armadura treinada:** +1 de CA com armaduras médias ou pesadas."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d8.",
+      "Atributo-chave": "FOR ou DES.",
+      "Armas": "todas. **Armaduras:** todas.",
+      "Domínio de arma": "escolha um tipo de arma (lâminas, pistolas, armas pesadas, etc.). Ganha +1 em acerto e dano, mais metade do seu nível (arredondando para baixo).",
+      "Chassi": "soma seu mod. de CON (se positivo) aos slots de equipamento.",
+      "Resistente": "vantagem em testes de CON para resistir a ferimentos, veneno e efeitos colaterais de cromo.",
+      "Duro de matar": "3 vezes por descanso, ao cair a 0 HP, faça um teste de CON CD 15. Se passar, você fica de pé com 1 HP."
+    }
+  },
+  "4.2": {
+    "title": "Netrunner",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Biblioteca:** aprende 1 programa extra."
+          ],
+          [
+            "3-6",
+            "**Programa afinado:** +1 para executar um programa à sua escolha."
+          ],
+          [
+            "7-9",
+            "**+2 em INT, DES ou CON.**"
+          ],
+          [
+            "10-11",
+            "**Deck customizado:** seu deck absorve o primeiro Feedback de cada descanso."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d4.",
+      "Atributo-chave": "INT.",
+      "Armas": "facas, pistolas leves, armas de choque. **Armaduras:** nenhuma.",
+      "Deck": "você precisa de um deck para executar programas (Capítulo 8). Sem deck, sem programas.",
+      "Programas": "conhece **2 programas de tier 1** no nível 1 e aprende **1 novo programa por nível**.",
+      "Tier máximo por nível": "T1 (níveis 1-2), T2 (3-4), T3 (5-6), T4 (7-8), T5 (9-10).",
+      "Execução e falhas": "Capítulo 9."
+    }
+  },
+  "4.3": {
+    "title": "Hyperdoc",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Biblioteca clínica:** aprende 1 protocolo extra."
+          ],
+          [
+            "3-6",
+            "**Protocolo afinado:** +1 para executar um protocolo à sua escolha."
+          ],
+          [
+            "7-9",
+            "**+2 em SAB, INT ou CON.**"
+          ],
+          [
+            "10-11",
+            "**Nanobots em enxame:** protocolos de cura curam +1d4 HP."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d6.",
+      "Atributo-chave": "SAB.",
+      "Armas": "facas, pistolas leves, bastões. **Armaduras:** leves e médias.",
+      "Nanokit": "você precisa de um nanokit (1 slot) para usar protocolos.",
+      "Protocolos": "funcionam como programas, mas usam **SAB** e a lista de protocolos. Conhece 2 de tier 1 no nível 1 e aprende 1 por nível, com a mesma tabela de tiers do Netrunner.",
+      "Primeiros socorros": "1 vez por cena, estabilize um aliado a 0 HP sem teste e sem gastar protocolo.",
+      "Cirurgião": "pode instalar e remover implantes com um kit cirúrgico e 1 hora de trabalho.",
+      "Execução e falhas": "Capítulo 9."
+    }
+  },
+  "4.4": {
+    "title": "Ghost",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Edge extra:** você pode guardar até 2 fichas de Edge."
+          ],
+          [
+            "3-6",
+            "**Exploit:** ao atacar ou hackear um alvo desatento, aplique 1 efeito por 1d4 rodadas à sua escolha: cego, imóvel, +1 dado de dano ou 1 implante desativado."
+          ],
+          [
+            "7-9",
+            "**+2 em DES, SAB ou CAR.**"
+          ],
+          [
+            "10-11",
+            "**Camuflagem óptica:** 1 vez por descanso, some de câmeras e scanners por 1 hora."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d4.",
+      "Atributo-chave": "DES.",
+      "Armas": "facas, pistolas leves, armas silenciadas, armas de uma mão. **Armaduras:** leves.",
+      "Ataque furtivo": "ao atacar alvo desatento, flanqueado ou pelas costas, role **1 dado de arma extra**, e mais 1 a cada 2 níveis (níveis 3, 5, 7 e 9).",
+      "Fantasma": "vantagem em furtividade, escalada, disfarce, achar e desarmar sensores ou armadilhas, tarefas delicadas (arrombar, plantar, furtar) e hack de rua (Capítulo 9).",
+      "Edge de rua": "depois de cada descanso, se você não tiver uma ficha de Edge, ganhe uma."
+    }
+  },
+  "4.5": {
+    "title": "Rocker",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "Set",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Hype**",
+            "Aliados que te ouvem têm vantagem no próximo teste."
+          ],
+          [
+            "**Estática**",
+            "Até 1 + mod. de CAR inimigos têm desvantagem no próximo ataque ou teste."
+          ],
+          [
+            "**Refrão**",
+            "Aliados que te ouvem recuperam 1d6 + nível HP."
+          ],
+          [
+            "**Solo**",
+            "Um alvo Próximo que te ouça sofre 1d6 + nível de dano sônico (teste de CON CD 12 para metade)."
+          ],
+          [
+            "**Cadência**",
+            "Aliados que te ouvem ganham +1 de CA até o fim da cena."
+          ],
+          [
+            "**Distorção**",
+            "Inimigos Próximos fazem teste de CON CD 12 ou ficam atordoados por 1 rodada."
+          ]
+        ]
+      },
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Setlist maior:** aprende 1 Set extra."
+          ],
+          [
+            "3-6",
+            "**Afinação:** +1 nos testes de um Set à sua escolha."
+          ],
+          [
+            "7-9",
+            "**+2 em CAR, DES ou INT.**"
+          ],
+          [
+            "10-11",
+            "**Backing track:** 1 Set por descanso pode ser usado sem gastar sua ação."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d6.",
+      "Atributo-chave": "CAR.",
+      "Armas": "facas, pistolas leves, armas de uma mão. **Armaduras:** leves.",
+      "Rig de palco": "instrumento, sintetizador ou implante vocal (1 slot). Sem rig, sem Sets.",
+      "Sets": "conhece 3 Sets à sua escolha no nível 1 e aprende 1 novo nos níveis 4, 7 e 10. Cada Set pode ser usado **1 vez por descanso**, como ação, com teste de **d20 + CAR contra CD 12**. Em falha, o Set não é gasto.",
+      "Palco": "vantagem em testes ligados a música, vídeo, podcast e apresentações em geral.",
+      "Fama": "vantagem em testes de CAR com quem te reconhece (o Mestre decide).",
+      "Ressonância": "quando você ou um aliado Próximo gasta uma ficha de Edge, some +1d6 ao novo resultado."
+    }
+  },
+  "4.6": {
+    "title": "Rigger",
+    "tables": [
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "Estatística do drone",
+          "Valor"
+        ],
+        "rows": [
+          [
+            "CA",
+            "12"
+          ],
+          [
+            "HP",
+            "4 + 2 por nível"
+          ],
+          [
+            "Deslocamento",
+            "Voa até Próximo por turno"
+          ],
+          [
+            "Ataque",
+            "d20 + seu mod. de DES"
+          ],
+          [
+            "Dano",
+            "d4 (níveis 1-4), d6 (5-8), d8 (9-10)"
+          ]
+        ]
+      },
+      {
+        "label": "Habilidades base:",
+        "header": [
+          "2d6",
+          "Talento"
+        ],
+        "rows": [
+          [
+            "2",
+            "**Drone auxiliar:** um segundo drone pequeno e voador (sensor), sem ataque."
+          ],
+          [
+            "3-6",
+            "**Armamento do drone:** +1 em acerto e dano do drone."
+          ],
+          [
+            "7-9",
+            "**+2 em DES, INT ou CON.**"
+          ],
+          [
+            "10-11",
+            "**Chassi reforçado:** o drone ganha +4 HP e +1 de CA."
+          ],
+          [
+            "12",
+            "Escolha qualquer talento acima ou +2 pontos de atributo."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Dado de vida": "d6.",
+      "Atributo-chave": "DES (INT para o drone).",
+      "Armas": "pistolas, fuzis leves, facas. **Armaduras:** leves e médias.",
+      "Drone voador": "você começa com um drone aéreo. Ele age no seu turno, **uma ação por rodada**, além da sua.",
+      "Voo": "o drone ignora terreno difícil e obstáculos no chão, alcança tetos, janelas e dutos e sobrevoa abismos. Em troca, é barulhento (desvantagem em furtividade), carrega apenas 1 item pequeno e sofre programas e EMP como qualquer dispositivo.",
+      "Link": "você vê o que o drone vê e pode controlá-lo a distância Longe.",
+      "Batedor": "vantagem em iniciativa e em testes para perceber emboscadas.",
+      "Condutor": "vantagem em testes de pilotagem de veículos e drones."
+    }
+  },
+  "6.1": {
+    "title": "Gatilhos de Edge",
+    "tables": [
+      {
+        "label": "Controle",
+        "header": [
+          "d6",
+          "Gatilho"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Executor:** fazer cumprir uma regra ou contrato, mesmo contra um aliado."
+          ],
+          [
+            "2",
+            "**Faxineiro:** destruir provas de falha ou corrupção corporativa."
+          ],
+          [
+            "3",
+            "**Caçador de rebeldes:** neutralizar um agente da Liberdade."
+          ],
+          [
+            "4",
+            "**Exemplo:** punir publicamente uma desobediência para servir de lição."
+          ],
+          [
+            "5",
+            "**Advogado do diabo:** resolver uma ameaça usando uma lei, cláusula ou contrato a seu favor."
+          ],
+          [
+            "6",
+            "**Exorcista:** neutralizar uma IA descontrolada ou um código corrompido."
+          ]
+        ]
+      },
+      {
+        "label": "Sobrevivência",
+        "header": [
+          "d6",
+          "Gatilho"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Catador:** barganhar, saquear ou roubar equipamento essencial para sobreviver."
+          ],
+          [
+            "2",
+            "**Provisor:** garantir abrigo, comida ou proteção para o grupo."
+          ],
+          [
+            "3",
+            "**Força do bando:** salvar um membro do grupo de um grande perigo."
+          ],
+          [
+            "4",
+            "**Cauteloso:** evitar um combate perigoso e sair ileso (fugir, recuar, se esconder)."
+          ],
+          [
+            "5",
+            "**Oportunista:** aproveitar os recursos de outra pessoa, sem matá-la, para manter os seus."
+          ],
+          [
+            "6",
+            "**Camaleão:** fingir lealdade a um poder mais forte para escapar de uma ameaça."
+          ]
+        ]
+      },
+      {
+        "label": "Liberdade",
+        "header": [
+          "d6",
+          "Gatilho"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Libertador:** libertar alguém do controle corporativo ou de um código."
+          ],
+          [
+            "2",
+            "**Rebelde:** quebrar ou ignorar uma regra corporativa à vista de todos."
+          ],
+          [
+            "3",
+            "**Sabotador:** sabotar um sistema de vigilância ou rastreio."
+          ],
+          [
+            "4",
+            "**Código aberto:** compartilhar tecnologia ou dados proibidos."
+          ],
+          [
+            "5",
+            "**Agitador:** inspirar outros a resistir, com palavras ou atos."
+          ],
+          [
+            "6",
+            "**Quebra-correntes:** neutralizar um agente do Controle."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "6.2": {
+    "title": "Reação por facção",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Facção",
+          "Controle",
+          "Sobrevivência",
+          "Liberdade"
+        ],
+        "rows": [
+          [
+            "Polícia e segurança corporativa",
+            "+2",
+            "0",
+            "-2"
+          ],
+          [
+            "Executivos e corporações",
+            "+2",
+            "0",
+            "-2"
+          ],
+          [
+            "Cidadãos comuns",
+            "+1",
+            "0",
+            "-1"
+          ],
+          [
+            "Gangues de rua",
+            "-1",
+            "+1",
+            "+1"
+          ],
+          [
+            "Mercado negro e fixers",
+            "-1",
+            "+2",
+            "0"
+          ],
+          [
+            "Cultos e fanáticos de IA",
+            "-1",
+            "0",
+            "+1"
+          ],
+          [
+            "Punks e hackers anarquistas",
+            "-2",
+            "0",
+            "+2"
+          ],
+          [
+            "Sintéticos livres e redes de refúgio",
+            "-1",
+            "0",
+            "+2"
+          ]
+        ]
+      },
+      {
+        "label": "",
+        "header": [
+          "2d6",
+          "Reação"
+        ],
+        "rows": [
+          [
+            "2 ou menos",
+            "**Hostil:** ataca, denuncia ou expulsa."
+          ],
+          [
+            "3-5",
+            "**Desconfiado:** recusa ajuda ou cobra caro."
+          ],
+          [
+            "6-8",
+            "**Neutro:** ouve e negocia."
+          ],
+          [
+            "9-11",
+            "**Amigável:** ajuda se for barato."
+          ],
+          [
+            "12 ou mais",
+            "**Prestativo:** ajuda de boa vontade e oferece algo a mais."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "7.1": {
+    "title": "Os quatro slots",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Slot",
+          "O que cobre"
+        ],
+        "rows": [
+          [
+            "**Neural**",
+            "Cabeça, olhos, ouvidos, cérebro, interface."
+          ],
+          [
+            "**Corpo**",
+            "Tronco, pele, órgãos, esqueleto."
+          ],
+          [
+            "**Braços**",
+            "Ombros, braços e mãos."
+          ],
+          [
+            "**Pernas**",
+            "Quadris, pernas e pés."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "7.2": {
+    "title": "Qualidades",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Qualidade",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "**Rua**",
+            "300 cr"
+          ],
+          [
+            "**Corp**",
+            "1.000 cr"
+          ],
+          [
+            "**Militar**",
+            "3.000 cr"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "7.3": {
+    "title": "Ciberpsicose",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d6",
+          "Surto"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Tremor:** desvantagem em ataques por 1 rodada."
+          ],
+          [
+            "2",
+            "**Fúria:** você ataca a criatura mais próxima."
+          ],
+          [
+            "3",
+            "**Paranoia:** desvantagem em testes sociais até o fim da cena."
+          ],
+          [
+            "4",
+            "**Dissociação:** você perde sua ação."
+          ],
+          [
+            "5",
+            "**Mudez:** você não consegue falar até o fim da cena."
+          ],
+          [
+            "6",
+            "**Apagão:** você desmaia por 1d4 rodadas."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "CD 12": "com 3 slots ocupados.",
+      "CD 14": "com 4 slots ocupados."
+    }
+  },
+  "7.4": {
+    "title": "Implantes",
+    "tables": [
+      {
+        "label": "Neural",
+        "header": [
+          "Implante",
+          "Rua",
+          "Corp acrescenta",
+          "Militar acrescenta"
+        ],
+        "rows": [
+          [
+            "**Reflexos neurais**",
+            "Vantagem em iniciativa.",
+            "+1 em testes de DES para evitar perigos.",
+            "Você age antes de todos na primeira rodada, se não for surpreendido."
+          ],
+          [
+            "**Alvejador neural**",
+            "+1 em ataques à distância.",
+            "Ignora o +2 de CA de cobertura parcial.",
+            "+1 de dano à distância."
+          ],
+          [
+            "**Potencializador mental**",
+            "+1 em INT ou SAB.",
+            "+1 também no outro atributo.",
+            "+2 em um dos dois e +1 no outro (no total)."
+          ],
+          [
+            "**Jack de interface**",
+            "Conexão direta com decks e drones. Netrunners ganham +1 na execução de programas.",
+            "Executa programas ao alcance Longe sem cabo.",
+            "Vantagem no teste para continuar conectado quando seu corpo é ferido na imersão."
+          ],
+          [
+            "**Filtro de dor**",
+            "1 vez por descanso, ao chegar a 0 HP, fique com 1 HP.",
+            "2 vezes por descanso.",
+            "Imune a atordoamento e medo."
+          ],
+          [
+            "**Olhos térmicos**",
+            "Enxerga no escuro até Próximo.",
+            "Enxerga no escuro até Longe e vê calor através de fumaça.",
+            "Vantagem em testes para perceber e ignora desvantagem de escuridão e fumaça."
+          ],
+          [
+            "**Memória estendida**",
+            "Vantagem em testes de INT para lembrar ou analisar dados.",
+            "Grava e reproduz tudo que você viu e ouviu.",
+            "1 vez por descanso, some +1d6 a um teste de INT."
+          ]
+        ]
+      },
+      {
+        "label": "Corpo",
+        "header": [
+          "Implante",
+          "Rua",
+          "Corp acrescenta",
+          "Militar acrescenta"
+        ],
+        "rows": [
+          [
+            "**Subderme blindada**",
+            "+1 de CA.",
+            "+2 de CA no total.",
+            "Acertos críticos contra você causam dano normal."
+          ],
+          [
+            "**Quadro cinético**",
+            "+1 em FOR ou DES.",
+            "+2 no atributo escolhido.",
+            "+1 no outro atributo."
+          ],
+          [
+            "**Coração cibernético**",
+            "+1 em CON.",
+            "+2 em CON no total.",
+            "Ao morrer, role 1d6 + mod. de CON no lugar de 1d4."
+          ],
+          [
+            "**Protocolo social**",
+            "+1 em CAR.",
+            "+2 em CAR no total.",
+            "Vantagem em testes de CAR contra quem te vê e ouve."
+          ],
+          [
+            "**Contrapeso**",
+            "+2 slots de equipamento.",
+            "+4 slots no total.",
+            "Vantagem em testes de FOR para levantar e carregar."
+          ],
+          [
+            "**Sistema de estimulantes**",
+            "1 vez por descanso, recupera 1d6 + nível HP.",
+            "2 vezes por descanso.",
+            "Ao ativar, ganha vantagem no próximo ataque."
+          ],
+          [
+            "**Pulmões filtrantes**",
+            "Imune a gases e toxinas inaláveis.",
+            "Vantagem em CON contra veneno e doença.",
+            "Respira em vácuo ou debaixo d'água por 10 minutos."
+          ]
+        ]
+      },
+      {
+        "label": "Braços",
+        "header": [
+          "Implante",
+          "Rua",
+          "Corp acrescenta",
+          "Militar acrescenta"
+        ],
+        "rows": [
+          [
+            "**Arma retrátil**",
+            "Arma de uma mão embutida (d6), escondida até ser ativada. Não ocupa slot e não pode ser desarmada.",
+            "Dano d8.",
+            "Lâmina monofio: ignora 1 de CA do alvo."
+          ],
+          [
+            "**Mão tática**",
+            "Pistola embutida (d6, Próximo).",
+            "Dano d8.",
+            "Alcance Longe."
+          ],
+          [
+            "**Garras de pressão**",
+            "Vantagem em testes de FOR com os braços e +1 de dano desarmado.",
+            "+2 de dano desarmado no total.",
+            "Soco desarmado d8 que ignora 1 de CA."
+          ],
+          [
+            "**Mão de precisão**",
+            "Vantagem em tarefas delicadas (arrombar, reparar).",
+            "Kit de ferramentas embutido, que não ocupa slot.",
+            "+1 em ataques à distância e vantagem para desarmar bombas e armadilhas."
+          ],
+          [
+            "**Escudo cinético**",
+            "+1 de CA contra ataques corpo a corpo.",
+            "+2 de CA contra corpo a corpo no total.",
+            "1 vez por descanso, negue um ataque corpo a corpo que te acertaria."
+          ],
+          [
+            "**Cabo-gancho**",
+            "Cabo de 18 m com âncora magnética, serve de corda de segurança.",
+            "Puxa objetos leves e escala em velocidade total.",
+            "Prende e puxa um alvo até Perto (teste de FOR disputado)."
+          ],
+          [
+            "**Injetor embutido**",
+            "Guarda 1 stim e o aplica sem gastar ação.",
+            "Guarda 2 stims.",
+            "Guarda 3 stims e cada um cura +1d4."
+          ]
+        ]
+      },
+      {
+        "label": "Pernas",
+        "header": [
+          "Implante",
+          "Rua",
+          "Corp acrescenta",
+          "Militar acrescenta"
+        ],
+        "rows": [
+          [
+            "**Molas de salto**",
+            "Salta o dobro e ignora queda de até 6 m.",
+            "Ignora queda de até 12 m.",
+            "Ignora queda de até 18 m e salta até Próximo na vertical."
+          ],
+          [
+            "**Motor de sprint**",
+            "Dobra o deslocamento (move-se Próximo duas vezes).",
+            "Investida: ao se mover Próximo antes de um ataque corpo a corpo, +1d4 de dano.",
+            "A investida causa +1d6."
+          ],
+          [
+            "**Passos silenciosos**",
+            "Vantagem em furtividade ao se mover.",
+            "Sensores de movimento têm desvantagem para te detectar.",
+            "1 vez por descanso, invisível a sensores por 1 minuto."
+          ],
+          [
+            "**Estabilizadores**",
+            "Vantagem para não ser derrubado ou empurrado.",
+            "Ignora terreno difícil.",
+            "Imune a ser derrubado ou empurrado."
+          ],
+          [
+            "**Âncoras magnéticas**",
+            "Caminha e escala superfícies metálicas.",
+            "Caminha em tetos metálicos em velocidade total.",
+            "+1 de CA contra corpo a corpo enquanto preso a uma superfície metálica."
+          ],
+          [
+            "**Sub-rotina de passo**",
+            "1 vez por dia, evita um ataque que acertaria você.",
+            "1 vez por descanso.",
+            "2 vezes por descanso."
+          ],
+          [
+            "**Pernas de combate**",
+            "Chutes causam d6 e dão vantagem em FOR para derrubar.",
+            "Chutes d8.",
+            "+1 em acerto desarmado e atordoa em 20 natural."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.1": {
+    "title": "Regras base",
+    "tables": [],
+    "bullets": {
+      "Créditos (cr)": "moeda única e digital, guardada num credstick. Não ocupam slots. **10 cr equivalem a 1 peça de ouro do Shadowdark.**",
+      "Slots de equipamento": "igual ao seu valor de **FOR** (mínimo 10). O Solo soma o mod. de CON.",
+      "Itens pequenos": "onde indicado, vários itens ocupam 1 slot.",
+      "Rig utilitário": "o primeiro não ocupa slot.",
+      "Munição": "você não conta tiros, conta **carregadores**. Num **1 natural** em ataque à distância, o carregador acabou: recarregar custa 1 ação e 1 carregador.",
+      "Bateria": "lanternas, decks e olhos térmicos usam bateria. Cada bateria dura **1 hora real de mesa**. Trocar custa uma ação.",
+      "Propriedades de armas": "",
+      "Leve": "use FOR ou DES no ataque.",
+      "Arremessável": "pode ser lançada como ataque à distância.",
+      "Duas mãos": "exige as duas mãos.",
+      "Rajada": "em vez do ataque normal, uma única rolagem atinge todas as criaturas num cubo Próximo à frente, que tenham CA igual ou menor que o resultado. Gasta 1 carregador inteiro.",
+      "Mira": "gaste uma ação para dar +2 no ataque seguinte.",
+      "Atordoa": "o alvo atingido só pode se mover ou agir (um dos dois) na rodada seguinte."
+    }
+  },
+  "8.2": {
+    "title": "Armas brancas",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Arma",
+          "Dano",
+          "Slots",
+          "Custo",
+          "Notas"
+        ],
+        "rows": [
+          [
+            "Faca",
+            "d4",
+            "1",
+            "10 cr",
+            "Leve, arremessável"
+          ],
+          [
+            "Soqueira",
+            "d4",
+            "1",
+            "10 cr",
+            "Leve"
+          ],
+          [
+            "Bastão de choque",
+            "d6",
+            "1",
+            "100 cr",
+            "Leve, atordoa em 20 natural"
+          ],
+          [
+            "Katana monofio",
+            "d8",
+            "1",
+            "250 cr",
+            "Ignora 1 de CA do alvo"
+          ],
+          [
+            "Marreta cibernética",
+            "d10",
+            "2",
+            "150 cr",
+            "Duas mãos"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.3": {
+    "title": "Armas de fogo e inteligentes",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Arma",
+          "Dano",
+          "Alcance",
+          "Slots",
+          "Custo",
+          "Notas"
+        ],
+        "rows": [
+          [
+            "Pistola leve",
+            "d6",
+            "Próximo",
+            "1",
+            "100 cr",
+            "Leve"
+          ],
+          [
+            "Pistola pesada",
+            "d8",
+            "Próximo",
+            "1",
+            "150 cr",
+            ""
+          ],
+          [
+            "Submetralhadora",
+            "d6",
+            "Próximo",
+            "1",
+            "250 cr",
+            "Rajada"
+          ],
+          [
+            "Escopeta",
+            "d10",
+            "Próximo",
+            "2",
+            "200 cr",
+            "Duas mãos"
+          ],
+          [
+            "Fuzil",
+            "d10",
+            "Longe",
+            "2",
+            "300 cr",
+            "Duas mãos"
+          ],
+          [
+            "Rifle de precisão",
+            "d12",
+            "Longe",
+            "2",
+            "600 cr",
+            "Duas mãos, mira"
+          ],
+          [
+            "Arma inteligente",
+            "d6",
+            "Próximo",
+            "1",
+            "500 cr",
+            "+1 em acerto"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.4": {
+    "title": "Armaduras",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Armadura",
+          "CA",
+          "Slots",
+          "Custo",
+          "Notas"
+        ],
+        "rows": [
+          [
+            "Jaqueta blindada",
+            "11 + DES",
+            "1",
+            "250 cr",
+            "Leve"
+          ],
+          [
+            "Colete tático",
+            "13 + DES",
+            "2",
+            "750 cr",
+            "Média, desvantagem em furtividade"
+          ],
+          [
+            "Armadura corp pesada",
+            "15",
+            "3",
+            "1.500 cr",
+            "Pesada, sem DES, desvantagem em furtividade e natação"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.5": {
+    "title": "Equipamento geral",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Item",
+          "Custo",
+          "Slots",
+          "Notas"
+        ],
+        "rows": [
+          [
+            "Deck de rua",
+            "300 cr",
+            "1",
+            "Base para programas"
+          ],
+          [
+            "Deck corp",
+            "1.000 cr",
+            "1",
+            "+1 na execução de programas"
+          ],
+          [
+            "Deck militar",
+            "3.000 cr",
+            "1",
+            "+2 na execução de programas"
+          ],
+          [
+            "Firewall",
+            "100 cr",
+            "2 por slot",
+            "Cartucho de proteção para a imersão total (9.7)"
+          ],
+          [
+            "Nanokit",
+            "150 cr",
+            "1",
+            "Necessário para protocolos"
+          ],
+          [
+            "Kit cirúrgico",
+            "400 cr",
+            "1",
+            "Para instalar e remover implantes"
+          ],
+          [
+            "Kit médico",
+            "200 cr",
+            "1",
+            "Vantagem para estabilizar orgânicos"
+          ],
+          [
+            "Kit de ferramentas",
+            "50 cr",
+            "1",
+            "Arrombar e reparar"
+          ],
+          [
+            "Rig de palco",
+            "200 cr",
+            "1",
+            "Instrumento ou sintetizador do Rocker"
+          ],
+          [
+            "Lanterna",
+            "100 cr",
+            "1",
+            "Usa bateria, ilumina até o dobro de Próximo"
+          ],
+          [
+            "Bateria",
+            "50 cr",
+            "2 por slot",
+            "1 hora de mesa"
+          ],
+          [
+            "Carregador",
+            "30 cr",
+            "2 por slot",
+            "Munição de armas de fogo"
+          ],
+          [
+            "Cabo de interface",
+            "50 cr",
+            "1",
+            "Conexão física de rede"
+          ],
+          [
+            "Stim",
+            "100 cr",
+            "2 por slot",
+            "Recupera 1d6 HP, uso único"
+          ],
+          [
+            "Rádio",
+            "200 cr",
+            "1",
+            "Alcance de cidade"
+          ],
+          [
+            "Ração (3)",
+            "50 cr",
+            "1",
+            "Sustenta 3 dias, necessária para descansar"
+          ],
+          [
+            "Rig utilitário",
+            "30 cr",
+            "1",
+            "O primeiro não ocupa slot"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.6": {
+    "title": "Pacotes sugeridos por classe",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Classe",
+          "Itens",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "**Solo**",
+            "Pistola pesada, jaqueta blindada, faca, 2 carregadores, rig utilitário, ração",
+            "550 cr"
+          ],
+          [
+            "**Netrunner**",
+            "Deck de rua, pistola leve, carregador, cabo de interface, bateria, rig utilitário, ração",
+            "610 cr"
+          ],
+          [
+            "**Hyperdoc**",
+            "Nanokit, kit médico, pistola leve, faca, carregador, rig utilitário, ração",
+            "570 cr"
+          ],
+          [
+            "**Ghost**",
+            "Pistola leve, faca, jaqueta blindada, kit de ferramentas, lanterna, rig utilitário, ração",
+            "590 cr"
+          ],
+          [
+            "**Rocker**",
+            "Rig de palco, pistola leve, jaqueta blindada, faca, rig utilitário, ração",
+            "640 cr"
+          ],
+          [
+            "**Rigger**",
+            "Pistola leve, jaqueta blindada, rádio, kit de ferramentas, rig utilitário, ração (o drone é grátis)",
+            "680 cr"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.7": {
+    "title": "Veículos e módulos de drone",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Veículo",
+          "Custo",
+          "Passageiros",
+          "CA / HP",
+          "Notas"
+        ],
+        "rows": [
+          [
+            "Moto urbana",
+            "3.000 cr",
+            "1 a 2",
+            "12 / 10",
+            "Rápida, sem blindagem"
+          ],
+          [
+            "Carro compacto",
+            "8.000 cr",
+            "4",
+            "11 / 20",
+            ""
+          ],
+          [
+            "Van de carga",
+            "12.000 cr",
+            "6 e carga",
+            "11 / 30",
+            ""
+          ],
+          [
+            "Aerocarro civil",
+            "40.000 cr",
+            "4",
+            "12 / 25",
+            "Voa, exige licença"
+          ]
+        ]
+      },
+      {
+        "label": "",
+        "header": [
+          "Módulo de drone (Rigger)",
+          "Custo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "Sensor térmico",
+            "150 cr",
+            "O drone enxerga no escuro e vê calor."
+          ],
+          [
+            "Compartimento de carga",
+            "100 cr",
+            "O drone carrega 1 item pequeno extra."
+          ],
+          [
+            "Placa de impacto",
+            "200 cr",
+            "+1 de CA do drone."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "8.8": {
+    "title": "Custo de vida e serviços",
+    "tables": [
+      {
+        "label": "Comida e bebida",
+        "header": [
+          "Item",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "Refeição de rua",
+            "10 cr"
+          ],
+          [
+            "Refeição em restaurante comum",
+            "50 cr"
+          ],
+          [
+            "Restaurante de luxo (corp)",
+            "300 cr"
+          ],
+          [
+            "Drinque em bar de rua",
+            "20 cr"
+          ],
+          [
+            "Drinque em bar de luxo",
+            "100 cr"
+          ]
+        ]
+      },
+      {
+        "label": "Noite e lazer",
+        "header": [
+          "Item",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "Entrada em boate de rua",
+            "50 cr"
+          ],
+          [
+            "Entrada em boate de elite",
+            "300 cr (e fila ou lista)"
+          ],
+          [
+            "Mesa VIP",
+            "1.000 cr"
+          ],
+          [
+            "Ingresso de show local",
+            "80 cr"
+          ],
+          [
+            "Noite de jogo ou aposta (entrada mínima)",
+            "100 cr"
+          ]
+        ]
+      },
+      {
+        "label": "Transporte",
+        "header": [
+          "Item",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "Passagem de transporte público",
+            "10 cr"
+          ],
+          [
+            "Passe mensal",
+            "150 cr"
+          ],
+          [
+            "Táxi autônomo (corrida curta)",
+            "100 cr"
+          ],
+          [
+            "Aluguel de moto ou carro (por dia)",
+            "300 cr"
+          ],
+          [
+            "Passagem interzonas (trem expresso ou balsa)",
+            "500 cr"
+          ]
+        ]
+      },
+      {
+        "label": "Serviços",
+        "header": [
+          "Serviço",
+          "Custo"
+        ],
+        "rows": [
+          [
+            "Curativo e consulta em clínica de rua",
+            "200 cr"
+          ],
+          [
+            "Reparo ou remoção de implante",
+            "10% do custo do implante"
+          ],
+          [
+            "Hacker de aluguel (tarefa simples)",
+            "500 cr"
+          ],
+          [
+            "Informante (boato)",
+            "100 cr"
+          ],
+          [
+            "Informante (dado valioso)",
+            "500 cr ou mais"
+          ],
+          [
+            "ID falso de rua",
+            "800 cr"
+          ],
+          [
+            "ID falso corporativo",
+            "3.000 cr"
+          ],
+          [
+            "Lavagem de créditos",
+            "15% da quantia"
+          ],
+          [
+            "Guarda-costas (por dia)",
+            "400 cr"
+          ],
+          [
+            "Mecânico (reparo de veículo ou drone)",
+            "100 a 500 cr"
+          ],
+          [
+            "Comissão de fixer",
+            "10% do pagamento"
+          ]
+        ]
+      },
+      {
+        "label": "Estilo de vida (por mês)",
+        "header": [
+          "Estilo",
+          "Custo",
+          "Qualidade da área de descanso"
+        ],
+        "rows": [
+          [
+            "Na rua",
+            "0 cr",
+            "Arriscada"
+          ],
+          [
+            "Cápsula ou cubículo",
+            "300 cr",
+            "Insegura"
+          ],
+          [
+            "Apartamento modesto",
+            "1.200 cr",
+            "Segura"
+          ],
+          [
+            "Apartamento confortável",
+            "4.000 cr",
+            "Segura, com um contato útil na vizinhança"
+          ],
+          [
+            "Cobertura ou torre corp",
+            "15.000 cr ou mais",
+            "Segura, com +1 na reação de Controle"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "9.1": {
+    "title": "Hack de rua",
+    "tables": [],
+    "bullets": {
+      "Sem deck": ", desvantagem. Sem ferramenta alguma, não é possível.",
+      "Falhou": "o **Alerta** sobe em 1 (9.4)."
+    }
+  },
+  "9.2": {
+    "title": "Programas (Netrunner)",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d6",
+          "Feedback"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Choque neural:** você sofre 1d6 de dano e fica com desvantagem na sua próxima ação."
+          ],
+          [
+            "2",
+            "**Deck fritado:** seu deck só volta a funcionar depois de um descanso."
+          ],
+          [
+            "3",
+            "**Alarme:** o Alerta sobe em 1."
+          ],
+          [
+            "4",
+            "**Rastreado:** o sistema descobre a localização do seu corpo."
+          ],
+          [
+            "5",
+            "**Memória corrompida:** outro programa seu entra em Crash."
+          ],
+          [
+            "6",
+            "**Sobrecarga:** todos os programas do mesmo tier entram em Crash."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 1",
+        "header": [
+          "Programa",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Ping**",
+            "Revela dispositivos conectados, câmeras e ICE ao alcance Longe."
+          ],
+          [
+            "**Backdoor**",
+            "Abre uma porta, fechadura, cofre digital ou terminal comum, sem disparar alarme."
+          ],
+          [
+            "**Choque**",
+            "1d6 de dano neural a um alvo conectado (implante, ciborgue, drone ou ICE) ao alcance Próximo."
+          ],
+          [
+            "**Ofuscar**",
+            "Câmeras e sensores ignoram você por 10 minutos. Acaba se você atacar ou executar outro programa."
+          ],
+          [
+            "**Rastrear**",
+            "Localiza a origem de um sinal ou de uma pessoa conectada até Longe e revela se é humano, ICE ou IA."
+          ],
+          [
+            "**Cegar sentido**",
+            "Um alvo com implante ótico ou auditivo ao alcance Próximo tem desvantagem em tudo que dependa desse sentido por 1d4 rodadas."
+          ],
+          [
+            "**Loop de câmera**",
+            "Faz um dispositivo mostrar ou emitir uma imagem ou mensagem falsa por 1 minuto."
+          ],
+          [
+            "**Apagar rastro**",
+            "Reduz o Alerta em 1. Só funciona 1 vez por invasão."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 2",
+        "header": [
+          "Programa",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Sequestro**",
+            "Controla um dispositivo simples (câmera, porta, torreta, drone civil) por 10 minutos."
+          ],
+          [
+            "**Quebra-gelo**",
+            "O ICE alvo perde 2 de CA por 1 rodada."
+          ],
+          [
+            "**Overload**",
+            "2d6 de dano a um alvo eletrônico ou ICE ao alcance Próximo."
+          ],
+          [
+            "**Subverter ICE**",
+            "Toma o controle de um ICE de nível 2 ou menor por 1d8 horas. Ele obedece a comandos básicos de sua função. Acaba se você ou aliados o ferirem."
+          ],
+          [
+            "**Jammer**",
+            "Bloqueia rádio e redes num cubo Próximo por 10 minutos."
+          ],
+          [
+            "**Falha de implante**",
+            "Desativa 1 implante de um alvo ao alcance Próximo por 1d4 rodadas. O alvo resiste com teste de CON CD 12."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 3",
+        "header": [
+          "Programa",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Apagão**",
+            "Desliga luz e câmeras de uma área ou sala por 10 minutos."
+          ],
+          [
+            "**Clone**",
+            "Duplica uma credencial para uso em 1 hora."
+          ],
+          [
+            "**Cegar ICE**",
+            "O ICE alvo perde a ação de 1 rodada."
+          ],
+          [
+            "**Desligar**",
+            "Todo ICE de nível 3 ou menor num cubo Próximo desliga e fica dormente até ser reiniciado."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 4",
+        "header": [
+          "Programa",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Sobrecarga neural**",
+            "4d6 de dano a um alvo conectado ou ICE ao alcance Próximo."
+          ],
+          [
+            "**Mestre do prédio**",
+            "Assume o controle de todos os sistemas simples de um prédio (portas, câmeras, luzes, elevadores) por 10 minutos."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 5",
+        "header": [
+          "Programa",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Colapso**",
+            "Derruba a rede local: todo ICE, dispositivo e conexão da região desligam por 1 hora. O Alerta vai a 4."
+          ],
+          [
+            "**Eco digital**",
+            "Cria uma cópia sua na Rede: por 1d4 rodadas você executa dois programas por rodada. 1 uso por descanso."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Execução": "d20 + mod. de INT contra **CD 10 + tier do programa** (+ bônus do deck).",
+      "Alcance": "o alvo precisa estar na mesma rede local que você ou ao alcance Longe do seu deck.",
+      "Sucesso": "o programa roda e o efeito acontece.",
+      "20 natural": "o canal se estabiliza. Dobre um efeito numérico do programa (dano, duração ou alcance).",
+      "Falha": "o programa entra em **Crash** e só volta no próximo descanso.",
+      "1 natural": "**Feedback**. Role d6 na tabela abaixo e o programa também entra em Crash."
+    }
+  },
+  "9.3": {
+    "title": "Protocolos (Hyperdoc)",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d6",
+          "Rejeição"
+        ],
+        "rows": [
+          [
+            "1",
+            "O alvo sofre 1d4 de dano."
+          ],
+          [
+            "2",
+            "O alvo fica enjoado: desvantagem na próxima ação."
+          ],
+          [
+            "3",
+            "Você perde 1 protocolo adicional até o descanso."
+          ],
+          [
+            "4",
+            "O efeito é invertido por 1 rodada (cura vira dano de 1d4, ou o inverso)."
+          ],
+          [
+            "5",
+            "Seu nanokit quebra até ser reparado."
+          ],
+          [
+            "6",
+            "Nanobots fora de controle: o alvo sofre um Surto."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 1",
+        "header": [
+          "Protocolo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Nanocura**",
+            "Cura 1d6 + nível HP de um alvo."
+          ],
+          [
+            "**Antídoto**",
+            "Neutraliza um veneno ou doença."
+          ],
+          [
+            "**Adrenalina**",
+            "O alvo tem vantagem no próximo ataque."
+          ],
+          [
+            "**Diagnóstico**",
+            "Revela HP atual, condições e implantes de um alvo."
+          ],
+          [
+            "**Analgesia**",
+            "Remove uma condição do alvo: atordoado, enjoado ou assustado."
+          ],
+          [
+            "**Reinício de implante**",
+            "Reativa um implante desativado ou em falha de um aliado."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 2",
+        "header": [
+          "Protocolo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Escudo nano**",
+            "O alvo ganha +2 de CA por 1 cena."
+          ],
+          [
+            "**Choque cardíaco**",
+            "Um aliado morrendo volta com 1d4 HP e acorda."
+          ],
+          [
+            "**Enxame curativo**",
+            "Cura 1d4 + nível HP a até 3 aliados Próximos."
+          ],
+          [
+            "**Sedativo nano**",
+            "Um alvo orgânico faz teste de CON CD 12 ou fica inconsciente por 1d4 rodadas."
+          ],
+          [
+            "**Vacina nano**",
+            "O alvo ignora efeitos de veneno e doença por 1 hora."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 3",
+        "header": [
+          "Protocolo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Regeneração**",
+            "O alvo recupera 1d6 HP por rodada durante 3 rodadas."
+          ],
+          [
+            "**Purga de código**",
+            "Remove um Surto ou efeito de ciberpsicose de um alvo."
+          ],
+          [
+            "**Ressuscitar**",
+            "Traz de volta alguém morto há menos de 1 minuto, com 1 HP."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 4",
+        "header": [
+          "Protocolo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Cura em massa**",
+            "Cura 2d6 + nível HP a todos os aliados Próximos."
+          ],
+          [
+            "**Corpo de ferro**",
+            "O alvo reduz todo dano sofrido em 2 por 1d4 rodadas."
+          ]
+        ]
+      },
+      {
+        "label": "Tier 5",
+        "header": [
+          "Protocolo",
+          "Efeito"
+        ],
+        "rows": [
+          [
+            "**Reconstrução total**",
+            "Restaura um aliado ao HP máximo e remove todas as condições. 1 uso por descanso."
+          ]
+        ]
+      }
+    ],
+    "bullets": {
+      "Falha": "o protocolo entra em Crash até o descanso.",
+      "20 natural": "dobre um efeito numérico do protocolo.",
+      "1 natural": "**Rejeição**, role d6 abaixo."
+    }
+  },
+  "9.4": {
+    "title": "Alerta",
+    "tables": [],
+    "bullets": {}
+  },
+  "9.5": {
+    "title": "ICE",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "ICE",
+          "Nível",
+          "CA",
+          "HP",
+          "Ataque",
+          "Truque"
+        ],
+        "rows": [
+          [
+            "**Sentinela**",
+            "1",
+            "11",
+            "5",
+            "Choque +2 (1d4 neural)",
+            "**Alarme:** ao ser atingido, o Alerta sobe em 1."
+          ],
+          [
+            "**Enxame**",
+            "2",
+            "12",
+            "10",
+            "2 ataques +3 (1d4) em alvos diferentes",
+            "**Dispersão:** só sofre metade do dano de programas de alvo único."
+          ],
+          [
+            "**Cão de guarda**",
+            "3",
+            "13",
+            "14",
+            "Mordida +4 (1d8 neural)",
+            "**Rastreio:** ignora Ofuscar."
+          ],
+          [
+            "**Executor**",
+            "4",
+            "14",
+            "22",
+            "Golpe +5 (1d10 neural)",
+            "**Trava:** o alvo atingido faz teste de CON CD 12 ou 1 programa seu entra em Crash."
+          ],
+          [
+            "**Muralha**",
+            "5",
+            "15",
+            "30",
+            "2 ataques +5 (1d6)",
+            "**Barreira:** só sofre dano de programas de tier 2 ou mais."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "9.6": {
+    "title": "Gerador de Rede",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "d6",
+          "Nó"
+        ],
+        "rows": [
+          [
+            "1",
+            "**Firewall externo:** protegido por um ICE de nível 1 ou 2."
+          ],
+          [
+            "2",
+            "**Cofre de dados:** contém dados valiosos ou créditos. Protegido por um ICE de nível 2 ou 3."
+          ],
+          [
+            "3",
+            "**Sensores e câmeras:** hack de rua CD 12 para passar sem disparar o Alerta."
+          ],
+          [
+            "4",
+            "**Sala de servidores:** patrulhada por um ICE de nível 3 ou 4."
+          ],
+          [
+            "5",
+            "**Território hostil:** o Alerta sobe em 1 ao entrar."
+          ],
+          [
+            "6",
+            "**Nó vazio ou atalho:** sem perigo. Pode pular um nó."
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "9.7": {
+    "title": "Imersão total e Firewall",
+    "tables": [],
+    "bullets": {
+      "Entrar": "com um deck e um jack de interface (ou um cabo de interface), gaste uma ação e um **Firewall**. Seu corpo cai inconsciente e fica indefeso (CA 5). Combine com o grupo quem vigia o seu corpo.",
+      "Na Rede": "você executa programas sem limite de alcance dentro daquela rede e ganha +1 na execução.",
+      "Firewall": "o cartucho protege sua conexão por **1 hora real de mesa**. Só um Firewall protege por vez (ativar outro reinicia o cronômetro). Sem Firewall ativo, você não pode entrar.",
+      "Quando o Firewall queima": "com você dentro, você tem 1 rodada para sair. Depois disso, sofre um **Feedback** (d6) por rodada e todo ICE ataca você com vantagem.",
+      "Corpo ferido": "se o seu corpo sofrer dano durante a imersão, faça teste de CON CD 12 para continuar conectado. Se falhar, você é expulso e sofre 1d6 de dano neural.",
+      "Sair": "custa uma ação."
+    }
+  },
+  "10.1": {
+    "title": "Ficha de personagem (modelo)",
+    "tables": [],
+    "bullets": {}
+  },
+  "10.2": {
+    "title": "Tabelas rápidas",
+    "tables": [],
+    "bullets": {}
+  },
+  "10.3": {
+    "title": "Mapa Shadowdark para SombraNeon",
+    "tables": [
+      {
+        "label": "",
+        "header": [
+          "Shadowdark",
+          "SombraNeon"
+        ],
+        "rows": [
+          [
+            "Ancestralidade",
+            "Origem"
+          ],
+          [
+            "Guerreiro",
+            "Solo"
+          ],
+          [
+            "Mago",
+            "Netrunner"
+          ],
+          [
+            "Clérigo",
+            "Hyperdoc"
+          ],
+          [
+            "Ladrão",
+            "Ghost"
+          ],
+          [
+            "Bardo (fora do núcleo)",
+            "Rocker"
+          ],
+          [
+            "Patrulheiro (fora do núcleo)",
+            "Rigger"
+          ],
+          [
+            "Magias",
+            "Programas e Protocolos"
+          ],
+          [
+            "Teste de conjuração",
+            "Execução (d20 + atributo vs CD 10 + tier)"
+          ],
+          [
+            "Perder a magia em falha",
+            "Crash"
+          ],
+          [
+            "Natural 1 do conjurador",
+            "Feedback ou Rejeição"
+          ],
+          [
+            "Alinhamento (Ordem, Neutro, Caos)",
+            "Alinhamento (Controle, Sobrevivência, Liberdade)"
+          ],
+          [
+            "Ficha de Sorte",
+            "Edge"
+          ],
+          [
+            "Peças de ouro",
+            "Créditos (1 po = 10 cr)"
+          ],
+          [
+            "Tocha de 1 hora real",
+            "Bateria e Firewall de 1 hora real"
+          ],
+          [
+            "Slots de equipamento",
+            "Slots de equipamento"
+          ],
+          [
+            "Itens mágicos",
+            "Implantes (4 slots corporais)"
+          ]
+        ]
+      }
+    ],
+    "bullets": {}
+  },
+  "10.4": {
+    "title": "Ideias futuras (opcionais)",
+    "tables": [],
+    "bullets": {}
+  },
+  "10.5": {
+    "title": "Nota de licença",
+    "tables": [],
+    "bullets": {}
+  }
+}

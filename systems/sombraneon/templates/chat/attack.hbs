@@ -1,0 +1,21 @@
+<div class="sombraneon sn-card sn-{{outcome}}">
+  <header class="sn-card-head">
+    {{#if img}}<img src="{{img}}" alt="">{{/if}}
+    <div><h3>{{title}}</h3>{{#if actorName}}<span>{{actorName}}</span>{{/if}}</div>
+  </header>
+  <div class="sn-roll">
+    <div class="sn-dice">{{#each dice}}<span class="sn-die {{#if discarded}}x{{/if}}">{{value}}</span>{{/each}}</div>
+    <div class="sn-total">{{total}}</div>
+    {{#if acText}}<div class="sn-vs">{{acText}}</div>{{/if}}
+    <div class="sn-outcome">{{outcomeLabel}}</div>
+  </div>
+  <p class="sn-parts">{{partsText}}</p>
+  {{#if modeLabel}}<p class="sn-mode-note">{{modeLabel}}{{#if advSources.length}}: {{#each advSources}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}{{#if disSources.length}} / {{#each disSources}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}</p>{{/if}}
+  {{#if magEmpty}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Attack.MagEmpty'}}</p>{{/if}}
+  {{#if stun}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Attack.StunsTarget'}}</p>{{/if}}
+  {{#if burst}}<ul class="sn-burst">{{#each burst}}<li class="{{#if hit}}hit{{else}}miss{{/if}}">{{name}} (CA {{ac}}): {{#if hit}}{{localize 'SOMBRANEON.Rolls.Outcome.success'}}{{else}}{{localize 'SOMBRANEON.Rolls.Outcome.failure'}}{{/if}}</li>{{/each}}</ul>{{/if}}
+  <div class="sn-card-actions">
+    {{#if canDamage}}<button type="button" data-action="rollDamage" data-critical="{{#if (eq outcome 'crit')}}true{{else}}false{{/if}}" data-stun="{{#if stun}}true{{else}}false{{/if}}"><i class="fa-solid fa-burst"></i> {{localize 'SOMBRANEON.Attack.RollDamage'}} ({{damage}})</button>{{/if}}
+    {{#if canEdge}}<button type="button" data-action="edge"><i class="fa-solid fa-bolt"></i> {{localize 'SOMBRANEON.Edge.Spend'}}</button>{{/if}}
+  </div>
+</div>

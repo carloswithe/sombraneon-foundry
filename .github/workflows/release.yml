@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run verify
+      - run: node tools/release.mjs ${{ github.ref_name }}
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/system.json
+            dist/system.zip
+            dist/module.json
+            dist/module.zip

@@ -1,0 +1,5 @@
+2026/10/27-09:35:05.346 173c Delete type=3 #1
+2026/10/27-09:35:05.348 4bf4 Level-0 table #5: started
+2026/10/27-09:35:05.348 4bf4 Level-0 table #5: 1694 bytes OK
+2026/10/27-09:35:05.350 4bf4 Delete type=0 #3
+2026/10/27-09:35:05.350 4bf4 Manual compaction at level-0 from '!macros!55WGmemOBtvbI4sQ' @ 72057594037927935 : 1 .. '!macros!uDH10MapqS7jNERA' @ 0 : 0; will stop at (end)

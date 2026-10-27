@@ -1,0 +1,37 @@
+<form class="sn-sheet-body sn-compact" autocomplete="off">
+  <header class="sn-header sn-header-compact">
+    <div class="sn-portrait"><img src="{{actor.img}}" alt="" data-action="editImage" data-edit="img"></div>
+    <div class="sn-ident">
+      <input class="sn-name" type="text" name="name" value="{{actor.name}}">
+      <div class="sn-row">
+        <span>{{localize 'SOMBRANEON.Drone.Owner'}}:
+          {{#if ownerName}}<button type="button" class="sn-link" data-action="openOwner">{{ownerName}}</button>{{else}}-{{/if}}</span>
+        {{#if auxiliary}}<span class="sn-prop">{{localize 'SOMBRANEON.Drone.Auxiliary'}}</span>{{/if}}
+      </div>
+    </div>
+  </header>
+  <section class="sn-scroll">
+    <div class="sn-panel">
+      <h3>{{localize 'SOMBRANEON.Drone.Stats'}}</h3>
+      <ul class="sn-kv">
+        <li><span>HP</span><strong><input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{system.hp.max}}</strong></li>
+        <li><span>{{localize 'SOMBRANEON.Sheet.AC'}}</span><strong>{{stats.ac}}</strong></li>
+        {{#if stats.attack}}<li><span>{{localize 'SOMBRANEON.Attack.Roll'}}</span><strong>{{stats.attack}}</strong></li>
+        <li><span>{{localize 'SOMBRANEON.Rolls.Damage'}}</span><strong>{{stats.die}}{{stats.damageBonus}}</strong></li>{{/if}}
+      </ul>
+      {{#if system.destroyed}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Drone.Destroyed'}}</p>
+      <button type="button" class="sn-btn" data-action="rebuild">{{localize 'SOMBRANEON.Drone.Rebuild'}}</button>
+      {{else}}{{#if stats.attack}}<button type="button" class="sn-btn sn-primary" data-action="attackDrone">{{localize 'SOMBRANEON.Drone.Attack'}}</button>{{/if}}{{/if}}
+    </div>
+    <div class="sn-panel">
+      <h3>{{localize 'SOMBRANEON.Drone.Modules'}}</h3>
+      {{#each modules}}<div class="sn-item-row" data-item-id="{{id}}"><img class="sn-ico" src="{{img}}" alt=""><strong>{{name}}</strong><span>{{effect}}</span>
+        <span class="sn-row-actions"><button type="button" class="sn-icon" data-action="deleteDroneItem" data-item-id="{{id}}"><i class="fa-solid fa-trash"></i></button></span></div>{{/each}}
+      {{#unless modules.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Drone.NoModules'}}</p>{{/unless}}
+    </div>
+    <div class="sn-panel">
+      <h3>{{localize 'SOMBRANEON.Drone.NotesTitle'}}</h3>
+      <ul>{{#each notes}}<li>{{this}}</li>{{/each}}</ul>
+    </div>
+  </section>
+</form>

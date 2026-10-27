@@ -1,0 +1,1178 @@
+{
+  "SOMBRANEON": {
+    "Abilities": {
+      "for": "FOR",
+      "des": "DES",
+      "con": "CON",
+      "int": "INT",
+      "sab": "SAB",
+      "car": "CAR"
+    },
+    "Activation": {
+      "passive": "Passiva",
+      "action": "Ação",
+      "free": "Livre",
+      "reaction": "Reação"
+    },
+    "Alert": {
+      "Title": "Alerta",
+      "Active": "Invasão ativa",
+      "Inactive": "Sem invasão",
+      "Open": "Abrir rastreador",
+      "Plus": "Alerta +1",
+      "Raised": "O Alerta subiu para {value}.",
+      "MaxTitle": "Alerta máximo",
+      "MaxText": "O ICE ativo ataca. A segurança física chega em 1d4 rodadas (ou minutos, conforme a cena).",
+      "Noise": "Barulho",
+      "NoiseHint": "O grupo fez barulho que o sistema pode detectar.",
+      "Reset": "Zerar",
+      "NewRun": "Nova invasão",
+      "Stop": "Encerrar invasão",
+      "Start": "Iniciar invasão"
+    },
+    "Alignment": {
+      "controle": "Controle",
+      "sobrevivencia": "Sobrevivência",
+      "liberdade": "Liberdade"
+    },
+    "Armor": {
+      "SwapTitle": "Trocar a armadura",
+      "SwapText": "Trocar {from} por {to}? A armadura antiga continua no inventário.",
+      "Type": {
+        "light": "Leve",
+        "medium": "Média",
+        "heavy": "Pesada"
+      }
+    },
+    "Attack": {
+      "Unarmed": "Desarmado",
+      "Thrown": "Arremessar {name}",
+      "Roll": "Atacar",
+      "Options": "Opções do ataque",
+      "Reload": "Recarregar",
+      "AimButton": "Mirar (gasta a ação)",
+      "MagEmpty": "O carregador acabou. Recarregar custa 1 ação e 1 carregador.",
+      "StunsTarget": "Atordoa o alvo.",
+      "RollDamage": "Rolar dano",
+      "Unaware": "Alvo desatento ou surpreso",
+      "Aim": "Mira (+2)",
+      "Sneak": "Ataque furtivo",
+      "Charge": "Investida",
+      "Twin": "Armas gêmeas",
+      "Burst": "Rajada"
+    },
+    "Bonus": "Bônus",
+    "Bundle": {
+      "Title": "Kit de Runner",
+      "Text": "Desmembrar {name} nos itens que ele contém?"
+    },
+    "Cast": {
+      "Outcome": {
+        "crit": "Canal estável",
+        "fumble": "Feedback",
+        "success": "Sucesso",
+        "failure": "Falha"
+      },
+      "EraseTrace": "Alerta reduzido em 1 (1 vez por invasão).",
+      "Collapse": "A rede caiu: o Alerta vai a 4.",
+      "CritDice": "Dobre os dados do efeito.",
+      "CritDouble": "Dobre a duração ou o alcance."
+    },
+    "Choice": {
+      "Label": {
+        "family": "Família de arma",
+        "abilities": "Atributo",
+        "program": "Programa, protocolo ou Set",
+        "extreme": "Extremo",
+        "a": "Atributo",
+        "major": "Atributo principal"
+      },
+      "Value": {
+        "for": "FOR",
+        "des": "DES",
+        "con": "CON",
+        "int": "INT",
+        "sab": "SAB",
+        "car": "CAR",
+        "fire": "Fogo e calor",
+        "cold": "Gelo e frio",
+        "d4": "d4",
+        "d6": "d6",
+        "d8": "d8",
+        "d10": "d10",
+        "program": "Programa",
+        "protocol": "Protocolo",
+        "set": "Set"
+      },
+      "fire": "Fogo e calor",
+      "cold": "Gelo e frio"
+    },
+    "Chrome": {
+      "Psychosis": "Ciberpsicose",
+      "TestLabel": "Teste de ciberpsicose",
+      "Test": "Testar ciberpsicose",
+      "Risk": "Teste de SAB CD {cd} ao fim de cada descanso",
+      "NoRisk": "Sem risco",
+      "Count": "{count} implantes instalados (contagem efetiva {effective})",
+      "Adjust": "ajuste da origem",
+      "Next": "Próxima qualidade acrescenta",
+      "DropHere": "Solte um implante aqui.",
+      "Stored": "Implantes no inventário",
+      "Install": "Instalar",
+      "Remove": "Remover (vai para o inventário)"
+    },
+    "Dialog": {
+      "Search": "Buscar",
+      "PickCount": "Escolha {count}.",
+      "NoOptions": "Nenhuma opção disponível.",
+      "Confirm": "Confirmar",
+      "Cancel": "Cancelar"
+    },
+    "Drone": {
+      "Folder": "Drones",
+      "Name": "Drone de {name}",
+      "AuxName": "Drone auxiliar de {name}",
+      "InstallTitle": "Módulo de drone",
+      "InstallText": "Instalar {name} no drone?",
+      "Title": "Drone",
+      "Destroyed": "Destruído",
+      "Attack": "Atacar com o drone",
+      "Open": "Abrir ficha do drone",
+      "Rebuild": "Reconstruir (250 cr)",
+      "Create": "Criar drone",
+      "Owner": "Dono",
+      "Auxiliary": "Auxiliar",
+      "Stats": "Estatísticas",
+      "Modules": "Módulos",
+      "NoModules": "Nenhum módulo instalado. Arraste um módulo de drone para cá.",
+      "NotesTitle": "Notas do drone",
+      "Notes": {
+        "Fly": "Voo: ignora terreno difícil e obstáculos no chão, alcança tetos, janelas e dutos e sobrevoa abismos.",
+        "Noise": "É barulhento: desvantagem em furtividade.",
+        "Cargo": "Carrega apenas 1 item pequeno.",
+        "Hacked": "Sofre programas e EMP como qualquer dispositivo.",
+        "Link": "Link: o Rigger vê o que o drone vê e o controla até o alcance Longe."
+      }
+    },
+    "Dying": {
+      "Title": "Morrendo",
+      "Nonlethal": "{name} fica inconsciente (nocaute).",
+      "PainFilter": "{name} cai a 0 HP, mas o Filtro de dor mantém 1 HP.",
+      "ToughHeld": "{name} resiste e fica de pé com 1 HP (Duro de matar).",
+      "Fell": "{name} cai a 0 HP e está morrendo: {rounds} rodadas (1{die} + CON {con}).",
+      "Revived": "{name} tirou 20 natural e volta com 1 HP.",
+      "Dead": "{name} não resistiu.",
+      "Round": "{name} rola 1d20: {d20}. Restam {left} rodadas.",
+      "Stabilized": "{name} está estabilizado: segue inconsciente, mas não morre.",
+      "Stabilize": "Estabilizar (INT CD 15)",
+      "Banner": "Morrendo",
+      "Remaining": "Rodadas restantes",
+      "StableShort": "estabilizado",
+      "Advance": "Avançar rodada"
+    },
+    "Edge": {
+      "Give": "Entregar",
+      "Claim": "Cumpri meu gatilho",
+      "GiveTitle": "Entregar Edge",
+      "GiveHint": "Escolha o runner que recebe a ficha.",
+      "Given": "Ficha de Edge entregue.",
+      "Granted": "{name} ganha uma ficha de Edge.",
+      "AlreadyMax": "{name} já tem o máximo de fichas.",
+      "Title": "Edge",
+      "TriggerTitle": "{name} cumpriu o gatilho?",
+      "Approve": "Aprovar",
+      "Deny": "Negar",
+      "ConfirmText": "Gastar uma ficha de Edge para repetir esta rolagem? O novo resultado vale.",
+      "ConfirmTitle": "Gastar Edge",
+      "Resonance": "Ressonância: some +1d6 ao novo resultado",
+      "Spend": "Gastar Edge"
+    },
+    "Faction": {
+      "police": "Polícia e segurança corporativa",
+      "execs": "Executivos e corporações",
+      "citizens": "Cidadãos comuns",
+      "gangs": "Gangues de rua",
+      "blackMarket": "Mercado negro e fixers",
+      "cults": "Cultos e fanáticos de IA",
+      "punks": "Punks e hackers anarquistas",
+      "syntheticsFree": "Sintéticos livres e redes de refúgio"
+    },
+    "Family": {
+      "blades": "Lâminas",
+      "blunt": "Contundentes",
+      "shock": "Armas de choque",
+      "pistols": "Pistolas",
+      "smgs": "Submetralhadoras",
+      "shotguns": "Escopetas",
+      "rifles": "Fuzis",
+      "heavy": "Armas pesadas",
+      "smart": "Armas inteligentes",
+      "unarmed": "Desarmado"
+    },
+    "Feature": {
+      "Kind": {
+        "class": "Habilidade de classe",
+        "origin": "Traço de origem",
+        "talent": "Talento",
+        "mutation": "Mutação",
+        "edge-trigger": "Gatilho de Edge",
+        "background": "Antecedente",
+        "other": "Outro"
+      }
+    },
+    "Feedback": {
+      "1": {
+        "Name": "Choque neural",
+        "Text": "você sofre 1d6 de dano e fica com desvantagem na sua próxima ação."
+      },
+      "2": {
+        "Name": "Deck fritado",
+        "Text": "seu deck só volta a funcionar depois de um descanso."
+      },
+      "3": {
+        "Name": "Alarme",
+        "Text": "o Alerta sobe em 1."
+      },
+      "4": {
+        "Name": "Rastreado",
+        "Text": "o sistema descobre a localização do seu corpo."
+      },
+      "5": {
+        "Name": "Memória corrompida",
+        "Text": "outro programa seu entra em Crash."
+      },
+      "6": {
+        "Name": "Sobrecarga",
+        "Text": "todos os programas do mesmo tier entram em Crash."
+      },
+      "Title": "Feedback",
+      "Absorbed": "O primeiro Feedback do descanso foi absorvido por {name}.",
+      "Result": "Feedback {n}",
+      "Damage": "Dano neural: {n}.",
+      "Crashed": "Em Crash: {name}.",
+      "CrashedMany": "{n} programas do mesmo tier entram em Crash."
+    },
+    "Fields": {
+      "auto": "Automático",
+      "hitDie": "Dado de vida",
+      "keyAbilities": "Atributos-chave",
+      "weapons_all": "Todas as armas",
+      "weapons_allowed": "Armas permitidas",
+      "armor": "Armaduras",
+      "casting_kind": "Conjuração: tipo",
+      "casting_ability": "Conjuração: atributo",
+      "casting_startKnown": "Conhecidos no nível 1",
+      "casting_perLevel": "Novos por nível",
+      "casting_extraAtLevels": "Novos nos níveis",
+      "casting_tierMaxByLevel": "Tier máximo por nível",
+      "talentTable": "Tabela de talentos",
+      "talentLevels": "Níveis de talento",
+      "extraTalents": "Talentos extras",
+      "cyberAdjust": "Ajuste de ciberpsicose",
+      "cyberAdvantage": "Vantagem em ciberpsicose",
+      "knowledge": "Conhecimento",
+      "contactPrompt": "Pergunta do contato",
+      "rollIndex": "Posição no d20",
+      "highlight": "Destaque",
+      "mapsTo": "Equivale a",
+      "summary": "Resumo",
+      "edgeTriggerTable": "Tabela de gatilhos",
+      "reaction_police": "Reação: polícia",
+      "reaction_execs": "Reação: executivos",
+      "reaction_citizens": "Reação: cidadãos",
+      "reaction_gangs": "Reação: gangues",
+      "reaction_blackMarket": "Reação: mercado negro",
+      "reaction_cults": "Reação: cultos",
+      "reaction_punks": "Reação: punks",
+      "reaction_syntheticsFree": "Reação: sintéticos livres",
+      "kind": "Tipo",
+      "activation": "Ativação",
+      "uses_max": "Usos (máximo)",
+      "uses_value": "Usos (atual)",
+      "uses_per": "Recarga",
+      "automation": "Automação",
+      "stackable": "Acumula",
+      "family": "Família",
+      "damage": "Dano",
+      "range": "Alcance",
+      "hands": "Mãos",
+      "slots": "Slots",
+      "price": "Preço (cr)",
+      "properties": "Propriedades",
+      "attackBonus": "Bônus de ataque",
+      "ignoreArmor": "Ignora CA",
+      "stunOn": "Atordoa",
+      "usesMagazines": "Usa carregadores",
+      "abilityOverride": "Atributo do ataque",
+      "equipped": "Equipado",
+      "ac": "CA",
+      "addDex": "Soma DES",
+      "type": "Tipo",
+      "penalties": "Penalidades",
+      "category": "Categoria",
+      "quantity": "Quantidade",
+      "perSlot": "Por slot",
+      "freeFirst": "Primeiro grátis",
+      "bonus": "Bônus",
+      "vehicle_passengers": "Passageiros",
+      "vehicle_ac": "CA do veículo",
+      "vehicle_hp": "HP do veículo",
+      "vehicle_notes": "Notas do veículo",
+      "module_ac": "CA do drone",
+      "module_effect": "Efeito do módulo",
+      "slot": "Slot",
+      "quality": "Qualidade",
+      "installed": "Instalado",
+      "tier": "Tier",
+      "healing": "Cura",
+      "save_ability": "Teste de resistência",
+      "save_cd": "CD da resistência",
+      "save_half": "Metade em sucesso",
+      "alertDelta": "Alerta",
+      "crashed": "Em Crash",
+      "tier_summary": "Resumo",
+      "tier_delta": "O que acrescenta",
+      "uses_value_label": "Usos (atual)"
+    },
+    "Gear": {
+      "general": "Geral",
+      "tool": "Ferramenta",
+      "medical": "Médico",
+      "ammo": "Munição",
+      "battery": "Bateria",
+      "ration": "Ração",
+      "stim": "Stim",
+      "deck": "Deck",
+      "firewall": "Firewall",
+      "nanokit": "Nanokit",
+      "surgical": "Cirúrgico",
+      "stage-rig": "Rig de palco",
+      "utility-rig": "Rig utilitário",
+      "radio": "Rádio",
+      "light": "Iluminação",
+      "cable": "Cabo",
+      "vehicle": "Veículo",
+      "drone-module": "Módulo de drone"
+    },
+    "Goals": {
+      "Title": "Objetivos do grupo"
+    },
+    "Grant": {
+      "RollTitle": "Mutações de {name}",
+      "programs": "Programas de tier 1",
+      "protocols": "Protocolos de tier 1",
+      "sets": "Sets",
+      "factoryImplants": "Implantes de fábrica",
+      "mutations": "Mutações",
+      "implant": "Implante",
+      "program": "Programa"
+    },
+    "Implant": {
+      "Clinic": "Instalar em clínica (+10%)",
+      "SurgeryHint": "Instalar ou remover exige um Hyperdoc com kit cirúrgico ou uma clínica (custo extra de 10%).",
+      "ReplaceTitle": "Substituir implante",
+      "ReplaceText": "O slot já tem {name}. Substituir? O antigo vai para o inventário."
+    },
+    "Info": {
+      "NoMagazines": "Sem carregadores: compre ou adicione carregadores.",
+      "Aimed": "Você mirou: o próximo ataque ganha +2."
+    },
+    "Item": {
+      "Types": {
+        "class": "Classe",
+        "origin": "Origem",
+        "background": "Antecedente",
+        "alignment": "Alinhamento",
+        "feature": "Característica",
+        "weapon": "Arma",
+        "armor": "Armadura",
+        "gear": "Equipamento",
+        "implant": "Implante",
+        "program": "Programa"
+      },
+      "Use": "Usar",
+      "Show": "Mostrar no chat",
+      "Edit": "Editar",
+      "Delete": "Excluir",
+      "DeleteTitle": "Excluir item",
+      "DeleteText": "Excluir {name}?",
+      "DeleteGranted": "{name} veio de uma seleção (classe, origem ou alinhamento). Excluir mesmo assim?",
+      "Identifier": "Identificador",
+      "GenIdentifier": "Gerar do nome",
+      "Source": "Fonte",
+      "AddToSheet": "Adicionar à minha ficha",
+      "EditHtml": "Editar descrição (HTML)",
+      "StartingPackage": "Pacote inicial",
+      "Modifiers": "Modificadores",
+      "AddWeaponLine": "Adicionar arma embutida",
+      "Grants": "Concessões",
+      "GrantLevel": "Nível",
+      "GrantCount": "Quantidade de escolhas",
+      "ModKey": "Chave",
+      "ModValue": "Valor ou fórmula",
+      "ModWhen": "Condição",
+      "ModLabel": "Rótulo",
+      "NoModifiers": "Nenhum modificador.",
+      "Price": "Custo",
+      "Tabs": {
+        "Description": "Descrição",
+        "Details": "Detalhes",
+        "Modifiers": "Modificadores",
+        "Tiers": "Qualidades",
+        "Grants": "Concessões"
+      }
+    },
+    "LevelUp": {
+      "Title": "Subir de nível",
+      "Text": "{name} sobe para o nível {level}. Rolar o dado de vida, aplicar as concessões novas e oferecer talento e programas?",
+      "Hp": "HP ganho: {gain} (dado {roll}, CON {con}, mínimo 1).",
+      "Talent": "Novo talento: role 2d6 na tabela da classe.",
+      "Learn": {
+        "program": "Aprenda 1 programa (tier máximo {tier}).",
+        "protocol": "Aprenda 1 protocolo (tier máximo {tier}).",
+        "set": "Aprenda 1 Set."
+      },
+      "CardTitle": "Subiu para o nível {level}"
+    },
+    "Morale": {
+      "Title": "Teste de moral",
+      "Result": "{name}: {total} contra CD {cd}. {result}",
+      "Flees": "Foge.",
+      "Holds": "Mantém a posição.",
+      "Hint": "{name} chegou à metade do HP: hora de testar a moral.",
+      "Roll": "Teste de moral",
+      "Enabled": "Testa moral"
+    },
+    "Network": {
+      "StreetHack": "Hack de rua",
+      "HackCd": "Dificuldade",
+      "HackCdLabel": {
+        "9": "Sistema básico",
+        "12": "Protegido",
+        "15": "Corporativo"
+      },
+      "StartRunTitle": "Iniciar invasão",
+      "StartRunText": "O hack falhou. Iniciar uma invasão com Alerta 1?",
+      "ImmersedTitle": "Imersão total",
+      "Immersed": "{name} mergulhou na Rede. O corpo está indefeso (CA 5).",
+      "WatchBody": "Combine com o grupo quem vigia o corpo.",
+      "LeftTitle": "Saída da Rede",
+      "Left": "{name} saiu da Rede.",
+      "WoundedBody": "Corpo ferido (CON CD 12)",
+      "ExpelledTitle": "Expulso da Rede",
+      "Expelled": "{name} foi expulso da Rede e sofre {n} de dano neural.",
+      "FirewallBurnedTitle": "Firewall queimou",
+      "FirewallBurned": "O Firewall de {name} queimou. Há 1 rodada para sair.",
+      "FirewallBurnedRule": "Depois disso: Feedback (d6) por rodada e todo ICE ataca com vantagem.",
+      "RoundFeedback": "Rolar Feedback de rodada",
+      "Immersion": "Imersão total",
+      "ImmersedNow": "Imerso na Rede: corpo indefeso, CA 5.",
+      "Firewall": "Firewall",
+      "Paused": "pausado",
+      "Immerse": "Imergir",
+      "Leave": "Sair da Rede",
+      "Pause": "Pausar ou retomar",
+      "DeckFried": "Deck fritado até o descanso.",
+      "NanokitBroken": "Nanokit quebrado até ser reparado.",
+      "Traced": "O sistema descobriu a localização do corpo.",
+      "HackImmune": "Sem implante Neural: hacks não conseguem afetar você diretamente.",
+      "GeneratorTitle": "Gerador de Rede ({n} nós)"
+    },
+    "Npc": {
+      "NewAttack": "Novo ataque",
+      "AddAttack": "Adicionar ataque",
+      "NoAttacks": "Nenhum ataque. Adicione um ou arraste uma arma.",
+      "Traits": "Traços",
+      "Loot": "Saque"
+    },
+    "Ice": {
+      "Attack": "Ataque",
+      "Trick": "Truque",
+      "TrickName": "Nome do truque",
+      "Role": "Função na rede"
+    },
+    "Program": {
+      "Kind": {
+        "program": "Programa",
+        "protocol": "Protocolo",
+        "set": "Set"
+      },
+      "Tier": "tier",
+      "TierN": "Tier {n}",
+      "TierMax": "Tier máximo",
+      "Sets": "Sets",
+      "Learn": "Aprender",
+      "LearnHint": "{known} de {max} conhecidos, tier máximo {tier}.",
+      "ForceTitle": "Adicionar mesmo assim",
+      "ForceText": "Adicionar mesmo assim?",
+      "Execute": "Executar",
+      "Crash": "Crash",
+      "Spent": "Gasto",
+      "Restore": "Restaurar",
+      "RestoreHint": "Volta no próximo descanso.",
+      "Empty": "Nenhum ainda. Escolha a classe ou arraste um do compêndio.",
+      "NoCasting": "Esta classe não conjura. Programas, protocolos e Sets são do Netrunner, do Hyperdoc e do Rocker.",
+      "CrashedNote": "O programa entrou em Crash até o descanso.",
+      "SpentNote": "O Set foi usado e só volta no descanso."
+    },
+    "Prop": {
+      "light": "Leve",
+      "thrown": "Arremessável",
+      "twoHanded": "Duas mãos",
+      "burst": "Rajada",
+      "aim": "Mira",
+      "stun": "Atordoa",
+      "ignoreArmor": "Ignora CA",
+      "noProficiency": "Sem proficiência"
+    },
+    "Purchase": {
+      "Title": "Adicionar item",
+      "Text": "{name}: custo {price} (saldo {balance}).",
+      "Missing": "Faltam {missing} para comprar.",
+      "Free": "Adicionar de graça",
+      "Buy": "Comprar por {price}",
+      "Balance": "Saldo: {balance}"
+    },
+    "Quality": {
+      "street": "Rua",
+      "corp": "Corp",
+      "military": "Militar"
+    },
+    "Range": {
+      "close": "Perto",
+      "near": "Próximo",
+      "far": "Longe"
+    },
+    "Reaction": {
+      "Title": "Reação de facção",
+      "Faction": "Facção",
+      "Alignment": "Alinhamento do runner",
+      "hostile": {
+        "Name": "Hostil",
+        "Text": "ataca, denuncia ou expulsa."
+      },
+      "wary": {
+        "Name": "Desconfiado",
+        "Text": "recusa ajuda ou cobra caro."
+      },
+      "neutral": {
+        "Name": "Neutro",
+        "Text": "ouve e negocia."
+      },
+      "friendly": {
+        "Name": "Amigável",
+        "Text": "ajuda se for barato."
+      },
+      "helpful": {
+        "Name": "Prestativo",
+        "Text": "ajuda de boa vontade e oferece algo a mais."
+      }
+    },
+    "Rejection": {
+      "1": {
+        "Name": "Dano ao alvo",
+        "Text": "O alvo sofre 1d4 de dano."
+      },
+      "2": {
+        "Name": "Alvo enjoado",
+        "Text": "O alvo fica enjoado: desvantagem na próxima ação."
+      },
+      "3": {
+        "Name": "Protocolo perdido",
+        "Text": "Você perde 1 protocolo adicional até o descanso."
+      },
+      "4": {
+        "Name": "Efeito invertido",
+        "Text": "O efeito é invertido por 1 rodada (cura vira dano de 1d4, ou o inverso)."
+      },
+      "5": {
+        "Name": "Nanokit quebrado",
+        "Text": "Seu nanokit quebra até ser reparado."
+      },
+      "6": {
+        "Name": "Nanobots fora de controle",
+        "Text": "Nanobots fora de controle: o alvo sofre um Surto."
+      },
+      "Title": "Rejeição",
+      "Result": "Rejeição {n}",
+      "Damage": "Dano ao alvo: {n}.",
+      "Reversed": "Efeito invertido: role {n} de dano ou cura no sentido contrário."
+    },
+    "Rest": {
+      "Title": "{name} descansou",
+      "DialogTitle": "Descanso de {name}",
+      "Rest": "Descansar",
+      "AreaQuality": "Qualidade da área",
+      "InterruptionsLabel": "Interrupções estressantes",
+      "HasRation": "Gasta 1 ração.",
+      "MissingRation": "Sem ração: descansar exige 1 ração.",
+      "NoRationNeeded": "Não precisa de ração.",
+      "IgnoreRation": "Ignorar a ração (Mestre)",
+      "RationSpent": "Ração gasta.",
+      "Interruption": "Interrupção {n}: CON {total} contra CD 12. {result}",
+      "Held": "Resistiu.",
+      "Failed": "Falhou.",
+      "NothingRecovered": "O descanso foi interrompido: a ração foi gasta e nada foi recuperado.",
+      "StreetEdge": "Edge de rua: ganha uma ficha de Edge.",
+      "Recovered": "HP recuperado: {hp}.",
+      "UsesRestored": "Usos, programas, protocolos e Sets voltaram.",
+      "Encounters": "Encontros: {n} rolagens de 1d6 (a cada {hours} h); resultados 1 (encontro): {hits}.",
+      "NoEncounters": "Área segura: sem rolagem de encontros.",
+      "GroupTitle": "Descanso em grupo",
+      "Quality": {
+        "safe": "Segura",
+        "unsafe": "Insegura",
+        "risky": "Arriscada",
+        "deadly": "Mortal"
+      }
+    },
+    "Roll": {
+      "NoCd": "Sem CD",
+      "Difficulty": {
+        "easy": "Fácil",
+        "normal": "Normal",
+        "hard": "Difícil",
+        "extreme": "Extrema"
+      },
+      "Ability": "Atributo",
+      "Cd": "CD",
+      "Bonus": "Bônus",
+      "Knowledge": "Conhecimento",
+      "Context": "Contexto do teste",
+      "Normal": "Normal",
+      "Advantage": "Vantagem",
+      "Disadvantage": "Desvantagem",
+      "Roll": "Rolar",
+      "Check": "Teste",
+      "GroupCheck": "Teste rápido de grupo"
+    },
+    "Rolls": {
+      "Advantage": "Vantagem",
+      "Disadvantage": "Desvantagem",
+      "AdvShort": "vant.",
+      "NextAction": "Próxima ação",
+      "NatTrait": "Humanidade firme",
+      "Knowledge": "Conhecimento",
+      "Manual": "Manual",
+      "Situational": "Situacional",
+      "Check": "Teste",
+      "Unaware": "Alvo desatento ou surpreso",
+      "Aim": "Mira",
+      "StimAdvantage": "Estimulantes",
+      "VsAc": "contra CA {ac}",
+      "Outcome": {
+        "neutral": "Resultado",
+        "crit": "Crítico",
+        "fumble": "Falha crítica",
+        "success": "Sucesso",
+        "failure": "Falha"
+      },
+      "Damage": "Dano",
+      "Healing": "Cura",
+      "ApplyDamage": "Aplicar dano",
+      "ApplyHealing": "Aplicar cura",
+      "CritDamage": "Crítico: os dados do dano foram dobrados.",
+      "Save": "Resistência: {ability} CD {cd}",
+      "HalfOnSave": "metade do dano se passar",
+      "Nonlethal": "Nocautear"
+    },
+    "Selection": {
+      "RemoveTitle": "Remover seleção",
+      "RemoveText": "Remover {name}? O que ele concedeu também sai. Talentos rolados e itens comprados ficam.",
+      "SwapTitle": "Trocar seleção",
+      "SwapText": "Trocar {from} por {to}? As concessões de {from} serão removidas. Talentos rolados e itens comprados não são tocados.",
+      "Announce": "{name} agora é {item}.",
+      "RolledBackground": "d20: {n}. Antecedente: {name}.",
+      "RolledTrigger": "d6: {n}. Gatilho: {name}."
+    },
+    "Selector": {
+      "origin": "Origem",
+      "class": "Classe",
+      "background": "Antecedente",
+      "alignment": "Alinhamento",
+      "trigger": "Gatilho de Edge",
+      "Choose": {
+        "origin": "Escolher origem",
+        "class": "Escolher classe",
+        "background": "Escolher antecedente",
+        "alignment": "Escolher alinhamento",
+        "trigger": "Escolher gatilho"
+      },
+      "RollD20": "Rolar d20",
+      "RollD6": "Rolar d6",
+      "Info": "Ver descrição",
+      "Remove": "Remover seleção",
+      "CustomBackground": "Ou escreva um antecedente"
+    },
+    "Settings": {
+      "hpLevel1Mode": {
+        "Name": "HP do nível 1",
+        "Hint": "Rolar o dado de vida da classe ou usar o valor máximo do dado.",
+        "roll": "Rolar o dado de vida",
+        "max": "Valor máximo do dado"
+      },
+      "xpOnLevelUp": {
+        "Name": "Sobra de XP ao subir de nível",
+        "Hint": "Manter a sobra de XP ou zerar.",
+        "carry": "Manter a sobra",
+        "reset": "Zerar"
+      },
+      "proficiencyPenalty": {
+        "Name": "Aviso de proficiência",
+        "Hint": "Mostra um aviso quando uma arma ou armadura está fora da proficiência da classe. Não há penalidade mecânica no livro.",
+        "warn": "Mostrar aviso",
+        "none": "Esconder aviso"
+      },
+      "unarmedDie": {
+        "Name": "Dano desarmado",
+        "Hint": "Dado base do ataque desarmado (o livro não define; padrão d4)."
+      },
+      "burstDamage": {
+        "Name": "Dano da rajada",
+        "Hint": "Rolar o dano uma vez por alvo atingido ou uma vez para todos.",
+        "perTarget": "Uma rolagem por alvo",
+        "single": "Uma rolagem para todos"
+      },
+      "alertStacking": {
+        "Name": "Alerta por evento",
+        "Hint": "Literal: cada evento (Crash, Feedback, Alarme) sobe o Alerta em 1. Único: no máximo 1 por ação.",
+        "literal": "Um por evento",
+        "single": "Um por ação"
+      },
+      "firewallTimer": {
+        "Name": "Cronômetro do Firewall",
+        "Hint": "Tempo real, relógio do mundo ou manual (o Mestre queima o Firewall).",
+        "real": "Tempo real",
+        "worldTime": "Relógio do mundo",
+        "manual": "Manual"
+      },
+      "restRequiresRation": {
+        "Name": "Descanso gasta ração",
+        "Hint": "Descansar exige e consome 1 ração."
+      },
+      "autoCyberpsychosisOnRest": {
+        "Name": "Ciberpsicose ao descansar",
+        "Hint": "Rola o teste de ciberpsicose ao fim do descanso."
+      },
+      "talentToChat": {
+        "Name": "Rolagem de talento no chat",
+        "Hint": "Posta a rolagem de talento no chat."
+      },
+      "wizardAllowManualAbilities": {
+        "Name": "Atributos manuais no assistente",
+        "Hint": "Permite digitar atributos no assistente de criação."
+      },
+      "announceSelections": {
+        "Name": "Anunciar seleções",
+        "Hint": "Posta uma mensagem ao trocar classe, origem ou alinhamento."
+      },
+      "moraleHint": {
+        "Name": "Aviso de moral",
+        "Hint": "Avisa o Mestre quando um NPC chega à metade do HP."
+      },
+      "showTargetResult": {
+        "Name": "Comparar com a CA do alvo",
+        "Hint": "Compara o ataque com a CA do alvo selecionado."
+      },
+      "purchaseMode": {
+        "Name": "Compra ao soltar itens",
+        "Hint": "O que fazer ao soltar um item do catálogo na ficha.",
+        "ask": "Perguntar",
+        "free": "Adicionar de graça",
+        "buy": "Sempre comprar"
+      },
+      "confirmEdge": {
+        "Name": "Confirmar ao gastar Edge",
+        "Hint": "Pede confirmação antes de gastar uma ficha de Edge."
+      },
+      "openWizardOnCreate": {
+        "Name": "Abrir o assistente ao criar personagem",
+        "Hint": "Abre o assistente de criação para quem criou o personagem."
+      },
+      "debugModifiers": {
+        "Name": "Depurar modificadores",
+        "Hint": "Registra no console modificadores com chave desconhecida."
+      }
+    },
+    "Sheet": {
+      "ChangeImage": "Trocar imagem",
+      "StreetName": "Nome de rua",
+      "CivilName": "Nome civil",
+      "Level": "Nível",
+      "LevelUp": "Subir de nível",
+      "Drive": "Drive",
+      "DrivePlaceholder": "Objetivo pessoal",
+      "Wizard": "Assistente de criação",
+      "EditMode": "Modo de edição",
+      "Edit": "Edição",
+      "AC": "CA",
+      "Cover": "Cobertura",
+      "CoverHint": "Alvo com pelo menos metade do corpo protegido: +2 de CA.",
+      "MeleeAC": "CA corpo a corpo",
+      "Initiative": "Iniciativa",
+      "RollInitiative": "Rolar iniciativa",
+      "Slots": "Slots",
+      "SlotsShort": "slots",
+      "Rest": "Descansar",
+      "Test": "Testar",
+      "Warnings": "Avisos",
+      "ResumeGrants": "Retomar escolhas pendentes",
+      "Abilities": "Atributos",
+      "Base": "Base",
+      "Combat": "Defesa e combate",
+      "HitDie": "Dado de vida",
+      "CastBonus": "Execução",
+      "CastCd": "CD de execução",
+      "AttacksShort": "Ataques",
+      "Features": "Habilidades",
+      "NoFeatures": "Nenhuma habilidade ainda. Escolha a origem e a classe.",
+      "Talents": "Talentos",
+      "Pending": "pendentes",
+      "RollTalent": "Rolar talento",
+      "NoTalents": "Nenhum talento ainda.",
+      "Attacks": "Ataques",
+      "AttackHint": "Clique ataca. Ctrl ou Alt abre as opções.",
+      "Name": "Nome",
+      "Hit": "Acerto",
+      "Range": "Alcance",
+      "Credits": "Créditos",
+      "Ledger": "Extrato",
+      "AddPackage": "Adicionar pacote inicial",
+      "PackageAdded": "Pacote inicial adicionado.",
+      "Weapons": "Armas",
+      "Hands": "mãos",
+      "NoWeapons": "Nenhuma arma. Arraste uma do compêndio.",
+      "Armor": "Armadura",
+      "NoArmor": "Nenhuma armadura. Arraste uma do compêndio.",
+      "GearList": "Equipamento",
+      "NoGear": "Nenhum equipamento. Arraste itens do compêndio.",
+      "Vehicles": "Veículos",
+      "Identity": "Identidade",
+      "Languages": "Idiomas",
+      "Appearance": "Aparência",
+      "Reaction": "Reação por facção",
+      "NoAlignment": "Escolha um alinhamento para ver os modificadores de reação.",
+      "Biography": "Biografia",
+      "Contacts": "Contatos",
+      "GroupGoals": "Objetivos do grupo",
+      "Notes": "Notas",
+      "Manual": "Manual",
+      "ManualHint": "Sem automação: depende da mesa.",
+      "Granted": "da seleção",
+      "ManualAdjust": "Ajuste manual",
+      "CityDialect": "Dialeto da cidade",
+      "Bonus": "Bônus"
+    },
+    "Sheets": {
+      "Character": "Ficha de personagem",
+      "Npc": "Ficha de NPC",
+      "Ice": "Ficha de ICE",
+      "Drone": "Ficha de drone",
+      "Item": "Ficha de item"
+    },
+    "Slot": {
+      "neural": "Neural",
+      "body": "Corpo",
+      "arms": "Braços",
+      "legs": "Pernas"
+    },
+    "Status": {
+      "dead": "Morto",
+      "unconscious": "Inconsciente",
+      "dying": "Morrendo",
+      "stunned": "Atordoado",
+      "blind": "Cego",
+      "immobile": "Imóvel",
+      "sick": "Enjoado",
+      "frightened": "Assustado",
+      "surprised": "Surpreso",
+      "immersed": "Imerso",
+      "prone": "Derrubado",
+      "invisible": "Invisível",
+      "tremor": "Tremor"
+    },
+    "Surge": {
+      "1": {
+        "Name": "Tremor",
+        "Text": "desvantagem em ataques por 1 rodada."
+      },
+      "2": {
+        "Name": "Fúria",
+        "Text": "você ataca a criatura mais próxima. O Mestre controla você por uma rodada."
+      },
+      "3": {
+        "Name": "Paranoia",
+        "Text": "desvantagem em testes sociais até o fim da cena."
+      },
+      "4": {
+        "Name": "Dissociação",
+        "Text": "você perde sua ação."
+      },
+      "5": {
+        "Name": "Mudez",
+        "Text": "você não consegue falar até o fim da cena."
+      },
+      "6": {
+        "Name": "Apagão",
+        "Text": "você desmaia por 1d4 rodadas."
+      },
+      "Title": "Surto de ciberpsicose",
+      "UntilSceneEnd": "Dura até o fim da cena.",
+      "Blackout": "Apagão por {n} rodadas."
+    },
+    "Tabs": {
+      "Summary": "Resumo",
+      "Attacks": "Ataques",
+      "Chrome": "Cromo",
+      "Programs": "Programas",
+      "Gear": "Posses",
+      "Network": "Rede",
+      "Bio": "Bio"
+    },
+    "Tags": {
+      "stealth": "Furtividade",
+      "climb": "Escalada",
+      "disguise": "Disfarce",
+      "sensors": "Sensores e armadilhas",
+      "delicate": "Tarefas delicadas",
+      "hack-street": "Hack de rua",
+      "resist-hack": "Resistir a hacking",
+      "resist-emp": "Resistir a EMP",
+      "cyberpsychosis": "Ciberpsicose",
+      "tech": "Tecnologia e máquinas",
+      "recall": "Lembrar ou analisar dados",
+      "social": "Social",
+      "lift": "Levantar e carregar",
+      "piloting": "Pilotagem",
+      "track": "Rastrear",
+      "avoid-danger": "Evitar perigos",
+      "perceive": "Perceber",
+      "interact-machines": "Animais, drones e robôs",
+      "resist-injury": "Resistir a ferimentos",
+      "resist-poison": "Resistir a veneno",
+      "resist-disease": "Resistir a doença",
+      "resist-chrome": "Efeitos colaterais de cromo",
+      "disarm": "Desarmar bombas e armadilhas",
+      "stay-connected": "Continuar conectado",
+      "perform": "Apresentação",
+      "fame": "Fama",
+      "ambush": "Emboscadas",
+      "strength-arms": "Força com os braços",
+      "avoid-knockdown": "Não ser derrubado"
+    },
+    "Talent": {
+      "Title": "Talento",
+      "Points": "Pontos de atributo",
+      "FirstPoint": "Primeiro ponto",
+      "SecondPoint": "Segundo ponto",
+      "Adjust": "Ajuste de atributo",
+      "NoPendingTitle": "Sem talentos pendentes",
+      "NoPendingText": "Não há talentos pendentes. Rolar mesmo assim?",
+      "FreeChoice": "Escolha livre",
+      "PointsOption": "+2 pontos de atributo",
+      "PointsHint": "Divididos como quiser.",
+      "Rolled": "{name} rolou {total} na tabela de talentos de {cls}: {talent}"
+    },
+    "Use": {
+      "Rolled": "Resultado: {total}.",
+      "Healed": "Cura: {total} HP.",
+      "NextAttackAdvantage": "O próximo ataque tem vantagem.",
+      "KineticNegate": "Um ataque corpo a corpo que acertaria é negado.",
+      "StepSubroutine": "Um ataque que acertaria você é evitado.",
+      "MemoryBoost": "Some +{n} (1d6) a um teste de INT.",
+      "EcoDigital": "Por 1d4 rodadas você executa dois programas por rodada.",
+      "FirstAid": "{name} foi estabilizado, sem teste e sem gastar protocolo.",
+      "Passive": "Passiva: aplicada automaticamente."
+    },
+    "Warn": {
+      "NoGM": "Nenhum Mestre ativo para executar esta ação.",
+      "NoAttack": "Ataque não encontrado.",
+      "NoTarget": "Selecione um alvo.",
+      "NoSelection": "Selecione ao menos um token.",
+      "NoCharacter": "Você não tem um personagem para receber o item.",
+      "NoCombat": "Não há combate ativo.",
+      "GMOnly": "Só o Mestre pode usar esta ação.",
+      "NoEdge": "Sem ficha de Edge.",
+      "NoOtherRunners": "Não há outros runners com jogador.",
+      "EdgeMax": "Já tem o máximo de fichas de Edge.",
+      "NoTrigger": "Escolha um gatilho de Edge primeiro.",
+      "TriggerUsed": "O gatilho já foi usado neste descanso.",
+      "NoMagazines": "Sem carregadores.",
+      "NoFreeHands": "Sem mãos livres: desequipe uma arma.",
+      "NoCreditsFor": "Créditos insuficientes: {price} (saldo {balance}).",
+      "NoCredits": "Créditos insuficientes: {cost} cr.",
+      "NoAlignment": "Escolha um alinhamento primeiro.",
+      "NoClass": "Escolha uma classe primeiro.",
+      "NoCasting": "Esta classe não conjura.",
+      "NoChoiceOptions": "{name}: nenhuma opção disponível.",
+      "NoRation": "Descansar exige 1 ração.",
+      "NoUses": "{name}: sem usos restantes.",
+      "NoHackTool": "Sem deck, cabo de interface ou jack: não é possível hackear.",
+      "NoConnection": "Imersão exige um jack de interface ou um cabo de interface.",
+      "NoFirewall": "Imersão exige um Firewall.",
+      "DroneFailed": "Não foi possível criar o drone.",
+      "CatalogMissing": "Ative o módulo Compêndio SombraNeon para escolher implantes e equipamento.",
+      "TableMissing": "Tabela não encontrada: {name}.",
+      "TalentMissing": "Resultado de talento não encontrado.",
+      "GrantMissing": "Item de concessão não encontrado: {ref}.",
+      "SelectionInvalid": "Item inválido para esta seleção.",
+      "WrongKind": "Este item não é do tipo que a sua classe usa.",
+      "Crashed": "{name} está em Crash até o descanso.",
+      "KnownLimit": "Limite de {max} conhecidos atingido.",
+      "AlreadyKnown": "{name} já é conhecido.",
+      "MaxLevel": "Nível máximo atingido.",
+      "XpMissing": "XP insuficiente: são necessários {next}.",
+      "CyberRisk": "Ciberpsicose: teste de SAB CD {cd} ao fim de cada descanso.",
+      "RequiresLevel": "Requer nível {level}.",
+      "Req": {
+        "NoDeck": "Sem deck, sem programas.",
+        "DeckFried": "O deck está fritado até o descanso.",
+        "NoNanokit": "Sem nanokit, sem protocolos.",
+        "NanokitBroken": "O nanokit está quebrado.",
+        "NoRig": "Sem rig, sem Sets."
+      },
+      "Learn": {
+        "kind": "{name}: tipo incompatível com a sua classe.",
+        "tier": "{name}: tier acima do máximo ({tier}).",
+        "limit": "{name}: limite de {max} conhecidos atingido."
+      }
+    },
+    "Warning": {
+      "multipleSelection": "Há mais de um item de {type}.",
+      "multipleArmor": "Mais de uma armadura equipada.",
+      "pendingChoice": "Escolha pendente em {name}.",
+      "noArmorProficiency": "Armadura sem proficiência: {name}.",
+      "slotsOver": "Slots estourados: {used} de {max}.",
+      "slotOccupied": "Mais de um implante no slot {slot}.",
+      "noProficiency": "Arma sem proficiência: {name}.",
+      "tooManyHands": "Mãos ocupadas além de 2: {hands}.",
+      "knownOver": "Mais itens conhecidos ({count}) que o limite ({max}).",
+      "tierOver": "Tier acima do máximo: {name}.",
+      "grantsPending": "Escolhas pendentes em {name}."
+    },
+    "Wizard": {
+      "Title": "Assistente de criação",
+      "IntroText": "Siga os passos do capítulo 2 do livro. Nada é gravado na ficha até Concluir, e você pode voltar quando quiser.",
+      "Back": "Voltar",
+      "Next": "Avançar",
+      "Finish": "Concluir",
+      "Steps": {
+        "intro": "Abertura",
+        "abilities": "Atributos",
+        "origin": "Origem",
+        "class": "Classe",
+        "background": "Antecedente",
+        "alignment": "Alinhamento",
+        "chrome": "Cromo",
+        "gear": "Equipamento",
+        "talents": "Talentos",
+        "review": "Revisão"
+      },
+      "AbilitiesText": "Role 3d6 seis vezes, na ordem FOR, DES, CON, INT, SAB, CAR. Se nenhum atributo ficar em 14 ou mais, você pode rolar os seis de novo.",
+      "RollAll": "Rolar tudo",
+      "RollAgain": "Rolar de novo",
+      "RerollAllowed": "Nenhum atributo chegou a 14: você pode rolar de novo (uma vez).",
+      "RerollDenied": "Só dá para rolar de novo se nenhum atributo ficar em 14 ou mais.",
+      "NoReroll": "Há um atributo em 14 ou mais: não dá para rolar de novo.",
+      "Picked": "Escolhido",
+      "FactoryImplants": "Implantes de fábrica",
+      "WeaponFamily": "Família do Domínio de arma",
+      "KeyAbility": "atributo-chave",
+      "KeyAbilityWeak": "A classe usa {abilities} e nenhum desses atributos tem modificador positivo. Você pode seguir assim.",
+      "Contact": "Contato",
+      "ContactPrompt": "Quem você conhece na cidade?",
+      "Credits": "Créditos iniciais (2d6 x 100)",
+      "Balance": "Saldo",
+      "NoCatalog": "Módulo de compêndio não encontrado: este passo fica vazio e a ficha segue editável à mão.",
+      "AddPackage": "Pacote sugerido da classe",
+      "AddKit": "Kit de Runner (300 cr)",
+      "Cart": "Carrinho",
+      "CartEmpty": "Nada no carrinho.",
+      "TalentsText": "Role 2d6 na tabela de talentos da classe ({count} no total).",
+      "Language": "Idioma de rua",
+      "LanguagePlaceholder": "Todo runner fala o dialeto da cidade e mais um idioma de rua",
+      "Incomplete": "Faltam escolhas: origem, classe, antecedente, alinhamento e gatilho.",
+      "SlotTaken": "O slot desse implante já está ocupado.",
+      "OverspentTitle": "Créditos insuficientes",
+      "OverspentText": "Os itens escolhidos custam mais que os créditos iniciais. Concluir mesmo assim?",
+      "MissingPacks": "Os compêndios do sistema não foram encontrados.",
+      "PendingSelections": "Pendência: algumas seleções não foram aplicadas.",
+      "PendingItems": "Pendência: alguns itens não foram criados.",
+      "PendingTalents": "Pendência: alguns talentos não foram criados.",
+      "PendingDrone": "Pendência: o drone não foi criado.",
+      "Created": "Criação de {name}",
+      "Shop": {
+        "weapon": "Armas",
+        "armor": "Armaduras",
+        "gear": "Equipamento"
+      },
+      "Pick": {
+        "program": "Escolha {count} programas de tier 1",
+        "protocol": "Escolha {count} protocolos de tier 1",
+        "set": "Escolha {count} Sets"
+      },
+      "Drive": {
+        "hunt": "Caçar uma IA descontrolada",
+        "chrome": "Juntar créditos e cromo raros",
+        "rank": "Subir na hierarquia da corporação",
+        "fame": "Crescer na fama da rua",
+        "secrets": "Descobrir segredos e intrigas",
+        "survive": "Simplesmente sobreviver"
+      },
+      "Summary": {
+        "Name": "Nome",
+        "Abilities": "Atributos",
+        "Origin": "Origem",
+        "Class": "Classe",
+        "Background": "Antecedente",
+        "Alignment": "Alinhamento e gatilho",
+        "Chrome": "Cromo",
+        "Gear": "Equipamento",
+        "Talents": "Talentos",
+        "Credits": "Créditos restantes"
+      },
+      "Origin": {
+        "nat": "Humano natural, com pouco ou nenhum implante. Hacks não o afetam sem implante Neural.",
+        "cromado": "Trocou carne por metal. Começa com 2 implantes de qualidade Rua.",
+        "sintetico": "Replicante ou androide. Não come nem dorme, e interface sem cabo.",
+        "biomod": "Corpo reescrito por engenharia genética. Rola 2 mutações."
+      },
+      "Class": {
+        "solo": "O especialista em combate. d8, todas as armas e armaduras.",
+        "netrunner": "O especialista em invasão. Programas por tier e imersão na Rede.",
+        "hyperdoc": "O especialista em corpo, nanotecnologia e implantes.",
+        "ghost": "O especialista em infiltração. Ataque furtivo e vantagem em furtividade.",
+        "rocker": "O especialista em carisma e performance. Sets e Ressonância.",
+        "rigger": "O especialista em reconhecimento, com drone voador companheiro."
+      },
+      "Alignment": {
+        "controle": "Acredita em estruturas, protocolos e eficiência. Equivale à Ordem.",
+        "sobrevivencia": "Não serve a ideologia nenhuma, só à resistência. Equivale ao Neutro.",
+        "liberdade": "Recusa vigilância e obediência corporativa. Equivale ao Caos."
+      }
+    }
+  },
+  "SOMBRANEON_COMPENDIUM": {
+    "WrongSystem": "O módulo SombraNeon: Compêndio só funciona com o sistema SombraNeon."
+  },
+  "TYPES": {
+    "Actor": {
+      "character": "Personagem",
+      "npc": "NPC",
+      "ice": "ICE",
+      "drone": "Drone"
+    },
+    "Item": {
+      "class": "Classe",
+      "origin": "Origem",
+      "background": "Antecedente",
+      "alignment": "Alinhamento",
+      "feature": "Característica",
+      "weapon": "Arma",
+      "armor": "Armadura",
+      "gear": "Equipamento",
+      "implant": "Implante",
+      "program": "Programa"
+    }
+  }
+}

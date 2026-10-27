@@ -1,0 +1,15 @@
+<div class="sn-panel sn-modifiers">
+  <h3>{{title}}
+    {{#if editable}}<button type="button" class="sn-chip-btn" data-action="arrayAdd" data-array="{{path}}" data-blank="{{blank}}">+</button>{{/if}}</h3>
+  {{#each rows}}
+  <div class="sn-mod-row">
+    <input type="text" class="sn-mod-key" data-array-field="key" data-array="{{../path}}" data-index="{{index}}" value="{{key}}" placeholder="{{localize 'SOMBRANEON.Item.ModKey'}}">
+    <select data-array-field="mode" data-array="{{../path}}" data-index="{{index}}">{{#each modes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+    <input type="text" data-array-field="value" data-array="{{../path}}" data-index="{{index}}" value="{{value}}" placeholder="{{localize 'SOMBRANEON.Item.ModValue'}}">
+    <input type="text" data-array-field="when" data-array="{{../path}}" data-index="{{index}}" value="{{when}}" placeholder="{{localize 'SOMBRANEON.Item.ModWhen'}}">
+    <input type="text" data-array-field="label" data-array="{{../path}}" data-index="{{index}}" value="{{label}}" placeholder="{{localize 'SOMBRANEON.Item.ModLabel'}}">
+    {{#if ../editable}}<button type="button" class="sn-icon sn-danger" data-action="arrayRemove" data-array="{{../path}}" data-index="{{index}}"><i class="fa-solid fa-trash"></i></button>{{/if}}
+  </div>
+  {{/each}}
+  {{#unless rows.length}}<p class="sn-empty-text">{{localize 'SOMBRANEON.Item.NoModifiers'}}</p>{{/unless}}
+</div>

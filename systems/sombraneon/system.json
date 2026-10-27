@@ -1,0 +1,56 @@
+{
+  "id": "sombraneon",
+  "title": "SombraNeon",
+  "description": "RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark.",
+  "version": "0.1.0",
+  "compatibility": { "minimum": "13", "verified": "13.351" },
+  "authors": [{ "name": "Carlos Withe (Cacá)", "url": "https://github.com/carloswithe" }],
+  "url": "https://github.com/carloswithe/sombraneon-foundry",
+  "manifest": "https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/system.json",
+  "download": "https://github.com/carloswithe/sombraneon-foundry/releases/download/v0.1.0/system.zip",
+  "bugs": "https://github.com/carloswithe/sombraneon-foundry/issues",
+  "license": "LICENSE",
+  "readme": "README.md",
+  "changelog": "https://github.com/carloswithe/sombraneon-foundry/blob/main/CHANGELOG.md",
+  "esmodules": ["sombraneon.mjs"],
+  "styles": ["styles/fonts.css", "styles/sombraneon.css"],
+  "languages": [{ "lang": "pt-BR", "name": "Português (Brasil)", "path": "lang/pt-BR.json" }],
+  "socket": true,
+  "primaryTokenAttribute": "hp",
+  "grid": { "distance": 1.5, "units": "m" },
+  "documentTypes": {
+    "Actor": { "character": {}, "npc": {}, "ice": {}, "drone": {} },
+    "Item": {
+      "class": {},
+      "origin": {},
+      "background": {},
+      "alignment": {},
+      "feature": {},
+      "weapon": {},
+      "armor": {},
+      "gear": {},
+      "implant": {},
+      "program": {}
+    }
+  },
+  "packs": [
+    { "name": "classes", "label": "Classes", "path": "packs/classes", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "origens", "label": "Origens", "path": "packs/origens", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "antecedentes", "label": "Antecedentes", "path": "packs/antecedentes", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "alinhamentos", "label": "Alinhamentos", "path": "packs/alinhamentos", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "caracteristicas", "label": "Características e Talentos", "path": "packs/caracteristicas", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "programas", "label": "Programas, Protocolos e Sets", "path": "packs/programas", "type": "Item", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "tabelas", "label": "Tabelas", "path": "packs/tabelas", "type": "RollTable", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "regras", "label": "Livro de Regras", "path": "packs/regras", "type": "JournalEntry", "system": "sombraneon", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } }
+  ],
+  "relationships": {
+    "recommends": [
+      {
+        "id": "sombraneon-compendium",
+        "type": "module",
+        "reason": "Catálogo de armas, armaduras, equipamento, implantes, ICE e fichas prontas."
+      }
+    ]
+  },
+  "flags": { "hotReload": { "extensions": ["css", "hbs", "json"], "paths": ["systems/sombraneon/styles", "systems/sombraneon/templates", "systems/sombraneon/lang"] } }
+}
