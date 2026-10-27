@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1] - 2026-10-27
+
+### Corrigido
+- Abas da ficha (Resumo, Ataques, Cromo...) não respondiam: a ação `tab` colidia com a ação do núcleo do Foundry v13. Renomeada para `snTab`.
+- Botões do cabeçalho da janela (fechar, configurar...) apareciam como quadrados: a fonte do sistema sobrescrevia o Font Awesome.
+- Rolagens das macros e dos cartões de evento (Rede, Reação, Moral, descanso, Feedback...) agora respeitam o modo de rolagem do chat (privado, às cegas, para si).
+
 ## [0.1.0] - 2026-10-27
 
 Primeira versão.
