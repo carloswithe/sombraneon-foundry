@@ -38,7 +38,8 @@ function statusDisadvantages(actor, kind) {
   return out;
 }
 
-function currentRollMode() {
+/** Modo de rolagem escolhido no chat (público, privado, às cegas ou para si). */
+export function currentRollMode() {
   try {
     return game.settings.get('core', 'rollMode');
   } catch {

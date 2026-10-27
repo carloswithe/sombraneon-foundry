@@ -17,9 +17,20 @@
   --sn-font-display: 'Orbitron', sans-serif;
   --sn-font-body: 'Rajdhani', sans-serif;
   --sn-font-mono: 'Share Tech Mono', monospace;
-  font-family: var(--sn-font-body);
   color: var(--sn-ink);
 }
+/* A fonte do corpo não vai na raiz da janela: o cabeçalho usa Font Awesome nos botões */
+.sombraneon:not(.application) { font-family: var(--sn-font-body); }
+.application.sombraneon .window-title { font-family: var(--sn-font-display); font-size: 13px; letter-spacing: 0.08em; }
+.application.sombraneon .window-header .header-control,
+.application.sombraneon .window-header .header-control.fa-solid,
+.application.sombraneon .window-header .header-control.fa-regular {
+  font-family: var(--font-awesome, 'Font Awesome 6 Pro', 'Font Awesome 6 Free');
+  font-weight: 900;
+  color: var(--sn-dim);
+}
+.application.sombraneon .window-header .header-control:hover { color: var(--sn-cyan); text-shadow: 0 0 6px var(--sn-cyan); }
+.application.sombraneon .window-header .header-control.fa-regular { font-weight: 400; }
 
 /* Janela */
 .application.sombraneon .window-content {

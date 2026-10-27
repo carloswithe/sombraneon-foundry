@@ -2,7 +2,7 @@
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
   "description": "Armas, armaduras, equipamento, implantes, veículos, ICE, fichas prontas e macros para o sistema SombraNeon.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": { "minimum": "13", "verified": "13.351" },
   "authors": [{ "name": "Carlos Withe (Cacá)", "url": "https://github.com/carloswithe" }],
   "url": "https://github.com/carloswithe/sombraneon-foundry",

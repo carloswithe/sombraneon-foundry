@@ -22,7 +22,7 @@ export function SNSheetMixin(Base) {
       window: { resizable: true },
       form: { submitOnChange: true, closeOnSubmit: false },
       actions: {
-        tab: SNSheet.#tab,
+        snTab: SNSheet.#tab,
         toggleEdit: SNSheet.#toggleEdit,
         editImage: SNSheet.#editImage,
         arrayAdd: SNSheet.#arrayAdd,
@@ -44,7 +44,7 @@ export function SNSheetMixin(Base) {
     static #tab(event, target) {
       this._tab = target.dataset.tab;
       this.element.querySelectorAll('[data-tab-panel]').forEach((p) => p.classList.toggle('active', p.dataset.tabPanel === this._tab));
-      this.element.querySelectorAll('[data-action="tab"]').forEach((b) => b.classList.toggle('active', b.dataset.tab === this._tab));
+      this.element.querySelectorAll('[data-action="snTab"]').forEach((b) => b.classList.toggle('active', b.dataset.tab === this._tab));
     }
 
     static #toggleEdit() {

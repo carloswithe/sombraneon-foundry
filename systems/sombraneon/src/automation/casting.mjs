@@ -2,15 +2,16 @@ import { ID, t, notify, renderTpl, tpl, esc, enrichHtml } from '../util.mjs';
 import { signed } from '../logic/abilities.mjs';
 import { d20Formula, resolveMode, doubleDice } from '../logic/dice.mjs';
 import { advantageSources } from '../logic/modifiers.mjs';
-import { evaluate, d20Faces, naturalOf, postCard, safeSetting } from '../rolls.mjs';
+import { evaluate, d20Faces, naturalOf, postCard, safeSetting, currentRollMode } from '../rolls.mjs';
 import { alertEvent, Alert } from './alert.mjs';
 import { SNSocket } from './socket.mjs';
 
 /** Cartão simples de evento (resultado de Feedback, Rejeição, Surto, descanso...). */
-export async function postEvent(actor, title, lines = [], { whisper = false, rolls = [] } = {}) {
+export async function postEvent(actor, title, lines = [], { whisper = false, rolls = [], rollMode } = {}) {
   const content = await renderTpl(tpl('chat/event.hbs'), { title, actorName: actor?.name ?? '', img: actor?.img, lines });
   const data = { speaker: ChatMessage.getSpeaker({ actor }), content, rolls };
   if (whisper) data.whisper = ChatMessage.getWhisperRecipients('GM').map((u) => u.id);
+  else if (rolls.length) ChatMessage.applyRollMode(data, rollMode ?? currentRollMode());
   return ChatMessage.create(data);
 }
 
