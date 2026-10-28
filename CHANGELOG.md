@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.0] - 2026-10-27
+
+Atualização para o livro v0.6 e os compêndios de Ameaças v0.2 e de Veículos e Armamento v0.2.
+
+### Alterado
+- **Origens:** o Sintético foi dividido em **Replicante** (gente de carne cultivada) e **Android** (robô humanoide), então são 5 origens. "Sintético" continua como termo de rua. Características: 107.
+- **Replicante:** Carne cultivada (vantagem em CON contra veneno, doença e fadiga), Propósito de fábrica (Combate, Infiltração, Companhia ou Labor, escolhido ao criar), Memória plantada (1 uso por descanso) e Registro.
+- **Android:** Chassi (sem ração, imune a veneno e doença), Casco de fábrica, Interface nativa, Mente estável (1 implante a menos na ciberpsicose), Máquina e Visível. O assistente de criação já conta o ajuste de ciberpsicose do Android.
+- **Máquina, automatizado:** estimulantes (Sistema de estimulantes e injetores) não funcionam em um Android, e protocolos de cura de Hyperdoc curam só metade, arredondando para cima. Estabilizar um Android dá vantagem com kit de ferramentas, no lugar do kit médico.
+- **Ameaças (66):** Sintético de segurança virou Android de segurança, Sintético fugitivo virou Replicante fugitivo, e entraram Android fugitivo (NA 2) e Caçador de sintéticos (NA 5). Facções, organizações e tabelas de encontro seguem o livro. Ataques com "2 ataques por rodada" agora vêm com essa regra na nota, e não no nome.
+- A ficha pronta Névoa passou a ser Android. Reparo em campo de Androides e pele cosmética (3.000 cr) estão no livro de regras e no compêndio de veículos.
+- Biomod passou da seção 3.4 para a 3.5 (tabela de mutações).
+
+### Corrigido
+- `applyHealing` podia devolver 0 como valor curado em alguns casos (a diferença era calculada contra um objeto já atualizado).
+
+### Para mundos existentes
+- Personagens criados como Sintético continuam funcionando, pois mantêm os traços já copiados. Para usar as origens novas, troque a origem na ficha (o seletor de origem agora lista Replicante e Android).
+
 ## [0.2.1] - 2026-10-27
 
 ### Corrigido

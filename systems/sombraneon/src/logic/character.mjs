@@ -389,7 +389,11 @@ export function deriveCharacter(input) {
       restNoRation: hasFlag(mods, 'rest.noRation'),
       critImmune: hasFlag(mods, 'crit.immune'),
       ignoreCover: hasFlag(mods, 'flag.ignoreCover'),
-      nativeInterface: hasFlag(mods, 'flag.nativeInterface')
+      nativeInterface: hasFlag(mods, 'flag.nativeInterface'),
+      noStims: hasFlag(mods, 'flag.noStims'),
+      healHalf: hasFlag(mods, 'flag.healHalf'),
+      immunePoison: hasFlag(mods, 'flag.immunePoison'),
+      immuneDisease: hasFlag(mods, 'flag.immuneDisease')
     },
     dyingDie: setValue(mods, 'dying.die') ?? 'd4',
     rollData,

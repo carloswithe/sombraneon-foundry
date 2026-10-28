@@ -36,7 +36,7 @@ const familyChoice = { key: 'family', kind: 'weaponFamily', options: FAMILIES };
 /* ------------------------------------------------------------------ */
 
 const T = (section, name) => book.bullet(section, name);
-const CLASS_SRC = (n) => `Livro v0.5, ${n}`;
+const CLASS_SRC = (n) => `Livro v0.6, ${n}`;
 
 function classFeatures() {
   const out = [];
@@ -136,19 +136,27 @@ function originTraits() {
   add('Cromado', '3.2', 'Instalação de fábrica');
   add('Cromado', '3.2', 'Cromo estável', { modifiers: [M('cyber.adjust', -1)] });
   add('Cromado', '3.2', 'Vulnerável', { modifiers: [DIS('check.resist-hack'), DIS('check.resist-emp')] });
-  add('Sintético', '3.3', 'Corpo artificial', {
-    modifiers: [F('rest.noRation')],
-    usesCfg: uses(1, 'day'),
-    activation: 'free',
-    automation: 'use'
+  // Replicante (3.3)
+  add('Replicante', '3.3', 'Carne cultivada', { modifiers: [ADV('check.resist-poison'), ADV('check.resist-disease'), ADV('check.resist-fatigue')] });
+  add('Replicante', '3.3', 'Propósito de fábrica', {
+    choices: [{ key: 'purpose', kind: 'select', options: ['combat', 'infiltration', 'companion', 'labor'] }],
+    modifiers: [F('flag.purpose.{choice.purpose}')]
   });
-  add('Sintético', '3.3', 'Interface nativa', { modifiers: [ADV('check.hack-street'), F('flag.nativeInterface')] });
-  add('Sintético', '3.3', 'Casco de fábrica', { modifiers: [M('ac.bonus', 1, { when: 'noArmor' })] });
-  add('Sintético', '3.3', 'Registro', {
+  add('Replicante', '3.3', 'Memória plantada', { usesCfg: uses(1, 'rest'), activation: 'free', automation: 'use' });
+  add('Replicante', '3.3', 'Registro', {
     modifiers: [M('reaction.police', -2), M('reaction.execs', -2), F('flag.registeredSynthetic')]
   });
-  add('Biomod', '3.4', 'Genoma instável');
-  add('Biomod', '3.4', 'Corpo rejeita cromo', { modifiers: [M('cyber.adjust', 1)] });
+  // Android (3.4)
+  add('Android', '3.4', 'Chassi', { identifier: 'chassi-android', modifiers: [F('rest.noRation'), F('flag.immunePoison'), F('flag.immuneDisease')] });
+  add('Android', '3.4', 'Casco de fábrica', { modifiers: [M('ac.bonus', 1, { when: 'noArmor' })] });
+  add('Android', '3.4', 'Interface nativa', { modifiers: [ADV('check.hack-street'), F('flag.nativeInterface')] });
+  add('Android', '3.4', 'Mente estável', { modifiers: [M('cyber.adjust', -1)] });
+  add('Android', '3.4', 'Máquina', { modifiers: [DIS('check.resist-hack'), DIS('check.resist-emp'), F('flag.noStims'), F('flag.healHalf')] });
+  add('Android', '3.4', 'Visível', {
+    modifiers: [M('reaction.police', -2), M('reaction.execs', -2), F('flag.visibleMachine')]
+  });
+  add('Biomod', '3.5', 'Genoma instável');
+  add('Biomod', '3.5', 'Corpo rejeita cromo', { modifiers: [M('cyber.adjust', 1)] });
   return out;
 }
 
@@ -188,14 +196,14 @@ const MUTATIONS = {
 };
 
 function mutations() {
-  return book.table('3.4').rows.map((row, i) => {
+  return book.table('3.5').rows.map((row, i) => {
     const n = Number(row[0]);
     const [name, text] = splitBold(row[1]);
     return feature({
       name,
       kind: 'mutation',
       text,
-      source: 'Livro v0.5, 3.4',
+      source: 'Livro v0.6, 3.5',
       folder: 'Mutações do Biomod',
       sort: (i + 1) * 100,
       flags: { mutationRoll: n },
@@ -312,7 +320,7 @@ function talents() {
       identifier: 'escolha-livre',
       kind: 'talent',
       text: 'Resultado 12 da tabela de talentos: escolha qualquer talento da tabela da sua classe ou +2 pontos de atributo, divididos como quiser.',
-      source: 'Livro v0.5, 4 (tabelas de talentos)',
+      source: 'Livro v0.6, 4 (tabelas de talentos)',
       folder: 'Talentos: Genéricos',
       sort,
       automation: 'talent-free-choice',
@@ -323,7 +331,7 @@ function talents() {
       identifier: 'ajuste-de-atributo',
       kind: 'talent',
       text: '+2 pontos de atributo, divididos como você quiser (resultado 12 da tabela de talentos). Os modificadores são preenchidos ao criar o talento.',
-      source: 'Livro v0.5, 4 (tabelas de talentos)',
+      source: 'Livro v0.6, 4 (tabelas de talentos)',
       folder: 'Talentos: Genéricos',
       sort: sort + 100,
       stackable: true
@@ -352,7 +360,7 @@ function edgeTriggers() {
           name,
           kind: 'edge-trigger',
           text,
-          source: 'Livro v0.5, 6.1',
+          source: 'Livro v0.6, 6.1',
           folder: `Gatilhos: ${al.label}`,
           sort: (i + 1) * 100,
           identifier: `gatilho-${slug(name)}`,

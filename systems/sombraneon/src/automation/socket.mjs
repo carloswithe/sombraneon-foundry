@@ -13,10 +13,10 @@ export const HANDLERS = {
     if (!actor) return { ok: false };
     return { ok: true, applied: await actor.applyDamage(amount, { type, nonlethal, heavy }) };
   },
-  async applyHealing({ uuid, amount }) {
+  async applyHealing({ uuid, amount, protocol }) {
     const actor = await resolveActor(uuid);
     if (!actor) return { ok: false };
-    return { ok: true, applied: await actor.applyHealing(amount) };
+    return { ok: true, applied: await actor.applyHealing(amount, { protocol }) };
   },
   async grantEdge({ uuid, amount }) {
     const actor = await resolveActor(uuid);
@@ -124,8 +124,8 @@ export async function dealDamage(actor, amount, options = {}) {
   return SNSocket.request('applyDamage', { uuid: actor.uuid, amount, ...options });
 }
 
-export async function dealHealing(actor, amount) {
+export async function dealHealing(actor, amount, { protocol = false } = {}) {
   if (!actor) return { ok: false };
-  if (actor.isOwner) return { ok: true, applied: await actor.applyHealing(amount) };
-  return SNSocket.request('applyHealing', { uuid: actor.uuid, amount });
+  if (actor.isOwner) return { ok: true, applied: await actor.applyHealing(amount, { protocol }) };
+  return SNSocket.request('applyHealing', { uuid: actor.uuid, amount, protocol });
 }

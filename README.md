@@ -1,13 +1,13 @@
 # SombraNeon para Foundry VTT
 
-RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.5 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
+RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.6 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
 
 Dois pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
-| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 64 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas e macros. |
+| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas e macros. |
 
 ## Instalação
 

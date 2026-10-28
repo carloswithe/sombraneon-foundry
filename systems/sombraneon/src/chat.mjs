@@ -83,7 +83,7 @@ async function handle(message, action, button) {
       const self = game.actors.get(message.speaker?.actor);
       const finalTargets = targets.length ? targets : [self].filter(Boolean);
       if (!finalTargets.length) return notify('warn', 'Warn.NoTarget');
-      for (const a of finalTargets) await dealHealing(a, total);
+      for (const a of finalTargets) await dealHealing(a, total, { protocol: !!flags.damage?.protocol });
       return;
     }
     case 'castDamage':
@@ -100,6 +100,7 @@ async function handle(message, action, button) {
         formula,
         label: `${program.name}: ${t(action === 'castDamage' ? 'Rolls.Damage' : 'Rolls.Healing')}`,
         kind: action === 'castDamage' ? 'damage' : 'heal',
+        protocol: action === 'castHeal' && program.system.kind === 'protocol',
         save: action === 'castDamage' && sys.save?.ability ? sys.save : null
       });
     }

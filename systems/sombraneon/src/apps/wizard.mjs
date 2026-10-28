@@ -146,7 +146,7 @@ export class CreationWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     const spent = this.#spent();
     const pkg = await this.#package();
     const pkgCost = packageCost(pkg);
-    const cy = cyberpsychosis({ count: this.#implantCount(), adjust: d.origin === 'cromado' ? -1 : d.origin === 'biomod' ? 1 : 0 });
+    const cy = cyberpsychosis({ count: this.#implantCount(), adjust: ['cromado', 'android'].includes(d.origin) ? -1 : d.origin === 'biomod' ? 1 : 0 });
     const triggers = d.alignment ? triggersFor(d.alignment).map((e) => ({ id: e.identifier, name: e.name, selected: d.trigger === e.identifier })) : [];
     const backgrounds = CompendiumIndex.list('background').map((e) => ({ uuid: e.uuid, name: e.name, knowledge: e.knowledge, highlight: e.highlight, selected: d.background.uuid === e.uuid }));
     const shopType = this.shopTab;

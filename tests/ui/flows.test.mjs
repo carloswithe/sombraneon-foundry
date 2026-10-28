@@ -197,7 +197,7 @@ describe('descanso, morte, talento e nível', () => {
     expect(ration.system.uses.value).toBe(2);
   });
 
-  it('Sintético descansa sem ração', async () => {
+  it('Android descansa sem ração', async () => {
     const a = E.actors.Névoa;
     for (const i of a.items.filter((x) => x.system.category === 'ration')) await i.delete();
     a.system.hp.value = 1;

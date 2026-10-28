@@ -2,13 +2,13 @@
 
 *RPG cyberpunk de regras enxutas, adaptado do Shadowdark*
 
-> **Status:** v0.5, completo para o primeiro teste de mesa.
+> **Status:** v0.6, completo para o primeiro teste de mesa.
 > **Referências de projeto:** Shadowdark (base de regras), CyberDark (slots de implante, Edge, alinhamentos) e Dark Space (estrutura de arquétipos, traços de espécie, motivações).
 > **Compêndios companheiros:** *SombraNeon: Compêndio de Ameaças* (inimigos, facções, corporações, ameaças digitais, IAs e cultos) e *SombraNeon: Compêndio de Veículos e Armamento* (veículos, armas pesadas, armas de cerco e mechas).
 
 **Decisões de projeto:**
 - 6 classes: Solo, Netrunner, Hyperdoc, Ghost, Rocker, Rigger.
-- 4 origens: Nat, Cromado, Sintético, Biomod.
+- 5 origens: Nat, Cromado, Replicante, Android, Biomod. **Sintético** é o termo de rua que cobre Replicantes e Androides.
 - Fixer é um antecedente, não uma classe.
 - Hacking usa a estrutura de magia do Shadowdark (programas por tier) mais um marcador de Alerta. Sem tríade e sem glitch.
 - Cromo tem 4 slots corporais: Neural, Corpo, Braços e Pernas.
@@ -112,7 +112,7 @@ Diferença entre INT e SAB: SAB é instinto, percepção e dados sensoriais. INT
 - **HP no nível 1:** dado de vida da classe + mod. de CON (mínimo 1).
 - **A cada nível:** role o dado de vida da classe + mod. de CON (mínimo 1) e some ao total.
 - **0 HP:** você cai inconsciente e está **morrendo**. Role **1d4 + mod. de CON** (mínimo 1): é o número de rodadas que você ainda tem. No início de cada turno seu, role 1d20: um **20 natural** te traz de volta com 1 HP. Se qualquer cura te levar acima de 0, você acorda e não está mais morrendo.
-- **Estabilizar:** teste de INT CD 15, alcance Perto, com kit médico (vantagem em orgânicos). O alvo continua inconsciente, mas não morre.
+- **Estabilizar:** teste de INT CD 15, alcance Perto, com kit médico (vantagem em orgânicos) ou kit de ferramentas (vantagem em Androides). O alvo continua inconsciente, mas não morre.
 - **Morte:** quando o tempo acaba sem ajuda, o personagem se foi.
 
 ### 1.6 Evolução
@@ -147,7 +147,7 @@ O **Edge** é a ficha de estilo e sorte do grupo.
 Sete passos:
 
 1. **Atributos:** role 3d6 seis vezes, na ordem.
-2. **Origem:** Nat, Cromado, Sintético ou Biomod (Capítulo 3).
+2. **Origem:** Nat, Cromado, Replicante, Android ou Biomod (Capítulo 3).
 3. **Classe:** escolha uma das seis (Capítulo 4).
 4. **Antecedente:** role d20 ou escolha (Capítulo 5).
 5. **Alinhamento:** Controle, Sobrevivência ou Liberdade (Capítulo 6), e escolha ou role seu gatilho de Edge.
@@ -193,16 +193,29 @@ Quem trocou carne por metal e nunca olhou para trás.
 - **Cromo estável:** conta 1 implante a menos ao verificar ciberpsicose.
 - **Vulnerável:** desvantagem em testes de resistência contra hacking e EMP.
 
-### 3.3 Sintético
+### 3.3 Replicante
 
-Replicante, androide ou ex-propriedade corporativa.
+Gente fabricada: carne cultivada em tanque, memória gravada e um número de série atrás da orelha. Parece humano, sangra como humano e foi feito para servir a alguém. Hoje foge, trabalha por conta própria ou ainda espera ordens.
 
-- **Corpo artificial:** não precisa comer, beber, respirar ou dormir. Seu descanso é manutenção (as mesmas 8 horas, sem ração). 1 vez por dia, ignore um efeito que mire sua fisiologia (veneno, doença ou sangramento).
-- **Interface nativa:** você se conecta a decks, drones e terminais sem cabo, ao alcance Perto, e tem vantagem em hack de rua.
+- **Carne cultivada:** vantagem nos testes de CON contra doença, veneno e fadiga. Você come, dorme e se cura como qualquer humano.
+- **Propósito de fábrica:** escolha 1 ao criar: **Combate**, **Infiltração**, **Companhia** ou **Labor**. Você tem vantagem nos testes ligados a ele, a critério do Mestre (Combate: ataques corpo a corpo desarmados e iniciativa. Infiltração: furtividade e disfarce. Companhia: persuasão e leitura de pessoas. Labor: consertar, carregar e resistir a esforço).
+- **Memória plantada:** 1 vez por descanso, repita um teste de conhecimento ou de lembrar algo em que você falhou. São lembranças que não são suas, mas funcionam.
+- **Registro:** você tem um número de série, gravado no olho ou na nuca. Scanners médicos e de segurança te identificam como replicante. Polícia, segurança corporativa e executivos que saibam o que você é têm -2 na reação a você, e uma corporação pode reivindicar sua posse, um gancho de aventura à disposição do Mestre. Sem scanner, você passa por humano.
+
+### 3.4 Android
+
+Robô humanoide: chassi de liga, processador e uma mente que aprendeu a querer. Pode ser uma antiga unidade de segurança, doméstica ou industrial, hoje livre, foragida ou em busca do próprio dono.
+
+- **Chassi:** você não precisa comer, beber, respirar ou dormir. Seu descanso é manutenção (as mesmas 8 horas, sem ração). Veneno e doença orgânica não te afetam.
 - **Casco de fábrica:** +1 de CA enquanto não usar armadura.
-- **Registro:** qualquer scanner te identifica como sintético, e a lei costuma te tratar como propriedade. Polícia, segurança corporativa e executivos que saibam o que você é têm -2 na reação a você. Uma corporação pode reivindicar sua posse, um gancho de aventura à disposição do Mestre.
+- **Interface nativa:** você se conecta a decks, drones e terminais sem cabo, ao alcance Perto, e tem vantagem em hack de rua.
+- **Mente estável:** conta 1 implante a menos ao verificar ciberpsicose (7.3).
+- **Máquina:** desvantagem em testes de resistência contra hacking e EMP. Stims e o Sistema de estimulantes não funcionam em você, e protocolos de cura de Hyperdoc curam só metade. Em compensação, um aliado com **kit de ferramentas** pode te reparar em campo (INT CD 12, **1d6 HP por hora**, ou **2d6** se for um Rigger). O descanso comum continua restaurando seus HP.
+- **Visível:** a menos que use uma **pele cosmética** (cerca de 3.000 cr, instalada por um Hyperdoc ou clínica), qualquer pessoa percebe que você é uma máquina. Polícia, segurança corporativa e executivos têm -2 na reação a você, e uma corporação pode reivindicar sua posse. Com a pele, só um scanner te denuncia.
 
-### 3.4 Biomod
+**Sintético, o termo de rua:** a gíria da cidade chama Replicantes e Androides de **sintéticos**. Facções, leis e contratos dizem "sintético" quando não se importam com a diferença. Para as regras do livro, vale a origem específica, e o termo geral aparece em frases como "libertar sintéticos" e na tabela de reação por facção (6.2).
+
+### 3.5 Biomod
 
 Corpo reescrito por engenharia genética.
 
@@ -398,7 +411,7 @@ Os arquétipos das fichas do CyberDark (Ronin, Slicer, Breaker, Synthsmith, Echo
 - **Batedor:** vantagem em iniciativa e em testes para perceber emboscadas.
 - **Condutor:** vantagem em testes de pilotagem de veículos, mechas e drones.
 - **Interface veicular:** com um jack de interface, você pilota qualquer veículo ou mecha por link neural e usa as armas montadas sem precisar de atirador. Seu drone serve de **observador** para armas de cerco: o primeiro disparo contra um alvo Distante não tem a desvantagem normal.
-- **Mecânico de campo:** ao reparar um veículo, recupera **2d6 HP** por hora, no lugar de 1d6.
+- **Mecânico de campo:** ao reparar um veículo ou um aliado Android, recupera **2d6 HP** por hora, no lugar de 1d6.
 
 | 2d6 | Talento |
 |---|---|
@@ -521,7 +534,7 @@ O alinhamento influencia como as facções reagem a você, mas só quando o NPC 
 | Mercado negro e fixers | -1 | +2 | 0 |
 | Cultos e fanáticos de IA | -1 | 0 | +1 |
 | Punks e hackers anarquistas | -2 | 0 | +2 |
-| Sintéticos livres e redes de refúgio | -1 | 0 | +2 |
+| Sintéticos livres (Replicantes e Androides) e redes de refúgio | -1 | 0 | +2 |
 | Mercenários e companhias privadas | 0 | +1 | 0 |
 
 As facções, corporações e cultos nomeados da cidade (Guarda Metropolitana, Cães de Vidro, Banco Cobalto, Igreja do Cromo Sagrado e outras) estão no *Compêndio de Ameaças*, e cada um indica qual linha desta tabela usar.
@@ -569,7 +582,7 @@ Com **3 ou 4 slots ocupados**, ao fim de cada descanso faça um teste de **SAB**
 
 Falhou: você sofre um **Surto** (d6, o Mestre controla você por uma rodada).
 
-Algumas origens alteram a contagem: o Cromado conta 1 implante a menos, o Biomod conta 1 a mais. O Nat tem vantagem no teste.
+Algumas origens alteram a contagem: o Cromado e o Android contam 1 implante a menos, o Biomod conta 1 a mais. O Nat tem vantagem no teste. O Replicante segue a contagem normal.
 
 | d6 | Surto |
 |---|---|
@@ -782,6 +795,7 @@ Valores de referência na cidade. O Mestre ajusta por região: bairros de elite 
 |---|---|
 | Curativo e consulta em clínica de rua | 200 cr |
 | Reparo ou remoção de implante | 10% do custo do implante |
+| Pele cosmética para Android (Hyperdoc ou clínica) | 3.000 cr |
 | Hacker de aluguel (tarefa simples) | 500 cr |
 | Informante (boato) | 100 cr |
 | Informante (dado valioso) | 500 cr ou mais |
@@ -883,7 +897,7 @@ Programas são como as magias do Shadowdark.
 
 ### 9.3 Protocolos (Hyperdoc)
 
-Funcionam como programas, com **SAB** no lugar de INT e o **nanokit** no lugar do deck. Os protocolos de cura têm alcance Perto ou Próximo, conforme o texto.
+Funcionam como programas, com **SAB** no lugar de INT e o **nanokit** no lugar do deck. Os protocolos de cura têm alcance Perto ou Próximo, conforme o texto. Em um **Android**, eles curam apenas metade (arredonde para cima); o reparo com kit de ferramentas é a cura normal dele (3.4).
 
 - **Falha:** o protocolo entra em Crash até o descanso.
 - **20 natural:** dobre um efeito numérico do protocolo.
@@ -1259,11 +1273,11 @@ A rua dá nomes a quem sobrevive. O título muda conforme o nível e adorna o no
 
 ### 10.9 Exemplo de missão
 
-**A Cobaia de Vidro**, para um grupo de quatro runners de nível 3 (um Solo, um Netrunner, um Ghost e um Hyperdoc Sintético).
+**A Cobaia de Vidro**, para um grupo de quatro runners de nível 3 (um Solo, um Netrunner, um Ghost e um Hyperdoc Replicante).
 
 **Rolagens:** contratante 2 (Corporação), tipo 1 (Extração), local 2 (Laboratório subterrâneo), complicação 3 (O alvo não é quem parece). Tier **Corp**. Pagamento rolado: 4, ou seja, 2.000 cr por runner.
 
-**Briefing:** um intermediário da Kessler-Tanaka contrata a equipe para tirar uma pesquisadora, a Dra. Imai, de um laboratório clandestino e levá-la a um ponto de encontro. O que o intermediário não diz: a Dra. Imai é uma sintética em fuga, e a corporação a quer de volta como propriedade.
+**Briefing:** um intermediário da Kessler-Tanaka contrata a equipe para tirar uma pesquisadora, a Dra. Imai, de um laboratório clandestino e levá-la a um ponto de encontro. O que o intermediário não diz: a Dra. Imai é uma replicante em fuga, e a corporação a quer de volta como propriedade. O Hyperdoc Replicante do grupo reconhece o número de série dela como o de uma linha de produção parecida com a sua.
 
 **Prêmio:** a Dra. Imai, categoria **Valioso** (3 XP).
 
@@ -1280,7 +1294,7 @@ A rua dá nomes a quem sobrevive. O título muda conforme o nível e adorna o no
 - Pagamento: 2.000 cr por runner.
 
 **Debrief, caminho B: libertar a Dra. Imai numa rede de refúgio.**
-- XP: os mesmos 8, porque o Prêmio chegou em segurança. O Hyperdoc Sintético avança o seu Drive (**+1 XP** só para ele) e o grupo avança o objetivo "Libertar sintéticos" (**+1 XP** para todos). Total: **9 XP** para a maioria e **10** para o Hyperdoc.
+- XP: os mesmos 8, porque o Prêmio chegou em segurança. O Hyperdoc Replicante avança o seu Drive (**+1 XP** só para ele) e o grupo avança o objetivo "Libertar sintéticos" (**+1 XP** para todos). Total: **9 XP** para a maioria e **10** para o Hyperdoc.
 - Pagamento: nenhum. A Kessler-Tanaka passa a ser inimiga do grupo.
 
 ### 10.10 Ficha de missão (Mestre)
@@ -1397,6 +1411,37 @@ Se o livro for publicado: conferir a licença de terceiros do Shadowdark e usar 
 ---
 
 ## 12. Notas de versão
+
+### v0.6 (27/10/2026)
+
+**Mudança principal:** a origem **Sintético** foi separada em duas: o **Replicante**, de natureza orgânica, e o **Android**, um robô humanoide. O jogo passou de 4 para **5 origens**. "Sintético" continua existindo como **termo de rua** que cobre as duas, e aparece em facções, objetivos e contratos.
+
+**Novo**
+- **3.3 Replicante:** gente fabricada, de carne cultivada. Traços **Carne cultivada** (vantagem em CON contra doença, veneno e fadiga), **Propósito de fábrica** (Combate, Infiltração, Companhia ou Labor, com vantagem nos testes ligados a ele), **Memória plantada** (repete 1 teste de conhecimento por descanso) e **Registro** (número de série, -2 de reação de lei e corporações que saibam, passa por humano sem scanner).
+- **3.4 Android:** robô humanoide. Traços **Chassi** (não come, não dorme, imune a veneno e doença orgânica), **Casco de fábrica** (+1 CA), **Interface nativa**, **Mente estável** (conta 1 implante a menos na ciberpsicose), **Máquina** (desvantagem contra hacking e EMP, stims não funcionam, protocolos de cura curam metade, reparo em campo com kit de ferramentas) e **Visível** (só passa por humano com **pele cosmética**).
+- Nota **"Sintético, o termo de rua"**, explicando por que facções e contratos ainda falam em sintéticos.
+- **Pele cosmética para Android** na tabela de serviços (3.000 cr).
+
+**Alterado no livro principal**
+- **Cabeçalho, decisões de projeto e passo 2 da criação:** agora são 5 origens.
+- **Biomod:** passou de 3.4 para **3.5**.
+- **1.5 Estabilizar:** um kit de ferramentas estabiliza Androides, com vantagem.
+- **Rigger:** o **Mecânico de campo** também repara um aliado Android com 2d6 HP por hora.
+- **6.2 Reação por facção:** a linha de sintéticos livres passou a citar Replicantes e Androides.
+- **7.3 Ciberpsicose:** o Android conta 1 implante a menos, como o Cromado. O Replicante usa a contagem normal.
+- **9.3 Protocolos:** curam metade em um Android.
+- **10.9 Exemplo de missão:** o Hyperdoc do grupo é um **Replicante**, e a Dra. Imai também.
+
+**Compêndios (agora v0.2 cada um)**
+- **Ameaças:** o *Sintético de segurança* virou **Android de segurança**, e o *Sintético fugitivo* virou **Replicante fugitivo**. Entraram o **Android fugitivo** (NA 2) e o **Caçador de sintéticos** (NA 5), com choque contra Interface nativa e scanner de série. A Kessler-Tanaka, a Rede Aurora, a Congregação do Fantasma, o Culto do Neon Eterno e as tabelas de encontro foram ajustados.
+- **Veículos e Armamento:** o reparo em campo (2.8) também vale para Androides.
+
+**O que muda na mesa em relação à v0.5**
+- Quem jogava um Sintético escolhe agora entre Replicante (corpo de carne, sem implantes de fábrica, mais difícil de reconhecer) e Android (mais resistente e conectado, mas vulnerável a hacking e visível). Um Sintético da v0.5 pode virar Android: a única perda é a regra de "ignorar um efeito de fisiologia por dia", trocada por imunidade a veneno e doença.
+- Um Android curado por Hyperdoc recupera metade. Para se recuperar bem em campo, precisa de um aliado com kit de ferramentas.
+
+**Não mudou**
+- Classes, antecedentes, alinhamentos, cromo e implantes, equipamento e preços, hacking, Edge, XP e progressão.
 
 ### v0.5 (27/10/2026)
 

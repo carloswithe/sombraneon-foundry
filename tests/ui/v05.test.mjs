@@ -3,7 +3,7 @@ import { calls, setRng } from '../stub/env.mjs';
 import { setup, dialogs } from '../stub/setup.mjs';
 
 /**
- * Livro v0.5 e compêndios companheiros: veículos, Blindagem, Moral, avisos de cromo e conteúdo novo.
+ * Livro v0.6 e compêndios companheiros: veículos, Blindagem, Moral, avisos de cromo e conteúdo novo.
  */
 let E;
 let M;
@@ -114,9 +114,9 @@ describe('Blindagem (BL)', () => {
 });
 
 describe('conteúdo dos compêndios companheiros', () => {
-  it('traz 46 fichas, 10 veículos e mechas hostis, a torreta e 7 IAs', () => {
+  it('traz 48 fichas, 10 veículos e mechas hostis, a torreta e 7 IAs', () => {
     const npcs = pack('ameacas');
-    expect(npcs.filter((n) => !['IAs', 'Veículos e mechas'].includes(n.folder))).toHaveLength(46);
+    expect(npcs.filter((n) => !['IAs', 'Veículos e mechas'].includes(n.folder))).toHaveLength(48);
     expect(npcs.filter((n) => n.folder === 'Veículos e mechas')).toHaveLength(11);
     expect(npcs.filter((n) => n.folder === 'IAs')).toHaveLength(7);
   });
@@ -236,5 +236,56 @@ describe('fichas novas e subir de nível', () => {
       const src = fs.readFileSync(path.join(dir, f), 'utf8');
       expect(/(^|[^\w'"`/])#[a-zA-Z_]\w*/m.exec(src)?.[0], f).toBeUndefined();
     }
+  });
+});
+
+describe('origens Replicante e Android (livro v0.6)', () => {
+  const featureIds = (a) => a.items.filter((i) => i.type === 'feature').map((i) => i.system.identifier);
+
+  it('são 5 origens e o Sintético virou termo de rua', () => {
+    expect(pack('origens').map((o) => o.identifier)).toEqual(['nat', 'cromado', 'replicante', 'android', 'biomod']);
+    expect(pack('tabelas').concat(pack('tabelas-do-mestre')).every((t) => t.results.length > 0)).toBe(true);
+  });
+
+  it('o Replicante é de carne: come e dorme, passa por humano e tem número de série', async () => {
+    const a = E.blank();
+    await M.grants.applySelection(a, 'origin', uuidOf('origin', 'replicante'), { suppressPrompts: true });
+    expect(featureIds(a)).toEqual(expect.arrayContaining(['carne-cultivada', 'proposito-de-fabrica', 'memoria-plantada', 'registro']));
+    expect(a.sn.flags.restNoRation).toBe(false);
+    expect(a.sn.flags.noStims).toBe(false);
+    expect(a.sn.flags.healHalf).toBe(false);
+  });
+
+  it('o Android é máquina: sem ração, sem estimulantes e protocolos curam metade', async () => {
+    const a = E.blank();
+    await M.grants.applySelection(a, 'origin', uuidOf('origin', 'android'), { suppressPrompts: true });
+    expect(featureIds(a)).toEqual(expect.arrayContaining(['chassi-android', 'casco-de-fabrica', 'interface-nativa', 'mente-estavel', 'maquina', 'visivel']));
+    expect(a.sn.flags).toMatchObject({ restNoRation: true, noStims: true, healHalf: true, nativeInterface: true, immunePoison: true });
+    dialogs.queue.push('pistols');
+    await M.grants.applySelection(a, 'class', uuidOf('class', 'solo'));
+    expect(a.system.hp.max).toBeGreaterThanOrEqual(5);
+    await a.update({ 'system.hp.value': 1 });
+    expect(await a.applyHealing(4)).toBe(4);
+    await a.update({ 'system.hp.value': 1 });
+    expect(await a.applyHealing(4, { protocol: true })).toBe(2);
+  });
+
+  it('Android conta 1 implante a menos na ciberpsicose, Replicante não', async () => {
+    const droid = E.blank();
+    await M.grants.applySelection(droid, 'origin', uuidOf('origin', 'android'), { suppressPrompts: true });
+    expect(droid.selection('origin').system.cyberAdjust).toBe(-1);
+    expect(droid.sn.cyber?.adjust ?? droid.selection('origin').system.cyberAdjust).toBe(-1);
+    const rep = E.blank();
+    await M.grants.applySelection(rep, 'origin', uuidOf('origin', 'replicante'), { suppressPrompts: true });
+    expect(rep.selection('origin').system.cyberAdjust).toBe(0);
+  });
+
+  it('as ameaças trazem Android e Replicante fugitivos e o Caçador de sintéticos', () => {
+    const names = pack('ameacas').map((n) => n.name);
+    for (const n of ['Android de segurança', 'Replicante fugitivo', 'Android fugitivo', 'Caçador de sintéticos']) expect(names, n).toContain(n);
+    expect(names).not.toContain('Sintético de segurança');
+    const cacador = pack('ameacas').find((n) => n.name === 'Caçador de sintéticos');
+    expect(cacador.system.level).toBe(5);
+    expect(cacador.system.attacks.map((x) => x.name.replace(/^1 /, ''))).toEqual(['pistola pesada', 'bastão de choque']);
   });
 });

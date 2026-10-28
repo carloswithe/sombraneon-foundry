@@ -37,7 +37,7 @@ function weapons() {
       img: ICON(meta.kind === 'melee' ? 'weapon-melee' : 'weapon-ranged'),
       folder: meta.kind === 'melee' ? 'Armas brancas' : 'Armas de fogo e inteligentes',
       sort: (i + 1) * 100,
-      source: `Livro v0.5, ${r.section}`,
+      source: `Livro v0.6, ${r.section}`,
       description: html(r.notes ? `${r.notes}.` : ''),
       system: {
         kind: meta.kind,
@@ -81,7 +81,7 @@ function armors() {
       identifier: id,
       img: ICON('armor'),
       sort: (i + 1) * 100,
-      source: 'Livro v0.5, 8.4',
+      source: 'Livro v0.6, 8.4',
       description: html(`CA ${plain(r[1])}. ${plain(r[4])}.`),
       system: { ...meta, slots: Number(r[2]), price: price(r[3]), equipped: false }
     });
@@ -143,7 +143,7 @@ function equipment() {
       img: ICON(`gear-${meta.category}`),
       folder: 'Equipamento geral',
       sort: (i + 1) * 100,
-      source: 'Livro v0.5, 8.5',
+      source: 'Livro v0.6, 8.5',
       description: html(notes ? `${notes}.` : ''),
       system: gear({ price: price(r[1]), ...rest, slots: /por slot/.test(r[2]) ? 1 : Number(String(r[2]).match(/\d+/)?.[0] ?? 1) })
     });
@@ -156,7 +156,7 @@ function equipment() {
       img: ICON('gear-general'),
       folder: 'Pacotes',
       sort: 2000,
-      source: 'Livro v0.5, 8.6',
+      source: 'Livro v0.6, 8.6',
       description: html('Pacote opcional de 300 cr e 4 slots: rig utilitário, 3 rações (1 pacote de 3 usos), 2 baterias, lanterna e cabo de interface.'),
       system: gear({ price: 300, slots: 4 }),
       flags: {
@@ -188,7 +188,7 @@ function vehicles() {
       img: ICON('gear-vehicle'),
       folder: 'Veículos',
       sort: (i + 1) * 100,
-      source: 'Livro v0.5, 8.7',
+      source: 'Livro v0.6, 8.7',
       description: html(`${plain(r[4]) ? `${plain(r[4])}. ` : ''}Manobras sob pressão exigem teste de DES CD 12.`),
       system: gear({
         category: 'vehicle',
@@ -209,7 +209,7 @@ function vehicles() {
       img: ICON('gear-drone-module'),
       folder: 'Módulos de drone',
       sort: (i + 1) * 100,
-      source: 'Livro v0.5, 8.7',
+      source: 'Livro v0.6, 8.7',
       description: html(plain(r[2])),
       system: gear({ category: 'drone-module', slots: 0, price: price(r[1]), module: { ac: MODULES[id], effect: plain(r[2]) } })
     });
@@ -470,7 +470,7 @@ function implants() {
           img: ICON(`implant-${slot}`),
           folder: SLOT_LABEL[slot],
           sort: n * 100,
-          source: 'Livro v0.5, 7.4',
+          source: 'Livro v0.6, 7.4',
           description: text,
           system: { slot, quality: 'street', installed: false, choice: {}, tiers }
         })

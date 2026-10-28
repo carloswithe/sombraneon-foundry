@@ -81,7 +81,9 @@ export async function dyingTurn(actor) {
 
 /** Estabilizar: INT CD 15, Perto, com kit médico (livro 1.5). */
 export async function stabilize(target, healer) {
-  const kit = healer?.items.some((i) => i.type === 'gear' && i.system.category === 'medical');
+  // kit médico vale em orgânicos; em um Android vale o kit de ferramentas (livro 1.5)
+  const category = target?.sn?.flags.immunePoison ? 'tool' : 'medical';
+  const kit = healer?.items.some((i) => i.type === 'gear' && i.system.category === category);
   const message = await checkRoll({ actorUuid: healer.uuid, ability: 'int', tags: [], cd: 15, label: t('Dying.Stabilize'), mode: kit ? 'advantage' : 'normal' });
   const roll = message?.rolls?.[0];
   if (roll && (naturalOf(roll) === 20 || (naturalOf(roll) !== 1 && roll.total >= 15))) {

@@ -160,13 +160,15 @@ export class SNActor extends Actor {
     return dmg;
   }
 
-  async applyHealing(amount) {
-    const heal = Math.max(0, Math.floor(Number(amount) || 0));
+  /** `protocol`: cura de protocolo de Hyperdoc; um Android recebe só metade (arredondada para cima). */
+  async applyHealing(amount, { protocol = false } = {}) {
+    let heal = Math.max(0, Math.floor(Number(amount) || 0));
+    if (protocol && this._sn?.flags.healHalf) heal = Math.ceil(heal / 2);
     if (!heal) return 0;
-    const hp = this.system.hp;
-    const next = Math.min(hp.max || hp.value + heal, hp.value + heal);
+    const { value, max } = this.system.hp;
+    const next = Math.min(max || value + heal, value + heal);
     await this.update({ 'system.hp.value': next });
-    return next - hp.value;
+    return next - value;
   }
 
   /** Dado de vida da classe como número de faces. */

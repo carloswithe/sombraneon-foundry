@@ -39,7 +39,7 @@ export const SN = {
   checkTags: [
     'stealth', 'climb', 'disguise', 'sensors', 'delicate', 'hack-street', 'resist-hack', 'resist-emp',
     'cyberpsychosis', 'tech', 'recall', 'social', 'lift', 'piloting', 'track', 'avoid-danger', 'perceive',
-    'interact-machines', 'resist-injury', 'resist-poison', 'resist-disease', 'resist-chrome', 'disarm',
+    'interact-machines', 'resist-injury', 'resist-poison', 'resist-disease', 'resist-fatigue', 'resist-chrome', 'disarm',
     'stay-connected', 'perform', 'fame', 'ambush', 'strength-arms', 'avoid-knockdown'
   ],
   factions: ['police', 'execs', 'citizens', 'gangs', 'blackMarket', 'cults', 'punks', 'syntheticsFree', 'mercenaries'],

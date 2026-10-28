@@ -2,7 +2,7 @@
 
 *Veículos leves, médios e pesados, armas pesadas, armas de cerco, explosivos e mechas*
 
-> **Versão:** v0.1 (primeira versão), companheiro do livro principal SombraNeon v0.5.
+> **Versão:** v0.2, companheiro do livro principal SombraNeon v0.6. Na v0.2, a regra de reparo em campo (2.8) passou a valer também para Androides.
 > **Use junto com:** o livro principal (Capítulos 4, 8 e 10) e o Compêndio de Ameaças (fichas de inimigos, incluindo veículos e mechas hostis).
 
 ---
@@ -156,7 +156,7 @@ Ao chegar a 0 HP, o veículo para e fica inutilizável até ser reparado.
 
 ### 2.8 Reparo
 
-- **Em campo:** com kit de ferramentas, teste de INT CD 12 por hora: recupera **1d6 HP**. Um Rigger recupera **2d6 HP**.
+- **Em campo:** com kit de ferramentas, teste de INT CD 12 por hora: recupera **1d6 HP**. Um Rigger recupera **2d6 HP**. A mesma regra vale para reparar um **Android** (livro principal, 3.4).
 - **Peças:** 20 cr por HP (Leve), 50 cr (Médio), 100 cr (Pesado) ou 200 cr (Mecha).
 - **Oficina:** o preço das peças mais 50%. Reparo completo em 1 descanso.
 

@@ -112,7 +112,7 @@ function classes() {
       identifier: c.id,
       img: ICON('class'),
       sort: (i + 1) * 100,
-      source: `Livro v0.5, ${c.section}`,
+      source: `Livro v0.6, ${c.section}`,
       description: text.map((t) => html(t)).join(''),
       system: {
         hitDie: c.hitDie,
@@ -133,14 +133,15 @@ function classes() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Origens (4)                                                         */
+/* Origens (5)                                                         */
 /* ------------------------------------------------------------------ */
 
 const ORIGIN_DEFS = [
   { id: 'nat', name: 'Nat', section: '3.1', traits: ['corpo-sem-interface', 'humanidade-firme', 'ambicioso'], extraTalents: 1, cyberAdjust: 0, cyberAdvantage: true },
   { id: 'cromado', name: 'Cromado', section: '3.2', traits: ['instalacao-de-fabrica', 'cromo-estavel', 'vulneravel'], extraTalents: 0, cyberAdjust: -1, cyberAdvantage: false },
-  { id: 'sintetico', name: 'Sintético', section: '3.3', traits: ['corpo-artificial', 'interface-nativa', 'casco-de-fabrica', 'registro'], extraTalents: 0, cyberAdjust: 0, cyberAdvantage: false },
-  { id: 'biomod', name: 'Biomod', section: '3.4', traits: ['genoma-instavel', 'corpo-rejeita-cromo'], extraTalents: 0, cyberAdjust: 1, cyberAdvantage: false }
+  { id: 'replicante', name: 'Replicante', section: '3.3', traits: ['carne-cultivada', 'proposito-de-fabrica', 'memoria-plantada', 'registro'], extraTalents: 0, cyberAdjust: 0, cyberAdvantage: false },
+  { id: 'android', name: 'Android', section: '3.4', traits: ['chassi-android', 'casco-de-fabrica', 'interface-nativa', 'mente-estavel', 'maquina', 'visivel'], extraTalents: 0, cyberAdjust: -1, cyberAdvantage: false },
+  { id: 'biomod', name: 'Biomod', section: '3.5', traits: ['genoma-instavel', 'corpo-rejeita-cromo'], extraTalents: 0, cyberAdjust: 1, cyberAdvantage: false }
 ];
 
 function originIntro(section) {
@@ -167,7 +168,7 @@ function origins() {
       identifier: o.id,
       img: ICON('origin'),
       sort: (i + 1) * 100,
-      source: `Livro v0.5, ${o.section}`,
+      source: `Livro v0.6, ${o.section}`,
       description: html(originIntro(o.section)),
       system: {
         grants,
@@ -206,7 +207,7 @@ function backgrounds() {
       identifier: slug(name),
       img: ICON('background'),
       sort: n * 100,
-      source: 'Livro v0.5, 5',
+      source: 'Livro v0.6, 5',
       description: html(`**Conhecimento:** ${knowledge}`) + (BACKGROUND_VEHICLES[slug(name)] ? html(`**Treino em veículos:** ${BACKGROUND_VEHICLES[slug(name)].map((v) => VEHICLE_NAMES[v]).join(', ')} (livro 4.7).`) : ''),
       system: { knowledge, contactPrompt: 'Quem você conhece na cidade?', rollIndex: n, highlight, vehicles: BACKGROUND_VEHICLES[slug(name)] ?? [] }
     });
@@ -234,7 +235,7 @@ function alignments() {
       identifier: a.id,
       img: ICON(`alignment-${a.id}`),
       sort: (i + 1) * 100,
-      source: 'Livro v0.5, 6',
+      source: 'Livro v0.6, 6',
       description: html(`${plain(row[2])} (equivale a ${plain(row[1])} no Shadowdark).`),
       system: {
         mapsTo: MAPS_TO[a.id],

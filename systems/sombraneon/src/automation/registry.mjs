@@ -47,6 +47,7 @@ export const HANDLERS = {
   },
 
   async 'stim-system'(actor, item) {
+    if (actor.sn?.flags.noStims) return notify('warn', 'Warn.NoStims');
     if (!(await consume(item))) return null;
     const r = await evaluate('1d6 + @level', actor.getRollData());
     await dealHealing(actor, r.total);
@@ -56,6 +57,7 @@ export const HANDLERS = {
   },
 
   async injector(actor, item) {
+    if (actor.sn?.flags.noStims) return notify('warn', 'Warn.NoStims');
     if (!(await consume(item))) return null;
     const military = item.system.quality === 'military';
     const r = await evaluate(military ? '1d6 + 1d4' : '1d6');

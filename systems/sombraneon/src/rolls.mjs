@@ -319,14 +319,14 @@ export async function damageRoll(spec) {
 }
 
 /** Rolagem simples de uma fórmula com cartão (cura, dano de programa etc.). */
-export async function formulaRoll({ actor, formula, label, kind = 'heal', targets = [], type = '', save = null }) {
+export async function formulaRoll({ actor, formula, label, kind = 'heal', targets = [], type = '', save = null, protocol = false }) {
   const roll = await evaluate(formula, actor?.getRollData?.() ?? {});
   return postCard({
     actor,
     template: 'chat/damage.hbs',
     flavor: label,
     rolls: [roll],
-    flags: { rollKind: kind, damage: { type, kind, lines: [{ total: roll.total, uuid: null }], save } },
+    flags: { rollKind: kind, damage: { type, kind, protocol, lines: [{ total: roll.total, uuid: null }], save } },
     data: {
       title: label,
       actorName: actor?.name ?? '',

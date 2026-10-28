@@ -50,7 +50,7 @@ function tables() {
       name: 'Mutações do Biomod',
       formula: '1d20',
       folder: 'Criação',
-      results: book.table('3.4').rows.map((row) => ({ range: single(Number(row[0])), ref: `feature:${slug(splitBold(row[1])[0])}` }))
+      results: book.table('3.5').rows.map((row) => ({ range: single(Number(row[0])), ref: `feature:${slug(splitBold(row[1])[0])}` }))
     })
   );
 

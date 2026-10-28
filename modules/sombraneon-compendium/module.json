@@ -2,7 +2,7 @@
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
   "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas e macros para o sistema SombraNeon.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
@@ -158,7 +158,7 @@
         "id": "sombraneon",
         "type": "system",
         "compatibility": {
-          "minimum": "0.1.0"
+          "minimum": "0.3.0"
         }
       }
     ]

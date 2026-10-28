@@ -59,7 +59,7 @@ const L = {
   },
   Choice: {
     Label: { family: 'Família de arma', abilities: 'Atributo', program: 'Programa, protocolo ou Set', extreme: 'Extremo', a: 'Atributo', major: 'Atributo principal' },
-    Value: { for: 'FOR', des: 'DES', con: 'CON', int: 'INT', sab: 'SAB', car: 'CAR', fire: 'Fogo e calor', cold: 'Gelo e frio', d4: 'd4', d6: 'd6', d8: 'd8', d10: 'd10', program: 'Programa', protocol: 'Protocolo', set: 'Set' },
+    Value: { for: 'FOR', des: 'DES', con: 'CON', int: 'INT', sab: 'SAB', car: 'CAR', fire: 'Fogo e calor', cold: 'Gelo e frio', combat: 'Combate', infiltration: 'Infiltração', companion: 'Companhia', labor: 'Labor', d4: 'd4', d6: 'd6', d8: 'd8', d10: 'd10', program: 'Programa', protocol: 'Protocolo', set: 'Set' },
     fire: 'Fogo e calor',
     cold: 'Gelo e frio'
   },
@@ -687,6 +687,7 @@ const L = {
     'resist-injury': 'Resistir a ferimentos',
     'resist-poison': 'Resistir a veneno',
     'resist-disease': 'Resistir a doença',
+    'resist-fatigue': 'Resistir a fadiga',
     'resist-chrome': 'Efeitos colaterais de cromo',
     disarm: 'Desarmar bombas e armadilhas',
     'stay-connected': 'Continuar conectado',
@@ -724,6 +725,7 @@ const L = {
     NoGM: 'Nenhum Mestre ativo para executar esta ação.',
     NoAttack: 'Ataque não encontrado.',
     NoTarget: 'Selecione um alvo.',
+    NoStims: 'Estimulantes não funcionam em um Android. Use o reparo com kit de ferramentas.',
     NoSelection: 'Selecione ao menos um token.',
     NoCharacter: 'Você não tem um personagem para receber o item.',
     NoCombat: 'Não há combate ativo.',
@@ -842,7 +844,8 @@ const L = {
     Origin: {
       nat: 'Humano natural, com pouco ou nenhum implante. Hacks não o afetam sem implante Neural.',
       cromado: 'Trocou carne por metal. Começa com 2 implantes de qualidade Rua.',
-      sintetico: 'Replicante ou androide. Não come nem dorme, e interface sem cabo.',
+      replicante: 'Gente fabricada, de carne cultivada. Escolhe um propósito de fábrica e passa por humano sem scanner.',
+      android: 'Robô humanoide. Não come nem dorme, interface sem cabo, mas vulnerável a hacking e EMP.',
       biomod: 'Corpo reescrito por engenharia genética. Rola 2 mutações.'
     },
     Class: {

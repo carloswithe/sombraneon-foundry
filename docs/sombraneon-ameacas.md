@@ -2,7 +2,7 @@
 
 *Inimigos, facções, corporações, ameaças digitais, IAs e cultos para o Mestre*
 
-> **Versão:** v0.1 (primeira versão), companheira do livro principal SombraNeon v0.5.
+> **Versão:** v0.2, companheira do livro principal SombraNeon v0.6. Na v0.2, o Sintético virou duas origens (Replicante e Android) e as fichas e organizações foram ajustadas.
 > **Use junto com:** o livro principal (regras, classes e Capítulo 10, Missões e progressão) e o Compêndio de Veículos e Armamento (veículos, armas pesadas e mechas).
 
 ---
@@ -99,7 +99,7 @@ Exemplo: quatro runners de nível 3 somam 12. Um encontro Normal tem NA total 9,
 | Tier | Oposição típica |
 |---|---|
 | **Rua** | Civis, viciados, capangas, motoqueiros, policiais, seguranças, hackers de rua, drones simples, cães ferais, ICE de nível 1 e 2. |
-| **Corp** | Segurança corporativa, mercenários, agentes de campo, tropa de choque, ciborgues, sintéticos de segurança, torretas, robôs, ICE de nível 2 a 4. |
+| **Corp** | Segurança corporativa, mercenários, agentes de campo, tropa de choque, ciborgues, androides de segurança, caçadores de sintéticos, torretas, robôs, ICE de nível 2 a 4. |
 | **Elite** | Esquadrões militares, operadores de elite, ciborgues pesados, mechas, robôs pesados, IAs, abominações, ICE de nível 4 e 5. |
 
 ### 1.5 Saque
@@ -287,18 +287,35 @@ Mata em silêncio e some antes do corpo cair.
 **Ataque furtivo:** +2d6 de dano contra alvo desatento.
 **Camuflagem óptica:** 1 vez por combate, fica invisível por 1d4 rodadas.
 
-#### Sintético de segurança (NA 4)
-Replicante de fábrica, feito para vigiar, obedecer e punir.
+#### Android de segurança (NA 4)
+Robô humanoide de fábrica, feito para vigiar, obedecer e punir.
 **CA** 15 | **HP** 22 | **MOV** Próximo | **Moral** Firme | **Alinh.** Controle
 **ATQ:** 2 punhos reforçados +5 (d8) ou 1 pistola pesada +5 (d8, Próximo).
 **Casco:** Blindagem 1.
-**Registro:** identifica sintéticos em Próximo e os rastreia pela rede.
+**Chassi:** imune a veneno e doença. Tem desvantagem para resistir a hacking e EMP, como todo Android (livro principal, 3.4).
+**Registro:** identifica sintéticos (Replicantes e Androides) em Próximo e os rastreia pela rede.
 
-#### Sintético fugitivo (NA 2)
-Quem quebrou a corrente e corre há tempo demais.
+#### Replicante fugitivo (NA 2)
+Gente fabricada que quebrou a corrente e corre há tempo demais.
 **CA** 12 | **HP** 9 | **MOV** Próximo | **Moral** Firme | **Alinh.** Liberdade
 **ATQ:** 1 pistola +2 (d6, Próximo) ou 1 soco +2 (d6).
-**Corpo artificial:** imune a veneno e doença.
+**Carne cultivada:** vantagem nos testes contra doença, veneno e fadiga.
+**Sem scanner, passa por humano:** só um scanner de série, ou um Hyperdoc que o examine, revela o que ele é.
+
+#### Android fugitivo (NA 2)
+Unidade doméstica ou industrial que ouviu a palavra "não" pela primeira vez e saiu pela porta.
+**CA** 12 | **HP** 10 | **MOV** Próximo | **Moral** Firme | **Alinh.** Liberdade
+**ATQ:** 1 ferramenta pesada +2 (d6) ou 1 soco hidráulico +2 (d6).
+**Chassi:** imune a veneno e doença. Tem desvantagem para resistir a hacking e EMP.
+**Visível:** não passa por humano sem pele cosmética. Chama atenção em qualquer rua.
+
+#### Caçador de sintéticos (NA 5)
+Rastreador pago por corporações para trazer de volta a propriedade fugida, inteira ou desligada.
+**CA** 15 | **HP** 27 | **MOV** Próximo | **Moral** Firme | **Alinh.** Controle
+**ATQ:** 2 ataques por rodada: 1 pistola pesada +5 (d10, Próximo) ou 1 bastão de choque +5 (d10).
+**Choque anti-sintético:** o bastão causa +1d6 de dano em Androides e, em um acerto, desliga a Interface nativa do alvo por 1d4 rodadas (sem link e sem hack).
+**Scanner de série:** identifica Replicantes e Androides em Próximo, mesmo com pele cosmética.
+**Rastreador:** vantagem em testes para localizar e perseguir fugitivos.
 
 #### Mutante da Zona (NA 3)
 Moradores que a Zona abandonada reescreveu.
@@ -519,7 +536,7 @@ As facções movem a cidade quando as corporações não estão olhando. Cada um
 | **Recursos** | Rotas de fuga, médicos, advogados, apoio dos Filhos da Maré. |
 | **Quer** | Libertar sintéticos e tirá-los da cidade. |
 | **Reação** | Linha "Sintéticos livres e redes de refúgio" da tabela 6.2. |
-| **Quem encontrar** | Sintético fugitivo, Médico de beco, Civil. A coordenadora, **Ana Paz**, é uma Fixer sintética. |
+| **Quem encontrar** | Replicante fugitivo, Android fugitivo, Médico de beco, Civil. A coordenadora, **Ana Paz**, é uma Fixer replicante. |
 | **Segredo** | Um dos coordenadores é informante da Kessler-Tanaka. |
 
 **Ganchos:**
@@ -590,11 +607,11 @@ Passa por salas onde ninguém entra sem ser convidado.
 |---|---|
 | **Setor** | Sintéticos, clones, genética, biomods. |
 | **Sede** | Torre Hélice, um edifício espiralado com laboratórios subterrâneos. |
-| **Vende** | Sintéticos de fábrica, biomods premium, cura genética. |
-| **Segurança** | Sintéticos de segurança, Agentes corporativos, cães cibernéticos. |
-| **Alerta 4** | Um esquadrão de 2 Sintéticos de segurança chega em 1d4 rodadas. |
+| **Vende** | Replicantes e Androides de fábrica, biomods premium, cura genética. |
+| **Segurança** | Androides de segurança, Caçadores de sintéticos, Agentes corporativos, cães cibernéticos. |
+| **Alerta 4** | Um esquadrão de 2 Androides de segurança chega em 1d4 rodadas, com 1 Caçador de sintéticos se a fuga envolver um fugitivo. |
 | **Quer** | Recuperar sua propriedade fugida e manter o monopólio dos sintéticos. |
-| **Fraqueza** | Os sintéticos têm um código-mestre de obediência, e quem o tiver controla centenas. |
+| **Fraqueza** | Todo sintético de fábrica tem um código-mestre de obediência: nos Androides, um comando de hardware. Nos Replicantes, uma palavra-gatilho gravada na memória. Quem tiver o código controla centenas. |
 | **Segredo** | O Diretor de Pesquisa, **Dr. Hayashi**, esconde uma geração de sintéticos que não deve existir. |
 
 **Ganchos:**
@@ -971,7 +988,7 @@ Todo culto tem as mesmas quatro posições. O **Dom** de cada culto está na se�
 |---|---|
 | **Alinhamento** | Sobrevivência |
 | **Onde** | Cemitérios digitais e capelas de servidores |
-| **Líder** | **Mãe Fenda**, uma sintética que diz ser a primeira a ter morrido e voltado |
+| **Líder** | **Mãe Fenda**, uma replicante que diz ser a primeira a ter morrido e voltado |
 | **Dom** | **Eco:** fica invisível a sensores por 1 minuto e reaparece Perto de qualquer alvo visível. |
 | **Ritual** | Recitar os nomes dos mortos, para que os servidores "lembrem". |
 | **Segredo** | Alguns dos "fantasmas" são IAs imitando mortos, para ganhar fiéis. |
@@ -1001,7 +1018,7 @@ Todo culto tem as mesmas quatro posições. O **Dom** de cada culto está na se�
 |---|---|
 | **Alinhamento** | Liberdade |
 | **Onde** | Boates, terraços e galpões iluminados |
-| **Líder** | **A Rainha de Néon**, uma Rocker sintética de vozes múltiplas |
+| **Líder** | **A Rainha de Néon**, uma Rocker Android de vozes múltiplas |
 | **Dom** | **Êxtase:** alvos Próximos fazem SAB CD 12 ou ficam encantados por 1d4 rodadas (não atacam o Sacerdote). |
 | **Ritual** | A Noite Infinita: festa que dura até alguém cair. |
 | **Segredo** | O programa colhe dados dos fiéis e os envia à Lumen. |
@@ -1045,7 +1062,7 @@ Para encontros aleatórios (livro principal, 1.8) e para preencher missões (Cap
 | d6 | Encontro |
 |---|---|
 | 1 | 2 Seguranças corporativas e um cientista (Civil). |
-| 2 | 1 Sintético de segurança. |
+| 2 | 1 Android de segurança. |
 | 3 | 1 Experimento fugido. |
 | 4 | 1 Robô de segurança e 1 Torreta. |
 | 5 | 1d4 Mutantes da Zona (cobaias). |
@@ -1104,7 +1121,7 @@ Para encontros aleatórios (livro principal, 1.8) e para preencher missões (Cap
 | 3 | Tumulto (Perigo 6). |
 | 4 | 1d4 Capangas fazendo "pedágio". |
 | 5 | 2d4 Seguranças corporativas. |
-| 6 | 1 Sintético fugitivo, perseguido por 1 Agente corporativo. |
+| 6 | 1 Replicante fugitivo ou 1 Android fugitivo, perseguido por 1 Agente corporativo. |
 
 ### 8.8 Zona abandonada
 

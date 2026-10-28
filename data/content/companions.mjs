@@ -75,8 +75,11 @@ function parseOneAttack(frag) {
 }
 
 function parseAttacks(line) {
-  const text = line.replace(/^\*\*ATQ:\*\*\s*/, '').trim().replace(/\.$/, '').replace(/,\s*mais .*$/, '');
+  let text = line.replace(/^\*\*ATQ:\*\*\s*/, '').trim().replace(/\.$/, '').replace(/,\s*mais .*$/, '');
   if (/^nenhum/i.test(text)) return [];
+  // "2 ataques por rodada: ..." é regra de turno, não parte do nome do ataque
+  const perRound = /^(\d+) ataques por rodada:\s*/i.exec(text);
+  if (perRound) text = text.slice(perRound[0].length);
   const out = [];
   let acc = '';
   for (const frag of splitOutsideParens(text, ' ou ')) {
@@ -87,6 +90,7 @@ function parseAttacks(line) {
     }
   }
   if (acc) out.push(parseOneAttack(acc));
+  if (perRound) for (const x of out) x.notes = [x.notes, `${perRound[1]} ataques por rodada.`].filter(Boolean).join(' ');
   return out;
 }
 

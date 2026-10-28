@@ -37,10 +37,10 @@ export const PACKS = [
 /** Quantidades esperadas (docs/spec/05, seção 1; ver docs/DECISIONS.md para divergências). */
 export const EXPECTED_COUNTS = {
   classes: 6,
-  origens: 4,
+  origens: 5,
   antecedentes: 20,
   alinhamentos: 3,
-  caracteristicas: 101,
+  caracteristicas: 107,
   programas: 45,
   tabelas: 22,
   regras: 1,
@@ -50,7 +50,7 @@ export const EXPECTED_COUNTS = {
   implantes: 28,
   veiculos: 58,
   ice: 17,
-  ameacas: 64,
+  ameacas: 66,
   referencias: 2,
   'tabelas-do-mestre': 17,
   'fichas-prontas': 6,
