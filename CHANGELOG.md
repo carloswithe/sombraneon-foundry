@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.4.0] - 2026-10-28
+
+Aventura pronta **Noite das Máscaras** (assalto de nível 1, uma sessão de até 4 horas) no módulo de compêndio, com tudo organizado numa pasta própria do menu de compêndios.
+
+### Adicionado
+- **Pasta "Noite das Máscaras"** no menu de compêndios (via `packFolders` do módulo), com seis packs na ordem de uso:
+  - **Livro da Aventura (Mestre):** `00. Índice: onde achar tudo` (sala por sala, com links para elenco, itens, runners e tabelas), `01. Guia rápido da mesa` (pistas, mapa de tempo, regras de ritmo, Alerta e cortes) e o livro completo, com uma página por capítulo e uma caixa "Nesta cena: onde achar tudo" no fim de cada cena.
+  - **Material dos Jogadores:** briefing de Dona Ruth, máscaras-convite e personas, armas na festa e escala do Alerta, já sem os segredos do Mestre.
+  - **Elenco e Inimigos (10):** Dona Ruth, Mordomo, Segurança corporativa, Drone de vigilância, Assistente, Teo Pixel, Curador, **Rex** (ficha completa com modos Contenção e Letal), **Lívia Aragão** e o Rex Mk II do ajuste de nível 3, em pastas por sala.
+  - **Runners Prontos (6):** Ferrugem (Solo), Pixel (Netrunner, Android), Agulha (Hyperdoc, Replicante), Sombra (Ghost, Biomod), Estática (Rocker) e Faísca (Rigger), com persona, máscara e adereço. Os números batem com as fichas impressas (HP, CA, slots, ataques e cura). O equipamento que passa pelo Portão vem empunhado, e o da Cache de Ruth vem marcado como tal.
+  - **Itens e Butim (22):** Cache de Ruth (arraste para uma ficha para dividir nas granadas), pistola de polímero, embaralhador, pele cosmética, as seis máscaras holográficas, os adereços, o Prêmio Rosto Livre, o Dossiê, o Registro de acessos, o uísque, o Núcleo de Rex, o crachá nível 4 e a isca. O butim leva a categoria e o XP do Debrief.
+  - **Tabelas (2):** persona do runner (d6) e pagamento por runner (d6 x 150 cr).
+- Links entre documentos (`@Ref[pack/identificador]` e `@Pack[pack]`) resolvidos na compilação. Um link sem destino quebra o build.
+- `npm run validate` agora confere que todo pack do conteúdo está declarado no manifesto, que as pastas citam packs existentes e que todos os links resolvem.
+- Pastas dentro de Journals de compêndio.
+
+### Para mundos existentes
+- Nada muda nos packs anteriores. A pasta aparece sozinha ao atualizar o módulo. O módulo continua exigindo o sistema 0.3.0 ou mais novo (os runners usam as origens Android e Replicante).
+
 ## [0.3.0] - 2026-10-27
 
 Atualização para o livro v0.6 e os compêndios de Ameaças v0.2 e de Veículos e Armamento v0.2.

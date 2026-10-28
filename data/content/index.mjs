@@ -6,6 +6,7 @@ import { journalDoc } from './journal.mjs';
 import { weaponItems, armorItems, gearItems, vehicleItems, implantItems } from './module-items.mjs';
 import { iceActors, macroDocs, pregenActors } from './module-actors.mjs';
 import { threatActors, extraIceActors, vehiclePackItems, companionWeapons, explosiveItems, masterTableDocs, referenceJournals } from './companions.mjs';
+import { ADVENTURE_PACKS } from './adventure.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -31,7 +32,10 @@ export const PACKS = [
   { scope: 'module', name: 'fichas-prontas', label: 'Fichas Prontas', docType: 'Actor', docs: pregenActors },
   { scope: 'module', name: 'tabelas-do-mestre', label: 'Tabelas do Mestre', docType: 'RollTable', docs: masterTableDocs },
   { scope: 'module', name: 'referencias', label: 'Compêndios de Referência', docType: 'JournalEntry', docs: referenceJournals },
-  { scope: 'module', name: 'macros', label: 'Macros', docType: 'Macro', docs: macroDocs }
+  { scope: 'module', name: 'macros', label: 'Macros', docType: 'Macro', docs: macroDocs },
+
+  // Aventura "Noite das Máscaras": packs próprios (prefixo noite-), agrupados numa pasta do menu de compêndios
+  ...ADVENTURE_PACKS
 ];
 
 /** Quantidades esperadas (docs/spec/05, seção 1; ver docs/DECISIONS.md para divergências). */
@@ -54,5 +58,11 @@ export const EXPECTED_COUNTS = {
   referencias: 2,
   'tabelas-do-mestre': 17,
   'fichas-prontas': 6,
-  macros: 12
+  macros: 12,
+  'noite-aventura': 3,
+  'noite-jogadores': 4,
+  'noite-elenco': 10,
+  'noite-fichas': 6,
+  'noite-itens': 22,
+  'noite-tabelas': 2
 };

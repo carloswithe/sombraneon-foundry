@@ -129,6 +129,23 @@ describe('templates das fichas', () => {
     }
   });
 
+  it('abre e renderiza os runners e o elenco da aventura Noite das Máscaras', async () => {
+    for (const def of content.PACKS.find((p) => p.name === 'noite-fichas').docs) {
+      const actor = new M.SNActor({ ...def, _id: def.identifier, items: def.items.map((i, n) => ({ ...i, _id: `${def.identifier}-${n}` })) }).loadItems(M.SNItem);
+      expect(actor.system.hp.max, def.name).toBeGreaterThan(0);
+      expect(actor.system.warnings.map((w) => w.code), def.name).not.toContain('pendingChoice');
+      const sheet = new M.sheets.SNCharacterSheet({ document: actor });
+      for (const tab of ['summary', 'attacks', 'chrome', 'programs', 'gear', 'network', 'bio']) {
+        sheet._tab = tab;
+        assertClean(render('actor/character.hbs', await sheet._prepareContext({})), `${def.name}/${tab}`);
+      }
+    }
+    for (const def of content.PACKS.find((p) => p.name === 'noite-elenco').docs) {
+      const npc = new M.SNActor({ ...def, _id: def.identifier, items: [] }).loadItems(M.SNItem);
+      assertClean(render('actor/npc.hbs', await new M.other.SNNpcSheet({ document: npc })._prepareContext({})), def.name);
+    }
+  });
+
   it('a ficha de Brasa mostra ataque, atributos e classe', async () => {
     const sheet = new M.sheets.SNCharacterSheet({ document: actors['Brasa'] });
     const html = text(render('actor/character.hbs', await sheet._prepareContext({})));

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { ClassicLevel } from 'classic-level';
 import { ROOT } from './lib/book.mjs';
 import { PACKS, EXPECTED_COUNTS } from '../data/content/index.mjs';
+import { makeResolver } from './lib/refs.mjs';
 
 /** Valida contagens, tabelas, imagens, travessões e o conteúdo dos packs compilados. */
 const errors = [];
@@ -91,6 +92,24 @@ for (const p of PACKS) {
 for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendium/module.json']) {
   const m = JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
   for (const pk of m.packs) if (!fs.existsSync(path.join(ROOT, path.dirname(f), pk.path))) fail(`${f}: pack sem pasta ${pk.path}`);
+  // todo pack do conteúdo está declarado no manifesto, e só eles
+  const scope = f.startsWith('systems') ? 'system' : 'module';
+  const want = PACKS.filter((p) => p.scope === scope).map((p) => p.name).sort();
+  const have = m.packs.map((p) => p.name).sort();
+  if (want.join() !== have.join()) fail(`${f}: packs declarados diferem do conteúdo (${want.filter((n) => !have.includes(n)).join(', ') || 'nenhum faltando'} / ${have.filter((n) => !want.includes(n)).join(', ') || 'nenhum sobrando'})`);
+  for (const folder of m.packFolders ?? []) for (const name of folder.packs ?? []) if (!have.includes(name)) fail(`${f}: pasta "${folder.name}" cita pack inexistente ${name}`);
+}
+
+// 8. links @Ref e @Pack do conteúdo resolvem
+const resolver = makeResolver(PACKS, (s) => (s === 'system' ? 'sombraneon' : 'sombraneon-compendium'));
+for (const p of PACKS) {
+  for (const d of p.docs) {
+    try {
+      resolver.deep(JSON.parse(JSON.stringify(d)), `${p.name}/${d.identifier}`);
+    } catch (e) {
+      fail(e.message);
+    }
+  }
 }
 
 if (errors.length) {

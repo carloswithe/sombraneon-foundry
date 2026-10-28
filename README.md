@@ -7,7 +7,7 @@ Dois pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
-| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas e macros. |
+| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas, macros e a aventura pronta **Noite das Máscaras**. |
 
 ## Instalação
 
@@ -34,6 +34,19 @@ Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndi
 - **Mestre:** macros no compêndio do módulo (descanso em grupo, dar Edge, Alerta, gerador de Rede, gerador de missão, encontro por local, reação de facção, moral e iniciativa por grupo).
 - **Ameaças:** os NPCs do compêndio trazem NA, CA, HP, Blindagem (BL), Moral e ataques prontos. A BL reduz o dano de armas comuns; armas com a propriedade Pesada (e explosões) ignoram. Moral Fanática ou "Sem medo" desliga o teste de moral.
 - **Veículos:** a ficha mostra os veículos treinados (classe, antecedente e treino pago). Veículos, mechas, exoesqueletos e módulos são itens do módulo, com todos os números do compêndio; pilotagem e perseguição são rolagens manuais (d20 + DES + Manobra).
+
+## Aventura pronta: Noite das Máscaras
+
+O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão de até 4 horas), num baile de máscaras numa torre corporativa. Tudo dela fica na pasta **Noite das Máscaras** do menu de compêndios, na ordem de uso:
+
+1. **Livro da Aventura (Mestre):** comece pelo `00. Índice: onde achar tudo`. Ele lista, sala por sala, o elenco, os itens e o butim, com links diretos. O `01. Guia rápido da mesa` cabe numa tela, e o livro tem uma página por capítulo.
+2. **Material dos Jogadores:** o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).
+3. **Elenco e Inimigos:** NPCs em pastas por sala, incluindo o Rex.
+4. **Runners Prontos:** seis fichas de nível 1, uma por classe. Escolha quatro e arraste para o mundo.
+5. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
+6. **Tabelas:** persona do runner e pagamento.
+
+O texto da aventura fica em `docs/noite-das-mascaras.md`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
 
 ## Desenvolvimento
 

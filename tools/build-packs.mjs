@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { compilePack } from '@foundryvtt/foundryvtt-cli';
 import { ROOT } from './lib/book.mjs';
 import { docId, subId, folderId } from './lib/ids.mjs';
+import { makeResolver } from './lib/refs.mjs';
 import { PACKS } from '../data/content/index.mjs';
 
 const SYSTEM_ID = 'sombraneon';
@@ -119,7 +120,7 @@ function tableDoc(pack, d, folders, index) {
   };
 }
 
-function journalDoc(pack, d) {
+function journalDoc(pack, d, folders) {
   const id = docId(pack.name, d.identifier);
   const pages = d.pages.map((p, i) => {
     const pid = subId(pack.name, d.identifier, 'page', i);
@@ -145,8 +146,8 @@ function journalDoc(pack, d) {
     _key: `!journal!${id}`,
     name: d.name,
     pages,
-    folder: null,
-    sort: 0,
+    folder: d.folder ? folders.get(d.folder) : null,
+    sort: d.sort ?? 0,
     ownership: d.ownership,
     flags: d.flags ?? {},
     _stats: stats()
@@ -221,6 +222,7 @@ function macroDoc(pack, d, folders) {
 
 export async function buildPacks({ log = true } = {}) {
   const index = buildIndex();
+  const resolver = makeResolver(PACKS, scopeId);
   const tmpRoot = path.join(ROOT, '.build');
   fs.rmSync(tmpRoot, { recursive: true, force: true });
   const summary = [];
@@ -240,7 +242,7 @@ export async function buildPacks({ log = true } = {}) {
         name,
         type: pack.docType,
         color: null,
-        sorting: 'a',
+        sorting: pack.folderSorting ?? 'a',
         sort: (i + 1) * 100,
         folder: null,
         description: '',
@@ -259,7 +261,7 @@ export async function buildPacks({ log = true } = {}) {
           built = tableDoc(pack, d, folders, index);
           break;
         case 'JournalEntry':
-          built = journalDoc(pack, d);
+          built = journalDoc(pack, d, folders);
           break;
         case 'Actor':
           built = actorDoc(pack, d, folders, index);
@@ -270,6 +272,7 @@ export async function buildPacks({ log = true } = {}) {
         default:
           throw new Error(`Tipo de pack desconhecido: ${pack.docType}`);
       }
+      built = resolver.deep(built, `${pack.name}/${d.identifier}`);
       assertNoDashes(built, `${pack.name}/${d.identifier}`);
       docs.push(built);
     }

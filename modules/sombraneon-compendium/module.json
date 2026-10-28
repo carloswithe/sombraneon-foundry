@@ -1,8 +1,8 @@
 {
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
-  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas e macros para o sistema SombraNeon.",
-  "version": "0.3.0",
+  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" para o sistema SombraNeon.",
+  "version": "0.4.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
@@ -150,6 +150,72 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "noite-aventura",
+      "label": "Noite das Máscaras: Livro da Aventura (Mestre)",
+      "path": "packs/noite-aventura",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "noite-jogadores",
+      "label": "Noite das Máscaras: Material dos Jogadores",
+      "path": "packs/noite-jogadores",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "noite-elenco",
+      "label": "Noite das Máscaras: Elenco e Inimigos",
+      "path": "packs/noite-elenco",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "noite-fichas",
+      "label": "Noite das Máscaras: Runners Prontos",
+      "path": "packs/noite-fichas",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "noite-itens",
+      "label": "Noite das Máscaras: Itens e Butim",
+      "path": "packs/noite-itens",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "noite-tabelas",
+      "label": "Noite das Máscaras: Tabelas",
+      "path": "packs/noite-tabelas",
+      "type": "RollTable",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "relationships": {
@@ -162,5 +228,20 @@
         }
       }
     ]
-  }
+  },
+  "packFolders": [
+    {
+      "name": "Noite das Máscaras",
+      "sorting": "m",
+      "color": "#c2185b",
+      "packs": [
+        "noite-aventura",
+        "noite-jogadores",
+        "noite-elenco",
+        "noite-fichas",
+        "noite-itens",
+        "noite-tabelas"
+      ]
+    }
+  ]
 }
