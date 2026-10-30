@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.5.1] - 2026-10-30
+
+As quatro imagens que faltavam da aventura **Noite das Máscaras** entraram. Agora estão todas as 24 do guia.
+
+### Adicionado
+- **Imagens (de 20 para 24):** 15 (Rex, Modo Contenção), 21 (O Rosto Livre), 22 (O Dossiê do Desmascaramento) e 23 (Meia-noite, o Desmascaramento), cada uma com seu diário (arte, texto para ler, notas do Mestre e prompt).
+- **Cenários (de 11 para 12):** Meia-noite, o Desmascaramento, para ativar como Scene.
+- **Retratos e ícones:** Rex passa a usar o retrato do Modo Contenção, e os itens Rosto Livre e Dossiê do Desmascaramento ganham a arte como ícone.
+- As quatro imagens foram reduzidas para no máximo 2000 px no lado maior, o mesmo padrão das outras, para o módulo não ficar pesado.
+
+### Para mundos existentes
+- Nada muda nos packs anteriores. Atualize o módulo e o sistema; os diários, o cenário e os ícones novos aparecem nos packs da pasta Noite das Máscaras.
+
 ## [0.5.0] - 2026-10-30
 
 Imagens da aventura **Noite das Máscaras** dentro do módulo, importáveis direto no Foundry.

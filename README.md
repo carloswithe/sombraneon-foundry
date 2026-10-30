@@ -48,7 +48,7 @@ O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão d
 7. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
 8. **Tabelas:** persona do runner e pagamento.
 
-O texto da aventura fica em `docs/noite-das-mascaras.md`, e o guia de imagens em `docs/noite-das-mascaras-imagens.md`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `21-o-rosto-livre.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
+O texto da aventura fica em `docs/noite-das-mascaras.md`, e o guia de imagens em `docs/noite-das-mascaras-imagens.md`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `15-rex-modo-contencao.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
 
 ## Desenvolvimento
 
