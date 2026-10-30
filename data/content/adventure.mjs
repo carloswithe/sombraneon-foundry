@@ -7,6 +7,7 @@ import { classItems, originItems, backgroundItems, alignmentItems } from './char
 import { programItems } from './programs.mjs';
 import { weaponItems, armorItems, gearItems, implantItems } from './module-items.mjs';
 import { threatActors } from './companions.mjs';
+import { imageOf, IMAGES, imageJournals, imageScenes } from './adventure-images.mjs';
 import { deriveCharacter } from '../../systems/sombraneon/src/logic/character.mjs';
 
 /**
@@ -182,7 +183,7 @@ const cacheItems = [
     type: 'gear',
     name: 'Cache de Ruth',
     identifier: 'cache-de-ruth',
-    img: ICON('gear-explosive'),
+    img: imageOf(11) ?? ICON('gear-explosive'),
     folder: F_CACHE,
     room: 'sala-3',
     description: html(
@@ -233,7 +234,7 @@ const lootItems = [
     type: 'gear',
     name: 'Rosto Livre (protótipo)',
     identifier: 'rosto-livre',
-    img: ICON('gear-general'),
+    img: imageOf(21) ?? ICON('gear-general'),
     folder: F_LOOT,
     room: 'sala-5',
     description: html('O Prêmio da missão: um protótipo de implante neural que troca rosto e voz. Valioso, 3 XP. Fica no cofre da Diretoria, no 62º.'),
@@ -244,7 +245,7 @@ const lootItems = [
     type: 'gear',
     name: 'Dossiê do Desmascaramento',
     identifier: 'dossie-do-desmascaramento',
-    img: ICON('gear-general'),
+    img: imageOf(22) ?? ICON('gear-general'),
     folder: F_LOOT,
     room: 'sala-5',
     description: html('A prova do plano de Aragão. Valioso, 3 XP, digital. Download de 1d4 rodadas no terminal do cofre, e o Alerta sobe em 1 ao começar. Interromper perde os dados.'),
@@ -277,7 +278,7 @@ const lootItems = [
     type: 'gear',
     name: 'Núcleo de guarda de Rex',
     identifier: 'nucleo-de-guarda-de-rex',
-    img: ICON('gear-general'),
+    img: imageOf(18) ?? ICON('gear-general'),
     folder: F_LOOT,
     room: 'sala-4',
     description: html('Só existe se Rex chegar a 0 HP. Uma peça de valor para a Aegis Vanta. Normal, 1 XP, 1 slot.'),
@@ -288,7 +289,7 @@ const lootItems = [
     type: 'gear',
     name: 'Crachá de acesso nível 4',
     identifier: 'cracha-de-acesso-nivel-4',
-    img: ICON('gear-general'),
+    img: imageOf(10) ?? ICON('gear-general'),
     folder: F_LOOT,
     room: 'sala-2',
     description: html('Credencial do Assistente da Diretora. Abre o elevador de serviço do Anel ao 60º. Pode ser roubada, persuadida ou clonada (hack de rua CD 15).'),
@@ -298,7 +299,7 @@ const lootItems = [
     type: 'gear',
     name: 'Réplica de exibição (isca)',
     identifier: 'replica-de-exibicao',
-    img: ICON('gear-general'),
+    img: imageOf(12) ?? ICON('gear-general'),
     folder: F_LOOT,
     room: 'sala-3',
     description: html('A "máscara" da vitrine do 60º, com um sinalizador que avisa a Diretora e Rex quando alguém a toca. Sucata, 0 XP.'),
@@ -368,6 +369,7 @@ const rexMk2 = adv.section('13').lines.find((l) => l.startsWith('- **Rex Mk II')
 export const adventureNpcs = [
   npc({
     name: 'Dona Ruth',
+    img: imageOf(2),
     folder: F_RUTH,
     room: 'briefing',
     level: 1,
@@ -392,7 +394,7 @@ export const adventureNpcs = [
     ac: 10,
     movement: '',
     morale: 'fanatic',
-    img: ICON('ice'),
+    img: imageOf(5) ?? ICON('ice'),
     traits:
       p('<em>Mordomo holográfico, elegante e sorridente, que recebe a fila do Portão de Máscaras.</em>') +
       p('<strong>Núcleo:</strong> CA 10 | HP 3 | Hack +0 | 1 ação.') +
@@ -412,6 +414,7 @@ export const adventureNpcs = [
   }),
   npc({
     name: 'O Assistente',
+    img: imageOf(10),
     folder: F_S2,
     room: 'sala-2',
     level: 0,
@@ -427,6 +430,7 @@ export const adventureNpcs = [
   }),
   npc({
     name: 'Teo Pixel',
+    img: imageOf(9),
     folder: F_S2,
     room: 'sala-2',
     level: 0,
@@ -455,6 +459,7 @@ export const adventureNpcs = [
   }),
   npc({
     name: 'Rex, Robô de Exclusão',
+    img: imageOf(15) ?? imageOf(16),
     folder: F_S4,
     room: 'sala-4',
     level: 4,
@@ -476,6 +481,7 @@ export const adventureNpcs = [
   }),
   npc({
     name: 'Lívia Aragão',
+    img: imageOf(20),
     folder: F_S5,
     room: 'sala-5',
     level: 3,
@@ -492,6 +498,7 @@ export const adventureNpcs = [
   }),
   npc({
     name: 'Rex Mk II (nível 3)',
+    img: imageOf(16),
     folder: F_L3,
     room: 'nivel-3',
     level: 6,
@@ -845,11 +852,18 @@ const HERE = {
   14: { elenco: [], itens: [], mesa: [], runners: RUNNERS.map((r) => RUNNER(slug(r.name))) }
 };
 
+const IMAGES_BY_CHAPTER = { 1: [1], 3: [2, 3], 4: [4, 5, 6], 5: [7, 8, 9, 10], 6: [11, 12, 13], 7: [14, 15, 16, 17, 18], 8: [19, 20, 21, 22, 23, 24] };
+const imageLinks = (numbers) => IMAGES.filter((d) => numbers.includes(d.number)).map((d) => link(`noite-imagens/${d.identifier}`, `${String(d.number).padStart(2, '0')}. ${d.title}`));
+const sceneLinks = (numbers) => imageScenes.filter((s) => numbers.includes(s.flags.sombraneon.adventure.image)).map((s) => link(`noite-cenas/${s.identifier}`, s.name));
+
 const hereBox = (n) => {
-  const h = HERE[n];
-  if (!h) return '';
+  const h = { ...HERE[n] };
+  const numbers = IMAGES_BY_CHAPTER[n] ?? [];
+  if (!HERE[n] && !numbers.length) return '';
+  h.imagens = imageLinks(numbers);
+  h.cenas = sceneLinks(numbers);
   const list = (title, arr) => (arr?.length ? `<li><strong>${title}:</strong> ${arr.join(', ')}</li>` : '');
-  const body = [list('Elenco e inimigos', h.elenco), list('Itens e butim', h.itens), list('Runners prontos', h.runners), list('Tabelas e material dos jogadores', h.mesa)].join('');
+  const body = [list('Elenco e inimigos', h.elenco), list('Itens e butim', h.itens), list('Runners prontos', h.runners), list('Tabelas e material dos jogadores', h.mesa), list('Imagens (diários)', h.imagens), list('Cenários (Scene)', h.cenas)].join('');
   return `<hr><h3>Nesta cena: onde achar tudo</h3><ul>${body}</ul>`;
 };
 
@@ -878,6 +892,8 @@ const hub =
   `<h2>Compêndios da aventura</h2><ul>` +
   `<li>@Pack[noite-aventura]: este índice, o guia rápido e o Livro da Aventura (só o Mestre).</li>` +
   `<li>@Pack[noite-jogadores]: o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).</li>` +
+  `<li>@Pack[noite-imagens]: as imagens da aventura, uma por diário, com o texto para ler em voz alta e as notas do Mestre.</li>` +
+  `<li>@Pack[noite-cenas]: as imagens de ambiente prontas para ativar como cenário.</li>` +
   `<li>@Pack[noite-elenco]: todos os NPCs e inimigos, em pastas por sala.</li>` +
   `<li>@Pack[noite-fichas]: os seis runners prontos de nível 1.</li>` +
   `<li>@Pack[noite-itens]: Cache de Ruth, máscaras e adereços, butim e objetos da missão.</li>` +
@@ -893,6 +909,15 @@ const hub =
     [room('debrief', 'Debrief'), 'depois', NPC('dona-ruth'), link('noite-tabelas/pagamento-por-runner')],
     [room('nivel-3', 'Ajuste para nível 3'), 'opcional', NPC('rex-mk-ii-nivel-3'), 'mesmo butim, com itens Valiosos extras']
   ]) +
+  `</tbody></table>` +
+  `<h2>Imagens e cenários</h2><p>Cada imagem tem um diário com a arte, o texto para ler em voz alta e as notas do Mestre (quando mostrar, para quem). Use <strong>Mostrar aos jogadores</strong> no diário, ou ative o cenário. Imagens marcadas com cuidado entregam pistas.</p><table><thead><tr><th>Imagem</th><th>Quando mostrar</th><th>Cenário</th></tr></thead><tbody>` +
+  R(
+    IMAGES.map((d) => [
+      link(`noite-imagens/${d.identifier}`, `${String(d.number).padStart(2, '0')}. ${d.title}${d.careful ? ' (cuidado)' : ''}`),
+      d.when,
+      d.scene ? link(`noite-cenas/cena-${String(d.number).padStart(2, '0')}`, 'ativar') : ''
+    ])
+  ) +
   `</tbody></table>` +
   `<h2>Runners prontos</h2><table><thead><tr><th>Ficha</th><th>Classe</th><th>Origem</th><th>Persona</th></tr></thead><tbody>` +
   R(
@@ -988,6 +1013,8 @@ export const adventureHandouts = [
 export const ADVENTURE_PACKS = [
   { scope: 'module', folderSorting: 'm', name: 'noite-aventura', label: 'Noite das Máscaras: Livro da Aventura (Mestre)', docType: 'JournalEntry', docs: adventureJournals },
   { scope: 'module', folderSorting: 'm', name: 'noite-jogadores', label: 'Noite das Máscaras: Material dos Jogadores', docType: 'JournalEntry', docs: adventureHandouts },
+  { scope: 'module', folderSorting: 'm', name: 'noite-imagens', label: 'Noite das Máscaras: Imagens', docType: 'JournalEntry', docs: imageJournals },
+  { scope: 'module', folderSorting: 'm', name: 'noite-cenas', label: 'Noite das Máscaras: Cenários', docType: 'Scene', docs: imageScenes },
   { scope: 'module', folderSorting: 'm', name: 'noite-elenco', label: 'Noite das Máscaras: Elenco e Inimigos', docType: 'Actor', docs: adventureNpcs },
   { scope: 'module', folderSorting: 'm', name: 'noite-fichas', label: 'Noite das Máscaras: Runners Prontos', docType: 'Actor', docs: adventureRunners },
   { scope: 'module', folderSorting: 'm', name: 'noite-itens', label: 'Noite das Máscaras: Itens e Butim', docType: 'Item', docs: adventureItems },

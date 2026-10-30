@@ -2,7 +2,7 @@
   "id": "sombraneon",
   "title": "SombraNeon",
   "description": "RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "compatibility": { "minimum": "13", "verified": "13.351" },
   "authors": [{ "name": "Carlos Withe (Cacá)", "url": "https://github.com/carloswithe" }],
   "url": "https://github.com/carloswithe/sombraneon-foundry",

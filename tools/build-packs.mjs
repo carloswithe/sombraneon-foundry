@@ -128,15 +128,15 @@ function journalDoc(pack, d, folders) {
       _id: pid,
       _key: `!journal.pages!${id}.${pid}`,
       name: p.name,
-      type: 'text',
+      type: p.type ?? 'text',
       title: p.title,
-      text: p.text,
-      image: {},
+      text: p.text ?? {},
+      image: p.image ?? {},
       video: { controls: true, volume: 0.5 },
-      src: null,
+      src: p.src ?? null,
       system: {},
       sort: p.sort,
-      ownership: { default: -1 },
+      ownership: p.ownership ?? { default: -1 },
       flags: {},
       _stats: stats()
     };
@@ -193,6 +193,43 @@ function actorDoc(pack, d, folders, index) {
     items,
     effects: [],
     prototypeToken: d.prototypeToken,
+    folder: d.folder ? folders.get(d.folder) : null,
+    sort: d.sort ?? 0,
+    ownership: { default: 0 },
+    flags: d.flags ?? {},
+    _stats: stats()
+  };
+}
+
+function sceneDoc(pack, d, folders) {
+  const id = docId(pack.name, d.identifier);
+  return {
+    _id: id,
+    _key: `!scenes!${id}`,
+    name: d.name,
+    active: false,
+    navigation: false,
+    navOrder: 0,
+    navName: '',
+    background: { src: d.background },
+    thumb: d.img,
+    foreground: null,
+    width: d.width,
+    height: d.height,
+    padding: 0,
+    backgroundColor: '#000000',
+    grid: { type: 0 },
+    tokenVision: false,
+    fog: { exploration: false },
+    tokens: [],
+    walls: [],
+    lights: [],
+    sounds: [],
+    notes: [],
+    drawings: [],
+    tiles: [],
+    templates: [],
+    regions: [],
     folder: d.folder ? folders.get(d.folder) : null,
     sort: d.sort ?? 0,
     ownership: { default: 0 },
@@ -268,6 +305,9 @@ export async function buildPacks({ log = true } = {}) {
           break;
         case 'Macro':
           built = macroDoc(pack, d, folders);
+          break;
+        case 'Scene':
+          built = sceneDoc(pack, d, folders);
           break;
         default:
           throw new Error(`Tipo de pack desconhecido: ${pack.docType}`);

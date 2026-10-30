@@ -3,6 +3,8 @@ import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { PACKS, EXPECTED_COUNTS } from '../../data/content/index.mjs';
 import { buildRunner, RUNNER_DEFS, ADVENTURE_PACK_FOLDER, ADVENTURE_ID } from '../../data/content/adventure.mjs';
+import { IMAGES, IMAGE_DEFS, MISSING_IMAGES, imageScenes, imageJournals } from '../../data/content/adventure-images.mjs';
+import { imageSize } from '../../tools/lib/image.mjs';
 import { makeResolver } from '../../tools/lib/refs.mjs';
 import { ROOT } from '../../tools/lib/book.mjs';
 
@@ -18,8 +20,8 @@ const runner = (name) => buildRunner(RUNNER_DEFS.find((d) => d.name === name));
 const attack = (d, re) => d.attacks.find((a) => re.test(a.name));
 
 describe('estrutura dos compêndios da aventura', () => {
-  it('tem seis packs próprios, todos com o prefixo e a contagem esperada', () => {
-    expect(adventurePacks.map((p) => p.name)).toEqual(['noite-aventura', 'noite-jogadores', 'noite-elenco', 'noite-fichas', 'noite-itens', 'noite-tabelas']);
+  it('tem oito packs próprios, todos com o prefixo e a contagem esperada', () => {
+    expect(adventurePacks.map((p) => p.name)).toEqual(['noite-aventura', 'noite-jogadores', 'noite-imagens', 'noite-cenas', 'noite-elenco', 'noite-fichas', 'noite-itens', 'noite-tabelas']);
     for (const p of adventurePacks) {
       expect(p.label.startsWith('Noite das Máscaras: ')).toBe(true);
       expect(p.docs).toHaveLength(EXPECTED_COUNTS[p.name]);
@@ -40,6 +42,8 @@ describe('estrutura dos compêndios da aventura', () => {
     expect(access).toEqual({
       'noite-aventura': 'NONE',
       'noite-jogadores': 'OBSERVER',
+      'noite-imagens': 'NONE',
+      'noite-cenas': 'NONE',
       'noite-elenco': 'NONE',
       'noite-fichas': 'OBSERVER',
       'noite-itens': 'NONE',
@@ -92,7 +96,7 @@ describe('links entre os documentos', () => {
 
   it('nada da aventura fica órfão: elenco, itens, runners, tabelas e material dos jogadores são citados no índice ou no livro', () => {
     const text = [...pack('noite-aventura')].flatMap((d) => d.pages.map((x) => x.text.content)).join('\n');
-    for (const name of ['noite-elenco', 'noite-itens', 'noite-fichas', 'noite-tabelas', 'noite-jogadores']) {
+    for (const name of ['noite-elenco', 'noite-itens', 'noite-fichas', 'noite-tabelas', 'noite-jogadores', 'noite-imagens', 'noite-cenas']) {
       for (const d of pack(name)) expect(text, `${name}/${d.identifier}`).toContain(`@Ref[${name}/${d.identifier}`);
     }
   });
@@ -239,5 +243,59 @@ describe('elenco e itens', () => {
     expect(text).not.toMatch(/Lívia Aragão|3110|Obelisco|Rede de segurança|Exceção na Sala 4/);
     expect(pack('noite-jogadores').map((d) => d.name)).toContain('Escala do Alerta (0 a 4)');
     expect(text).toContain('Desmascaramento antecipado');
+  });
+});
+
+describe('imagens da aventura', () => {
+  it('o guia tem as 24 imagens definidas, em ordem, com arquivo nomeado', () => {
+    expect(IMAGE_DEFS.map((d) => d.number)).toEqual(Array.from({ length: 24 }, (_, i) => i + 1));
+    for (const d of IMAGE_DEFS) {
+      expect(d.title, d.number).toBeTruthy();
+      expect(d.narrative.length, d.number).toBeGreaterThan(40);
+      expect(d.prompt, d.number).toContain('Art Direction');
+      expect(d.file).toMatch(/^[0-9]{2}-[a-z0-9-]+.jpg$/);
+    }
+    expect(IMAGE_DEFS[7].careful).toBe(true);
+    expect(IMAGE_DEFS[12].careful).toBe(true);
+  });
+
+  it('cada arquivo presente tem a proporção do guia, e as que faltam estão listadas', () => {
+    const ratio = { '16:9': 16 / 9, '3:2': 3 / 2, '3:4': 3 / 4, '1:1': 1 };
+    expect(IMAGES.length + MISSING_IMAGES.length).toBe(24);
+    for (const d of IMAGES) {
+      const { width, height } = imageSize(path.join(ROOT, d.path));
+      expect(width / height, `${d.number} ${d.ratio}`).toBeCloseTo(ratio[d.ratio], 1);
+    }
+  });
+
+  it('um diário por imagem, com a arte e três páginas só do Mestre', () => {
+    expect(imageJournals).toHaveLength(IMAGES.length);
+    for (const j of imageJournals) {
+      expect(j.pages.map((p) => p.identifier)).toEqual(['imagem', 'ler', 'notas', 'prompt']);
+      expect(j.pages[0]).toMatchObject({ type: 'image' });
+      expect(j.pages[0].src.startsWith('modules/sombraneon-compendium/assets/noite-das-mascaras/')).toBe(true);
+      for (const p of j.pages.slice(1)) expect(p.ownership).toEqual({ default: 0 });
+    }
+    const cuidado = imageJournals.find((j) => j.name.startsWith('08.'));
+    expect(cuidado.pages[2].text.content).toContain('Cuidado');
+  });
+
+  it('os cenários são gridless, do tamanho da imagem, e só de ambiente', () => {
+    for (const s of imageScenes) {
+      const { width, height } = imageSize(path.join(ROOT, s.background));
+      expect({ w: s.width, h: s.height }, s.name).toEqual({ w: width, h: height });
+      expect(width / height).toBeCloseTo(16 / 9, 1);
+    }
+    const numbers = imageScenes.map((s) => s.flags.sombraneon.adventure.image);
+    expect(numbers).not.toContain(8);
+    expect(numbers).not.toContain(13);
+  });
+
+  it('os retratos do elenco e os ícones do butim usam a arte', () => {
+    const img = (pack, id) => pack.find((d) => d.identifier === id).img;
+    const elenco = pack('noite-elenco');
+    expect(img(elenco, 'livia-aragao')).toMatch(/livia-aragao.jpg$/);
+    expect(img(elenco, 'teo-pixel')).toMatch(/teo-pixel.jpg$/);
+    expect(img(pack('noite-itens'), 'nucleo-de-guarda-de-rex')).toMatch(/nucleo-de-guarda-de-rex.jpg$/);
   });
 });

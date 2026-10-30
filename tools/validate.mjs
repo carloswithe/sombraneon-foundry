@@ -20,11 +20,14 @@ const imgs = new Set();
 for (const p of PACKS) {
   for (const d of p.docs) {
     imgs.add(d.img);
+    if (d.background) imgs.add(d.background);
+    for (const pg of d.pages ?? []) if (pg.src) imgs.add(pg.src);
     for (const it of d.items ?? []) imgs.add(it.img);
   }
 }
 for (const img of imgs) {
   if (img?.startsWith('systems/sombraneon/') && !fs.existsSync(path.join(ROOT, 'systems/sombraneon', img.replace('systems/sombraneon/', '')))) fail(`imagem inexistente: ${img}`);
+  if (img?.startsWith('modules/sombraneon-compendium/') && !fs.existsSync(path.join(ROOT, img))) fail(`imagem inexistente: ${img}`);
 }
 
 // 3. tabelas cobrem todos os valores da fórmula sem lacunas ou sobreposição
@@ -72,7 +75,7 @@ for (const p of PACKS) {
   await db.open();
   const keys = await db.keys().all();
   await db.close();
-  const top = { Item: '!items!', RollTable: '!tables!', JournalEntry: '!journal!', Actor: '!actors!', Macro: '!macros!' }[p.docType];
+  const top = { Item: '!items!', RollTable: '!tables!', JournalEntry: '!journal!', Actor: '!actors!', Macro: '!macros!', Scene: '!scenes!' }[p.docType];
   const n = keys.filter((k) => k.startsWith(top)).length;
   if (n !== p.docs.length) fail(`${p.name}: pack tem ${n} documentos, esperado ${p.docs.length}`);
   if (p.docType === 'RollTable') {

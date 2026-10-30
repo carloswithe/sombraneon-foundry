@@ -41,12 +41,14 @@ O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão d
 
 1. **Livro da Aventura (Mestre):** comece pelo `00. Índice: onde achar tudo`. Ele lista, sala por sala, o elenco, os itens e o butim, com links diretos. O `01. Guia rápido da mesa` cabe numa tela, e o livro tem uma página por capítulo.
 2. **Material dos Jogadores:** o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).
-3. **Elenco e Inimigos:** NPCs em pastas por sala, incluindo o Rex.
-4. **Runners Prontos:** seis fichas de nível 1, uma por classe. Escolha quatro e arraste para o mundo.
-5. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
-6. **Tabelas:** persona do runner e pagamento.
+3. **Imagens:** um diário por imagem, com a arte, o texto para ler em voz alta e as notas do Mestre. Use *Mostrar aos jogadores* no diário.
+4. **Cenários:** os panoramas de ambiente prontos para ativar como cena.
+5. **Elenco e Inimigos:** NPCs em pastas por sala, incluindo o Rex.
+6. **Runners Prontos:** seis fichas de nível 1, uma por classe. Escolha quatro e arraste para o mundo.
+7. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
+8. **Tabelas:** persona do runner e pagamento.
 
-O texto da aventura fica em `docs/noite-das-mascaras.md`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
+O texto da aventura fica em `docs/noite-das-mascaras.md`, e o guia de imagens em `docs/noite-das-mascaras-imagens.md`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `21-o-rosto-livre.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
 
 ## Desenvolvimento
 

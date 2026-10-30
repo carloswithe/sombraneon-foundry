@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.0] - 2026-10-30
+
+Imagens da aventura **Noite das Máscaras** dentro do módulo, importáveis direto no Foundry.
+
+### Adicionado
+- **Noite das Máscaras: Imagens (20):** um diário por imagem, em pastas por cena. Cada diário tem a arte, o texto para ler em voz alta e as notas do Mestre (quando mostrar, para quem, dica). As imagens que entregam pistas (os cinco suspeitos dourados e a marca da Obelisco) vêm marcadas com "Cuidado". Uma página traz o prompt, para gerar a arte de novo.
+- **Noite das Máscaras: Cenários (11):** os panoramas de ambiente prontos para ativar como Scene (sem grade, do tamanho da imagem).
+- **Retratos e ícones com a arte:** Dona Ruth, Mordomo, Assistente, Teo Pixel, Rex, Rex Mk II e Lívia Aragão, e os itens Cache de Ruth, Crachá nível 4, Réplica, Núcleo de guarda de Rex.
+- O Índice e as caixas "Nesta cena" do livro passam a listar as imagens e os cenários, com links.
+- As imagens ficam em `assets/noite-das-mascaras/` do módulo. As 24 imagens do guia estão definidas em `docs/noite-das-mascaras-imagens.md`, e o build inclui sozinho cada uma cujo arquivo existir. Ainda faltam os arquivos das imagens 15 (Rex, Modo Contenção), 21 (Rosto Livre), 22 (Dossiê) e 23 (Meia-noite).
+- Suporte a Scene e a páginas de imagem nos compêndios; o validate confere que as imagens citadas existem.
+
+### Para mundos existentes
+- Nada muda nos packs anteriores. Os dois packs novos aparecem na pasta Noite das Máscaras ao atualizar o módulo.
+
 ## [0.4.0] - 2026-10-28
 
 Aventura pronta **Noite das Máscaras** (assalto de nível 1, uma sessão de até 4 horas) no módulo de compêndio, com tudo organizado numa pasta própria do menu de compêndios.

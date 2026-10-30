@@ -7,6 +7,7 @@ import { weaponItems, armorItems, gearItems, vehicleItems, implantItems } from '
 import { iceActors, macroDocs, pregenActors } from './module-actors.mjs';
 import { threatActors, extraIceActors, vehiclePackItems, companionWeapons, explosiveItems, masterTableDocs, referenceJournals } from './companions.mjs';
 import { ADVENTURE_PACKS } from './adventure.mjs';
+import { IMAGES, imageScenes } from './adventure-images.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -61,6 +62,8 @@ export const EXPECTED_COUNTS = {
   macros: 12,
   'noite-aventura': 3,
   'noite-jogadores': 4,
+  'noite-imagens': IMAGES.length,
+  'noite-cenas': imageScenes.length,
   'noite-elenco': 10,
   'noite-fichas': 6,
   'noite-itens': 22,
