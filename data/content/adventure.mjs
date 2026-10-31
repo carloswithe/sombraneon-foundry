@@ -8,6 +8,7 @@ import { programItems } from './programs.mjs';
 import { weaponItems, armorItems, gearItems, implantItems } from './module-items.mjs';
 import { threatActors } from './companions.mjs';
 import { imageOf, IMAGES, imageJournals, imageScenes } from './adventure-images.mjs';
+import { mapScenes, mapMacros, mapGuideJournal, MAPS_BY_CHAPTER, MAP_DEFS } from './adventure-maps.mjs';
 import { deriveCharacter } from '../../systems/sombraneon/src/logic/character.mjs';
 
 /**
@@ -856,14 +857,17 @@ const IMAGES_BY_CHAPTER = { 1: [1], 3: [2, 3], 4: [4, 5, 6], 5: [7, 8, 9, 10], 6
 const imageLinks = (numbers) => IMAGES.filter((d) => numbers.includes(d.number)).map((d) => link(`noite-imagens/${d.identifier}`, `${String(d.number).padStart(2, '0')}. ${d.title}`));
 const sceneLinks = (numbers) => imageScenes.filter((s) => numbers.includes(s.flags.sombraneon.adventure.image)).map((s) => link(`noite-cenas/${s.identifier}`, s.name));
 
+const mapLinks = (numbers) => mapScenes.filter((s) => numbers.includes(s.flags.sombraneon.adventure.map)).map((s) => link(`noite-mapas/${s.identifier}`, s.name));
+
 const hereBox = (n) => {
   const h = { ...HERE[n] };
   const numbers = IMAGES_BY_CHAPTER[n] ?? [];
   if (!HERE[n] && !numbers.length) return '';
   h.imagens = imageLinks(numbers);
   h.cenas = sceneLinks(numbers);
+  h.mapas = mapLinks(MAPS_BY_CHAPTER[n] ?? []);
   const list = (title, arr) => (arr?.length ? `<li><strong>${title}:</strong> ${arr.join(', ')}</li>` : '');
-  const body = [list('Elenco e inimigos', h.elenco), list('Itens e butim', h.itens), list('Runners prontos', h.runners), list('Tabelas e material dos jogadores', h.mesa), list('Imagens (diários)', h.imagens), list('Cenários (Scene)', h.cenas)].join('');
+  const body = [list('Elenco e inimigos', h.elenco), list('Itens e butim', h.itens), list('Runners prontos', h.runners), list('Tabelas e material dos jogadores', h.mesa), list('Imagens (diários)', h.imagens), list('Cenários (Scene)', h.cenas), list('Mapas de mesa (Scene com paredes, luzes e tokens)', h.mapas)].join('');
   return `<hr><h3>Nesta cena: onde achar tudo</h3><ul>${body}</ul>`;
 };
 
@@ -894,6 +898,8 @@ const hub =
   `<li>@Pack[noite-jogadores]: o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).</li>` +
   `<li>@Pack[noite-imagens]: as imagens da aventura, uma por diário, com o texto para ler em voz alta e as notas do Mestre.</li>` +
   `<li>@Pack[noite-cenas]: as imagens de ambiente prontas para ativar como cenário.</li>` +
+  `<li>@Pack[noite-mapas]: os dez mapas de mesa (Scenes com grade, paredes, portas, luzes, regiões e tokens). Veja ${link('noite-aventura/mapas-de-mesa', 'o guia dos mapas')}.</li>` +
+  `<li>@Pack[noite-macros]: macros dos estados de cena (Alerta 4, apagão, Mural, trancas).</li>` +
   `<li>@Pack[noite-elenco]: todos os NPCs e inimigos, em pastas por sala.</li>` +
   `<li>@Pack[noite-fichas]: os seis runners prontos de nível 1.</li>` +
   `<li>@Pack[noite-itens]: Cache de Ruth, máscaras e adereços, butim e objetos da missão.</li>` +
@@ -918,6 +924,9 @@ const hub =
       d.scene ? link(`noite-cenas/cena-${String(d.number).padStart(2, '0')}`, 'ativar') : ''
     ])
   ) +
+  `</tbody></table>` +
+  `<h2>Mapas de mesa</h2><p>Cada mapa já vem com grade de 1,5 m, paredes sobre a arte, portas (trancadas quando a aventura manda), luzes, regiões de cobertura e perigo e os tokens nas posições iniciais. Ao importar, os runners viram os personagens dos jogadores.</p><table><thead><tr><th>Mapa</th><th>Sala</th><th>Hora</th><th>Prioridade</th></tr></thead><tbody>` +
+  R(mapScenes.map((s, i) => [link(`noite-mapas/${s.identifier}`, s.name), s.folder, MAP_DEFS[i].when, MAP_DEFS[i].priority])) +
   `</tbody></table>` +
   `<h2>Runners prontos</h2><table><thead><tr><th>Ficha</th><th>Classe</th><th>Origem</th><th>Persona</th></tr></thead><tbody>` +
   R(
@@ -963,6 +972,7 @@ export const adventureJournals = [
     ownership: { default: 0 },
     flags: flagsOf('guia')
   },
+  mapGuideJournal,
   {
     identifier: 'livro',
     name: 'Noite das Máscaras: Livro da Aventura',
@@ -1015,10 +1025,12 @@ export const ADVENTURE_PACKS = [
   { scope: 'module', folderSorting: 'm', name: 'noite-jogadores', label: 'Noite das Máscaras: Material dos Jogadores', docType: 'JournalEntry', docs: adventureHandouts },
   { scope: 'module', folderSorting: 'm', name: 'noite-imagens', label: 'Noite das Máscaras: Imagens', docType: 'JournalEntry', docs: imageJournals },
   { scope: 'module', folderSorting: 'm', name: 'noite-cenas', label: 'Noite das Máscaras: Cenários', docType: 'Scene', docs: imageScenes },
+  { scope: 'module', folderSorting: 'm', name: 'noite-mapas', label: 'Noite das Máscaras: Mapas de Mesa', docType: 'Scene', docs: mapScenes },
   { scope: 'module', folderSorting: 'm', name: 'noite-elenco', label: 'Noite das Máscaras: Elenco e Inimigos', docType: 'Actor', docs: adventureNpcs },
   { scope: 'module', folderSorting: 'm', name: 'noite-fichas', label: 'Noite das Máscaras: Runners Prontos', docType: 'Actor', docs: adventureRunners },
   { scope: 'module', folderSorting: 'm', name: 'noite-itens', label: 'Noite das Máscaras: Itens e Butim', docType: 'Item', docs: adventureItems },
-  { scope: 'module', folderSorting: 'm', name: 'noite-tabelas', label: 'Noite das Máscaras: Tabelas', docType: 'RollTable', docs: adventureTables }
+  { scope: 'module', folderSorting: 'm', name: 'noite-tabelas', label: 'Noite das Máscaras: Tabelas', docType: 'RollTable', docs: adventureTables },
+  { scope: 'module', folderSorting: 'm', name: 'noite-macros', label: 'Noite das Máscaras: Macros', docType: 'Macro', docs: mapMacros }
 ];
 
 /** Pasta do menu de compêndios (packFolders do module.json), na ordem em que aparecem. */

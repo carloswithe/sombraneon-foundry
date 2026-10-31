@@ -43,12 +43,14 @@ O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão d
 2. **Material dos Jogadores:** o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).
 3. **Imagens:** um diário por imagem, com a arte, o texto para ler em voz alta e as notas do Mestre. Use *Mostrar aos jogadores* no diário.
 4. **Cenários:** os panoramas de ambiente prontos para ativar como cena.
-5. **Elenco e Inimigos:** NPCs em pastas por sala, incluindo o Rex.
-6. **Runners Prontos:** seis fichas de nível 1, uma por classe. Escolha quatro e arraste para o mundo.
-7. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
-8. **Tabelas:** persona do runner e pagamento.
+5. **Mapas de Mesa:** os dez mapas táticos já montados como Scene: grade de 1,5 m, paredes, portas (trancadas quando a aventura manda), luzes, regiões de cobertura e perigo, notas e tokens nas posições iniciais. Ao importar um mapa, o módulo cria no mundo os atores do elenco que a cena usa e liga os tokens a eles; os quatro marcadores *Runner* viram os personagens dos jogadores.
+6. **Elenco e Inimigos:** NPCs em pastas por sala, incluindo o Rex.
+7. **Runners Prontos:** seis fichas de nível 1, uma por classe. Escolha quatro e arraste para o mundo.
+8. **Itens e Butim:** Cache de Ruth, máscaras, adereços e o butim, com o XP do Debrief.
+9. **Tabelas:** persona do runner e pagamento.
+10. **Macros:** os estados de cena (Alerta 4, apagão da Galeria, Mural e curto-circuito do Corredor, botão de pânico, trancas).
 
-O texto da aventura fica em `docs/noite-das-mascaras.md`, e o guia de imagens em `docs/noite-das-mascaras-imagens.md`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `15-rex-modo-contencao.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
+O texto da aventura fica em `docs/noite-das-mascaras.md`, o guia de imagens em `docs/noite-das-mascaras-imagens.md` e o guia dos mapas de mesa em `docs/noite-das-mascaras-scenes.md`. A geometria dos mapas (paredes, luzes, regiões e tokens, em pixels da própria imagem) fica em `data/content/adventure-maps-data.mjs`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `15-rex-modo-contencao.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
 
 ## Desenvolvimento
 

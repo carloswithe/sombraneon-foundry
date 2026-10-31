@@ -1,8 +1,8 @@
 {
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
-  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" (livro, imagens, cenários, elenco, runners e itens) para o sistema SombraNeon.",
-  "version": "0.5.1",
+  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" (livro, imagens, cenários, mapas de mesa com paredes, luzes e tokens, elenco, runners, itens e macros) para o sistema SombraNeon.",
+  "version": "0.6.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
@@ -196,6 +196,17 @@
       }
     },
     {
+      "name": "noite-mapas",
+      "label": "Noite das Máscaras: Mapas de Mesa",
+      "path": "packs/noite-mapas",
+      "type": "Scene",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "noite-elenco",
       "label": "Noite das Máscaras: Elenco e Inimigos",
       "path": "packs/noite-elenco",
@@ -238,6 +249,17 @@
         "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "noite-macros",
+      "label": "Noite das Máscaras: Macros",
+      "path": "packs/noite-macros",
+      "type": "Macro",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "relationships": {
@@ -261,10 +283,12 @@
         "noite-jogadores",
         "noite-imagens",
         "noite-cenas",
+        "noite-mapas",
         "noite-elenco",
         "noite-fichas",
         "noite-itens",
-        "noite-tabelas"
+        "noite-tabelas",
+        "noite-macros"
       ]
     }
   ]

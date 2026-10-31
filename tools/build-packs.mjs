@@ -201,8 +201,68 @@ function actorDoc(pack, d, folders, index) {
   };
 }
 
+/** Ator dos compêndios citado por um token de mapa (pack/identifier): UUID e retrato. */
+function actorRef(ref) {
+  const [packName, identifier] = ref.split('/');
+  const pack = PACKS.find((p) => p.name === packName && p.docType === 'Actor');
+  const doc = pack?.docs.find((x) => x.identifier === identifier);
+  if (!doc) throw new Error(`Ator não encontrado para um token de mapa: ${ref}`);
+  return { uuid: `Compendium.${scopeId(pack.scope)}.${pack.name}.Actor.${docId(pack.name, identifier)}`, img: doc.img };
+}
+
+const DEFAULT_TOKEN_ICON = 'systems/sombraneon/assets/icons/npc.svg';
+
+/** Documentos embutidos de um Scene de mapa de mesa: paredes, luzes, regiões, tokens e notas. */
+function sceneEmbedded(pack, d, id) {
+  const sub = (coll, kind, list, make) =>
+    (list ?? []).map((x, i) => {
+      const sid = subId(pack.name, d.identifier, kind, i);
+      return { ...make(x), _id: sid, _key: `!scenes.${coll}!${id}.${sid}` };
+    });
+  return {
+    walls: sub('walls', 'wall', d.walls, (w) => ({ ...w, flags: w.flags ?? {} })),
+    lights: sub('lights', 'light', d.lights, (l) => ({ ...l, walls: true, vision: false })),
+    regions: sub('regions', 'region', d.regions, (r) => ({ ...r, elevation: { bottom: null, top: null }, behaviors: [], visibility: 0, locked: false, flags: {} })),
+    tokens: sub('tokens', 'token', d.tokens, (t) => {
+      const actor = t.ref ? actorRef(t.ref) : null;
+      return {
+        name: t.name,
+        x: t.x,
+        y: t.y,
+        elevation: 0,
+        width: t.width,
+        height: t.height,
+        actorId: null,
+        actorLink: false,
+        texture: { src: actor?.img ?? t.icon ?? DEFAULT_TOKEN_ICON },
+        disposition: t.disposition,
+        hidden: t.hidden,
+        displayName: 20,
+        sight: { enabled: Boolean(t.runner) },
+        flags: { sombraneon: { ...(actor ? { ref: actor.uuid } : {}), ...(t.runner ? { runner: t.runner } : {}) } }
+      };
+    }),
+    notes: sub('notes', 'note', d.notes, (n) => ({
+      x: n.x,
+      y: n.y,
+      text: n.text,
+      texture: { src: 'icons/svg/book.svg' },
+      iconSize: 40,
+      fontSize: 32,
+      textAnchor: 1,
+      textColor: '#ffffff',
+      global: false,
+      entryId: null,
+      pageId: null,
+      flags: {}
+    }))
+  };
+}
+
 function sceneDoc(pack, d, folders) {
   const id = docId(pack.name, d.identifier);
+  const full = Boolean(d.grid);
+  const embedded = full ? sceneEmbedded(pack, d, id) : { walls: [], lights: [], regions: [], tokens: [], notes: [] };
   return {
     _id: id,
     _key: `!scenes!${id}`,
@@ -211,25 +271,26 @@ function sceneDoc(pack, d, folders) {
     navigation: false,
     navOrder: 0,
     navName: '',
-    background: { src: d.background },
+    background: { src: d.background, ...(d.fit ? { fit: d.fit } : {}) },
     thumb: d.img,
     foreground: null,
     width: d.width,
     height: d.height,
     padding: 0,
     backgroundColor: '#000000',
-    grid: { type: 0 },
-    tokenVision: false,
+    grid: d.grid ?? { type: 0 },
+    tokenVision: d.tokenVision ?? false,
+    ...(full ? { environment: { darknessLevel: d.darkness, globalLight: { enabled: true, darkness: { min: 0, max: 0.9 } } } } : {}),
     fog: { exploration: false },
-    tokens: [],
-    walls: [],
-    lights: [],
+    tokens: embedded.tokens,
+    walls: embedded.walls,
+    lights: embedded.lights,
     sounds: [],
-    notes: [],
+    notes: embedded.notes,
     drawings: [],
     tiles: [],
     templates: [],
-    regions: [],
+    regions: embedded.regions,
     folder: d.folder ? folders.get(d.folder) : null,
     sort: d.sort ?? 0,
     ownership: { default: 0 },

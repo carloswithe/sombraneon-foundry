@@ -8,6 +8,7 @@ import { iceActors, macroDocs, pregenActors } from './module-actors.mjs';
 import { threatActors, extraIceActors, vehiclePackItems, companionWeapons, explosiveItems, masterTableDocs, referenceJournals } from './companions.mjs';
 import { ADVENTURE_PACKS } from './adventure.mjs';
 import { IMAGES, imageScenes } from './adventure-images.mjs';
+import { mapScenes, mapMacros } from './adventure-maps.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -60,12 +61,14 @@ export const EXPECTED_COUNTS = {
   'tabelas-do-mestre': 17,
   'fichas-prontas': 6,
   macros: 12,
-  'noite-aventura': 3,
+  'noite-aventura': 4,
   'noite-jogadores': 4,
   'noite-imagens': IMAGES.length,
   'noite-cenas': imageScenes.length,
+  'noite-mapas': mapScenes.length,
   'noite-elenco': 10,
   'noite-fichas': 6,
   'noite-itens': 22,
-  'noite-tabelas': 2
+  'noite-tabelas': 2,
+  'noite-macros': mapMacros.length
 };

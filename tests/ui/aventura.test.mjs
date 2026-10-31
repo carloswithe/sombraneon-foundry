@@ -20,8 +20,8 @@ const runner = (name) => buildRunner(RUNNER_DEFS.find((d) => d.name === name));
 const attack = (d, re) => d.attacks.find((a) => re.test(a.name));
 
 describe('estrutura dos compêndios da aventura', () => {
-  it('tem oito packs próprios, todos com o prefixo e a contagem esperada', () => {
-    expect(adventurePacks.map((p) => p.name)).toEqual(['noite-aventura', 'noite-jogadores', 'noite-imagens', 'noite-cenas', 'noite-elenco', 'noite-fichas', 'noite-itens', 'noite-tabelas']);
+  it('tem dez packs próprios, todos com o prefixo e a contagem esperada', () => {
+    expect(adventurePacks.map((p) => p.name)).toEqual(['noite-aventura', 'noite-jogadores', 'noite-imagens', 'noite-cenas', 'noite-mapas', 'noite-elenco', 'noite-fichas', 'noite-itens', 'noite-tabelas', 'noite-macros']);
     for (const p of adventurePacks) {
       expect(p.label.startsWith('Noite das Máscaras: ')).toBe(true);
       expect(p.docs).toHaveLength(EXPECTED_COUNTS[p.name]);
@@ -44,10 +44,12 @@ describe('estrutura dos compêndios da aventura', () => {
       'noite-jogadores': 'OBSERVER',
       'noite-imagens': 'NONE',
       'noite-cenas': 'NONE',
+      'noite-mapas': 'NONE',
       'noite-elenco': 'NONE',
       'noite-fichas': 'OBSERVER',
       'noite-itens': 'NONE',
-      'noite-tabelas': 'NONE'
+      'noite-tabelas': 'NONE',
+      'noite-macros': 'NONE'
     });
   });
 
@@ -62,7 +64,7 @@ describe('estrutura dos compêndios da aventura', () => {
       'Ajuste para nível 3'
     ]);
     expect([...new Set(pack('noite-itens').map((d) => d.folder))]).toEqual(['Cache de Ruth', 'Máscaras e adereços', 'Butim e objetos da missão']);
-    expect(pack('noite-aventura').map((d) => d.folder)).toEqual(['Comece aqui', 'Comece aqui', 'Livro da aventura']);
+    expect(pack('noite-aventura').map((d) => d.folder)).toEqual(['Comece aqui', 'Comece aqui', 'Comece aqui', 'Livro da aventura']);
   });
 
   it('todo documento carrega a marca da aventura', () => {
@@ -96,12 +98,12 @@ describe('links entre os documentos', () => {
 
   it('nada da aventura fica órfão: elenco, itens, runners, tabelas e material dos jogadores são citados no índice ou no livro', () => {
     const text = [...pack('noite-aventura')].flatMap((d) => d.pages.map((x) => x.text.content)).join('\n');
-    for (const name of ['noite-elenco', 'noite-itens', 'noite-fichas', 'noite-tabelas', 'noite-jogadores', 'noite-imagens', 'noite-cenas']) {
+    for (const name of ['noite-elenco', 'noite-itens', 'noite-fichas', 'noite-tabelas', 'noite-jogadores', 'noite-imagens', 'noite-cenas', 'noite-mapas', 'noite-macros']) {
       for (const d of pack(name)) expect(text, `${name}/${d.identifier}`).toContain(`@Ref[${name}/${d.identifier}`);
     }
   });
 
-  it('o índice cita os seis packs', () => {
+  it('o índice cita todos os packs', () => {
     const hub = pack('noite-aventura')[0].pages[0].text.content;
     for (const p of adventurePacks) expect(hub).toContain(`@Pack[${p.name}]`);
   });

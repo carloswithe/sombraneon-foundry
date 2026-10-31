@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.6.0] - 2026-10-31
+
+Os **mapas de mesa** da aventura Noite das Máscaras: dez Scenes prontos para jogar, conforme `docs/noite-das-mascaras-scenes.md`.
+
+### Adicionado
+- **Noite das Máscaras: Mapas de Mesa (10 Scenes):** Banca de Dona Ruth, Saguão Vermelho, Doca de Serviço, Baile no Anel, Elevador de Serviço e a Cache, Galeria dos Troféus, Corredor dos Rostos, Cofre da Diretoria, Anel Desmascarado e Rua em frente ao Estúdio, em pastas por sala. Cada um traz:
+  - o tamanho da tabela do guia (de 6 x 4 a 36 x 24 quadrados) e grade quadrada de 100 px = 1,5 m;
+  - paredes traçadas sobre a arte (cerca de 770 no total), portas e as trancas da aventura (elevadores no Alerta 4, porta da escada no apagão, painel da Cache com o código 3110, porta do cofre, elevador de serviço do Anel com o crachá nível 4);
+  - luzes nas cores do guia (ciano, vermelho, âmbar), a câmera da Doca como luz giratória em cone, o Mural e o curto-circuito do Corredor, o botão de pânico de Aragão escondido;
+  - regiões: cobertura total (caixas e carrinhos da Doca), colunas de vidro do Corredor (+2 de CA contra Taser, Rede e Metralhadora), faixas de parede do Mural (curto-circuito), multidão do Anel, terreno difícil do Anel Desmascarado, as três saídas da fuga no Cofre, a Isca da Galeria e o destino da fuga;
+  - notas com os pontos de interesse e **tokens nas posições iniciais** (runners, Rex 2 x 2, Aragão, Drones, Seguranças, Teo Pixel, o Assistente, convidados e figurantes).
+- **Tokens ligados às fichas:** ao importar um mapa, o módulo cria no mundo os atores do elenco que a cena usa (pasta *Noite das Máscaras*) e troca os marcadores por tokens ligados a eles. Os quatro marcadores *Runner* viram os personagens dos jogadores, na ordem dos nomes. Se faltar alguém, rode o macro *Noite: Montar tokens da cena*.
+- **Noite das Máscaras: Macros (9):** estados de cena que viram um clique: travar os elevadores no Alerta 4, apagão da Galeria, Mural e curto-circuito do Corredor, botão de pânico de Aragão, e as trancas do crachá nível 4, do painel da Cache e da porta do cofre.
+- **Guia dos mapas de mesa** (diário do Mestre, `02. Guia dos mapas de mesa`): o que já vem montado, o texto de cada mapa (contexto, o que mostrar, posições, estados), a lista de macros, o checklist e os prompts para gerar de novo. O índice e a caixa "Nesta cena" de cada sala do livro passam a linkar os mapas.
+- A API do módulo (`game.modules.get('sombraneon-compendium').api`) expõe as funções usadas pelos macros.
+
+### Para o Mestre
+- A visão dos tokens está ligada nos mapas: os jogadores veem o que o token deles vê, com as paredes e portas do mapa. Se preferir mesa aberta, desligue em Configurações da cena.
+- Alguns mapas saíram do gerador com rótulos em inglês na arte (por exemplo ELEVERTOR e STAFF DEOR), que o prompt pedia sem texto. Não atrapalham o jogo; troque o arquivo em `assets/noite-das-mascaras/mapas/` se quiser a arte limpa.
+- A porta de emergência do mapa 8 não aparece na arte: foi posta na parede de cima, à esquerda.
+
+### Para mundos existentes
+- Nada muda nos packs anteriores. Os dois packs novos (Mapas de Mesa e Macros) aparecem na pasta Noite das Máscaras ao atualizar o módulo.
+
 ## [0.5.1] - 2026-10-30
 
 As quatro imagens que faltavam da aventura **Noite das Máscaras** entraram. Agora estão todas as 24 do guia.

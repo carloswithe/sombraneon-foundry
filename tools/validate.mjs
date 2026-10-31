@@ -23,6 +23,7 @@ for (const p of PACKS) {
     if (d.background) imgs.add(d.background);
     for (const pg of d.pages ?? []) if (pg.src) imgs.add(pg.src);
     for (const it of d.items ?? []) imgs.add(it.img);
+    for (const t of d.tokens ?? []) if (t.icon) imgs.add(t.icon);
   }
 }
 for (const img of imgs) {
