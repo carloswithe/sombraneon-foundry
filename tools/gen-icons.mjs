@@ -82,6 +82,7 @@ const ICONS = {
   'gear-battery': ['battery', YEL],
   'gear-ration': ['box', GRN],
   'gear-stim': ['syringe', GRN],
+  'gear-repair-gel': ['syringe', CYAN],
   'gear-deck': ['chip', CYAN],
   'gear-firewall': ['shield', MAG],
   'gear-nanokit': ['cross', CYAN],

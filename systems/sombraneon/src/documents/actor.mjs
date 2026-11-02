@@ -144,14 +144,17 @@ export class SNActor extends Actor {
    * Aplica dano. Reduções (resist.*) arredondam o dano final para cima.
    * @returns {Promise<number>} dano efetivamente aplicado
    */
-  async applyDamage(amount, { type = '', nonlethal = false, heavy = false } = {}) {
+  async applyDamage(amount, { type = '', nonlethal = false, heavy = false, raw = false } = {}) {
     let dmg = Math.max(0, Math.floor(Number(amount) || 0));
-    // Blindagem (BL): reduz cada dano de armas comuns; armas Pesadas e explosões ignoram (compêndio de veículos, 1.2)
-    const bl = this.type === 'npc' ? Number(this.system.armor) || 0 : 0;
-    if (bl && !heavy) dmg = Math.max(0, dmg - bl);
-    dmg = Math.ceil(dmg * this.damageMultiplier(type));
-    const reduce = Number(this.getFlag(ID, 'damageReduce') ?? 0);
-    if (reduce) dmg = Math.max(0, dmg - reduce);
+    // `raw`: ajuste direto digitado na ficha, sem Blindagem nem reduções
+    if (!raw) {
+      // Blindagem (BL): reduz cada dano de armas comuns; armas Pesadas e explosões ignoram (compêndio de veículos, 1.2)
+      const bl = this.type === 'npc' ? Number(this.system.armor) || 0 : 0;
+      if (bl && !heavy) dmg = Math.max(0, dmg - bl);
+      dmg = Math.ceil(dmg * this.damageMultiplier(type));
+      const reduce = Number(this.getFlag(ID, 'damageReduce') ?? 0);
+      if (reduce) dmg = Math.max(0, dmg - reduce);
+    }
     if (dmg <= 0) return 0;
     const hp = this.system.hp;
     const next = Math.max(0, hp.value - dmg);

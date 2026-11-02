@@ -19,6 +19,11 @@
         {{#if stats.attack}}<li><span>{{localize 'SOMBRANEON.Attack.Roll'}}</span><strong>{{stats.attack}}</strong></li>
         <li><span>{{localize 'SOMBRANEON.Rolls.Damage'}}</span><strong>{{stats.die}}{{stats.damageBonus}}</strong></li>{{/if}}
       </ul>
+      <div class="sn-hp-quick" title="{{localize 'SOMBRANEON.Hp.QuickHint'}}">
+        <input type="number" class="sn-hp-amount" data-hp-amount min="0" placeholder="{{localize 'SOMBRANEON.Hp.Amount'}}">
+        <button type="button" class="sn-chip-btn sn-dmg" data-action="hpApply" data-mode="damage" title="{{localize 'SOMBRANEON.Hp.DamageHint'}}">{{localize 'SOMBRANEON.Hp.Damage'}}</button>
+        <button type="button" class="sn-chip-btn sn-heal" data-action="hpApply" data-mode="heal" title="{{localize 'SOMBRANEON.Hp.HealHint'}}">{{localize 'SOMBRANEON.Hp.Heal'}}</button>
+      </div>
       {{#if system.destroyed}}<p class="sn-warn-text">{{localize 'SOMBRANEON.Drone.Destroyed'}}</p>
       <button type="button" class="sn-btn" data-action="rebuild">{{localize 'SOMBRANEON.Drone.Rebuild'}}</button>
       {{else}}{{#if stats.attack}}<button type="button" class="sn-btn sn-primary" data-action="attackDrone">{{localize 'SOMBRANEON.Drone.Attack'}}</button>{{/if}}{{/if}}

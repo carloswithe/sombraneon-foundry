@@ -1,6 +1,6 @@
 # SombraNeon para Foundry VTT
 
-RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.6 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
+RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.7 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
 
 Dois pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 

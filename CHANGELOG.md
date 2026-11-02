@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.7.0] - 2026-11-02
+
+Livro **v0.7** no sistema e no módulo, e dano digitado direto nas fichas.
+
+### Livro v0.7
+- **Ataque com FOR ou DES:** a escolha vale só para armas corpo a corpo Leves e para armas Leves arremessadas (a faca, por exemplo). **Arma de fogo ataca sempre com DES**, inclusive a pistola leve, que deixou de ser Leve. A escolha manual de FOR/DES na ficha da arma agora só vale para corpo a corpo Leve e para Leve arremessada.
+- **Gel de reparo** (8.5, novo): 100 cr, 2 por slot, recupera 1d6 HP de um Android (você ou alguém Perto), uso único. Categoria própria e ícone próprio; entra no Equipamento do módulo (27 itens) e no carrinho do assistente de criação (2 por slot).
+- **Stim:** a nota agora diz que cura orgânicos e não funciona em Androides.
+- **Rig utilitário:** definido como a mochila do runner (o primeiro continua sem ocupar slot).
+- Textos do Livro de Regras, tabelas e compêndios regerados da v0.7 (3.4 Android, 8.1, 8.3, 8.5, 9.3, 11.2, 11.3 e o histórico de versões). Os rótulos de origem dos itens passam a citar "Livro v0.7".
+
+### Dano e cura digitados
+- **Valor, Dano e Cura** nas fichas de jogador, ameaça, ICE e drone: digite o valor e aplique de uma vez, sem clicar de um em um. **Enter** no campo aplica como dano.
+- O **Dano** segue as regras: a Blindagem da ameaça e as reduções da ficha valem, e uma notificação diz o quanto foi aplicado quando elas mudam o valor (a causa mais provável de "o dano não entrou" numa ameaça com Blindagem). **Shift** no Dano (ou Shift+Enter) aplica direto, sem reduções. A **Cura** soma até o máximo.
+- Os botões - e + da ficha do jogador continuam, com Shift para 5.
+
+### Para mundos existentes
+- Atualize o sistema e o módulo. Uma pistola leve já no inventário mantém a propriedade Leve até ser arrastada de novo do compêndio, mas passa a atacar com DES de qualquer jeito.
+- Pontos em aberto do livro: o Injetor embutido (7.4) guarda stims, que não funcionam em Androides, e o gel de reparo não entrou nos pacotes por classe nem no Kit de Runner.
+
 ## [0.6.0] - 2026-10-31
 
 Os **mapas de mesa** da aventura Noite das Máscaras: dez Scenes prontos para jogar, conforme `docs/noite-das-mascaras-scenes.md`.

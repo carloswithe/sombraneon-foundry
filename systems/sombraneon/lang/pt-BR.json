@@ -363,6 +363,7 @@
       "battery": "Bateria",
       "ration": "Ração",
       "stim": "Stim",
+      "repair-gel": "Gel de reparo",
       "deck": "Deck",
       "firewall": "Firewall",
       "nanokit": "Nanokit",
@@ -1113,6 +1114,18 @@
       "EcoDigital": "Por 1d4 rodadas você executa dois programas por rodada.",
       "FirstAid": "{name} foi estabilizado, sem teste e sem gastar protocolo.",
       "Passive": "Passiva: aplicada automaticamente."
+    },
+    "Hp": {
+      "Amount": "Valor",
+      "Damage": "Dano",
+      "Heal": "Cura",
+      "QuickHint": "Digite o valor e aplique de uma vez. Dano segue a Blindagem e as reduções da ficha; Shift no Dano (ou Shift+Enter) aplica direto. Enter aplica como dano.",
+      "DamageHint": "Aplica o dano digitado (Blindagem e reduções valem). Shift: direto.",
+      "HealHint": "Soma o valor ao HP, até o máximo.",
+      "NeedAmount": "Digite um valor maior que zero.",
+      "Damaged": "{name}: {applied} de dano aplicado.",
+      "DamagedReduced": "{name}: {applied} de dano aplicado (digitado {typed}; Blindagem ou reduções valeram).",
+      "Healed": "{name}: {applied} de HP recuperado."
     },
     "Warn": {
       "NoGM": "Nenhum Mestre ativo para executar esta ação.",

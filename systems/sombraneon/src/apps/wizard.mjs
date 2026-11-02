@@ -156,7 +156,7 @@ export class CreationWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       return { index: i, name: e?.name ?? c.identifier, qty: c.qty, price: format((e?.price ?? 0) * c.qty) };
     });
     const implantOptions = catalog ? CompendiumIndex.list('implant').map((e) => ({ id: e.identifier, name: e.name, slot: t(`Slot.${e.slot}`), slotKey: e.slot })) : [];
-    const stacks = d.cart.map((c) => ({ quantity: c.qty, slots: 1, perSlot: ['carregador', 'bateria', 'stim', 'firewall'].includes(c.identifier) ? 2 : 1 }));
+    const stacks = d.cart.map((c) => ({ quantity: c.qty, slots: 1, perSlot: ['carregador', 'bateria', 'stim', 'gel-de-reparo', 'firewall'].includes(c.identifier) ? 2 : 1 }));
     const balance = d.credits === null ? null : d.credits - spent;
     const talentCount = 1 + (d.origin === 'nat' ? 1 : 0);
     return {

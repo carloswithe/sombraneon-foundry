@@ -125,6 +125,10 @@
 .sombraneon .sn-hp-fill.sn-danger { background: var(--sn-mag); }
 .sombraneon .sn-hp-controls { display: flex; align-items: center; justify-content: center; gap: 4px; font-family: var(--sn-font-mono); }
 .sombraneon .sn-hp-controls input { width: 52px; text-align: center; }
+.sombraneon .sn-hp-quick { display: flex; align-items: center; gap: 4px; margin: 4px 0; }
+.sombraneon .sn-hp-quick .sn-hp-amount { width: 64px; text-align: center; font-family: var(--sn-font-mono); }
+.sombraneon .sn-hp-quick .sn-dmg { border-color: var(--sn-mag); color: var(--sn-mag); }
+.sombraneon .sn-hp-quick .sn-heal { border-color: var(--sn-grn); color: var(--sn-grn); }
 .sombraneon .sn-adv { color: var(--sn-grn); font-size: 11px; }
 .sombraneon .sn-pips { display: flex; gap: 4px; }
 .sombraneon .sn-pip { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--sn-yel); }

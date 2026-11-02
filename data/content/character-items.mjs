@@ -112,7 +112,7 @@ function classes() {
       identifier: c.id,
       img: ICON('class'),
       sort: (i + 1) * 100,
-      source: `Livro v0.6, ${c.section}`,
+      source: `Livro v0.7, ${c.section}`,
       description: text.map((t) => html(t)).join(''),
       system: {
         hitDie: c.hitDie,
@@ -168,7 +168,7 @@ function origins() {
       identifier: o.id,
       img: ICON('origin'),
       sort: (i + 1) * 100,
-      source: `Livro v0.6, ${o.section}`,
+      source: `Livro v0.7, ${o.section}`,
       description: html(originIntro(o.section)),
       system: {
         grants,
@@ -207,7 +207,7 @@ function backgrounds() {
       identifier: slug(name),
       img: ICON('background'),
       sort: n * 100,
-      source: 'Livro v0.6, 5',
+      source: 'Livro v0.7, 5',
       description: html(`**Conhecimento:** ${knowledge}`) + (BACKGROUND_VEHICLES[slug(name)] ? html(`**Treino em veículos:** ${BACKGROUND_VEHICLES[slug(name)].map((v) => VEHICLE_NAMES[v]).join(', ')} (livro 4.7).`) : ''),
       system: { knowledge, contactPrompt: 'Quem você conhece na cidade?', rollIndex: n, highlight, vehicles: BACKGROUND_VEHICLES[slug(name)] ?? [] }
     });
@@ -235,7 +235,7 @@ function alignments() {
       identifier: a.id,
       img: ICON(`alignment-${a.id}`),
       sort: (i + 1) * 100,
-      source: 'Livro v0.6, 6',
+      source: 'Livro v0.7, 6',
       description: html(`${plain(row[2])} (equivale a ${plain(row[1])} no Shadowdark).`),
       system: {
         mapsTo: MAPS_TO[a.id],

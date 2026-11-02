@@ -68,6 +68,11 @@
         <span title="{{hp.tooltip}}">/ {{hp.max}}</span>
         <button type="button" class="sn-icon" data-action="hpAdjust" data-delta="1">+</button>
       </div>
+      <div class="sn-hp-quick" title="{{localize 'SOMBRANEON.Hp.QuickHint'}}">
+        <input type="number" class="sn-hp-amount" data-hp-amount min="0" placeholder="{{localize 'SOMBRANEON.Hp.Amount'}}">
+        <button type="button" class="sn-chip-btn sn-dmg" data-action="hpApply" data-mode="damage" title="{{localize 'SOMBRANEON.Hp.DamageHint'}}">{{localize 'SOMBRANEON.Hp.Damage'}}</button>
+        <button type="button" class="sn-chip-btn sn-heal" data-action="hpApply" data-mode="heal" title="{{localize 'SOMBRANEON.Hp.HealHint'}}">{{localize 'SOMBRANEON.Hp.Heal'}}</button>
+      </div>
     </div>
     <div class="sn-vital sn-ac" title="{{acTooltip}}">
       <span class="sn-label">{{localize 'SOMBRANEON.Sheet.AC'}}</span>

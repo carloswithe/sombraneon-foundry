@@ -6,6 +6,19 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 /** Texto de dica a partir de partes { label, value }. */
 export const partsTooltip = (parts = []) => parts.map((p) => `${p.label} ${signed(p.value)}`).join('\n');
 
+/** Aplica dano ou cura digitado no campo de HP rápido e avisa quando as reduções mudaram o valor. */
+export async function applyHpAmount(actor, field, mode, raw = false) {
+  const typed = Math.floor(Math.abs(Number(field?.value)));
+  if (!Number.isFinite(typed) || typed <= 0) {
+    field?.focus();
+    return notify('warn', 'Hp.NeedAmount');
+  }
+  const applied = mode === 'heal' ? await actor.applyHealing(typed) : await actor.applyDamage(typed, { raw });
+  if (field) field.value = '';
+  if (mode === 'heal') return notify('info', 'Hp.Healed', { name: actor.name, applied });
+  return notify('info', applied === typed ? 'Hp.Damaged' : 'Hp.DamagedReduced', { name: actor.name, applied, typed });
+}
+
 /**
  * Comportamentos comuns das fichas: abas, arrastar e soltar, ações de linha e edição de listas.
  * @template {typeof foundry.applications.api.DocumentSheetV2} T
@@ -25,6 +38,7 @@ export function SNSheetMixin(Base) {
         snTab: SNSheet.#tab,
         toggleEdit: SNSheet.#toggleEdit,
         editImage: SNSheet.#editImage,
+        hpApply: SNSheet.#hpApply,
         arrayAdd: SNSheet.#arrayAdd,
         arrayRemove: SNSheet.#arrayRemove
       }
@@ -45,6 +59,15 @@ export function SNSheetMixin(Base) {
       this._tab = target.dataset.tab;
       this.element.querySelectorAll('[data-tab-panel]').forEach((p) => p.classList.toggle('active', p.dataset.tabPanel === this._tab));
       this.element.querySelectorAll('[data-action="snTab"]').forEach((b) => b.classList.toggle('active', b.dataset.tab === this._tab));
+    }
+
+    /**
+     * Aplica o valor digitado ao HP: Dano segue as regras (Blindagem e reduções), Cura soma até o máximo.
+     * Shift no botão de dano aplica direto, sem reduções.
+     */
+    static async #hpApply(event, target) {
+      const box = target.closest('.sn-hp-quick');
+      return applyHpAmount(this.document, box?.querySelector('[data-hp-amount]'), target.dataset.mode, event.shiftKey);
     }
 
     static #toggleEdit() {
@@ -105,6 +128,16 @@ export function SNSheetMixin(Base) {
         input.addEventListener('change', (event) => {
           event.stopPropagation();
           this._onChangeAction?.(input.dataset.change, event, input);
+        });
+      });
+      // HP rápido: o valor digitado não é dado do ator; Enter aplica como dano (Shift: direto)
+      el.querySelectorAll('[data-hp-amount]').forEach((input) => {
+        input.addEventListener('change', (event) => event.stopPropagation());
+        input.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter') return;
+          event.preventDefault();
+          event.stopPropagation();
+          applyHpAmount(this.document, input, 'damage', event.shiftKey);
         });
       });
       // edição de listas (modificadores, concessões...)

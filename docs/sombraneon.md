@@ -2,7 +2,7 @@
 
 *RPG cyberpunk de regras enxutas, adaptado do Shadowdark*
 
-> **Status:** v0.6, completo para o primeiro teste de mesa.
+> **Status:** v0.7, completo para o primeiro teste de mesa.
 > **Referências de projeto:** Shadowdark (base de regras), CyberDark (slots de implante, Edge, alinhamentos) e Dark Space (estrutura de arquétipos, traços de espécie, motivações).
 > **Compêndios companheiros:** *SombraNeon: Compêndio de Ameaças* (inimigos, facções, corporações, ameaças digitais, IAs e cultos) e *SombraNeon: Compêndio de Veículos e Armamento* (veículos, armas pesadas, armas de cerco e mechas).
 
@@ -93,8 +93,8 @@ Diferença entre INT e SAB: SAB é instinto, percepção e dados sensoriais. INT
 - **Iniciativa:** cada jogador rola d20 + mod. de DES e o Mestre rola 1d20 por grupo inimigo. Quem tirar mais age primeiro na rodada. Empate favorece os jogadores. A ordem se mantém até o fim do combate.
 - **No seu turno:** você se move até o alcance **Próximo** e faz uma **ação** (atacar, executar um programa, usar um item). Se pular a ação, pode se mover Próximo de novo. Pequenas tarefas paralelas (dar uma ordem, levantar, ativar um aparelho) não custam a ação.
 - **Alcances:** Perto (mão a mão, cerca de 1,5 m), Próximo (até cerca de 9 m, ou 30 pés) e Longe (dentro da linha de visão).
-- **Ataque corpo a corpo:** d20 + mod. de FOR (ou DES com armas leves).
-- **Ataque à distância:** d20 + mod. de DES.
+- **Ataque corpo a corpo:** d20 + mod. de FOR (ou DES com armas **Leves**, 8.1).
+- **Ataque à distância:** d20 + mod. de DES. Toda arma de fogo ataca com DES, inclusive a pistola leve. A única exceção é a arma **Leve** arremessada (uma faca, por exemplo), que pode usar FOR ou DES (8.1).
 - **Acerto:** o resultado iguala ou supera a **CA** do alvo.
 - **CA base:** 10 + mod. de DES + armadura.
 - **Dano:** role os dados da arma (ou do programa) e some bônus relevantes. Em acerto crítico, dobre os dados.
@@ -210,7 +210,7 @@ Robô humanoide: chassi de liga, processador e uma mente que aprendeu a querer. 
 - **Casco de fábrica:** +1 de CA enquanto não usar armadura.
 - **Interface nativa:** você se conecta a decks, drones e terminais sem cabo, ao alcance Perto, e tem vantagem em hack de rua.
 - **Mente estável:** conta 1 implante a menos ao verificar ciberpsicose (7.3).
-- **Máquina:** desvantagem em testes de resistência contra hacking e EMP. Stims e o Sistema de estimulantes não funcionam em você, e protocolos de cura de Hyperdoc curam só metade. Em compensação, um aliado com **kit de ferramentas** pode te reparar em campo (INT CD 12, **1d6 HP por hora**, ou **2d6** se for um Rigger). O descanso comum continua restaurando seus HP.
+- **Máquina:** desvantagem em testes de resistência contra hacking e EMP. Stims e o Sistema de estimulantes não funcionam em você, e protocolos de cura de Hyperdoc curam só metade. Em compensação, um aliado com **kit de ferramentas** pode te reparar em campo (INT CD 12, **1d6 HP por hora**, ou **2d6** se for um Rigger), e o **gel de reparo** (8.5) faz o papel do stim: recupera 1d6 HP na hora. O descanso comum continua restaurando seus HP.
 - **Visível:** a menos que use uma **pele cosmética** (cerca de 3.000 cr, instalada por um Hyperdoc ou clínica), qualquer pessoa percebe que você é uma máquina. Polícia, segurança corporativa e executivos têm -2 na reação a você, e uma corporação pode reivindicar sua posse. Com a pele, só um scanner te denuncia.
 
 **Sintético, o termo de rua:** a gíria da cidade chama Replicantes e Androides de **sintéticos**. Facções, leis e contratos dizem "sintético" quando não se importam com a diferença. Para as regras do livro, vale a origem específica, e o termo geral aparece em frases como "libertar sintéticos" e na tabela de reação por facção (6.2).
@@ -654,12 +654,12 @@ Os bônus de atributo dos implantes somam ao valor do atributo (não ao modifica
 - **Créditos (cr):** moeda única e digital, guardada num credstick. Não ocupam slots. **10 cr equivalem a 1 peça de ouro do Shadowdark.**
 - **Slots de equipamento:** igual ao seu valor de **FOR** (mínimo 10). O Solo soma o mod. de CON.
 - **Itens pequenos:** onde indicado, vários itens ocupam 1 slot.
-- **Rig utilitário:** o primeiro não ocupa slot.
+- **Rig utilitário:** a mochila do runner (bolsa de carga, colete tático ou mochila de rua), onde o equipamento fica guardado. É o equivalente à mochila do Shadowdark. O primeiro não ocupa slot.
 - **Munição:** você não conta tiros, conta **carregadores**. Num **1 natural** em ataque à distância, o carregador acabou: recarregar custa 1 ação e 1 carregador.
 - **Bateria:** lanternas, decks e olhos térmicos usam bateria. Cada bateria dura **1 hora real de mesa**. Trocar custa uma ação.
 - **Propriedades de armas:**
-  - **Leve:** use FOR ou DES no ataque.
-  - **Arremessável:** pode ser lançada como ataque à distância.
+  - **Leve:** em armas corpo a corpo e arremessadas, use FOR ou DES no ataque, o que for melhor. Arma de fogo nunca usa FOR: mesmo a pistola leve ataca sempre com DES.
+  - **Arremessável:** pode ser lançada como ataque à distância. Se também for Leve, o ataque arremessado pode usar FOR ou DES.
   - **Duas mãos:** exige as duas mãos.
   - **Rajada:** em vez do ataque normal, uma única rolagem atinge todas as criaturas num cubo Próximo à frente, que tenham CA igual ou menor que o resultado. Gasta 1 carregador inteiro.
   - **Mira:** gaste uma ação para dar +2 no ataque seguinte.
@@ -679,13 +679,15 @@ Os bônus de atributo dos implantes somam ao valor do atributo (não ao modifica
 
 | Arma | Dano | Alcance | Slots | Custo | Notas |
 |---|---|---|---|---|---|
-| Pistola leve | d6 | Próximo | 1 | 100 cr | Leve |
+| Pistola leve | d6 | Próximo | 1 | 100 cr | |
 | Pistola pesada | d8 | Próximo | 1 | 150 cr | |
 | Submetralhadora | d6 | Próximo | 1 | 250 cr | Rajada |
 | Escopeta | d10 | Próximo | 2 | 200 cr | Duas mãos |
 | Fuzil | d10 | Longe | 2 | 300 cr | Duas mãos |
 | Rifle de precisão | d12 | Longe | 2 | 600 cr | Duas mãos, mira |
 | Arma inteligente | d6 | Próximo | 1 | 500 cr | +1 em acerto |
+
+**Armas de fogo sempre atacam com DES**, mesmo a pistola leve (1.4 e 8.1).
 
 **Armas pesadas, explosivos e armas de cerco** (metralhadoras, lança-foguetes, canhões antiaéreos, artilharia) estão no *Compêndio de Veículos e Armamento*.
 
@@ -714,10 +716,11 @@ Os bônus de atributo dos implantes somam ao valor do atributo (não ao modifica
 | Bateria | 50 cr | 2 por slot | 1 hora de mesa |
 | Carregador | 30 cr | 2 por slot | Munição de armas de fogo |
 | Cabo de interface | 50 cr | 1 | Conexão física de rede |
-| Stim | 100 cr | 2 por slot | Recupera 1d6 HP, uso único |
+| Stim | 100 cr | 2 por slot | Recupera 1d6 HP de um orgânico, uso único. Não funciona em Androides |
+| Gel de reparo | 100 cr | 2 por slot | Recupera 1d6 HP de um Android (você ou alguém Perto), uso único. Não funciona em orgânicos |
 | Rádio | 200 cr | 1 | Alcance de cidade |
 | Ração (3) | 50 cr | 1 | Sustenta 3 dias, necessária para descansar |
-| Rig utilitário | 30 cr | 1 | O primeiro não ocupa slot |
+| Rig utilitário | 30 cr | 1 | A mochila do runner. O primeiro não ocupa slot |
 
 ### 8.6 Pacotes sugeridos por classe
 
@@ -897,7 +900,7 @@ Programas são como as magias do Shadowdark.
 
 ### 9.3 Protocolos (Hyperdoc)
 
-Funcionam como programas, com **SAB** no lugar de INT e o **nanokit** no lugar do deck. Os protocolos de cura têm alcance Perto ou Próximo, conforme o texto. Em um **Android**, eles curam apenas metade (arredonde para cima); o reparo com kit de ferramentas é a cura normal dele (3.4).
+Funcionam como programas, com **SAB** no lugar de INT e o **nanokit** no lugar do deck. Os protocolos de cura têm alcance Perto ou Próximo, conforme o texto. Em um **Android**, eles curam apenas metade (arredonde para cima); o reparo com kit de ferramentas e o gel de reparo são a cura normal dele (3.4 e 8.5).
 
 - **Falha:** o protocolo entra em Crash até o descanso.
 - **20 natural:** dobre um efeito numérico do protocolo.
@@ -1358,6 +1361,7 @@ CRÉDITOS: ______      CONTATOS: ________________________
 - XP para subir: nível atual x 10. Butim: Sucata 0, Normal 1, Valioso 3, Lendário 10.
 - Pagamento por runner: Rua d6 x 150 cr, Corp d6 x 500 cr, Elite d6 x 1.500 cr.
 - Alcances: Perto (1,5 m), Próximo (9 m), Longe (linha de visão).
+- Ataque: corpo a corpo com FOR (ou DES com arma Leve), à distância com DES. Arma de fogo sempre usa DES. Arma Leve arremessada usa FOR ou DES.
 - Alerta: 0 a 4.
 - Moral dos inimigos: Fraca CD 18, Normal CD 15, Firme CD 12, Fanática nunca foge.
 - Encontro (soma dos NA contra a soma dos níveis do grupo): Fácil 1/2, Normal 3/4, Difícil 1x, Mortal 1,5x.
@@ -1368,6 +1372,7 @@ CRÉDITOS: ______      CONTATOS: ________________________
 - Edge: 1 ficha por vez, gasta para repetir uma rolagem.
 - Programas e protocolos: d20 + atributo contra CD 10 + tier.
 - Ciberpsicose: SAB CD 12 (3 slots) ou CD 14 (4 slots).
+- Cura rápida: stim (1d6 HP, orgânicos) e gel de reparo (1d6 HP, Androides).
 
 ### 11.3 Mapa Shadowdark para SombraNeon
 
@@ -1389,6 +1394,7 @@ CRÉDITOS: ______      CONTATOS: ________________________
 | Peças de ouro | Créditos (1 po = 10 cr) |
 | Tocha de 1 hora real | Bateria e Firewall de 1 hora real |
 | Slots de equipamento | Slots de equipamento |
+| Mochila | Rig utilitário (o primeiro não ocupa slot) |
 | Itens mágicos | Implantes (4 slots corporais) |
 | XP por tesouro (Poor 0, Normal 1, Fabulous 3, Legendary 10) | XP por butim (Sucata 0, Normal 1, Valioso 3, Lendário 10) |
 | Tesouro carregado para fora da masmorra | Butim extraído para a Toca ou o contratante |
@@ -1411,6 +1417,36 @@ Se o livro for publicado: conferir a licença de terceiros do Shadowdark e usar 
 ---
 
 ## 12. Notas de versão
+
+### v0.7 (01/11/2026)
+
+**Mudança principal:** três acertos de regra e de equipamento: o **rig utilitário** ganhou um papel definido (a mochila), os **Androides** ganharam um consumível de cura equivalente ao stim, e a regra de atacar com **FOR ou DES** ficou explícita.
+
+**Novo**
+- **Gel de reparo** (8.5): 100 cr, 2 por slot, recupera 1d6 HP de um Android (você ou alguém Perto), uso único. Faz para o Android o papel que o stim faz para os orgânicos, já que o stim não funciona nele.
+
+**Alterado**
+- **Rig utilitário** (8.1 e 8.5): definido como a mochila do runner (bolsa de carga, colete tático ou mochila de rua), equivalente à mochila do Shadowdark. O primeiro continua sem ocupar slot. Preço, pacotes por classe e Kit de Runner não mudaram.
+- **Ataque com FOR ou DES** (1.4, 8.1, 8.3 e 11.2): a escolha entre FOR e DES vale só para armas corpo a corpo Leves e para armas Leves arremessadas (uma faca, por exemplo). Arma de fogo ataca sempre com DES, inclusive a pistola leve. A nota "Leve" saiu da linha da Pistola leve (8.3), porque não tinha efeito e gerava a dúvida. Entrou uma linha explícita abaixo da tabela de armas de fogo.
+- **3.4 Android (Máquina):** passa a citar o gel de reparo como cura imediata, ao lado do reparo em campo com kit de ferramentas.
+- **8.5 Stim:** a nota agora diz que cura orgânicos e não funciona em Androides.
+- **9.3 Protocolos:** o trecho sobre a cura normal do Android inclui o gel de reparo.
+- **11.2 Tabelas rápidas:** duas linhas novas, Ataque (FOR ou DES) e Cura rápida (stim e gel de reparo).
+- **11.3 Mapa Shadowdark:** linha nova, Mochila para Rig utilitário.
+- **Cabeçalho:** status v0.7.
+
+**O que muda na mesa em relação à v0.6**
+- Um Android pode se curar no meio da cena sem depender de um aliado com kit de ferramentas, pagando 100 cr por gel.
+- A pistola leve não usa FOR: ataca com DES, como qualquer arma de fogo. Nas fichas prontas da aventura Noite das Máscaras que foram conferidas (Android, Rocker e Rigger), o bônus de ataque da pistola já vem de DES, então nenhuma ficha precisa ser refeita.
+- O rig utilitário continua grátis no slot, mas agora tem identidade: é onde o equipamento fica guardado.
+
+**Não mudou**
+- Origens, classes, antecedentes, alinhamentos, cromo e implantes, hacking, Edge, XP e progressão, e os preços dos pacotes.
+
+**Pontos em aberto**
+- O **Injetor embutido** (7.4, Braços) guarda stims, que não funcionam em Androides. Falta decidir se ele também pode guardar gel de reparo.
+- O gel de reparo não entrou nos pacotes por classe nem no Kit de Runner. A compra fica por conta do jogador.
+- Os compêndios e as aventuras não foram revisados nesta versão. Vale conferir se algum deles trata arma de fogo como Leve ou cita o stim como cura de Android.
 
 ### v0.6 (27/10/2026)
 

@@ -37,7 +37,7 @@ function build({ kind, tier, name, text, folder, sort, section }) {
     img: ICON(kind),
     folder,
     sort,
-    source: `Livro v0.6, ${section}`,
+    source: `Livro v0.7, ${section}`,
     description: html(text),
     system: {
       kind,

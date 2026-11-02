@@ -892,7 +892,7 @@ const R = (rows) => rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join(''
 const room = (page, label) => link(`noite-aventura/livro#${page}`, label);
 
 const hub =
-  `<p><em>Aventura de assalto para SombraNeon v0.6. Quatro runners de nível 1, uma sessão de até 4 horas. Tudo que a aventura usa está nos compêndios desta pasta.</em></p>` +
+  `<p><em>Aventura de assalto para SombraNeon v0.7. Quatro runners de nível 1, uma sessão de até 4 horas. Tudo que a aventura usa está nos compêndios desta pasta.</em></p>` +
   `<h2>Compêndios da aventura</h2><ul>` +
   `<li>@Pack[noite-aventura]: este índice, o guia rápido e o Livro da Aventura (só o Mestre).</li>` +
   `<li>@Pack[noite-jogadores]: o que entregar à mesa (briefing, personas, armas na festa e escala do Alerta).</li>` +

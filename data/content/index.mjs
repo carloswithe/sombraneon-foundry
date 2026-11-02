@@ -52,7 +52,7 @@ export const EXPECTED_COUNTS = {
   regras: 1,
   armas: 37,
   armaduras: 3,
-  equipamento: 26,
+  equipamento: 27,
   implantes: 28,
   veiculos: 58,
   ice: 17,

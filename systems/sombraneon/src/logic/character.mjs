@@ -208,8 +208,7 @@ export function deriveCharacter(input) {
     const ctx = { ...baseCtx, weapon, unarmed: family === 'unarmed' };
     let ability;
     if (line.ability) ability = line.ability;
-    else if (source === 'thrown') ability = 'des';
-    else if (properties.includes('light')) ability = bestAbility(abilities);
+    else if (line.flexible) ability = bestAbility(abilities);
     else ability = kind === 'ranged' ? 'des' : 'for';
     const parts = [{ label: ability.toUpperCase(), value: mod(ability) }];
     let attackBonus = mod(ability);
@@ -289,11 +288,15 @@ export function deriveCharacter(input) {
       magEmpty: s.magEmpty,
       usesMagazines: s.usesMagazines,
       proficient: isProficient(w, cls),
-      ability: s.abilityOverride && properties.includes('light') ? s.abilityOverride : undefined
+      // FOR ou DES: só em arma Leve corpo a corpo. Arma de fogo ataca sempre com DES.
+      flexible: properties.includes('light') && s.kind === 'melee',
+      ability: s.abilityOverride && properties.includes('light') && s.kind === 'melee' ? s.abilityOverride : undefined
     };
     buildLine(line);
     if (properties.includes('thrown')) {
-      buildLine({ ...line, id: `thrown-${w.id}`, source: 'thrown', kind: 'ranged', range: 'near', properties: properties.filter((p) => p !== 'light'), ability: 'des' });
+      // Arma Leve arremessada também escolhe FOR ou DES; sem Leve, o arremesso usa DES.
+      const light = properties.includes('light');
+      buildLine({ ...line, id: `thrown-${w.id}`, source: 'thrown', kind: 'ranged', range: 'near', properties: properties.filter((p) => p !== 'light'), flexible: light, ability: light ? s.abilityOverride || undefined : 'des' });
     }
   }
   if (hands > 2) warn('tooManyHands', { hands });

@@ -32,7 +32,7 @@ export const SN = {
   clinicSurcharge: 0.1,
   droneRebuildCost: 250,
   gearCategories: [
-    'general', 'tool', 'medical', 'ammo', 'battery', 'ration', 'stim', 'deck', 'firewall', 'nanokit',
+    'general', 'tool', 'medical', 'ammo', 'battery', 'ration', 'stim', 'repair-gel', 'deck', 'firewall', 'nanokit',
     'surgical', 'stage-rig', 'utility-rig', 'radio', 'light', 'cable', 'vehicle', 'drone-module'
   ],
   restQuality: { safe: null, unsafe: 3, risky: 2, deadly: 1 },

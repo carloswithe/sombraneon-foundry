@@ -10,6 +10,11 @@
         <label>{{localize 'SOMBRANEON.Sheet.Initiative'}}<input type="number" name="system.initiative" value="{{system.initiative}}"></label>
         <label title="{{localize 'SOMBRANEON.Npc.ArmorHint'}}">{{localize 'SOMBRANEON.Npc.Armor'}}<input type="number" name="system.armor" value="{{system.armor}}" min="0"></label>
       </div>
+      <div class="sn-hp-quick" title="{{localize 'SOMBRANEON.Hp.QuickHint'}}">
+        <input type="number" class="sn-hp-amount" data-hp-amount min="0" placeholder="{{localize 'SOMBRANEON.Hp.Amount'}}">
+        <button type="button" class="sn-chip-btn sn-dmg" data-action="hpApply" data-mode="damage" title="{{localize 'SOMBRANEON.Hp.DamageHint'}}">{{localize 'SOMBRANEON.Hp.Damage'}}</button>
+        <button type="button" class="sn-chip-btn sn-heal" data-action="hpApply" data-mode="heal" title="{{localize 'SOMBRANEON.Hp.HealHint'}}">{{localize 'SOMBRANEON.Hp.Heal'}}</button>
+      </div>
       <div class="sn-row">
         <label>{{localize 'SOMBRANEON.Npc.Movement'}}<input type="text" name="system.movement" value="{{system.movement}}"></label>
         <label>{{localize 'SOMBRANEON.Npc.Alignment'}}<input type="text" name="system.alignment" value="{{system.alignment}}"></label>
