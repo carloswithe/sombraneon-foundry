@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.8.0] - 2026-11-03
+
+**Regras adicionais opcionais** (Compêndio de Regras Adicionais v0.1) no sistema e no módulo, com o **marcador de Exaustão na ficha**.
+
+### Exaustão (sistema)
+- **Marcador na ficha do personagem**, ao lado do Edge: níveis 1 a 5 e a caveira do 6 (morte). Clique num nível para marcá-lo, clique no nível atual para baixar um, ou use - e +. Mostra "-N em todos os testes" e fica laranja quando há Exaustão. Marcar o 6 pede confirmação.
+- **Penalidade automática** de -1 por nível em todos os testes de d20: ataques (aparece como parcela "Exaustão" na linha de ataque), testes de atributo e de resistência, iniciativa e execução de programas, protocolos e Sets. Não afeta dano, dados de vida nem a rolagem de quem está morrendo.
+- **Ganho automático:** cair a 0 HP e apagar dá +1 nível, por queda (inclui dano não letal que derruba). Filtro de dor e Duro de matar, que seguram em pé, não geram. No nível 6 o runner morre na hora, sem rodadas de morrendo.
+- **Perda automática:** cada descanso bem-sucedido remove 1 nível (interrompido não remove). Configuração para remover 2 (variante de Toca melhor).
+- Ameaças e NPCs não usam Exaustão. A regra pode ser desligada nas configurações do mundo.
+- Macro **Convalescer (Exaustão)** para a ação de Tempo livre.
+
+### Efeito crítico (sistema)
+- Regra opcional, **desligada por padrão**. Um runner que sofre um golpe de 10 ou mais de dano (gatilho configurável: 8, 10 ou 15) rola o Efeito crítico: 2d6 com -1 para cada 10 de dano acima de 10, local por 1d4 (linhas de membro rolam de novo em Neural e Corpo), coluna Carne ou Cromo conforme o implante ou a PMB no local (Androides são cromo por inteiro), e o resultado vai para o chat com o estado do cromo (desligado, danificado, destruído). O Choque dá +1 nível de Exaustão.
+- Macro **Efeito crítico (regra opcional)** para NPCs nomeados e chefes (rolam só se sobreviverem) ou para rolar à mão.
+
+### Módulo
+- **Compêndio de Regras Adicionais** como diário (9 capítulos) em Compêndios de Referência.
+- **Tabelas do Mestre:** Efeito crítico (2d6, 11 linhas com Carne e Cromo) e Efeito crítico: local do golpe (1d4).
+- **Equipamento:** PMB (braço) e PMB (perna), 150 cr, 0 slots. Equipamento agora tem 29 itens.
+- **Macros:** Efeito crítico e Convalescer (14 no total).
+- **Procurado** e **Tempo livre entre missões** entram como texto no diário, sem automação: a mesa conduz.
+
+### Para mundos existentes
+- Atualize o sistema e o módulo. A Exaustão vem ligada, com todos os personagens em 0. Se não quiser usar, desligue em Configurações do jogo.
+- As regras adicionais continuam opcionais: combine na sessão zero o que usar.
+
 ## [0.7.0] - 2026-11-02
 
 Livro **v0.7** no sistema e no módulo, e dano digitado direto nas fichas.

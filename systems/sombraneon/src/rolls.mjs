@@ -96,6 +96,10 @@ export async function checkRoll(spec) {
       advSources.push(...a.advantage);
       disSources.push(...a.disadvantage);
     }
+    if (sn.exhaustion?.penalty) {
+      bonus -= sn.exhaustion.penalty;
+      parts.push({ label: t('Exhaustion.Label'), value: -sn.exhaustion.penalty });
+    }
     if (ability === 'des' && sn.slots?.over) disSources.push(t('Rolls.Overloaded'));
     if (ability === 'sab' && (spec.tags ?? []).includes('cyberpsychosis') && sn.chrome.advantage) advSources.push(t('Rolls.NatTrait'));
   }

@@ -2,6 +2,7 @@ import { ID, t, activeGM } from '../util.mjs';
 import { dyingRounds, dyingStep } from '../logic/rules.mjs';
 import { evaluate, checkRoll, naturalOf } from '../rolls.mjs';
 import { postEvent } from './casting.mjs';
+import { gainExhaustion } from './exhaustion.mjs';
 
 /** Item com automação e usos disponíveis (Filtro de dor, Duro de matar). */
 function usable(actor, automation) {
@@ -24,6 +25,7 @@ export async function handleZeroHp(actor, { nonlethal = false } = {}) {
   if (actor.type !== 'character') return handleOtherZero(actor);
   if (nonlethal) {
     await actor.setStatus('unconscious', true);
+    await gainExhaustion(actor, 1, { reason: t('Exhaustion.Fell') });
     return postEvent(actor, t('Dying.Title'), [t('Dying.Nonlethal', { name: actor.name })]);
   }
   const filter = usable(actor, 'pain-filter');
@@ -42,6 +44,9 @@ export async function handleZeroHp(actor, { nonlethal = false } = {}) {
       return postEvent(actor, t('Dying.Title'), [t('Dying.ToughHeld', { name: actor.name })]);
     }
   }
+  // Exaustão (regra opcional): cair a 0 HP e apagar custa 1 nível. No nível 6 a morte é na hora.
+  const exhausted = await gainExhaustion(actor, 1, { reason: t('Exhaustion.Fell') });
+  if (exhausted?.dead) return;
   const die = actor.sn?.dyingDie ?? 'd4';
   const roll = await evaluate(`1${die}`);
   const conMod = actor.sn?.abilities.con.mod ?? 0;

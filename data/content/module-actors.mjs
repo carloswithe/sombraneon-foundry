@@ -60,7 +60,9 @@ const MACROS = [
   ['Objetivos do grupo', 'rollGroupGoals()', 'Mestre'],
   ['Teste rápido de grupo', 'groupCheck()', 'Mestre'],
   ['Teste de moral', 'moraleCheck()', 'Mestre'],
-  ['Iniciativa por grupo', 'rollGroupInitiative()', 'Mestre']
+  ['Iniciativa por grupo', 'rollGroupInitiative()', 'Mestre'],
+  ['Efeito crítico (regra opcional)', 'criticalEffect()', 'Mestre'],
+  ['Convalescer (Exaustão)', 'convalesce()', 'Mestre']
 ];
 
 function macros() {

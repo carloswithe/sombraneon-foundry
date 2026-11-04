@@ -5,6 +5,7 @@ import { abilityMod } from '../logic/abilities.mjs';
 import { evaluate, safeSetting, d20Faces, naturalOf, checkRoll } from '../rolls.mjs';
 import { postEvent, rollSurge } from './casting.mjs';
 import { opts } from '../apps/dialogs.mjs';
+import { exhaustionEnabled } from './exhaustion.mjs';
 
 /** Estoque de ração do ator: pacotes com 3 usos (livro 8.5). */
 function rationItem(actor) {
@@ -120,6 +121,13 @@ export async function restActor(actor, options = {}) {
       patch['system.edge.value'] = 1;
       lines.push(t('Rest.StreetEdge'));
     }
+  }
+  // Exaustão (regra opcional): cada descanso bem-sucedido remove 1 nível (2 na variante de Toca melhor)
+  const exhaustion = Number(actor.system.exhaustion) || 0;
+  if (exhaustionEnabled() && exhaustion > 0) {
+    const left = Math.max(0, exhaustion - (Number(safeSetting('exhaustionPerRest', 1)) || 1));
+    patch['system.exhaustion'] = left;
+    lines.push(t('Exhaustion.RestRemoved', { level: left }));
   }
   await actor.update(patch);
   await restoreUses(actor);

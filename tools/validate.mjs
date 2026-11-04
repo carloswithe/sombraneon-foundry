@@ -32,7 +32,7 @@ for (const img of imgs) {
 }
 
 // 3. tabelas cobrem todos os valores da fórmula sem lacunas ou sobreposição
-const span = { '1d6': [1, 6], '1d8': [1, 8], '1d12': [1, 12], '1d20': [1, 20], '2d6': [2, 12] };
+const span = { '1d4': [1, 4], '1d6': [1, 6], '1d8': [1, 8], '1d12': [1, 12], '1d20': [1, 20], '2d6': [2, 12] };
 const tables = PACKS.filter((p) => p.docType === 'RollTable').flatMap((p) => p.docs);
 for (const t of tables) {
   const [lo, hi] = span[t.formula];

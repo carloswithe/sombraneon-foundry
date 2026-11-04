@@ -4,14 +4,16 @@ import path from 'node:path';
 import { html, item, plain, slug, inlineHtml, splitBold, ICON, NO_USES } from './lib.mjs';
 
 /**
- * Conteúdo dos dois compêndios companheiros do livro v0.5:
- *   docs/sombraneon-ameacas.md          (Compêndio de Ameaças)
- *   docs/sombraneon-veiculos-armas.md   (Compêndio de Veículos e Armamento)
+ * Conteúdo dos compêndios companheiros do livro:
+ *   docs/sombraneon-ameacas.md            (Compêndio de Ameaças)
+ *   docs/sombraneon-veiculos-armas.md     (Compêndio de Veículos e Armamento)
+ *   docs/sombraneon-regras-adicionais.md  (Regras adicionais opcionais)
  * Tudo aqui é extraído dos arquivos Markdown; só a camada mecânica (tipos e propriedades) é declarada.
  */
 
 const threatsBook = loadBook(path.join(ROOT, 'docs', 'sombraneon-ameacas.md'));
 const vehiclesBook = loadBook(path.join(ROOT, 'docs', 'sombraneon-veiculos-armas.md'));
+const rulesBook = loadBook(path.join(ROOT, 'docs', 'sombraneon-regras-adicionais.md'));
 
 const price = (cell) => Number(String(cell).replace(/[^\d]/g, '')) || 0;
 const num = (cell) => Number(String(plain(cell)).replace(/[^\d-]/g, '')) || 0;
@@ -672,6 +674,31 @@ function masterTables() {
       results: vehiclesBook.table('2.5').rows.map((r) => withTitle(one(Number(r[0])), r[1]))
     })
   );
+  // Regras adicionais (opcionais): Efeito crítico
+  const numberRange = (cell) => {
+    const n = Number(String(plain(cell)).match(/\d+/)?.[0]);
+    return [n, n];
+  };
+  out.push(
+    mkTable({
+      identifier: 'efeito-critico',
+      name: 'Efeito crítico (2d6, regra opcional)',
+      formula: '2d6',
+      folder: 'Regras adicionais',
+      results: rulesBook.table('3.6').rows.map((r) => ({
+        range: numberRange(r[0]),
+        name: plain(r[1]),
+        text: `<p><strong>Carne:</strong> ${inlineHtml(r[2]).replace(/<[/]?p>/g, '')}</p><p><strong>Cromo:</strong> ${inlineHtml(r[3]).replace(/<[/]?p>/g, '')}</p><p><em>Aplique o modificador do dano (-1 para cada 10 acima de 10, máximo -10). Com 2 ou menos, vale o pior resultado.</em></p>`
+      }))
+    }),
+    mkTable({
+      identifier: 'efeito-critico-local',
+      name: 'Efeito crítico: local do golpe (1d4)',
+      formula: '1d4',
+      folder: 'Regras adicionais',
+      results: rulesBook.table('3.4').rows.map((r) => ({ range: numberRange(r[0]), name: plain(r[1]), text: `<p>Cromo que pode ser atingido: ${inlineHtml(r[2]).replace(/<[/]?p>/g, '')}.</p>` }))
+    })
+  );
   return out;
 }
 
@@ -703,5 +730,6 @@ function referenceJournal({ identifier, name, book, source }) {
 
 export const referenceJournals = [
   referenceJournal({ identifier: 'compendio-de-ameacas', name: 'SombraNeon, Compêndio de Ameaças', book: threatsBook, source: 'sombraneon-ameacas.md' }),
-  referenceJournal({ identifier: 'compendio-de-veiculos-e-armamento', name: 'SombraNeon, Compêndio de Veículos e Armamento', book: vehiclesBook, source: 'sombraneon-veiculos-armas.md' })
+  referenceJournal({ identifier: 'compendio-de-veiculos-e-armamento', name: 'SombraNeon, Compêndio de Veículos e Armamento', book: vehiclesBook, source: 'sombraneon-veiculos-armas.md' }),
+  referenceJournal({ identifier: 'compendio-de-regras-adicionais', name: 'SombraNeon, Compêndio de Regras Adicionais (opcionais)', book: rulesBook, source: 'sombraneon-regras-adicionais.md' })
 ];

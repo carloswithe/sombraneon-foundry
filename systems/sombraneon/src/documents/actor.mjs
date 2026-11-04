@@ -32,7 +32,14 @@ export class SNActor extends Actor {
     } catch {
       /* configurações ainda não registradas */
     }
+    let exhaustion = 0;
+    try {
+      if (game.settings.get(ID, 'ruleExhaustion') !== false) exhaustion = sys.exhaustion;
+    } catch {
+      exhaustion = sys.exhaustion;
+    }
     return deriveCharacter({
+      exhaustion,
       level: sys.level,
       abilityBase: Object.fromEntries(SN.abilities.map((k) => [k, sys.abilities[k].base])),
       hpRolls: [...(sys.hp.rolls ?? [])],

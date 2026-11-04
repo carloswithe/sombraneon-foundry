@@ -1,6 +1,7 @@
 import { SN } from '../config.mjs';
 import { abilityMod, signed } from './abilities.mjs';
 import { gather, sum, setValue, hasFlag, flagSources, multiplier, diceFormula, advantageSources } from './modifiers.mjs';
+import { clampExhaustion, exhaustionDead } from './optional.mjs';
 import { maxHp, hitDieFaces, armorClass, slotsMax, slotsUsed, xpToNext, tierMax, talentsEarned, castingKnownMax, castingCd, cyberpsychosis, sneakAttackDice } from './rules.mjs';
 
 const first = (items, type) => items.filter((i) => i.type === type);
@@ -51,8 +52,11 @@ export function deriveCharacter(input) {
     network = {},
     unarmedDie = SN.unarmedDie,
     vehicleTraining = [],
+    exhaustion = 0,
     items = []
   } = input;
+  // Exaustão (regra opcional): -N em todos os testes de d20. O nível 6 é morte.
+  const exh = clampExhaustion(exhaustion);
 
   const warnings = [];
   const warn = (code, args = {}) => warnings.push({ code, args });
@@ -154,7 +158,7 @@ export function deriveCharacter(input) {
 
   /* ---- 7. Iniciativa, Edge, XP, talentos ---- */
   const initiative = {
-    bonus: mod('des') + sum(mods, 'initiative.bonus', {}, rollData).total,
+    bonus: mod('des') + sum(mods, 'initiative.bonus', {}, rollData).total - exh,
     advantage: hasFlag(mods, 'initiative.advantage'),
     first: hasFlag(mods, 'initiative.first'),
     sources: flagSources(mods, 'initiative.advantage')
@@ -172,7 +176,7 @@ export function deriveCharacter(input) {
   talents.pending = Math.max(0, talents.earned - talents.rolled);
 
   /* ---- 8. Conjuração ---- */
-  const casting = deriveCasting({ cls, level, mods, rollData, programs, gear, network, immersed, abilities, warn });
+  const casting = deriveCasting({ cls, level, mods, rollData, programs, gear, network, immersed, abilities, exh, warn });
 
   /* ---- 9. Cromo ---- */
   const chromeSlots = { neural: null, body: null, arms: null, legs: null };
@@ -223,6 +227,10 @@ export function deriveCharacter(input) {
     }
     add('attack.all');
     add(`attack.${kind}`);
+    if (exh) {
+      attackBonus -= exh;
+      parts.push({ label: 'Exaustão', value: -exh });
+    }
     if (ctx.unarmed) add('attack.unarmed');
     let damageBonus = 0;
     const dparts = [];
@@ -374,6 +382,7 @@ export function deriveCharacter(input) {
     hp: { max: hpMax, hitDie, faces: hitDieFaces(hitDie), extra: hpExtra },
     ac: { ...ac, melee: acMelee.total, meleeParts: acMelee.parts, armor: armorItem },
     initiative,
+    exhaustion: { level: exh, penalty: exh, dead: exhaustionDead(exh) },
     edge,
     xp,
     talents,
@@ -410,7 +419,7 @@ function isArmorProficient(armor, cls) {
   return allowed.includes(armor.system.type);
 }
 
-function deriveCasting({ cls, level, mods, rollData, programs, gear, network, immersed, abilities, warn }) {
+function deriveCasting({ cls, level, mods, rollData, programs, gear, network, immersed, abilities, exh = 0, warn }) {
   const c = cls?.system.casting;
   if (!c?.kind) return { kind: null, known: { max: 0, count: 0 }, tierMax: 0, execBonus: 0, requirement: null };
   const kind = c.kind;
@@ -442,6 +451,10 @@ function deriveCasting({ cls, level, mods, rollData, programs, gear, network, im
   if (immersed && kind === 'program') {
     execBonus += 1;
     parts.push({ label: 'Imersão', value: 1 });
+  }
+  if (exh) {
+    execBonus -= exh;
+    parts.push({ label: 'Exaustão', value: -exh });
   }
   const programBonus = {};
   for (const p of programs) {

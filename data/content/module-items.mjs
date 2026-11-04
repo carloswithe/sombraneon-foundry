@@ -171,6 +171,22 @@ function equipment() {
       }
     })
   );
+  // Próteses mecânicas básicas (Regras adicionais, capítulo 4): regra opcional
+  for (const [id, label, slot] of [['pmb-braco', 'braço', 'Braços'], ['pmb-perna', 'perna', 'Pernas']]) {
+    out.push(
+      item({
+        type: 'gear',
+        name: `PMB (${label})`,
+        identifier: id,
+        img: ICON('gear-general'),
+        folder: 'Próteses (regra opcional)',
+        sort: 3000,
+        source: 'Regras adicionais v0.1, 4',
+        description: html(`Prótese mecânica básica: substitui um ${label} inteiro, sem bônus e sem penalidade. Não ocupa slot de cromo nem slot de equipamento, e não conta na ciberpsicose. Lic. C. Instalação inclusa em clínica ou com Hyperdoc (10 minutos). Lê a coluna Cromo do Efeito crítico (slot ${slot}). Conserto de PMB danificada: 15 cr.`),
+        system: gear({ price: 150, slots: 0 })
+      })
+    );
+  }
   return out;
 }
 

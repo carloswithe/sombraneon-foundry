@@ -895,6 +895,27 @@
         "Name": "Anunciar seleções",
         "Hint": "Posta uma mensagem ao trocar classe, origem ou alinhamento."
       },
+      "ruleExhaustion": {
+        "Name": "Regra opcional: Exaustão",
+        "Hint": "Mostra o marcador de Exaustão (0 a 6) na ficha e aplica a regra: -1 em todos os testes por nível, +1 nível ao cair a 0 HP, descanso remove níveis, nível 6 é morte."
+      },
+      "exhaustionPerRest": {
+        "Name": "Exaustão removida por descanso",
+        "Hint": "Padrão: 1 nível por descanso bem-sucedido. A variante em teste remove 2 para quem descansa numa Toca melhor.",
+        "one": "1 nível (padrão)",
+        "two": "2 níveis (variante)"
+      },
+      "ruleCriticalEffect": {
+        "Name": "Regra opcional: Efeito crítico",
+        "Hint": "Quando um runner sofre um golpe de 10 ou mais de dano, rola o Efeito crítico (2d6, local, carne ou cromo) e o resultado vai para o chat. Para NPCs, use o macro Efeito crítico."
+      },
+      "criticalTrigger": {
+        "Name": "Gatilho do Efeito crítico",
+        "Hint": "Dano de um golpe só que dispara o Efeito crítico. Padrão 10.",
+        "eight": "8 (mais Efeitos críticos)",
+        "ten": "10 (padrão)",
+        "fifteen": "15 (menos Efeitos críticos)"
+      },
       "moraleHint": {
         "Name": "Aviso de moral",
         "Hint": "Avisa o Mestre quando um NPC chega à metade do HP."
@@ -1114,6 +1135,39 @@
       "EcoDigital": "Por 1d4 rodadas você executa dois programas por rodada.",
       "FirstAid": "{name} foi estabilizado, sem teste e sem gastar protocolo.",
       "Passive": "Passiva: aplicada automaticamente."
+    },
+    "Exhaustion": {
+      "Label": "Exaustão",
+      "Title": "Exaustão",
+      "None": "Sem Exaustão.",
+      "Penalty": "Nível {level}: -{penalty} em todos os testes.",
+      "Hint": "Nível de 0 a 6. Cada nível dá -1 em todos os testes de d20 (os níveis não se somam). Cair a 0 HP e apagar dá +1 nível, cada descanso bem-sucedido tira 1, e no nível 6 o runner morre. Clique num nível para marcá-lo; clique no nível atual para baixar um.",
+      "Pip": "Nível {level}: -{level} em todos os testes",
+      "PipDeath": "Nível 6: morte",
+      "Plus": "Mais 1 nível de Exaustão",
+      "Minus": "Menos 1 nível de Exaustão",
+      "Fell": "caiu a 0 HP",
+      "Convalesce": "Convalescer",
+      "Gained": "{name} ganha Exaustão: nível {level} (-{penalty} em todos os testes). {reason}",
+      "Removed": "{name} perde Exaustão: nível {level}. {reason}",
+      "RestRemoved": "Exaustão cai para o nível {level}.",
+      "Dead": "{name} morre de Exaustão: nível 6, sem rodadas de morrendo.",
+      "ConfirmDeathTitle": "Exaustão 6",
+      "ConfirmDeathText": "O nível 6 de Exaustão mata {name} na hora. Marcar mesmo?"
+    },
+    "Crit": {
+      "Title": "Efeito crítico",
+      "Hit": "Golpe de {damage} de dano. Modificador da rolagem:{mod}",
+      "Rolled": "2d6 = {total}: {name}",
+      "Place": "Local: {place} ({what})",
+      "Flesh": "carne",
+      "Chrome": "cromo: {names}",
+      "Chassis": "o chassi",
+      "ShockNoExhaustion": "Tem desvantagem em tudo até o fim da cena.",
+      "PromptTitle": "Efeito crítico: {name}",
+      "PromptDamage": "Dano do golpe",
+      "PromptHint": "Conta o dano depois de Blindagem e reduções, antes de limitar ao HP do alvo.",
+      "Location": { "neural": "Neural", "body": "Corpo", "arms": "Braços", "legs": "Pernas" }
     },
     "Hp": {
       "Amount": "Valor",

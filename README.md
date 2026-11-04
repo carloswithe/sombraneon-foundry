@@ -35,6 +35,14 @@ Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndi
 - **Ameaças:** os NPCs do compêndio trazem NA, CA, HP, Blindagem (BL), Moral e ataques prontos. A BL reduz o dano de armas comuns; armas com a propriedade Pesada (e explosões) ignoram. Moral Fanática ou "Sem medo" desliga o teste de moral.
 - **Veículos:** a ficha mostra os veículos treinados (classe, antecedente e treino pago). Veículos, mechas, exoesqueletos e módulos são itens do módulo, com todos os números do compêndio; pilotagem e perseguição são rolagens manuais (d20 + DES + Manobra).
 
+## Regras adicionais (opcionais)
+
+O módulo traz o **Compêndio de Regras Adicionais** (`docs/sombraneon-regras-adicionais.md`) como diário em *Compêndios de Referência*, com as tabelas de **Efeito crítico** (2d6 e local 1d4) nas Tabelas do Mestre, as **PMB** (braço e perna, 150 cr) no Equipamento e os macros *Efeito crítico* e *Convalescer*. No sistema, em Configurações do jogo:
+
+- **Exaustão** (ligada por padrão): a ficha ganha um marcador de 0 a 6 (clique no nível, ou use - e +). Cada nível dá -1 em todos os testes de d20 (ataque, atributo, resistência, iniciativa e execução de programas), cair a 0 HP e apagar dá +1 nível, cada descanso bem-sucedido tira 1 e o nível 6 é morte. Ameaças e NPCs não usam. Dá para remover 2 níveis por descanso (variante em teste).
+- **Efeito crítico** (desligado por padrão): quando um runner sofre um golpe de 10 ou mais de dano (gatilho 8, 10 ou 15), o sistema rola o 2d6 com o modificador do dano, o local e a coluna Carne ou Cromo, e posta no chat. O Choque dá +1 nível de Exaustão. Para NPCs nomeados e chefes, use o macro.
+- **Procurado** e **Tempo livre** ficam como texto no compêndio: a mesa conduz.
+
 ## Aventura pronta: Noite das Máscaras
 
 O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão de até 4 horas), num baile de máscaras numa torre corporativa. Tudo dela fica na pasta **Noite das Máscaras** do menu de compêndios, na ordem de uso:

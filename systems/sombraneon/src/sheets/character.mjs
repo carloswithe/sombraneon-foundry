@@ -16,6 +16,8 @@ import { streetHack, immerse, leaveNetwork, toggleFirewallPause, firewallRemaini
 import { stabilize, dyingTurn } from '../automation/dying.mjs';
 import { needsDrone, ensureDrone, rebuildDrone } from '../automation/drone.mjs';
 import { Alert } from '../automation/alert.mjs';
+import { exhaustionEnabled, setExhaustion } from '../automation/exhaustion.mjs';
+import { EXHAUSTION_MAX, clampExhaustion } from '../logic/optional.mjs';
 import { evaluate } from '../rolls.mjs';
 
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -162,6 +164,25 @@ async function usesAdjust(event, target) {
   return item.update({ [`${path}.value`]: next });
 }
 
+/** Marca a Exaustão: clicar no nível atual baixa um; o nível 6 é morte e pede confirmação. */
+async function setExhaustionLevel(actor, level) {
+  const current = clampExhaustion(actor.system.exhaustion);
+  const next = clampExhaustion(level);
+  if (next === current) return;
+  if (next >= EXHAUSTION_MAX && !(await confirm(t('Exhaustion.ConfirmDeathTitle'), t('Exhaustion.ConfirmDeathText', { name: actor.name })))) return;
+  return setExhaustion(actor, next, { announce: true });
+}
+
+async function exhaustionSet(event, target) {
+  const level = Number(target.dataset.level);
+  const current = clampExhaustion(this.document.system.exhaustion);
+  return setExhaustionLevel(this.document, level === current ? level - 1 : level);
+}
+
+async function exhaustionAdjust(event, target) {
+  return setExhaustionLevel(this.document, clampExhaustion(this.document.system.exhaustion) + Number(target.dataset.delta));
+}
+
 async function hpAdjust(event, target) {
   const actor = this.document;
   const delta = Number(target.dataset.delta) * (event.shiftKey ? 5 : 1);
@@ -244,6 +265,8 @@ const actions = {
   qtyAdjust,
   usesAdjust,
   hpAdjust,
+  exhaustionSet,
+  exhaustionAdjust,
   toggleCover,
   toggleVehicle,
   fixSlots,
@@ -427,6 +450,15 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
 
     const pct = sys.hp.pct;
     const hp = { value: sys.hp.value, max: sys.hp.max, pct, color: pct <= 25 ? 'danger' : pct <= 50 ? 'warn' : 'ok', tooltip: `${sys.hp.hitDie || '-'}  CON ${signed(sn.abilities.con.mod)}` };
+
+    const exhLevel = sys.exhaustion ?? 0;
+    const exhaustion = {
+      enabled: exhaustionEnabled(),
+      level: exhLevel,
+      tooltip: t('Exhaustion.Hint'),
+      note: exhLevel ? t('Exhaustion.Penalty', { level: exhLevel, penalty: exhLevel }) : t('Exhaustion.None'),
+      pips: Array.from({ length: EXHAUSTION_MAX }, (_, i) => ({ level: i + 1, on: i < exhLevel, death: i + 1 === EXHAUSTION_MAX, title: i + 1 === EXHAUSTION_MAX ? t('Exhaustion.PipDeath') : t('Exhaustion.Pip', { level: i + 1 }) }))
+    };
 
     const edge = { value: sys.edge.value, max: sys.edge.max, pips: Array.from({ length: sys.edge.max }, (_, i) => ({ on: i < sys.edge.value })), canClaim: !!trigger && sys.edge.value < sys.edge.max && !sys.edge.triggerUsed };
 
@@ -628,6 +660,7 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
       selectors,
       abilities,
       hp,
+      exhaustion,
       edge,
       slots,
       xp,

@@ -19,6 +19,10 @@ export function registerSettings(onAlertChange) {
   reg('talentToChat', { ...world, type: Boolean, default: true });
   reg('wizardAllowManualAbilities', { ...world, type: Boolean, default: true });
   reg('announceSelections', { ...world, type: Boolean, default: false });
+  reg('ruleExhaustion', { ...world, type: Boolean, default: true });
+  reg('exhaustionPerRest', { ...world, type: Number, default: 1, choices: { 1: 'SOMBRANEON.Settings.exhaustionPerRest.one', 2: 'SOMBRANEON.Settings.exhaustionPerRest.two' } });
+  reg('ruleCriticalEffect', { ...world, type: Boolean, default: false });
+  reg('criticalTrigger', { ...world, type: Number, default: 10, choices: { 8: 'SOMBRANEON.Settings.criticalTrigger.eight', 10: 'SOMBRANEON.Settings.criticalTrigger.ten', 15: 'SOMBRANEON.Settings.criticalTrigger.fifteen' } });
   reg('moraleHint', { ...world, type: Boolean, default: true });
   reg('showTargetResult', { ...client, type: Boolean, default: true });
   reg('purchaseMode', { ...client, type: String, default: 'ask', choices: { ask: 'SOMBRANEON.Settings.purchaseMode.ask', free: 'SOMBRANEON.Settings.purchaseMode.free', buy: 'SOMBRANEON.Settings.purchaseMode.buy' } });

@@ -182,7 +182,7 @@ describe('conteúdo dos compêndios companheiros', () => {
 
   it('o livro de regras tem 12 capítulos e os compêndios de referência estão no módulo', () => {
     expect(pack('regras')[0].pages).toHaveLength(12);
-    expect(pack('referencias').map((j) => j.identifier)).toEqual(['compendio-de-ameacas', 'compendio-de-veiculos-e-armamento']);
+    expect(pack('referencias').map((j) => j.identifier)).toEqual(['compendio-de-ameacas', 'compendio-de-veiculos-e-armamento', 'compendio-de-regras-adicionais']);
     for (const j of pack('referencias')) expect(j.pages.length).toBeGreaterThan(5);
   });
 });

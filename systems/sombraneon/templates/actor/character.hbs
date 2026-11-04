@@ -93,6 +93,17 @@
         {{#if edge.canClaim}}<button type="button" class="sn-chip-btn" data-action="claimTrigger">{{localize 'SOMBRANEON.Edge.Claim'}}</button>{{/if}}
       </div>
     </div>
+    {{#if exhaustion.enabled}}
+    <div class="sn-vital sn-exh {{#if exhaustion.level}}sn-exh-on{{/if}}" title="{{exhaustion.tooltip}}">
+      <span class="sn-label">{{localize 'SOMBRANEON.Exhaustion.Label'}}</span>
+      <div class="sn-exh-track">
+        <button type="button" class="sn-icon" data-action="exhaustionAdjust" data-delta="-1" title="{{localize 'SOMBRANEON.Exhaustion.Minus'}}">-</button>
+        {{#each exhaustion.pips}}<button type="button" class="sn-exh-pip {{#if on}}on{{/if}} {{#if death}}death{{/if}}" data-action="exhaustionSet" data-level="{{level}}" title="{{title}}">{{#if death}}<i class="fa-solid fa-skull"></i>{{else}}{{level}}{{/if}}</button>{{/each}}
+        <button type="button" class="sn-icon" data-action="exhaustionAdjust" data-delta="1" title="{{localize 'SOMBRANEON.Exhaustion.Plus'}}">+</button>
+      </div>
+      <small class="sn-exh-note">{{exhaustion.note}}</small>
+    </div>
+    {{/if}}
     <div class="sn-vital sn-slots {{#if slots.over}}sn-over{{/if}}" title="{{slots.tooltip}}">
       <span class="sn-label">{{localize 'SOMBRANEON.Sheet.Slots'}}</span>
       <strong class="sn-big">{{slots.used}}/{{slots.max}}</strong>

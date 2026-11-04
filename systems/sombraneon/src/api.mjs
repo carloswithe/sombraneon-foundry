@@ -9,6 +9,8 @@ import { grantEdge } from './automation/edge.mjs';
 import { Alert } from './automation/alert.mjs';
 import { useItem } from './automation/registry.mjs';
 import { reactionResult } from './logic/rules.mjs';
+import { criticalEffectPrompt } from './automation/critical.mjs';
+import { removeExhaustion } from './automation/exhaustion.mjs';
 
 /** Atores dos tokens selecionados; sem seleção, o personagem do usuário. */
 export function selectedActors({ type } = {}) {
@@ -48,6 +50,20 @@ export const api = {
     for (const actor of actors) await restActor(actor, { quality, interruptions: 0, rollEncounters: false, ignoreRation: false });
     const rolls = SN.restQuality[quality];
     if (rolls) await drawTable('gerador-de-rede').catch(() => null);
+  },
+
+  /** Efeito crítico (regra opcional) do token selecionado, a partir do dano do golpe. */
+  async criticalEffect() {
+    if (!gmOnly()) return;
+    return criticalEffectPrompt(selectedActors()[0]);
+  },
+
+  /** Convalescer (Tempo livre): remove 1 nível de Exaustão dos runners selecionados. */
+  async convalesce() {
+    if (!gmOnly()) return;
+    const actors = selectedActors({ type: 'character' });
+    if (!actors.length) return notify('warn', 'Warn.NoSelection');
+    for (const actor of actors) await removeExhaustion(actor, 1, { reason: t('Exhaustion.Convalesce') });
   },
 
   async giveEdge() {

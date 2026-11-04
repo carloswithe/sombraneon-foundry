@@ -17,6 +17,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       hp: new (f().SchemaField)({ value: int(0), max: int(0), rolls: numArray(), bonus: int(0) }),
       ac: new (f().SchemaField)({ cover: bool(false), override: nullableInt() }),
       edge: new (f().SchemaField)({ value: int(0, { min: 0 }), triggerUsed: bool(false) }),
+      exhaustion: int(0, { min: 0, max: 6 }),
       dying: new (f().SchemaField)({
         active: bool(false),
         remaining: int(0),

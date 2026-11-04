@@ -12,6 +12,7 @@ import { registerSettings } from './settings.mjs';
 import { CompendiumIndex } from './compendium.mjs';
 import { SNSocket } from './automation/socket.mjs';
 import { registerDyingHooks } from './automation/dying.mjs';
+import { registerCriticalHooks } from './automation/critical.mjs';
 import { startFirewallWatcher } from './automation/network.mjs';
 import { needsDrone, ensureDrone } from './automation/drone.mjs';
 import { registerChatHooks } from './chat.mjs';
@@ -78,6 +79,7 @@ Hooks.once('ready', async () => {
   await CompendiumIndex.load();
   SNSocket.init();
   registerDyingHooks();
+  registerCriticalHooks();
   registerChatHooks();
   registerCombatHooks();
   startFirewallWatcher();
