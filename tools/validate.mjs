@@ -8,7 +8,12 @@ import { makeResolver } from './lib/refs.mjs';
 /** Valida contagens, tabelas, imagens, travessões e o conteúdo dos packs compilados. */
 const errors = [];
 const fail = (m) => errors.push(m);
-const packDir = (p) => path.join(ROOT, p.scope === 'system' ? 'systems/sombraneon' : 'modules/sombraneon-compendium', 'packs', p.name);
+const SCOPES = {
+  system: { id: 'sombraneon', dir: 'systems/sombraneon' },
+  module: { id: 'sombraneon-compendium', dir: 'modules/sombraneon-compendium' },
+  carga: { id: 'sombraneon-carga-sem-nome', dir: 'modules/sombraneon-carga-sem-nome' }
+};
+const packDir = (p) => path.join(ROOT, SCOPES[p.scope].dir, 'packs', p.name);
 
 // 1. contagens esperadas
 for (const p of PACKS) {
@@ -28,11 +33,11 @@ for (const p of PACKS) {
 }
 for (const img of imgs) {
   if (img?.startsWith('systems/sombraneon/') && !fs.existsSync(path.join(ROOT, 'systems/sombraneon', img.replace('systems/sombraneon/', '')))) fail(`imagem inexistente: ${img}`);
-  if (img?.startsWith('modules/sombraneon-compendium/') && !fs.existsSync(path.join(ROOT, img))) fail(`imagem inexistente: ${img}`);
+  if (img?.startsWith('modules/') && !fs.existsSync(path.join(ROOT, img))) fail(`imagem inexistente: ${img}`);
 }
 
 // 3. tabelas cobrem todos os valores da fórmula sem lacunas ou sobreposição
-const span = { '1d4': [1, 4], '1d6': [1, 6], '1d8': [1, 8], '1d12': [1, 12], '1d20': [1, 20], '2d6': [2, 12] };
+const span = { '1d3': [1, 3], '1d4': [1, 4], '1d6': [1, 6], '1d8': [1, 8], '1d12': [1, 12], '1d20': [1, 20], '2d6': [2, 12] };
 const tables = PACKS.filter((p) => p.docType === 'RollTable').flatMap((p) => p.docs);
 for (const t of tables) {
   const [lo, hi] = span[t.formula];
@@ -64,6 +69,7 @@ const scan = (dir, exts) => {
   }
 };
 for (const d of ['systems/sombraneon/templates', 'systems/sombraneon/src', 'systems/sombraneon/lang', 'modules/sombraneon-compendium/lang', 'data/content']) scan(path.join(ROOT, d), ['.hbs', '.mjs', '.json']);
+scan(path.join(ROOT, 'modules/sombraneon-carga-sem-nome'), ['.mjs', '.json', '.css']);
 
 // 6. packs compilados: contagem de documentos de topo e embutidos
 for (const p of PACKS) {
@@ -93,11 +99,11 @@ for (const p of PACKS) {
 }
 
 // 7. manifestos
-for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendium/module.json']) {
+for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendium/module.json', 'modules/sombraneon-carga-sem-nome/module.json']) {
   const m = JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
   for (const pk of m.packs) if (!fs.existsSync(path.join(ROOT, path.dirname(f), pk.path))) fail(`${f}: pack sem pasta ${pk.path}`);
   // todo pack do conteúdo está declarado no manifesto, e só eles
-  const scope = f.startsWith('systems') ? 'system' : 'module';
+  const scope = f.startsWith('systems') ? 'system' : f.includes('carga-sem-nome') ? 'carga' : 'module';
   const want = PACKS.filter((p) => p.scope === scope).map((p) => p.name).sort();
   const have = m.packs.map((p) => p.name).sort();
   if (want.join() !== have.join()) fail(`${f}: packs declarados diferem do conteúdo (${want.filter((n) => !have.includes(n)).join(', ') || 'nenhum faltando'} / ${have.filter((n) => !want.includes(n)).join(', ') || 'nenhum sobrando'})`);
@@ -105,7 +111,7 @@ for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendiu
 }
 
 // 8. links @Ref e @Pack do conteúdo resolvem
-const resolver = makeResolver(PACKS, (s) => (s === 'system' ? 'sombraneon' : 'sombraneon-compendium'));
+const resolver = makeResolver(PACKS, (s) => SCOPES[s].id);
 for (const p of PACKS) {
   for (const d of p.docs) {
     try {

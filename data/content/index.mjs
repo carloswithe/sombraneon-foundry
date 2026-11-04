@@ -9,6 +9,7 @@ import { threatActors, extraIceActors, vehiclePackItems, companionWeapons, explo
 import { ADVENTURE_PACKS } from './adventure.mjs';
 import { IMAGES, imageScenes } from './adventure-images.mjs';
 import { mapScenes, mapMacros } from './adventure-maps.mjs';
+import { CARGA_PACKS, CARGA_COUNTS } from './carga/index.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -37,7 +38,10 @@ export const PACKS = [
   { scope: 'module', name: 'macros', label: 'Macros', docType: 'Macro', docs: macroDocs },
 
   // Aventura "Noite das Máscaras": packs próprios (prefixo noite-), agrupados numa pasta do menu de compêndios
-  ...ADVENTURE_PACKS
+  ...ADVENTURE_PACKS,
+
+  // Aventura "Carga Sem Nome": módulo próprio (sombraneon-carga-sem-nome), escopo carga
+  ...CARGA_PACKS
 ];
 
 /** Quantidades esperadas (docs/spec/05, seção 1; ver docs/DECISIONS.md para divergências). */
@@ -70,5 +74,6 @@ export const EXPECTED_COUNTS = {
   'noite-fichas': 6,
   'noite-itens': 22,
   'noite-tabelas': 2,
-  'noite-macros': mapMacros.length
+  'noite-macros': mapMacros.length,
+  ...CARGA_COUNTS
 };

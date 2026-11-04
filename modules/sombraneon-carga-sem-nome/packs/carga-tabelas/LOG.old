@@ -1,0 +1,5 @@
+2026/11/04-00:23:40.683 5674 Delete type=3 #1
+2026/11/04-00:23:40.687 f58 Level-0 table #5: started
+2026/11/04-00:23:40.688 f58 Level-0 table #5: 14016 bytes OK
+2026/11/04-00:23:40.689 f58 Delete type=0 #3
+2026/11/04-00:23:40.689 f58 Manual compaction at level-0 from '!folders!MguYFkCMolv2EN5n' @ 72057594037927935 : 1 .. '!tables.results!grMR9RnbfGPOLLvp.oxqzD4sEzarheCJ6' @ 0 : 0; will stop at (end)

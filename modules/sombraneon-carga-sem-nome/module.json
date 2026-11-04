@@ -1,0 +1,184 @@
+{
+  "id": "sombraneon-carga-sem-nome",
+  "title": "SombraNeon: CARGA SEM NOME",
+  "description": "Aventura de extração (ataque a comboio, com perseguição) para o sistema SombraNeon: cinco runners de nível 1, uma sessão de até 4 horas. Traz as fichas prontas, as ameaças e os NPCs, os itens e o butim, os diários (briefing, FAQ, as cinco salas e o Debrief), as 41 imagens e os cinco mapas de mesa com paredes, portas, luzes e tokens já posicionados, tabelas de rolagem e macros (Alerta, relógios, torre, Cérbero). Módulo independente: funciona sem o SombraNeon: Compêndio.",
+  "version": "0.8.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "authors": [
+    {
+      "name": "Carlos Withe (Cacá)",
+      "url": "https://github.com/carloswithe"
+    }
+  ],
+  "url": "https://github.com/carloswithe/sombraneon-foundry",
+  "manifest": "https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/carga-sem-nome.json",
+  "download": "https://github.com/carloswithe/sombraneon-foundry/releases/download/v0.8.0/carga-sem-nome.zip",
+  "bugs": "https://github.com/carloswithe/sombraneon-foundry/issues",
+  "license": "LICENSE",
+  "readme": "README.md",
+  "esmodules": [
+    "sombraneon-carga-sem-nome.mjs"
+  ],
+  "styles": [
+    "styles/carga-sem-nome.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "carga-diarios",
+      "label": "Carga Sem Nome: Diários da aventura (Mestre)",
+      "path": "packs/carga-diarios",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-imagens",
+      "label": "Carga Sem Nome: Imagens e retratos",
+      "path": "packs/carga-imagens",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-cenas",
+      "label": "Carga Sem Nome: Cenas (mapas de mesa)",
+      "path": "packs/carga-cenas",
+      "type": "Scene",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-ameacas",
+      "label": "Carga Sem Nome: Ameaças",
+      "path": "packs/carga-ameacas",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-npcs",
+      "label": "Carga Sem Nome: NPCs e aliados",
+      "path": "packs/carga-npcs",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-runners",
+      "label": "Carga Sem Nome: Runners prontos",
+      "path": "packs/carga-runners",
+      "type": "Actor",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-equipamentos",
+      "label": "Carga Sem Nome: Equipamentos",
+      "path": "packs/carga-equipamentos",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-tesouros",
+      "label": "Carga Sem Nome: Tesouros e Prêmio",
+      "path": "packs/carga-tesouros",
+      "type": "Item",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-tabelas",
+      "label": "Carga Sem Nome: Tabelas de rolagem",
+      "path": "packs/carga-tabelas",
+      "type": "RollTable",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "carga-macros",
+      "label": "Carga Sem Nome: Macros",
+      "path": "packs/carga-macros",
+      "type": "Macro",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "sombraneon",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.8.0"
+        }
+      }
+    ],
+    "recommends": [
+      {
+        "id": "sombraneon-compendium",
+        "type": "module",
+        "reason": "Complementar, não necessário: o catálogo de armas, equipamento, implantes, veículos e ameaças do sistema para o Mestre acrescentar o que a mesa quiser. A aventura já traz tudo de que precisa."
+      }
+    ]
+  },
+  "packFolders": [
+    {
+      "name": "Carga Sem Nome",
+      "sorting": "m",
+      "color": "#ff6d00",
+      "packs": [
+        "carga-diarios",
+        "carga-imagens",
+        "carga-cenas",
+        "carga-ameacas",
+        "carga-npcs",
+        "carga-runners",
+        "carga-equipamentos",
+        "carga-tesouros",
+        "carga-tabelas",
+        "carga-macros"
+      ]
+    }
+  ]
+}

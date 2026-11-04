@@ -2,12 +2,13 @@
 
 RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.7 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
 
-Dois pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
+Três pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
 | Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas, macros e a aventura pronta **Noite das Máscaras**. |
+| Módulo da aventura | `sombraneon-carga-sem-nome` | Aventura pronta **CARGA SEM NOME** (extração, ataque a comboio e perseguição, 5 runners de nível 1): fichas, diários, 41 imagens e retratos, 5 mapas de mesa com paredes e tokens, tabelas e macros. Independente do módulo Compêndio. |
 
 ## Instalação
 
@@ -23,7 +24,13 @@ Depois, em **Módulos de complemento > Instalar módulo**:
 https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/module.json
 ```
 
-Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndio**. A ficha não quebra sem o módulo, mas o assistente pula os passos de equipamento e implantes.
+Para jogar a aventura **CARGA SEM NOME** (módulo independente, não precisa do Compêndio), instale também:
+
+```
+https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/carga-sem-nome.json
+```
+
+Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndio** (e, se for jogar a aventura, **SombraNeon: CARGA SEM NOME**). A ficha não quebra sem o módulo, mas o assistente pula os passos de equipamento e implantes.
 
 ## Como usar
 
@@ -59,6 +66,22 @@ O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão d
 10. **Macros:** os estados de cena (Alerta 4, apagão da Galeria, Mural e curto-circuito do Corredor, botão de pânico, trancas).
 
 O texto da aventura fica em `docs/noite-das-mascaras.md`, o guia de imagens em `docs/noite-das-mascaras-imagens.md` e o guia dos mapas de mesa em `docs/noite-das-mascaras-scenes.md`. A geometria dos mapas (paredes, luzes, regiões e tokens, em pixels da própria imagem) fica em `data/content/adventure-maps-data.mjs`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `15-rex-modo-contencao.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
+
+## Aventura pronta: CARGA SEM NOME
+
+Módulo próprio (`sombraneon-carga-sem-nome`), independente do Compêndio e da Noite das Máscaras: uma aventura de extração para 3 a 6 runners de nível 1 (uma sessão de até 4 horas). Um blindado de custódia com uma .50 no teto, um túnel sem luz, um robô de três cabeças e uma fuga com a cidade na sirene. Tudo fica na pasta **Carga Sem Nome** do menu de compêndios:
+
+1. **Diários da aventura (Mestre):** comece pelo `00 Leia primeiro` (visão geral, a verdade, as três pistas, ficha de missão, mapa de tempo). Depois o `01 O Alerta`, o `02 Briefing e FAQ` (as 10 perguntas, com as respostas para ler e os handouts), um diário por sala (`Sala 1` a `Sala 5`, cada um com o "Para ler", a disposição das ameaças, as resoluções, as complicações, o butim e o que fazer se atrasar), o `08 Debrief`, os cortes e o ajuste de nível 3, e as notas de teste. Os segredos do Mestre ficam em seções ocultas aos jogadores.
+2. **Imagens e retratos:** um diário por imagem (41), com a arte, o texto para ler em voz alta e as notas. Os seis handouts do briefing já vêm com acesso de observador.
+3. **Cenas (mapas de mesa):** os cinco mapas (Ferro-Velho Tavares, Posto Meia-Lua, Estrada Sem Luz, Túnel Pluvial, Via Expressa 12), com a grade de 1,5 m, paredes, portas (trancadas quando a aventura manda), luzes, regiões de cobertura, zona morta da torre e pilares, pins ligados aos diários e os tokens nas posições iniciais. Ao importar uma cena, o módulo cria no mundo os atores que ela usa (pasta *Carga Sem Nome*), liga os tokens a eles e liga os pins às páginas dos diários. Os seis runners prontos entram nas posições de partida: apague os que não usar e dê a propriedade dos outros aos jogadores.
+4. **Ameaças (11), NPCs e aliados (8), Runners prontos (6):** fichas completas, com o texto integral dos traços, das regras da casa e dos segredos (o Cérbero com as três cabeças, o Jararaca com as partes, Nest com os dois estados).
+5. **Equipamentos (10) e Tesouros e Prêmio (6):** o butim traz categoria, XP (9 no total), valor de venda, onde está e como pegar.
+6. **Tabelas:** as complicações de cada sala, o Alerta (consulta), as resoluções da perseguição e o destino de Daigo.
+7. **Macros (23):** Alerta +1 e -1 (usam o rastreador do sistema), relógio da história, cronômetro, relógio do Posto, Folga, torre .50, Viatura Beta, cabeças do Cérbero, mostrador Leve, Padrão e Brutal, luzes e apagão do Túnel, cartão no painel, Cela A e Cela B, e montar tokens da cena.
+
+O texto da aventura fica em `docs/carga-sem-nome.md`, o guia das imagens em `docs/carga-sem-nome-imagens.md` e as instruções de montagem em `docs/carga-sem-nome-foundry-instrucoes.md`. O mapeamento do texto para os campos do sistema está em `docs/carga-sem-nome-mapeamento.md` e o relatório de verificação em `docs/carga-sem-nome-relatorio.md`. Os dados ficam em `data/content/carga/` e os mapas em `data/content/carga/maps-data.mjs` (em casas de grade, medidas sobre a arte).
+
+**Trocar a arte:** salve o arquivo novo com o mesmo nome em `modules/sombraneon-carga-sem-nome/assets/` (`img/`, `maps/`, `portraits/`) e rode `npm run build:packs`. Para os mapas, mantenha a proporção 3:2: as paredes foram medidas sobre a arte atual, então uma arte nova pode pedir ajuste de escala e posição do fundo na cena. Os tokens (`assets/tokens/`) vêm de `tools/gen-carga-tokens.ps1` (Windows PowerShell); o script não sobrescreve um token que já existe.
 
 ## Desenvolvimento
 

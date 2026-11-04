@@ -9,6 +9,7 @@ import { PACKS } from '../data/content/index.mjs';
 
 const SYSTEM_ID = 'sombraneon';
 const MODULE_ID = 'sombraneon-compendium';
+const CARGA_ID = 'sombraneon-carga-sem-nome';
 const CORE_VERSION = '13.351';
 const DASH = /[–—]/;
 
@@ -27,9 +28,14 @@ const stats = () => ({
   exportSource: null
 });
 
-const scopeId = (scope) => (scope === 'system' ? SYSTEM_ID : MODULE_ID);
-const destOf = (p) =>
-  path.join(ROOT, p.scope === 'system' ? 'systems/sombraneon' : 'modules/sombraneon-compendium', 'packs', p.name);
+/** Cada escopo é um pacote do Foundry: o sistema e os dois módulos (compêndio e a aventura Carga Sem Nome). */
+const SCOPES = {
+  system: { id: SYSTEM_ID, dir: 'systems/sombraneon' },
+  module: { id: MODULE_ID, dir: 'modules/sombraneon-compendium' },
+  carga: { id: CARGA_ID, dir: 'modules/sombraneon-carga-sem-nome' }
+};
+const scopeId = (scope) => SCOPES[scope].id;
+const destOf = (p) => path.join(ROOT, SCOPES[p.scope].dir, 'packs', p.name);
 
 /** Índice de referências tipo:identifier -> { uuid, name, img, id }. */
 function buildIndex() {
@@ -41,7 +47,7 @@ function buildIndex() {
       if (p.docType === 'Item') {
         const key = `${d.type}:${d.identifier}`;
         if (index.has(key)) throw new Error(`Identifier duplicado: ${key}`);
-        index.set(key, { uuid, name: d.name, img: d.img, id, pack: p.name });
+        index.set(key, { uuid, name: d.name, img: d.img, id, pack: p.name, scope: p.scope });
       }
     }
   }
@@ -167,7 +173,9 @@ function actorDoc(pack, d, folders, index) {
     flags.sombraneon ??= {};
     if (flags.sombraneon.grantedBy in placeholders) flags.sombraneon.grantedBy = placeholders[flags.sombraneon.grantedBy];
     const src = index.get(`${it.type}:${it.identifier}`);
-    if (src) flags.sombraneon.sourceUuid = src.uuid;
+    // o módulo da aventura é independente: não aponta para o compêndio do outro módulo (que pode nem estar instalado)
+    const crossModule = pack.scope === 'carga' && src?.scope === 'module';
+    if (src && !crossModule) flags.sombraneon.sourceUuid = src.uuid;
     return {
       _id: ids[i],
       _key: `!actors.items!${id}.${ids[i]}`,
@@ -229,17 +237,17 @@ function sceneEmbedded(pack, d, id) {
         name: t.name,
         x: t.x,
         y: t.y,
-        elevation: 0,
+        elevation: t.elevation ?? 0,
         width: t.width,
         height: t.height,
         actorId: null,
         actorLink: false,
-        texture: { src: actor?.img ?? t.icon ?? DEFAULT_TOKEN_ICON },
+        texture: { src: t.texture ?? actor?.img ?? t.icon ?? DEFAULT_TOKEN_ICON },
         disposition: t.disposition,
         hidden: t.hidden,
         displayName: 20,
         sight: { enabled: Boolean(t.runner) },
-        flags: { sombraneon: { ...(actor ? { ref: actor.uuid } : {}), ...(t.runner ? { runner: t.runner } : {}) } }
+        flags: t.flags ?? { sombraneon: { ...(actor ? { ref: actor.uuid } : {}), ...(t.runner ? { runner: t.runner } : {}) } }
       };
     }),
     notes: sub('notes', 'note', d.notes, (n) => ({
@@ -254,7 +262,7 @@ function sceneEmbedded(pack, d, id) {
       global: false,
       entryId: null,
       pageId: null,
-      flags: {}
+      flags: n.flags ?? {}
     }))
   };
 }
@@ -268,9 +276,10 @@ function sceneDoc(pack, d, folders) {
     _key: `!scenes!${id}`,
     name: d.name,
     active: false,
-    navigation: false,
-    navOrder: 0,
-    navName: '',
+    navigation: d.navigation ?? false,
+    navOrder: d.navOrder ?? 0,
+    navName: d.navName ?? '',
+    ...(d.initial ? { initial: d.initial } : {}),
     background: { src: d.background, ...(d.fit ? { fit: d.fit } : {}) },
     thumb: d.img,
     foreground: null,
@@ -280,8 +289,8 @@ function sceneDoc(pack, d, folders) {
     backgroundColor: '#000000',
     grid: d.grid ?? { type: 0 },
     tokenVision: d.tokenVision ?? false,
-    ...(full ? { environment: { darknessLevel: d.darkness, globalLight: { enabled: true, darkness: { min: 0, max: 0.9 } } } } : {}),
-    fog: { exploration: false },
+    ...(full ? { environment: { darknessLevel: d.darkness, globalLight: { enabled: d.globalLight ?? true, darkness: { min: 0, max: 0.9 } } } } : {}),
+    fog: { exploration: d.fogExploration ?? false },
     tokens: embedded.tokens,
     walls: embedded.walls,
     lights: embedded.lights,
@@ -318,7 +327,8 @@ function macroDoc(pack, d, folders) {
   };
 }
 
-export async function buildPacks({ log = true } = {}) {
+/** `only`: lista de escopos (system, module, carga) a recompilar; sem ela, recompila tudo. */
+export async function buildPacks({ log = true, only = null } = {}) {
   const index = buildIndex();
   const resolver = makeResolver(PACKS, scopeId);
   const tmpRoot = path.join(ROOT, '.build');
@@ -326,6 +336,7 @@ export async function buildPacks({ log = true } = {}) {
   const summary = [];
 
   for (const pack of PACKS) {
+    if (only && !only.includes(pack.scope)) continue;
     const src = path.join(tmpRoot, pack.name);
     fs.mkdirSync(src, { recursive: true });
 
@@ -391,7 +402,9 @@ export async function buildPacks({ log = true } = {}) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  console.log('Gerando compêndios...');
-  await buildPacks();
+  const arg = process.argv.find((a) => a.startsWith('--only='));
+  const only = arg ? arg.slice('--only='.length).split(',') : null;
+  console.log(`Gerando compêndios${only ? ` (${only.join(', ')})` : ''}...`);
+  await buildPacks({ only });
   console.log('Pronto.');
 }

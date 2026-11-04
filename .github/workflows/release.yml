@@ -25,3 +25,5 @@ jobs:
             dist/system.zip
             dist/module.json
             dist/module.zip
+            dist/carga-sem-nome.json
+            dist/carga-sem-nome.zip

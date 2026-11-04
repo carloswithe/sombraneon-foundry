@@ -1,5 +1,22 @@
 # Changelog
 
+## [Não lançado]
+
+**CARGA SEM NOME**: a segunda aventura pronta, como **módulo próprio** (`sombraneon-carga-sem-nome`), independente do Compêndio e da Noite das Máscaras.
+
+### Adicionado
+- **Módulo `sombraneon-carga-sem-nome`** (manifesto `carga-sem-nome.json`, zip `carga-sem-nome.zip` na release), com dez compêndios na pasta *Carga Sem Nome*:
+  - **Diários** (11): Leia primeiro (visão geral, a verdade, as três pistas, ficha de missão, mapa de tempo, regras de ritmo), O Alerta, Briefing e FAQ (as 10 perguntas, handouts), as cinco salas (Para ler, desafio, disposição das ameaças, resoluções, complicações, pista, butim, se atrasar, imagens), Debrief, Cortes e ajuste de nível 3, Notas de teste. Contadores com caixas de marcar (relógio do Posto, Folga, ciclo da torre, relógio da Beta, cabeças do Cérbero, mostrador, faixas da perseguição). Segredos do Mestre em `section.secret`.
+  - **Imagens** (41, um diário por imagem com a arte, o texto para ler e as notas) e **Cenas** (5 mapas de mesa: grade de 1,5 m, paredes medidas sobre a arte, portas com estado e CD, luzes, regiões de cobertura, zona morta da torre, pins ligados aos diários, tokens nas posições iniciais, vista inicial e navegação).
+  - **Ameaças** (11), **NPCs e aliados** (8) e **Runners prontos** (6, com HP, CA e slots conferidos contra as fichas), **Equipamentos** (10) e **Tesouros e Prêmio** (6, 9 XP de butim), **Tabelas** (8) e **Macros** (23).
+- **Script do módulo:** ao importar uma cena, cria no mundo os atores que ela usa, liga os tokens às fichas e os pins às páginas dos diários, e devolve o acesso de observador aos handouts (o Foundry zera a permissão ao importar). API dos macros: Alerta (usa o rastreador do sistema), relógio da história, cronômetro, relógio do Posto, Folga, torre .50, Viatura Beta, cabeças do Cérbero, mostrador Leve, Padrão e Brutal, luzes e apagão do Túnel, cartão no painel, Cela A e B.
+- **Ferramentas:** o escopo `carga` em `tools/build-packs.mjs` (com `--only=carga`), a validação e o release do novo módulo, `tools/gen-carga-tokens.ps1` (tokens a partir da arte) e 44 testes em `tests/ui/carga.test.mjs`.
+- **Documentos:** `docs/carga-sem-nome.md` (texto), `docs/carga-sem-nome-imagens.md`, `docs/carga-sem-nome-foundry-instrucoes.md`, `docs/carga-sem-nome-mapeamento.md` e `docs/carga-sem-nome-relatorio.md` (relatório de verificação, divergências e a checklist de 15 minutos para o Mestre).
+
+### Para mundos existentes
+- Nada muda no sistema nem no Compêndio. Para jogar, instale `carga-sem-nome.json` e ative o módulo no mundo.
+- O módulo foi verificado por testes e pela validação dos compêndios, **não** dentro de um Foundry (veja o relatório): faça a checklist de 15 minutos antes da mesa.
+
 ## [0.8.0] - 2026-11-03
 
 **Regras adicionais opcionais** (Compêndio de Regras Adicionais v0.1) no sistema e no módulo, com o **marcador de Exaustão na ficha**.

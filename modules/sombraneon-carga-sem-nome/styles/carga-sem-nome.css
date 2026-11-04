@@ -1,0 +1,86 @@
+/* CARGA SEM NOME: caixa "Para ler", segredos do Mestre, tabelas e contadores dos diários. */
+
+.journal-page-content blockquote.para-ler,
+.journal-entry-page blockquote.para-ler {
+  margin: 0.8em 0;
+  padding: 0.6em 1em;
+  border-left: 5px solid #ff6d00;
+  border-radius: 0 6px 6px 0;
+  background: rgba(255, 109, 0, 0.1);
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.journal-page-content blockquote.para-ler::before,
+.journal-entry-page blockquote.para-ler::before {
+  content: "Para ler";
+  display: block;
+  margin-bottom: 0.2em;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff6d00;
+}
+
+.journal-page-content section.secret,
+.journal-entry-page section.secret {
+  border-left: 4px solid #ff1744;
+}
+
+.journal-page-content table,
+.journal-entry-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6em 0;
+}
+
+.journal-page-content table th,
+.journal-page-content table td,
+.journal-entry-page table th,
+.journal-entry-page table td {
+  padding: 0.3em 0.5em;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  vertical-align: top;
+}
+
+.journal-page-content table th,
+.journal-entry-page table th {
+  background: rgba(128, 128, 128, 0.18);
+  text-align: left;
+}
+
+.journal-page-content pre,
+.journal-entry-page pre {
+  white-space: pre-wrap;
+  padding: 0.6em 0.8em;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.12);
+  font-size: 0.85em;
+}
+
+/* Contadores com caixas de marcar (ciclo da torre, relógio da Beta, cabeças do Cérbero, Folga) */
+.carga-contador {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 0.9em;
+  margin: 0.4em 0;
+}
+
+.carga-caixa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  white-space: nowrap;
+}
+
+.carga-card h3 {
+  margin: 0 0 0.3em;
+  border-bottom: 2px solid #ff6d00;
+  font-size: 1.05em;
+}
+
+.carga-card .carga-nota {
+  opacity: 0.7;
+  font-size: 0.85em;
+}

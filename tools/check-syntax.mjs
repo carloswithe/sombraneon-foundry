@@ -5,7 +5,7 @@ import Handlebars from 'handlebars';
 import { ROOT } from './lib/book.mjs';
 
 /** Verifica a sintaxe de todo .mjs, .hbs e .json dos pacotes (não depende do Foundry). */
-const roots = ['systems/sombraneon', 'modules/sombraneon-compendium', 'tools', 'data', 'tests'].map((p) => path.join(ROOT, p));
+const roots = ['systems/sombraneon', 'modules/sombraneon-compendium', 'modules/sombraneon-carga-sem-nome', 'tools', 'data', 'tests'].map((p) => path.join(ROOT, p));
 const skip = new Set(['node_modules', 'packs', 'fonts', '.build']);
 
 function walk(dir) {

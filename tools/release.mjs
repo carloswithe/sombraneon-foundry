@@ -4,7 +4,7 @@ import archiver from 'archiver';
 import { ROOT } from './lib/book.mjs';
 
 /**
- * Gera dist/system.zip, dist/module.zip e os manifests com a versão e as URLs corretas.
+ * Gera dist/system.zip, dist/module.zip, dist/carga-sem-nome.zip e os manifests com a versão e as URLs corretas.
  * Uso: node tools/release.mjs [versão]   (padrão: versão do system.json)
  * Os arquivos ficam na RAIZ do zip, e os packs LevelDB entram byte a byte, sem conversão de linhas.
  */
@@ -17,18 +17,21 @@ fs.mkdirSync(dist, { recursive: true });
 
 const targets = [
   { key: 'system', dir: 'systems/sombraneon', manifest: 'system.json', zip: 'system.zip' },
-  { key: 'module', dir: 'modules/sombraneon-compendium', manifest: 'module.json', zip: 'module.zip' }
+  { key: 'module', dir: 'modules/sombraneon-compendium', manifest: 'module.json', zip: 'module.zip' },
+  // o módulo da aventura é independente: manifesto e zip próprios (dentro do zip o manifesto continua sendo module.json)
+  { key: 'carga', dir: 'modules/sombraneon-carga-sem-nome', manifest: 'module.json', published: 'carga-sem-nome.json', zip: 'carga-sem-nome.zip' }
 ];
 
 for (const t of targets) {
   const manifest = read(`${t.dir}/${t.manifest}`);
   manifest.version = version;
   manifest.url = `https://github.com/${REPO}`;
-  manifest.manifest = `https://github.com/${REPO}/releases/latest/download/${t.manifest}`;
+  const published = t.published ?? t.manifest;
+  manifest.manifest = `https://github.com/${REPO}/releases/latest/download/${published}`;
   manifest.download = `https://github.com/${REPO}/releases/download/v${version}/${t.zip}`;
   manifest.bugs = `https://github.com/${REPO}/issues`;
   const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
-  fs.writeFileSync(path.join(dist, t.manifest), manifestText);
+  fs.writeFileSync(path.join(dist, published), manifestText);
 
   await new Promise((resolve, reject) => {
     const out = fs.createWriteStream(path.join(dist, t.zip));

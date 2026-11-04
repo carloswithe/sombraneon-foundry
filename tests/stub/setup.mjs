@@ -56,7 +56,7 @@ export async function setup() {
   globalThis.__models = { actor: M.actorData.ACTOR_MODELS, item: M.itemData.ITEM_MODELS };
 
   // compêndios simulados a partir do conteúdo real
-  const scope = { system: 'sombraneon', module: 'sombraneon-compendium' };
+  const scope = { system: 'sombraneon', module: 'sombraneon-compendium', carga: 'sombraneon-carga-sem-nome' };
   for (const pack of content.PACKS) {
     const id = `${scope[pack.scope]}.${pack.name}`;
     if (pack.docType === 'Item') {
