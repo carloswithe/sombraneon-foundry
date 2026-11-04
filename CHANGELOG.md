@@ -1,6 +1,6 @@
 # Changelog
 
-## [Não lançado]
+## [0.9.0] - 2026-11-04
 
 **CARGA SEM NOME**: a segunda aventura pronta, como **módulo próprio** (`sombraneon-carga-sem-nome`), independente do Compêndio e da Noite das Máscaras.
 
