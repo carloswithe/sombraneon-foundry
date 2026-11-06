@@ -37,6 +37,7 @@ export function SNSheetMixin(Base) {
       actions: {
         snTab: SNSheet.#tab,
         toggleEdit: SNSheet.#toggleEdit,
+        saveSheet: SNSheet.#save,
         editImage: SNSheet.#editImage,
         hpApply: SNSheet.#hpApply,
         arrayAdd: SNSheet.#arrayAdd,
@@ -73,6 +74,50 @@ export function SNSheetMixin(Base) {
     static #toggleEdit() {
       this._editing = !this._editing;
       this.render();
+    }
+
+    /**
+     * Botão Salvar: envia o formulário agora (o que foi digitado e ainda não saiu do campo também entra)
+     * e confirma na própria ficha. A ficha continua salvando sozinha ao sair de cada campo.
+     */
+    static async #save() {
+      try {
+        if (typeof this.submit === 'function') await this.submit();
+        else (this.form ?? this.element?.querySelector('form'))?.requestSubmit?.();
+      } catch (error) {
+        console.error('SombraNeon | falha ao salvar a ficha', error);
+        return notify('error', 'Sheet.SaveFailed');
+      }
+      this._markSaved();
+      return notify('info', 'Sheet.SavedNotice', { name: this.document.name });
+    }
+
+    /** Todo envio do formulário (automático ou pelo botão) confirma "Salvo" no botão. */
+    async _processSubmitData(event, form, submitData, options) {
+      const result = await super._processSubmitData?.(event, form, submitData, options);
+      this._markSaved();
+      return result;
+    }
+
+    /** Mostra "Salvo" no botão por dois segundos (sobrevive a uma renderização que troque o botão). */
+    _markSaved() {
+      this._savedUntil = Date.now() + 2000;
+      this._applySaveState();
+      clearTimeout(this._savedTimer);
+      this._savedTimer = setTimeout(() => this._applySaveState(), 2100);
+    }
+
+    /** Pinta o botão Salvar: pendente (digitado, não enviado), salvo (confirmado) ou normal. */
+    _applySaveState() {
+      const saved = (this._savedUntil ?? 0) > Date.now();
+      for (const btn of this.element?.querySelectorAll?.('[data-action="saveSheet"]') ?? []) {
+        const label = btn.querySelector('span');
+        btn.dataset.idleLabel ??= label?.textContent ?? '';
+        btn.classList.toggle('sn-saved', saved);
+        btn.classList.toggle('sn-dirty', !saved && !!this._dirty);
+        if (saved) this._dirty = false;
+        if (label) label.textContent = saved ? btn.dataset.savedLabel : btn.dataset.idleLabel;
+      }
     }
 
     static async #editImage(event, target) {
@@ -156,6 +201,17 @@ export function SNSheetMixin(Base) {
           this.document.update({ [input.dataset.listPath]: values });
         });
       });
+      // botão Salvar: destaca quando há texto digitado que ainda não foi enviado
+      if (!el._snDirty) {
+        el._snDirty = true;
+        el.addEventListener('input', (event) => {
+          if (!event.target?.name) return;
+          this._dirty = true;
+          this._savedUntil = 0;
+          this._applySaveState();
+        });
+      }
+      this._applySaveState();
       // arrastar linhas
       el.querySelectorAll('[draggable="true"]').forEach((row) => {
         row.addEventListener('dragstart', (event) => this.#onDragRow(event, row));

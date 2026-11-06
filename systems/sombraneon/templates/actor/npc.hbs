@@ -18,6 +18,7 @@
       <div class="sn-row">
         <label>{{localize 'SOMBRANEON.Npc.Movement'}}<input type="text" name="system.movement" value="{{system.movement}}"></label>
         <label>{{localize 'SOMBRANEON.Npc.Alignment'}}<input type="text" name="system.alignment" value="{{system.alignment}}"></label>
+        {{#if editable}}<button type="button" class="sn-btn sn-save" data-action="saveSheet" data-saved-label="{{localize 'SOMBRANEON.Sheet.Saved'}}" title="{{localize 'SOMBRANEON.Sheet.SaveHint'}}"><i class="fa-solid fa-floppy-disk"></i> <span>{{localize 'SOMBRANEON.Sheet.Save'}}</span></button>{{/if}}
       </div>
     </div>
   </header>

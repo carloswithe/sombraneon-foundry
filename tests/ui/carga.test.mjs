@@ -179,6 +179,8 @@ describe('runners prontos', () => {
       expect(actor.system.details.drive.length, def.id).toBeGreaterThan(20);
       expect(actor.system.level).toBe(1);
       expect(actor.system.edge.value).toBe(1);
+      // a aba Bio vem sempre vazia (spoilers da aventura)
+      for (const k of ['civilName', 'biography', 'appearance', 'contacts', 'notes', 'groupGoals']) expect(actor.system.details[k] ?? '', `${def.id}.${k}`).toBe('');
     }
   });
 

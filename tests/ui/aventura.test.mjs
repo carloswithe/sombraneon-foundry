@@ -162,8 +162,8 @@ describe('runners prontos batem com as fichas da aventura (capítulo 14)', () =>
       const masks = a.items.filter((i) => i.identifier.startsWith('mascara-'));
       expect(masks, a.name).toHaveLength(1);
       expect(masks[0].system.slots).toBe(0);
-      expect(a.system.details.biography).toContain(a.system.details.civilName);
-      expect(a.system.details.biography).toContain('Plano de armas');
+      // a aba Bio vem sempre vazia (spoilers da aventura)
+      for (const k of ['civilName', 'biography', 'appearance', 'contacts', 'notes', 'groupGoals']) expect(a.system.details[k] ?? '', `${a.name}.${k}`).toBe('');
       expect(a.system.edge.value).toBe(1);
     }
     const ferrugem = actors.find((a) => a.name === 'Ferrugem');

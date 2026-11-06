@@ -733,14 +733,8 @@ function runnerActors() {
   return RUNNERS.map((def, i) => {
     const { items, base, derived } = buildRunner(def);
     const pers = persona(def.persona);
-    const block = fichaBlock(def.name);
-    const plan = paragraphOf(block, 'Plano de armas');
-    const biography =
-      `<h2>Persona da festa</h2>` +
-      html(`**${pers.name}**, ${pers.role}. Máscara: ${pers.mask}. Gancho: ${pers.hook} Adereço: ${pers.prop}`) +
-      `<h2>Plano de armas</h2>` +
-      md(plan.replace(/^\*\*Plano de armas:\*\*\s*/, '')) +
-      html('Itens marcados com a origem "cache" ficam na Cache de Ruth até o elevador de serviço (Sala 3). Os demais passam pelo scanner do Portão.');
+    // A aba Bio (nome civil, biografia, contatos...) sai sempre vazia: a persona e o plano de armas
+    // são spoilers e ficam só no diário da aventura e nos itens (máscara, origem das armas).
     return {
       identifier: slug(def.name),
       name: def.name,
@@ -755,7 +749,7 @@ function runnerActors() {
         ac: { cover: false, override: null },
         edge: { value: 1, triggerUsed: false },
         currency: { credits: def.credits },
-        details: { drive: def.drive, languages: 'Dialeto da cidade', civilName: pers.name, biography },
+        details: { drive: def.drive, languages: 'Dialeto da cidade', civilName: '' },
         creation: { completed: true, step: 9 }
       },
       items,

@@ -4,7 +4,7 @@ import { programItems } from '../programs.mjs';
 import { weaponItems, armorItems, gearItems, implantItems } from '../module-items.mjs';
 import { explosiveItems } from '../companions.mjs';
 import { deriveCharacter } from '../../../systems/sombraneon/src/logic/character.mjs';
-import { ASSET_DIR, CHAPTERS, chap, clone, toHtml, withFlags, esc, inline } from './lib.mjs';
+import { ASSET_DIR, CHAPTERS, chap, clone, withFlags } from './lib.mjs';
 import { artOf } from './images.mjs';
 
 /**
@@ -152,15 +152,7 @@ export function runnerActors() {
     const { items, base, derived } = buildRunner(def);
     const block = fichaBlock(def.name);
     const drive = sheetLine(block, 'DRIVE');
-    const role = sheetLine(block, 'PAPEL');
-    const [papel, laco] = role.split(/\s*\|\s*Laço:\s*/);
-    const code = /```\n([\s\S]*?)```/.exec(block)?.[1] ?? '';
-    const after = block.slice(block.indexOf('```', block.indexOf('```') + 3) + 3).trim();
-    const biography =
-      `<h2>Papel na operação</h2><p>${inline(papel)}</p>` +
-      `<h2>Laço</h2><p>${inline(laco.replace(/\)$/, ')'))}</p>` +
-      `<h2>Ficha da aventura</h2><pre>${esc(code.trim())}</pre>` +
-      toHtml(after);
+    // A aba Bio sai sempre vazia (spoilers): papel, laço e ficha da aventura ficam só no diário.
     const retrato = artOf(def.ret).path;
     const doc = {
       identifier: def.id,
@@ -178,7 +170,7 @@ export function runnerActors() {
         edge: { value: 1, triggerUsed: false },
         currency: { credits: def.credits },
         vehicleTraining: [],
-        details: { drive, languages: 'Dialeto da cidade', civilName: '', biography },
+        details: { drive, languages: 'Dialeto da cidade', civilName: '' },
         creation: { completed: true, step: 9 }
       },
       items,

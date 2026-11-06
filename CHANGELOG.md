@@ -1,5 +1,11 @@
 # Changelog
 
+## [Não lançado]
+
+### Corrigido
+- **Fichas prontas sem spoiler:** a aba **Bio** das fichas prontas da Noite das Máscaras e da Carga Sem Nome agora vem sempre vazia (biografia, nome civil e demais campos). A persona da festa, o plano de armas, o papel e o laço ficam só nos diários da aventura.
+- **Botão Salvar na ficha** (personagem e NPC): envia o formulário na hora e mostra "Salvo" em verde por dois segundos; fica amarelo enquanto houver texto digitado e ainda não enviado. A ficha continua salvando sozinha ao sair de cada campo, e agora cada salvamento também confirma no botão.
+
 ## [0.9.0] - 2026-11-04
 
 **CARGA SEM NOME**: a segunda aventura pronta, como **módulo próprio** (`sombraneon-carga-sem-nome`), independente do Compêndio e da Noite das Máscaras.

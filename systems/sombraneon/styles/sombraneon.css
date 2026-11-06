@@ -328,3 +328,6 @@
 .sombraneon .sn-rich p { margin: 0 0 4px; }
 .sombraneon details > summary { cursor: pointer; }
 .sombraneon .sn-btn.sn-disabled { opacity: 0.6; }
+/* botão Salvar: amarelo com texto digitado e ainda não enviado, verde por dois segundos depois de salvar */
+.sombraneon .sn-btn.sn-save.sn-dirty { background: rgba(255, 225, 74, 0.16); border-color: var(--sn-yel); color: var(--sn-yel); }
+.sombraneon .sn-btn.sn-save.sn-saved { background: rgba(61, 255, 154, 0.16); border-color: var(--sn-grn); color: var(--sn-grn); }

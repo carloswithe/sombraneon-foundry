@@ -53,6 +53,7 @@
         <label class="sn-drive"><span class="sn-label">{{localize 'SOMBRANEON.Sheet.Drive'}}</span>
           <input type="text" name="system.details.drive" value="{{system.details.drive}}" placeholder="{{localize 'SOMBRANEON.Sheet.DrivePlaceholder'}}"></label>
         {{#if wizard}}<button type="button" class="sn-btn sn-pulse" data-action="openWizard"><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize 'SOMBRANEON.Sheet.Wizard'}}</button>{{/if}}
+        {{#if editable}}<button type="button" class="sn-btn sn-save" data-action="saveSheet" data-saved-label="{{localize 'SOMBRANEON.Sheet.Saved'}}" title="{{localize 'SOMBRANEON.Sheet.SaveHint'}}"><i class="fa-solid fa-floppy-disk"></i> <span>{{localize 'SOMBRANEON.Sheet.Save'}}</span></button>{{/if}}
         <button type="button" class="sn-btn {{#if editing}}sn-active{{/if}}" data-action="toggleEdit" title="{{localize 'SOMBRANEON.Sheet.EditMode'}}"><i class="fa-solid {{#if editing}}fa-lock-open{{else}}fa-lock{{/if}}"></i> {{localize 'SOMBRANEON.Sheet.Edit'}}</button>
       </div>
     </div>
