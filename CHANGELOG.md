@@ -1,6 +1,6 @@
 # Changelog
 
-## [Não lançado]
+## [0.9.2] - 2026-11-06
 
 ### Corrigido
 - **A ficha não salvava o que era digitado** (biografia, contatos, nome, Drive e os demais campos do formulário): os templates das fichas (personagem, NPC, ICE, drone e item) tinham um `<form>` próprio dentro do formulário da janela, então os campos pertenciam ao form de dentro e o envio da janela levava dados vazios. O botão dizia "Salvo", mas nada era gravado. Agora a janela é o único formulário e o salvamento ao sair do campo e o botão Salvar gravam de verdade. Teste novo trava a regressão.
