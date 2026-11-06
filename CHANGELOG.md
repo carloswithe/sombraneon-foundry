@@ -1,6 +1,6 @@
 # Changelog
 
-## [Não lançado]
+## [0.9.1] - 2026-11-06
 
 ### Corrigido
 - **Fichas prontas sem spoiler:** a aba **Bio** das fichas prontas da Noite das Máscaras e da Carga Sem Nome agora vem sempre vazia (biografia, nome civil e demais campos). A persona da festa, o plano de armas, o papel e o laço ficam só nos diários da aventura.

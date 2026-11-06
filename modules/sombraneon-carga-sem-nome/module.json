@@ -2,7 +2,7 @@
   "id": "sombraneon-carga-sem-nome",
   "title": "SombraNeon: CARGA SEM NOME",
   "description": "Aventura de extração (ataque a comboio, com perseguição) para o sistema SombraNeon: cinco runners de nível 1, uma sessão de até 4 horas. Traz as fichas prontas, as ameaças e os NPCs, os itens e o butim, os diários (briefing, FAQ, as cinco salas e o Debrief), as 41 imagens e os cinco mapas de mesa com paredes, portas, luzes e tokens já posicionados, tabelas de rolagem e macros (Alerta, relógios, torre, Cérbero). Módulo independente: funciona sem o SombraNeon: Compêndio.",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
@@ -15,7 +15,7 @@
   ],
   "url": "https://github.com/carloswithe/sombraneon-foundry",
   "manifest": "https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/carga-sem-nome.json",
-  "download": "https://github.com/carloswithe/sombraneon-foundry/releases/download/v0.9.0/carga-sem-nome.zip",
+  "download": "https://github.com/carloswithe/sombraneon-foundry/releases/download/v0.9.1/carga-sem-nome.zip",
   "bugs": "https://github.com/carloswithe/sombraneon-foundry/issues",
   "license": "LICENSE",
   "readme": "README.md",
