@@ -32,6 +32,9 @@ export function SNSheetMixin(Base) {
 
     static DEFAULT_OPTIONS = {
       classes: ['sombraneon', 'sheet'],
+      // A própria janela é o <form> (padrão das fichas de documento): os templates NÃO podem ter outro <form> na raiz,
+      // senão os campos pertencem ao form de dentro e o envio da janela leva dados vazios (nada é salvo).
+      tag: 'form',
       window: { resizable: true },
       form: { submitOnChange: true, closeOnSubmit: false },
       actions: {
@@ -168,6 +171,7 @@ export function SNSheetMixin(Base) {
     async _onRender(context, options) {
       await super._onRender(context, options);
       const el = this.element;
+      el.setAttribute('autocomplete', 'off');
       // seletores e campos que passam por lógica (não pelo formulário)
       el.querySelectorAll('[data-change]').forEach((input) => {
         input.addEventListener('change', (event) => {
