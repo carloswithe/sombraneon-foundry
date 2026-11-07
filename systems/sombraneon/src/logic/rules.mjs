@@ -57,9 +57,17 @@ export function slotsMax({ forValue = 10, bonuses = 0 } = {}) {
  * @param {{quantity?:number, perSlot?:number, slots?:number, freeFirst?:boolean}[]} stacks
  */
 export function slotsUsed(stacks) {
+  return slotsBreakdown(stacks).reduce((sum, n) => sum + n, 0);
+}
+
+/**
+ * Slots que cada pilha ocupa, na mesma ordem da lista (a soma é o total usado).
+ * A grade e a lista de Posses usam estes números, para nunca divergirem do contador.
+ * @param {{quantity?:number, perSlot?:number, slots?:number, freeFirst?:boolean}[]} stacks
+ */
+export function slotsBreakdown(stacks) {
   let freeLeft = 1;
-  let used = 0;
-  for (const s of stacks) {
+  return stacks.map((s) => {
     let qty = Math.max(0, Number(s.quantity ?? 1));
     const perSlot = Math.max(1, Number(s.perSlot ?? 1));
     const slots = Number(s.slots ?? 1);
@@ -67,9 +75,8 @@ export function slotsUsed(stacks) {
       qty -= 1;
       freeLeft -= 1;
     }
-    used += Math.ceil(qty / perSlot) * slots;
-  }
-  return used;
+    return Math.ceil(qty / perSlot) * slots;
+  });
 }
 
 /* ---------- XP e nível ---------- */

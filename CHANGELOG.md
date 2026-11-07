@@ -1,5 +1,10 @@
 # Changelog
 
+## [Não lançado]
+
+### Corrigido
+- **Slots de Posses:** o contador, a grade de slots e a coluna "slots" de cada item agora vêm do mesmo cálculo (`slots.byItem`). Antes a grade e as linhas calculavam por conta própria e divergiam do contador: o primeiro rig utilitário (grátis) aparecia ocupando uma casa e uma linha de slot enquanto o contador não o contava, e **veículos** (motos, furgão) entravam no contador mesmo sem aparecer na grade. Veículo e mecha não ocupam slots (livro), então saem da conta. Testes novos em `tests/logic/slots.test.mjs`.
+
 ## [0.9.2] - 2026-11-06
 
 ### Corrigido

@@ -2,7 +2,7 @@ import { SN } from '../config.mjs';
 import { abilityMod, signed } from './abilities.mjs';
 import { gather, sum, setValue, hasFlag, flagSources, multiplier, diceFormula, advantageSources } from './modifiers.mjs';
 import { clampExhaustion, exhaustionDead } from './optional.mjs';
-import { maxHp, hitDieFaces, armorClass, slotsMax, slotsUsed, xpToNext, tierMax, talentsEarned, castingKnownMax, castingCd, cyberpsychosis, sneakAttackDice } from './rules.mjs';
+import { maxHp, hitDieFaces, armorClass, slotsMax, slotsBreakdown, xpToNext, tierMax, talentsEarned, castingKnownMax, castingCd, cyberpsychosis, sneakAttackDice } from './rules.mjs';
 
 const first = (items, type) => items.filter((i) => i.type === type);
 
@@ -136,21 +136,29 @@ export function deriveCharacter(input) {
 
   /* ---- 6. Slots ---- */
   const slotBonus = sum(mods, 'slots.bonus', {}, rollData);
+  // Veículo e mecha não ocupam slots (livro: "veículo ou mecha não ocupa slots"): ficam fora da conta. Cada pilha leva o id do item,
+  // e a grade/lista de Posses lê o mesmo resultado (byItem), então nada diverge do contador.
   const stacks = [
-    ...weapons.map((w) => ({ quantity: 1, slots: w.system.slots })),
-    ...armors.map((a) => ({ quantity: 1, slots: a.system.slots })),
-    ...gear.map((g) => ({
-      quantity: g.system.quantity,
-      perSlot: g.system.perSlot,
-      slots: g.system.slots,
-      freeFirst: g.system.freeFirst
-    }))
+    ...weapons.map((w) => ({ id: w.id, quantity: 1, slots: w.system.slots })),
+    ...armors.map((a) => ({ id: a.id, quantity: 1, slots: a.system.slots })),
+    ...gear
+      .filter((g) => g.system.category !== 'vehicle')
+      .map((g) => ({
+        id: g.id,
+        quantity: g.system.quantity,
+        perSlot: g.system.perSlot,
+        slots: g.system.slots,
+        freeFirst: g.system.freeFirst
+      }))
   ];
+  const slotsByStack = slotsBreakdown(stacks);
+  const slotsByItem = Object.fromEntries(stacks.map((s, i) => [s.id, slotsByStack[i]]));
   const slotParts = [{ label: 'FOR', value: Math.max(SN.slotsBase, abilities.for.value) }, ...slotBonus.parts];
   if (slotsManualBonus) slotParts.push({ label: 'Ajuste do Mestre', value: slotsManualBonus });
   const slots = {
     max: slotsMax({ forValue: abilities.for.value, bonuses: slotBonus.total + slotsManualBonus }),
-    used: slotsUsed(stacks),
+    used: slotsByStack.reduce((sum, n) => sum + n, 0),
+    byItem: slotsByItem,
     parts: slotParts
   };
   slots.over = slots.used > slots.max;

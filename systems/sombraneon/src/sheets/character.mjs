@@ -600,20 +600,21 @@ export class SNCharacterSheet extends SNSheetMixin(ActorSheetV2) {
     };
 
     // Posses
-    const wRow = (i) => ({ id: i.id, name: i.name, img: i.img, damage: i.system.damage, hands: i.system.hands, slots: i.system.slots, price: format(i.system.price), equipped: i.system.equipped, magEmpty: i.system.magEmpty, family: t(`Family.${i.system.family}`), usesMagazines: i.system.usesMagazines, props: i.system.properties.map((p) => t(`Prop.${p}`)).join(', ') });
-    const gearRows = actor.items.filter((i) => i.type === 'gear').map((i) => ({ id: i.id, name: i.name, img: i.img, category: i.system.category, categoryLabel: t(`Gear.${i.system.category}`), quantity: i.system.quantity, slots: Math.ceil(i.system.quantity / i.system.perSlot) * i.system.slots, price: format(i.system.price), hasUses: i.hasUses, uses: i.system.uses, vehicle: i.system.category === 'vehicle', bonus: i.system.bonus }));
+    const slotsOf = (i) => sys.slots.byItem?.[i.id] ?? 0;
+    const wRow = (i) => ({ id: i.id, name: i.name, img: i.img, damage: i.system.damage, hands: i.system.hands, slots: slotsOf(i), price: format(i.system.price), equipped: i.system.equipped, magEmpty: i.system.magEmpty, family: t(`Family.${i.system.family}`), usesMagazines: i.system.usesMagazines, props: i.system.properties.map((p) => t(`Prop.${p}`)).join(', ') });
+    const gearRows = actor.items.filter((i) => i.type === 'gear').map((i) => ({ id: i.id, name: i.name, img: i.img, category: i.system.category, categoryLabel: t(`Gear.${i.system.category}`), quantity: i.system.quantity, slots: slotsOf(i), price: format(i.system.price), hasUses: i.hasUses, uses: i.system.uses, vehicle: i.system.category === 'vehicle', bonus: i.system.bonus }));
     const cells = [];
     const classes = { weapon: 'w', armor: 'a', gear: 'g' };
     const stackCells = (cls, n) => {
       for (let k = 0; k < n; k++) cells.push(cls);
     };
-    for (const i of actor.items.filter((x) => ['weapon', 'armor'].includes(x.type))) stackCells(classes[i.type], i.system.slots);
+    for (const i of actor.items.filter((x) => ['weapon', 'armor'].includes(x.type))) stackCells(classes[i.type], slotsOf(i));
     for (const g of gearRows.filter((x) => !x.vehicle)) stackCells(g.category === 'ammo' || g.category === 'battery' ? 'c' : 'g', g.slots);
     while (cells.length < slots.max) cells.push('');
     const slotGrid = cells.map((cls, idx) => ({ n: idx + 1, cls, over: idx >= slots.max }));
     const inventory = {
       weapons: actor.items.filter((i) => i.type === 'weapon').map(wRow),
-      armors: actor.items.filter((i) => i.type === 'armor').map((i) => ({ id: i.id, name: i.name, img: i.img, ac: i.system.ac, addDex: i.system.addDex, slots: i.system.slots, price: format(i.system.price), equipped: i.system.equipped, type: t(`Armor.Type.${i.system.type}`) })),
+      armors: actor.items.filter((i) => i.type === 'armor').map((i) => ({ id: i.id, name: i.name, img: i.img, ac: i.system.ac, addDex: i.system.addDex, slots: slotsOf(i), price: format(i.system.price), equipped: i.system.equipped, type: t(`Armor.Type.${i.system.type}`) })),
       gear: gearRows.filter((g) => !g.vehicle),
       vehicles: gearRows.filter((g) => g.vehicle),
       credits: sys.currency.credits,

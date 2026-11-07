@@ -59,6 +59,11 @@ describe('hp, ca, slots', () => {
     expect(R.slotsUsed([{ quantity: 2, freeFirst: true }])).toBe(1);
     expect(R.slotsUsed([{ quantity: 1, slots: 3 }])).toBe(3);
   });
+  it('slotsBreakdown: o que cada pilha ocupa, somando o total usado', () => {
+    const stacks = [{ quantity: 1, slots: 1 }, { quantity: 1, freeFirst: true }, { quantity: 3, perSlot: 2 }, { quantity: 2, freeFirst: true }]; // só o primeiro rig é grátis
+    expect(R.slotsBreakdown(stacks)).toEqual([1, 0, 2, 2]);
+    expect(R.slotsUsed(stacks)).toBe(5);
+  });
 });
 
 describe('conjuração', () => {

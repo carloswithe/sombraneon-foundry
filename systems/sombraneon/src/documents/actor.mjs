@@ -78,6 +78,7 @@ export class SNActor extends Actor {
     sys.slots.max = d.slots.max;
     sys.slots.used = d.slots.used;
     sys.slots.over = d.slots.over;
+    sys.slots.byItem = d.slots.byItem;
     sys.slots.parts = d.slots.parts;
     sys.xp.next = d.xp.next;
     sys.xp.ready = d.xp.next !== null && sys.xp.value >= d.xp.next;
