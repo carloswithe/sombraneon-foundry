@@ -11,6 +11,7 @@ import { IMAGES, imageScenes } from './adventure-images.mjs';
 import { mapScenes, mapMacros } from './adventure-maps.mjs';
 import { CARGA_PACKS, CARGA_COUNTS } from './carga/index.mjs';
 import { MAPAS_PACKS, MAPAS_COUNTS } from './mapas/index.mjs';
+import { applyArt } from '../art/index.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -47,6 +48,9 @@ export const PACKS = [
   // Aventura "Carga Sem Nome": módulo próprio (sombraneon-carga-sem-nome), escopo carga
   ...CARGA_PACKS
 ];
+
+// Arte dos tokens e ícones (Magnific): troca o ícone genérico pela ilustração de cada ator e item (data/art/).
+applyArt(PACKS);
 
 /** Quantidades esperadas (docs/spec/05, seção 1; ver docs/DECISIONS.md para divergências). */
 export const EXPECTED_COUNTS = {

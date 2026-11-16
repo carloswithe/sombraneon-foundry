@@ -1,0 +1,9 @@
+[
+  { "scope": "module", "pack": "noite-elenco", "id": "dona-ruth", "portrait": "noite-das-mascaras/02-dona-ruth-e-a-banca-do-setimo-andar.jpg", "spot": "amber" },
+  { "scope": "module", "pack": "noite-elenco", "id": "o-mordomo-ia", "portrait": "noite-das-mascaras/05-o-mordomo.jpg", "spot": "cyan" },
+  { "scope": "module", "pack": "noite-elenco", "id": "o-assistente", "portrait": "noite-das-mascaras/10-o-sorriso-que-nao-treme.jpg", "spot": "blue" },
+  { "scope": "module", "pack": "noite-elenco", "id": "teo-pixel", "portrait": "noite-das-mascaras/09-teo-pixel.jpg", "spot": "violet" },
+  { "scope": "module", "pack": "noite-elenco", "id": "rex-robo-de-exclusao", "portrait": "noite-das-mascaras/15-rex-modo-contencao.jpg", "spot": "orange" },
+  { "scope": "module", "pack": "noite-elenco", "id": "livia-aragao", "portrait": "noite-das-mascaras/20-livia-aragao.jpg", "spot": "blue" },
+  { "scope": "module", "pack": "noite-elenco", "id": "rex-mk-ii-nivel-3", "portrait": "noite-das-mascaras/16-rex-modo-letal.jpg", "spot": "orange" }
+]

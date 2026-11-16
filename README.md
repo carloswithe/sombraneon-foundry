@@ -98,6 +98,12 @@ O texto da aventura fica em `docs/carga-sem-nome.md`, o guia das imagens em `doc
 
 **Trocar a arte:** salve o arquivo novo com o mesmo nome em `modules/sombraneon-carga-sem-nome/assets/` (`img/`, `maps/`, `portraits/`) e rode `npm run build:packs`. Para os mapas, mantenha a proporção 3:2: as paredes foram medidas sobre a arte atual, então uma arte nova pode pedir ajuste de escala e posição do fundo na cena. Os tokens (`assets/tokens/`) vêm de `tools/gen-carga-tokens.ps1` (Windows PowerShell); o script não sobrescreve um token que já existe.
 
+## Arte de tokens e ícones
+
+Todo ator e item do Compêndio (e os sem arte da Carga Sem Nome) tem ilustração própria: **tokens redondos** com anel na cor de destaque para ameaças, ICE, IAs e runners, e **ícones quadrados** para armas, armaduras, equipamento, implantes, veículos, mechas, módulos e os itens das aventuras. A direção de arte é a dos livros (vetor 2D chapado, contorno grosso, cinzas e uma cor de destaque). Os arquivos ficam em `modules/<pacote>/assets/arte/<compêndio>/<identifier>.webp`.
+
+O catálogo com os prompts de cada imagem está em `docs/sombraneon-arte-prompts.md`. Para trocar uma arte: gere a imagem nova (1:1, 1K) com o prompt do catálogo, salve em `art-origem/<compêndio>/<identifier>.png` (ou aponte outra pasta) e rode `python tools/art/process-art.py <pasta>` e depois `npm run build:packs`. Para mudar um prompt ou acrescentar uma entrada, edite `data/art/catalog.mjs` e rode `node tools/art/build-prompts.mjs`, que também confere se algum documento ficou sem arte.
+
 ## Desenvolvimento
 
 ```

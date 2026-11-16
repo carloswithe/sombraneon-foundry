@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.11.0] - 2026-11-16
+
+**Arte de tokens e ícones** nos compêndios: cada ameaça, ICE, IA, ficha pronta, arma, armadura, equipamento, implante, veículo, mecha e módulo, mais os itens e os atores sem arte das duas aventuras, passa a ter ilustração própria no lugar do ícone genérico.
+
+### Adicionado
+- **285 imagens** (279 geradas no Magnific mais 6 reaproveitadas), na mesma direção de arte dos livros: vetor 2D chapado, contorno preto grosso, cinzas em blocos e **uma única cor de destaque** no ponto de foco (a cor muda por família: vermelho nas armas brancas, âmbar nas de fogo, laranja nas pesadas e militares, ciano nas armaduras, decks e IAs, verde em medicina, módulos e malware, magenta em ICE e gangues, violeta em implantes neurais e cultos, azul na lei e nas corporações).
+  - **Tokens de ator** (WebP 400 px, recorte redondo com anel na cor de destaque): 66 ameaças, 17 ICE e malware, 6 fichas prontas, o Curador e os 6 runners da Noite das Máscaras, e 6 atores da Carga Sem Nome que só tinham token de iniciais (Capanga e Atirador dos Cães de Vidro, Policial urbano, Droid de combate, Eurico e a Tesoureira), além de **7 tokens redondos para o elenco da Noite das Máscaras** (Dona Ruth, o Mordomo, o Assistente, Teo Pixel, Rex, Rex Mk II e Lívia Aragão), feitos do retrato da aventura: antes eles arrastavam o retrato quadrado para a cena. O retrato continua sendo o da ficha. O ICE *Enxame* foi refeito como um vírus digital, sem figura humana. A mesma imagem vale como retrato e como token do ator, e as cenas que citam o ator passam a usá-la.
+  - **Ícones de item** (WebP 512 px): 37 armas, 3 armaduras, 29 equipamentos, 28 implantes, 58 veículos, mechas e módulos, 16 itens da Noite das Máscaras (máscaras, adereços, pistola de polímero, embaralhador e outros) e 6 itens da Carga Sem Nome. Os itens embutidos nas fichas prontas herdam o ícone do catálogo.
+  - Arquivos em `modules/sombraneon-compendium/assets/arte/` (7,8 MB) e `modules/sombraneon-carga-sem-nome/assets/arte/` (0,5 MB). O módulo Carga Sem Nome continua independente: as quatro imagens que ele compartilha com o Compêndio (furgão, motos, granada de fragmentação e carga de demolição) e as dos seus atores foram copiadas para o próprio módulo.
+- **Catálogo e prompts:** `docs/sombraneon-arte-prompts.md` traz os 279 prompts (bloco fixo de direção de arte, assunto, cor de destaque e foco de cada imagem). Gerado por `node tools/art/build-prompts.mjs` a partir de `data/art/catalog.mjs`; o script confere que todo documento sem arte própria está coberto.
+- **Ferramentas:** `data/art/index.mjs` aplica a arte aos documentos na compilação (`img`, textura do token e itens embutidos), `tools/art/process-art.py` transforma os originais do Magnific em WebP (token redondo com anel, ícone reduzido) e `tools/art/remaining.mjs` lista o que falta gerar.
+
+### Para mundos existentes
+- Nada muda no sistema. Atualize os módulos: os documentos novos já vêm com a arte. Atores e itens que você já importou para o mundo mantêm o ícone antigo; reimporte do compêndio para pegar a arte nova.
+- Ficam de fora, por já terem arte própria das aventuras: o elenco e os NPCs com retrato, os runners e as ameaças ilustradas da Carga Sem Nome e os itens com imagem de aventura. Classes, origens, antecedentes, alinhamentos, características, talentos e programas seguem com os ícones do sistema.
+- Pontos a observar na arte: o carro esportivo lembra um modelo real e é candidato a regenerar (edite o assunto no catálogo e rode o gerador).
+
 ## [0.10.0] - 2026-11-15
 
 ### Adicionado
