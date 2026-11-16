@@ -49,6 +49,12 @@ function buildIndex() {
         if (index.has(key)) throw new Error(`Identifier duplicado: ${key}`);
         index.set(key, { uuid, name: d.name, img: d.img, id, pack: p.name, scope: p.scope });
       }
+      // cenas do Compêndio de Mapas: as tabelas de sorteio apontam para elas como "Scene:m001"
+      if (p.docType === 'Scene' && p.name === 'mapas-cenas') {
+        const key = `Scene:${d.identifier}`;
+        if (index.has(key)) throw new Error(`Identifier duplicado: ${key}`);
+        index.set(key, { uuid, name: d.name, img: d.img, id, pack: p.name, scope: p.scope });
+      }
     }
   }
   return index;
@@ -98,7 +104,7 @@ function tableDoc(pack, d, folders, index) {
     if (r.ref) {
       const hit = index.get(r.ref);
       if (!hit) throw new Error(`Referência não resolvida na tabela ${d.identifier}: ${r.ref}`);
-      return { ...base, type: 'document', name: hit.name, description: '', img: hit.img, documentUuid: hit.uuid };
+      return { ...base, type: 'document', name: r.label ?? hit.name, description: '', img: hit.img, documentUuid: hit.uuid };
     }
     return {
       ...base,
@@ -113,7 +119,7 @@ function tableDoc(pack, d, folders, index) {
     _key: `!tables!${id}`,
     name: d.name,
     img: d.img,
-    description: '',
+    description: d.description ?? '',
     results,
     formula: d.formula,
     replacement: d.replacement,
@@ -328,7 +334,7 @@ function macroDoc(pack, d, folders) {
 }
 
 /** `only`: lista de escopos (system, module, carga) a recompilar; sem ela, recompila tudo. */
-export async function buildPacks({ log = true, only = null } = {}) {
+export async function buildPacks({ log = true, only = null, packs = null } = {}) {
   const index = buildIndex();
   const resolver = makeResolver(PACKS, scopeId);
   const tmpRoot = path.join(ROOT, '.build');
@@ -337,6 +343,7 @@ export async function buildPacks({ log = true, only = null } = {}) {
 
   for (const pack of PACKS) {
     if (only && !only.includes(pack.scope)) continue;
+    if (packs && !packs.includes(pack.name)) continue;
     const src = path.join(tmpRoot, pack.name);
     fs.mkdirSync(src, { recursive: true });
 
@@ -404,7 +411,10 @@ export async function buildPacks({ log = true, only = null } = {}) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const arg = process.argv.find((a) => a.startsWith('--only='));
   const only = arg ? arg.slice('--only='.length).split(',') : null;
-  console.log(`Gerando compêndios${only ? ` (${only.join(', ')})` : ''}...`);
-  await buildPacks({ only });
+  // --pack=mapas-cenas,mapas-diarios recompila só esses packs (por nome); o índice de referências usa sempre todos
+  const packArg = process.argv.find((a) => a.startsWith('--pack='));
+  const packs = packArg ? packArg.slice('--pack='.length).split(',') : null;
+  console.log(`Gerando compêndios${only ? ` (${only.join(', ')})` : ''}${packs ? ` [${packs.join(', ')}]` : ''}...`);
+  await buildPacks({ only, packs });
   console.log('Pronto.');
 }

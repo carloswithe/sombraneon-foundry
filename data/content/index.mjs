@@ -10,6 +10,7 @@ import { ADVENTURE_PACKS } from './adventure.mjs';
 import { IMAGES, imageScenes } from './adventure-images.mjs';
 import { mapScenes, mapMacros } from './adventure-maps.mjs';
 import { CARGA_PACKS, CARGA_COUNTS } from './carga/index.mjs';
+import { MAPAS_PACKS, MAPAS_COUNTS } from './mapas/index.mjs';
 
 /**
  * Definição de todos os compêndios. `scope` decide onde o pack é gravado:
@@ -39,6 +40,9 @@ export const PACKS = [
 
   // Aventura "Noite das Máscaras": packs próprios (prefixo noite-), agrupados numa pasta do menu de compêndios
   ...ADVENTURE_PACKS,
+
+  // Compêndio de Mapas Aleatórios: 100 cenas, diários, tabelas de sorteio e macros (prefixo mapas-), no módulo
+  ...MAPAS_PACKS,
 
   // Aventura "Carga Sem Nome": módulo próprio (sombraneon-carga-sem-nome), escopo carga
   ...CARGA_PACKS
@@ -75,5 +79,6 @@ export const EXPECTED_COUNTS = {
   'noite-itens': 22,
   'noite-tabelas': 2,
   'noite-macros': mapMacros.length,
+  ...MAPAS_COUNTS,
   ...CARGA_COUNTS
 };

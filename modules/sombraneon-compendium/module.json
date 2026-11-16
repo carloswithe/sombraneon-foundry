@@ -1,8 +1,8 @@
 {
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
-  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" (livro, imagens, cenários, mapas de mesa com paredes, luzes e tokens, elenco, runners, itens e macros) para o sistema SombraNeon.",
-  "version": "0.9.2",
+  "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" (livro, imagens, cenários, mapas de mesa com paredes, luzes e tokens, elenco, runners, itens e macros), mais o Compêndio de Mapas Aleatórios (100 cenas prontas com grade, paredes automáticas nos mapas aprovados, diários, tabelas de sorteio e macros) para o sistema SombraNeon.",
+  "version": "0.10.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
@@ -260,6 +260,50 @@
         "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "mapas-cenas",
+      "label": "Mapas: Cenas",
+      "path": "packs/mapas-cenas",
+      "type": "Scene",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "mapas-diarios",
+      "label": "Mapas: Diários",
+      "path": "packs/mapas-diarios",
+      "type": "JournalEntry",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "mapas-tabelas",
+      "label": "Mapas: Tabelas de sorteio",
+      "path": "packs/mapas-tabelas",
+      "type": "RollTable",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "mapas-macros",
+      "label": "Mapas: Macros",
+      "path": "packs/mapas-macros",
+      "type": "Macro",
+      "system": "sombraneon",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "relationships": {
@@ -289,6 +333,17 @@
         "noite-itens",
         "noite-tabelas",
         "noite-macros"
+      ]
+    },
+    {
+      "name": "Mapas Aleatórios",
+      "sorting": "m",
+      "color": "#00b8d4",
+      "packs": [
+        "mapas-cenas",
+        "mapas-diarios",
+        "mapas-tabelas",
+        "mapas-macros"
       ]
     }
   ]

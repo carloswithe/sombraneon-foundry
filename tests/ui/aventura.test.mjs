@@ -4,6 +4,7 @@ import { describe, it, expect } from 'vitest';
 import { PACKS, EXPECTED_COUNTS } from '../../data/content/index.mjs';
 import { buildRunner, RUNNER_DEFS, ADVENTURE_PACK_FOLDER, ADVENTURE_ID } from '../../data/content/adventure.mjs';
 import { IMAGES, IMAGE_DEFS, MISSING_IMAGES, imageScenes, imageJournals } from '../../data/content/adventure-images.mjs';
+import { MAPAS_PACK_FOLDER } from '../../data/content/mapas/index.mjs';
 import { imageSize } from '../../tools/lib/image.mjs';
 import { makeResolver } from '../../tools/lib/refs.mjs';
 import { ROOT } from '../../tools/lib/book.mjs';
@@ -32,7 +33,8 @@ describe('estrutura dos compêndios da aventura', () => {
     const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'modules/sombraneon-compendium/module.json'), 'utf8'));
     const declared = manifest.packs.map((p) => p.name).filter((n) => n.startsWith('noite-'));
     expect(declared).toEqual(adventurePacks.map((p) => p.name));
-    expect(manifest.packFolders).toEqual([ADVENTURE_PACK_FOLDER]);
+    // o módulo tem duas pastas no menu de compêndios: a Noite das Máscaras e o Compêndio de Mapas Aleatórios
+    expect(manifest.packFolders).toEqual([ADVENTURE_PACK_FOLDER, MAPAS_PACK_FOLDER]);
     expect(ADVENTURE_PACK_FOLDER.packs).toEqual(declared);
   });
 

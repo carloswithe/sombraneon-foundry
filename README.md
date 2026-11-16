@@ -7,7 +7,7 @@ Três pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
-| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas, macros e a aventura pronta **Noite das Máscaras**. |
+| Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas, macros, a aventura pronta **Noite das Máscaras** e o **Compêndio de Mapas Aleatórios** (100 cenas prontas). |
 | Módulo da aventura | `sombraneon-carga-sem-nome` | Aventura pronta **CARGA SEM NOME** (extração, ataque a comboio e perseguição, 5 runners de nível 1): fichas, diários, 41 imagens e retratos, 5 mapas de mesa com paredes e tokens, tabelas e macros. Independente do módulo Compêndio. |
 
 ## Instalação
@@ -66,6 +66,21 @@ O módulo traz uma aventura de assalto para 4 runners de nível 1 (uma sessão d
 10. **Macros:** os estados de cena (Alerta 4, apagão da Galeria, Mural e curto-circuito do Corredor, botão de pânico, trancas).
 
 O texto da aventura fica em `docs/noite-das-mascaras.md`, o guia de imagens em `docs/noite-das-mascaras-imagens.md` e o guia dos mapas de mesa em `docs/noite-das-mascaras-scenes.md`. A geometria dos mapas (paredes, luzes, regiões e tokens, em pixels da própria imagem) fica em `data/content/adventure-maps-data.mjs`. Para acrescentar uma imagem, salve o arquivo em `modules/sombraneon-compendium/assets/noite-das-mascaras/` com o nome definido no guia (número, hífen e título, por exemplo `15-rex-modo-contencao.jpg`) e rode `npm run build:packs`. Para atualizá-lo, troque o arquivo e rode `npm run build:packs`.
+
+## Compêndio de Mapas Aleatórios
+
+O módulo traz **100 battlemaps** cyberpunk em vista de cima (arte vetorial 2D, uma cor neon de destaque por mapa) para improviso, campanhas e aventuras, em 10 categorias de 10 mapas. Tudo fica na pasta **Mapas Aleatórios** do menu de compêndios:
+
+1. **Mapas: Cenas:** as 100 cenas prontas, em dez pastas. Cada uma tem o fundo no tamanho `grade x 100 px`, grade quadrada de 100 px (1 casa = 1,5 m) e uma nota *Entrada dos runners*. Arraste para a barra de cenas, ou clique com o botão direito e escolha Importar.
+2. **Mapas: Diários:** o `00 Leia primeiro` (como usar, grade, tabelas, legenda da cor de destaque, pacote essencial) e um diário por categoria, com duas páginas por mapa: o texto (descrição, áreas, cobertura e perigos, ganchos, ameaças típicas, prompt para gerar de novo) e a imagem, para *Mostrar aos jogadores*.
+3. **Mapas: Tabelas de sorteio:** d100 (mapa aleatório), d10 de categoria e d10 por categoria, d8 de local do contrato e d20 do pacote essencial. Os resultados são links para as cenas.
+4. **Mapas: Macros:** *Mapa aleatório (d100)* (rola, importa a cena para a pasta *Mapas aleatórios*, posta o resumo só para o Mestre e pergunta se ativa) e *Importar mapa por categoria* (escolha com miniaturas). Nunca importam a mesma cena duas vezes.
+
+**Paredes automáticas.** 83 dos 100 mapas vêm com paredes detectadas sobre as faixas pretas da própria arte e conferidas uma a uma (flag `paredes: auto-v1`), com visão dos tokens e névoa de exploração ligadas e escuridão pelo tom de luz do mapa. Os outros 17 vêm só com fundo e grade (os 2 mapas da Rede e 15 em que a detecção não ficou fiel). **Portas e janelas não são detectadas**: marque à mão onde precisar. Com a iluminação global desligada, um mapa escuro só se revela com a luz dos tokens e das luzes do Mestre; para jogar sem montar luzes, ligue *Iluminação global* na configuração da cena.
+
+**A arte de IA não bate exatamente com a grade.** Ajuste escala e posição do fundo pela ferramenta de grade da cena, usando as portas (cerca de 1 casa) como referência; se mudar a escala, as paredes precisam acompanhar. Para trocar uma arte, salve o arquivo em `modules/sombraneon-compendium/assets/mapas/maps/` com o mesmo nome e as mesmas dimensões, e rode `npm run build:packs`.
+
+O catálogo (texto de cada mapa, tabelas e prompts) fica em `docs/sombraneon-compendio-mapas.md`; os dados extraídos em `data/content/mapas/catalogo.json`; as paredes em `data/content/mapas/paredes.json`. As instruções de geração das imagens e de montagem estão em `docs/sombraneon-compendio-mapas-geracao.md` e `docs/sombraneon-compendio-mapas-foundry-instrucoes.md`, o mapeamento em `docs/compendio-mapas-mapeamento.md` e o relatório de verificação, com a checklist de 10 minutos para o Mestre, em `docs/compendio-mapas-relatorio.md`.
 
 ## Aventura pronta: CARGA SEM NOME
 

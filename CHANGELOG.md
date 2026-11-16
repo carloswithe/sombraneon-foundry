@@ -1,6 +1,19 @@
 # Changelog
 
-## [Não lançado]
+## [0.10.0] - 2026-11-15
+
+### Adicionado
+- **Compêndio de Mapas Aleatórios** no módulo `sombraneon-compendium`, em quatro packs novos (`mapas-cenas`, `mapas-diarios`, `mapas-tabelas`, `mapas-macros`) agrupados na pasta *Mapas Aleatórios* do menu de compêndios:
+  - **100 cenas** em 10 pastas, com o fundo no tamanho `grade x 100 px`, grade quadrada de 100 px (1 casa = 1,5 m) e nota *Entrada dos runners*. Os 100 fundos e miniaturas vêm em `assets/mapas/` (25 MB).
+  - **Paredes automáticas em 83 mapas** (flag `paredes: auto-v1`), detectadas sobre as faixas pretas da arte e conferidas mapa a mapa em sobreposição; essas cenas vêm com visão dos tokens, névoa de exploração e escuridão pelo tom de luz. Os 2 mapas da Rede e 15 em que a detecção não ficou fiel vêm só com fundo e grade. Portas e janelas não são detectadas.
+  - **11 diários** (o *Leia primeiro* e um por categoria, com o texto de cada mapa e a página de imagem), **14 tabelas de sorteio** (d100, categoria, uma por categoria, local do contrato d8 e pacote essencial d20) e **2 macros** (*Mapa aleatório (d100)* e *Importar mapa por categoria*), com as funções `sortearMapa` e `importarMapaPorCategoria` na API do módulo.
+- **Ferramentas:** `tools/build-packs.mjs` indexa as cenas de `mapas-cenas` para as tabelas, aceita `label` nos resultados e `description` nas tabelas, e ganhou `--pack=nome1,nome2` para recompilar só alguns packs; `tools/validate.mjs` aceita as fórmulas `1d10` e `1d100`; `tools/lib/image.mjs` lê WebP.
+- **Documentos:** `docs/sombraneon-compendio-mapas.md` (catálogo), `docs/sombraneon-compendio-mapas-geracao.md` e `docs/sombraneon-compendio-mapas-foundry-instrucoes.md`, `docs/compendio-mapas-mapeamento.md` e `docs/compendio-mapas-relatorio.md` (verificação, lista de reprovados nas paredes e checklist de 10 minutos).
+- **Testes:** `tests/ui/mapas-compendio.test.mjs` (13 testes: tamanhos, notas de entrada, paredes, diários, tabelas e macros).
+
+### Para mundos existentes
+- Nada muda no sistema nem nos compêndios que já existiam. Atualize o módulo e ative: a pasta *Mapas Aleatórios* aparece sozinha.
+- O compêndio foi verificado por testes e pela validação dos compêndios, **não** dentro de um Foundry (veja `docs/compendio-mapas-relatorio.md`): faça a checklist de 10 minutos antes da mesa.
 
 ### Corrigido
 - **Slots de Posses:** o contador, a grade de slots e a coluna "slots" de cada item agora vêm do mesmo cálculo (`slots.byItem`). Antes a grade e as linhas calculavam por conta própria e divergiam do contador: o primeiro rig utilitário (grátis) aparecia ocupando uma casa e uma linha de slot enquanto o contador não o contava, e **veículos** (motos, furgão) entravam no contador mesmo sem aparecer na grade. Veículo e mecha não ocupam slots (livro), então saem da conta. Testes novos em `tests/logic/slots.test.mjs`.
