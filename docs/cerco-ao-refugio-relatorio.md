@@ -71,7 +71,7 @@ Ver `docs/cerco-ao-refugio-arte.md`. Os 13 retratos que o guia não cobria foram
 | 8. Permissões | ok; nenhuma nota "Mestre:" ou "Segredo" fora da seção secreta nas páginas dos jogadores |
 | 9. Teste no Foundry | **não feito** (nenhum Foundry encontrado nesta máquina) |
 
-`npx vitest run`: 303 testes passaram, 23 deles deste módulo. `node tools/validate.mjs`: ok (53 packs, 961 documentos), antes do último ajuste de texto das fichas e diários; depois dele os packs do módulo foram recompilados e conferidos, sem rodar a validação de novo. Os desenhos de paredes e tokens foram conferidos sobre a arte, fora do Foundry.
+`npm run verify` num clone limpo (o mesmo do CI), em 25/11/2026: sintaxe ok, 303 testes passaram (23 deles deste módulo) e a validação passou (53 packs, 961 documentos). Os desenhos de paredes e tokens foram conferidos sobre a arte, fora do Foundry.
 
 **Sem teste manual:** ativação do módulo, importação das cenas (ligação de tokens e pins), paredes bloqueando, luzes, escuridão, macros, rastreador de Alerta, abertura das fichas e dos diários.
 
