@@ -11,7 +11,8 @@ const fail = (m) => errors.push(m);
 const SCOPES = {
   system: { id: 'sombraneon', dir: 'systems/sombraneon' },
   module: { id: 'sombraneon-compendium', dir: 'modules/sombraneon-compendium' },
-  carga: { id: 'sombraneon-carga-sem-nome', dir: 'modules/sombraneon-carga-sem-nome' }
+  carga: { id: 'sombraneon-carga-sem-nome', dir: 'modules/sombraneon-carga-sem-nome' },
+  cerco: { id: 'sombraneon-cerco-ao-refugio', dir: 'modules/sombraneon-cerco-ao-refugio' }
 };
 const packDir = (p) => path.join(ROOT, SCOPES[p.scope].dir, 'packs', p.name);
 
@@ -70,6 +71,7 @@ const scan = (dir, exts) => {
 };
 for (const d of ['systems/sombraneon/templates', 'systems/sombraneon/src', 'systems/sombraneon/lang', 'modules/sombraneon-compendium/lang', 'data/content']) scan(path.join(ROOT, d), ['.hbs', '.mjs', '.json']);
 scan(path.join(ROOT, 'modules/sombraneon-carga-sem-nome'), ['.mjs', '.json', '.css']);
+scan(path.join(ROOT, 'modules/sombraneon-cerco-ao-refugio'), ['.mjs', '.json', '.css']);
 
 // 6. packs compilados: contagem de documentos de topo e embutidos
 for (const p of PACKS) {
@@ -99,11 +101,11 @@ for (const p of PACKS) {
 }
 
 // 7. manifestos
-for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendium/module.json', 'modules/sombraneon-carga-sem-nome/module.json']) {
+for (const f of ['systems/sombraneon/system.json', 'modules/sombraneon-compendium/module.json', 'modules/sombraneon-carga-sem-nome/module.json', 'modules/sombraneon-cerco-ao-refugio/module.json']) {
   const m = JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
   for (const pk of m.packs) if (!fs.existsSync(path.join(ROOT, path.dirname(f), pk.path))) fail(`${f}: pack sem pasta ${pk.path}`);
   // todo pack do conteúdo está declarado no manifesto, e só eles
-  const scope = f.startsWith('systems') ? 'system' : f.includes('carga-sem-nome') ? 'carga' : 'module';
+  const scope = f.startsWith('systems') ? 'system' : f.includes('carga-sem-nome') ? 'carga' : f.includes('cerco-ao-refugio') ? 'cerco' : 'module';
   const want = PACKS.filter((p) => p.scope === scope).map((p) => p.name).sort();
   const have = m.packs.map((p) => p.name).sort();
   if (want.join() !== have.join()) fail(`${f}: packs declarados diferem do conteúdo (${want.filter((n) => !have.includes(n)).join(', ') || 'nenhum faltando'} / ${have.filter((n) => !want.includes(n)).join(', ') || 'nenhum sobrando'})`);

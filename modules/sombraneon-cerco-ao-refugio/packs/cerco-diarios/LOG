@@ -1,0 +1,5 @@
+2026/11/25-09:24:15.845 6438 Delete type=3 #1
+2026/11/25-09:24:15.857 3bbc Level-0 table #5: started
+2026/11/25-09:24:15.859 3bbc Level-0 table #5: 126058 bytes OK
+2026/11/25-09:24:15.860 3bbc Delete type=0 #3
+2026/11/25-09:24:15.860 3bbc Manual compaction at level-0 from '!folders!KQEkQNhQKdFec3rT' @ 72057594037927935 : 1 .. '!journal.pages!vxDZYGuyecCFzhdH.xdcnEW3TlIfbRhPc' @ 0 : 0; will stop at (end)

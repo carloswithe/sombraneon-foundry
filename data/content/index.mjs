@@ -10,6 +10,7 @@ import { ADVENTURE_PACKS } from './adventure.mjs';
 import { IMAGES, imageScenes } from './adventure-images.mjs';
 import { mapScenes, mapMacros } from './adventure-maps.mjs';
 import { CARGA_PACKS, CARGA_COUNTS } from './carga/index.mjs';
+import { CERCO_PACKS, CERCO_COUNTS } from './cerco/index.mjs';
 import { MAPAS_PACKS, MAPAS_COUNTS } from './mapas/index.mjs';
 import { applyArt } from '../art/index.mjs';
 
@@ -46,7 +47,10 @@ export const PACKS = [
   ...MAPAS_PACKS,
 
   // Aventura "Carga Sem Nome": módulo próprio (sombraneon-carga-sem-nome), escopo carga
-  ...CARGA_PACKS
+  ...CARGA_PACKS,
+
+  // Aventura "Cerco ao Refúgio": módulo próprio (sombraneon-cerco-ao-refugio), escopo cerco
+  ...CERCO_PACKS
 ];
 
 // Arte dos tokens e ícones (Magnific): troca o ícone genérico pela ilustração de cada ator e item (data/art/).
@@ -84,5 +88,6 @@ export const EXPECTED_COUNTS = {
   'noite-tabelas': 2,
   'noite-macros': mapMacros.length,
   ...MAPAS_COUNTS,
-  ...CARGA_COUNTS
+  ...CARGA_COUNTS,
+  ...CERCO_COUNTS
 };

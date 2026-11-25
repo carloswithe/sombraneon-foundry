@@ -27,3 +27,5 @@ jobs:
             dist/module.zip
             dist/carga-sem-nome.json
             dist/carga-sem-nome.zip
+            dist/cerco-ao-refugio.json
+            dist/cerco-ao-refugio.zip

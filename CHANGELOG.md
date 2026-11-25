@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.12.0] - 2026-11-25
+
+**CERCO AO REFÚGIO**: a terceira aventura pronta, como módulo próprio (`sombraneon-cerco-ao-refugio`).
+
+### Adicionado
+- **Módulo `sombraneon-cerco-ao-refugio`** (manifesto `cerco-ao-refugio.json`, zip `cerco-ao-refugio.zip` na release), com dez compêndios na pasta *Cerco ao Refúgio*: 12 diários, 31 imagens, 6 cenas, 12 ameaças, 19 NPCs, 6 runners, 2 equipamentos, 4 tesouros e Prêmio, 7 tabelas e 14 macros.
+- **Arte própria** (Magnific): imagens, mapas gerados sobre o layout em grade da aventura, retratos, 37 tokens redondos e 4 ícones de item.
+- **Ferramentas:** escopo `cerco` em `tools/build-packs.mjs`, na validação e no release; `tools/cerco/` para instalar a arte; 23 testes em `tests/ui/cerco.test.mjs`.
+- **Documentos:** `docs/cerco-ao-refugio*.md` (texto, imagens, instruções, arte, mapeamento e relatório).
+
+### Para mundos existentes
+- Nada muda no sistema nem nos outros módulos. Instale o módulo novo pelo manifesto `cerco-ao-refugio.json` e ative.
+- O módulo foi conferido por testes e pela validação dos compêndios, **não** dentro de um Foundry (veja `docs/cerco-ao-refugio-relatorio.md`): faça a checklist de 15 minutos antes da mesa.
+
 ## [0.11.0] - 2026-11-16
 
 **Arte de tokens e ícones** nos compêndios: cada ameaça, ICE, IA, ficha pronta, arma, armadura, equipamento, implante, veículo, mecha e módulo, mais os itens e os atores sem arte das duas aventuras, passa a ter ilustração própria no lugar do ícone genérico.

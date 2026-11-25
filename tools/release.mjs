@@ -4,7 +4,7 @@ import archiver from 'archiver';
 import { ROOT } from './lib/book.mjs';
 
 /**
- * Gera dist/system.zip, dist/module.zip, dist/carga-sem-nome.zip e os manifests com a versão e as URLs corretas.
+ * Gera dist/system.zip, dist/module.zip, dist/carga-sem-nome.zip, dist/cerco-ao-refugio.zip e os manifests com a versão e as URLs corretas.
  * Uso: node tools/release.mjs [versão]   (padrão: versão do system.json)
  * Os arquivos ficam na RAIZ do zip, e os packs LevelDB entram byte a byte, sem conversão de linhas.
  */
@@ -19,7 +19,8 @@ const targets = [
   { key: 'system', dir: 'systems/sombraneon', manifest: 'system.json', zip: 'system.zip' },
   { key: 'module', dir: 'modules/sombraneon-compendium', manifest: 'module.json', zip: 'module.zip' },
   // o módulo da aventura é independente: manifesto e zip próprios (dentro do zip o manifesto continua sendo module.json)
-  { key: 'carga', dir: 'modules/sombraneon-carga-sem-nome', manifest: 'module.json', published: 'carga-sem-nome.json', zip: 'carga-sem-nome.zip' }
+  { key: 'carga', dir: 'modules/sombraneon-carga-sem-nome', manifest: 'module.json', published: 'carga-sem-nome.json', zip: 'carga-sem-nome.zip' },
+  { key: 'cerco', dir: 'modules/sombraneon-cerco-ao-refugio', manifest: 'module.json', published: 'cerco-ao-refugio.json', zip: 'cerco-ao-refugio.zip' }
 ];
 
 for (const t of targets) {

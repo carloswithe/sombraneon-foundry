@@ -2,7 +2,7 @@
   "id": "sombraneon-compendium",
   "title": "SombraNeon: Compêndio",
   "description": "Armas, armaduras, equipamento, implantes, veículos, mechas, ICE, ameaças, tabelas do Mestre, compêndios de referência, fichas prontas, macros e a aventura pronta \"Noite das Máscaras\" (livro, imagens, cenários, mapas de mesa com paredes, luzes e tokens, elenco, runners, itens e macros), mais o Compêndio de Mapas Aleatórios (100 cenas prontas com grade, paredes automáticas nos mapas aprovados, diários, tabelas de sorteio e macros) para o sistema SombraNeon.",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"

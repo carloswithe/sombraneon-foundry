@@ -10,6 +10,7 @@ import { PACKS } from '../data/content/index.mjs';
 const SYSTEM_ID = 'sombraneon';
 const MODULE_ID = 'sombraneon-compendium';
 const CARGA_ID = 'sombraneon-carga-sem-nome';
+const CERCO_ID = 'sombraneon-cerco-ao-refugio';
 const CORE_VERSION = '13.351';
 const DASH = /[–—]/;
 
@@ -28,12 +29,15 @@ const stats = () => ({
   exportSource: null
 });
 
-/** Cada escopo é um pacote do Foundry: o sistema e os dois módulos (compêndio e a aventura Carga Sem Nome). */
+/** Cada escopo é um pacote do Foundry: o sistema, o compêndio e as aventuras Carga Sem Nome e Cerco ao Refúgio. */
 const SCOPES = {
   system: { id: SYSTEM_ID, dir: 'systems/sombraneon' },
   module: { id: MODULE_ID, dir: 'modules/sombraneon-compendium' },
-  carga: { id: CARGA_ID, dir: 'modules/sombraneon-carga-sem-nome' }
+  carga: { id: CARGA_ID, dir: 'modules/sombraneon-carga-sem-nome' },
+  cerco: { id: CERCO_ID, dir: 'modules/sombraneon-cerco-ao-refugio' }
 };
+/** Aventuras em módulo próprio: não apontam para o compêndio do outro módulo. */
+const ADVENTURE_SCOPES = ['carga', 'cerco'];
 const scopeId = (scope) => SCOPES[scope].id;
 const destOf = (p) => path.join(ROOT, SCOPES[p.scope].dir, 'packs', p.name);
 
@@ -180,7 +184,7 @@ function actorDoc(pack, d, folders, index) {
     if (flags.sombraneon.grantedBy in placeholders) flags.sombraneon.grantedBy = placeholders[flags.sombraneon.grantedBy];
     const src = index.get(`${it.type}:${it.identifier}`);
     // o módulo da aventura é independente: não aponta para o compêndio do outro módulo (que pode nem estar instalado)
-    const crossModule = pack.scope === 'carga' && src?.scope === 'module';
+    const crossModule = ADVENTURE_SCOPES.includes(pack.scope) && src?.scope === 'module';
     if (src && !crossModule) flags.sombraneon.sourceUuid = src.uuid;
     return {
       _id: ids[i],
@@ -333,7 +337,7 @@ function macroDoc(pack, d, folders) {
   };
 }
 
-/** `only`: lista de escopos (system, module, carga) a recompilar; sem ela, recompila tudo. */
+/** `only`: lista de escopos (system, module, carga, cerco) a recompilar; sem ela, recompila tudo. */
 export async function buildPacks({ log = true, only = null, packs = null } = {}) {
   const index = buildIndex();
   const resolver = makeResolver(PACKS, scopeId);

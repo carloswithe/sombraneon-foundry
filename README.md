@@ -2,13 +2,14 @@
 
 RPG cyberpunk de regras enxutas para runners numa cidade dominada por corporações. Inspirado em Shadowdark (livro v0.7 em `docs/sombraneon.md`, mais os compêndios de ameaças e de veículos e armamento em `docs/`).
 
-Três pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
+Quatro pacotes, para **Foundry VTT v13 (build 351 ou mais novo)**:
 
 | Pacote | ID | O que traz |
 |---|---|---|
 | Sistema | `sombraneon` | Fichas, regras automáticas e os compêndios de regras (classes, origens, antecedentes, alinhamentos, características e talentos, programas, tabelas e o livro). |
 | Módulo | `sombraneon-compendium` | Catálogo para arrastar para a ficha: armas (inclusive pesadas e de cerco), armaduras, equipamento e explosivos, implantes, veículos, mechas e módulos, ICE e malware, 66 ameaças prontas, tabelas do Mestre, os dois compêndios companheiros como diários, fichas prontas, macros, a aventura pronta **Noite das Máscaras** e o **Compêndio de Mapas Aleatórios** (100 cenas prontas). |
 | Módulo da aventura | `sombraneon-carga-sem-nome` | Aventura pronta **CARGA SEM NOME** (extração, ataque a comboio e perseguição, 5 runners de nível 1): fichas, diários, 41 imagens e retratos, 5 mapas de mesa com paredes e tokens, tabelas e macros. Independente do módulo Compêndio. |
+| Módulo da aventura | `sombraneon-cerco-ao-refugio` | Aventura pronta **CERCO AO REFÚGIO** (defesa, 5 runners de níveis 1 e 2): fichas, diários, 31 imagens e retratos, 6 mapas de mesa com paredes e tokens, tabelas e macros. Independente. |
 
 ## Instalação
 
@@ -28,6 +29,12 @@ Para jogar a aventura **CARGA SEM NOME** (módulo independente, não precisa do 
 
 ```
 https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/carga-sem-nome.json
+```
+
+Para jogar a aventura **CERCO AO REFÚGIO** (módulo independente), instale:
+
+```
+https://github.com/carloswithe/sombraneon-foundry/releases/latest/download/cerco-ao-refugio.json
 ```
 
 Crie um mundo com o sistema SombraNeon e ative o módulo **SombraNeon: Compêndio** (e, se for jogar a aventura, **SombraNeon: CARGA SEM NOME**). A ficha não quebra sem o módulo, mas o assistente pula os passos de equipamento e implantes.
@@ -97,6 +104,22 @@ Módulo próprio (`sombraneon-carga-sem-nome`), independente do Compêndio e da 
 O texto da aventura fica em `docs/carga-sem-nome.md`, o guia das imagens em `docs/carga-sem-nome-imagens.md` e as instruções de montagem em `docs/carga-sem-nome-foundry-instrucoes.md`. O mapeamento do texto para os campos do sistema está em `docs/carga-sem-nome-mapeamento.md` e o relatório de verificação em `docs/carga-sem-nome-relatorio.md`. Os dados ficam em `data/content/carga/` e os mapas em `data/content/carga/maps-data.mjs` (em casas de grade, medidas sobre a arte).
 
 **Trocar a arte:** salve o arquivo novo com o mesmo nome em `modules/sombraneon-carga-sem-nome/assets/` (`img/`, `maps/`, `portraits/`) e rode `npm run build:packs`. Para os mapas, mantenha a proporção 3:2: as paredes foram medidas sobre a arte atual, então uma arte nova pode pedir ajuste de escala e posição do fundo na cena. Os tokens (`assets/tokens/`) vêm de `tools/gen-carga-tokens.ps1` (Windows PowerShell); o script não sobrescreve um token que já existe.
+
+## Aventura pronta: CERCO AO REFÚGIO
+
+Módulo próprio (`sombraneon-cerco-ao-refugio`), independente dos outros: uma aventura de defesa para 5 runners (3 de nível 1 e 2 de nível 2, uma sessão de até 4 horas). Uma igreja desativada na Colmeia, doze refugiados e uma noite inteira até o Expresso Interzonas das 05:00. Tudo fica na pasta **Cerco ao Refúgio** do menu de compêndios:
+
+1. **Diários da aventura (Mestre):** comece pelo `00 Leia primeiro`. Depois o `01 O Alerta`, o `01b Relógio da noite`, o `02 Briefing e FAQ` (as 10 perguntas, visíveis aos jogadores, com as notas do Mestre ocultas), um diário por sala (`03` a `07`, com contadores para marcar), o `08 Debrief`, os cortes e o ajuste de nível, e as notas de teste.
+2. **Imagens e retratos (31):** um diário por imagem, com a arte, o texto para ler e as notas. Os handouts do briefing e os seis retratos de runner já vêm com acesso de observador.
+3. **Cenas (6 mapas de mesa):** grade de 1,5 m, paredes, portas, luzes, regiões de cobertura, pins e tokens nas posições iniciais, com os seis runners. Ao importar uma cena, o módulo cria no mundo os atores que ela usa (pasta *Cerco ao Refúgio*), liga os tokens a eles e os pins aos diários.
+4. **Ameaças (12), NPCs e os doze (19), Runners prontos (6).**
+5. **Equipamentos (2) e Tesouros e Prêmio (4), Tabelas (7) e Macros (14):** Alerta, relógio da história, cronômetros, relógio da Coruja, luzes da cripta e marca de armadilha.
+
+**Para jogar:** ative o módulo, importe os compêndios (clique direito, *Importar tudo*), abra a primeira cena e dê aos jogadores a propriedade dos runners que eles escolherem. Apague os que sobrarem.
+
+O texto fica em `docs/cerco-ao-refugio.md`, o guia das imagens em `docs/cerco-ao-refugio-imagens.md`, a origem da arte em `docs/cerco-ao-refugio-arte.md`, o mapeamento em `docs/cerco-ao-refugio-mapeamento.md` e o relatório, com a checklist de 15 minutos, em `docs/cerco-ao-refugio-relatorio.md`. Os dados ficam em `data/content/cerco/` e as ferramentas de arte em `tools/cerco/`.
+
+**Trocar a arte:** salve o arquivo novo com o mesmo nome e as mesmas dimensões em `modules/sombraneon-cerco-ao-refugio/assets/` e rode `npm run build:packs`. As paredes vêm do layout em casas do próprio texto, então uma arte nova de mapa precisa seguir a mesma planta.
 
 ## Arte de tokens e ícones
 

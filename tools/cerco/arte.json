@@ -1,0 +1,660 @@
+{
+ "projeto_magnific": "SombraNeon Cerco ao Refúgio",
+ "modelo": "Google Nano Banana 2.1",
+ "imagens": [
+  {
+   "id": "img-01",
+   "arquivo": "img-01-planta-igreja",
+   "tipo": "cena",
+   "criacao": "UPf7E9ywny"
+  },
+  {
+   "id": "img-02",
+   "arquivo": "img-02-os-doze",
+   "tipo": "cena",
+   "criacao": "0e7V3XBTfW"
+  },
+  {
+   "id": "img-03",
+   "arquivo": "img-03-organograma-rede",
+   "tipo": "cena",
+   "criacao": "dtNBNtPXSL"
+  },
+  {
+   "id": "img-04",
+   "arquivo": "img-04-o-kit",
+   "tipo": "cena",
+   "criacao": "yiF4FZ3PW9"
+  },
+  {
+   "id": "img-05",
+   "arquivo": "img-05-chamada-ruth",
+   "tipo": "cena",
+   "criacao": "WDU0UBmcXe"
+  },
+  {
+   "id": "img-06",
+   "arquivo": "img-06-igreja-noite",
+   "tipo": "cena",
+   "criacao": "O6QPQGCynm"
+  },
+  {
+   "id": "img-07",
+   "arquivo": "img-07-irma-beatriz",
+   "tipo": "cena",
+   "criacao": "TdJMJvRVNR"
+  },
+  {
+   "id": "img-08",
+   "arquivo": "img-08-os-doze-sacristia",
+   "tipo": "cena",
+   "criacao": "s7mgmRml8e"
+  },
+  {
+   "id": "mapa-01",
+   "arquivo": "mapa-01-igreja-inteira",
+   "tipo": "mapa",
+   "criacao": "nVgWJKPYQD"
+  },
+  {
+   "id": "img-09",
+   "arquivo": "img-09-portao-cede",
+   "tipo": "cena",
+   "criacao": "eI9X9qAdqL"
+  },
+  {
+   "id": "img-10",
+   "arquivo": "img-10-drone-vigilancia",
+   "tipo": "cena",
+   "criacao": "aFnCnSrfSh"
+  },
+  {
+   "id": "img-11",
+   "arquivo": "img-11-terminal-escritorio",
+   "tipo": "cena",
+   "criacao": "s7mgmn4l8e"
+  },
+  {
+   "id": "mapa-02",
+   "arquivo": "mapa-02-patio-portao",
+   "tipo": "mapa",
+   "criacao": "MByp9YrDCm"
+  },
+  {
+   "id": "img-12",
+   "arquivo": "img-12-os-tres-e-o-mapa",
+   "tipo": "cena",
+   "criacao": "IfZmAQZtvE"
+  },
+  {
+   "id": "img-13",
+   "arquivo": "img-13-penhora-amassada",
+   "tipo": "cena",
+   "criacao": "ksXrXZC16B"
+  },
+  {
+   "id": "img-14",
+   "arquivo": "img-14-onda-2-entra",
+   "tipo": "cena",
+   "criacao": "TdJMR8gVNR"
+  },
+  {
+   "id": "img-15",
+   "arquivo": "img-15-torre-0150",
+   "tipo": "cena",
+   "criacao": "6AK3S0DiJO"
+  },
+  {
+   "id": "mapa-03",
+   "arquivo": "mapa-03-nave-por-dentro",
+   "tipo": "mapa",
+   "criacao": "4RqNbPU9Aa"
+  },
+  {
+   "id": "img-16",
+   "arquivo": "img-16-brandt-e-a-van",
+   "tipo": "cena",
+   "criacao": "TdJMJkMVNR"
+  },
+  {
+   "id": "img-17",
+   "arquivo": "img-17-a-palavra",
+   "tipo": "cena",
+   "criacao": "yiF4F8BPW9"
+  },
+  {
+   "id": "img-18",
+   "arquivo": "img-18-a-igreja-queima",
+   "tipo": "cena",
+   "criacao": "3z1Z1EvREY"
+  },
+  {
+   "id": "img-19",
+   "arquivo": "img-19-coruja-na-cripta",
+   "tipo": "cena",
+   "criacao": "8aRtRykIrU"
+  },
+  {
+   "id": "mapa-04",
+   "arquivo": "mapa-04-a-igreja-sitiada",
+   "tipo": "mapa",
+   "criacao": "eI9XR4BdqL"
+  },
+  {
+   "id": "mapa-05",
+   "arquivo": "mapa-05-a-cripta",
+   "tipo": "mapa",
+   "criacao": "huGanfsvqL"
+  },
+  {
+   "id": "img-20",
+   "arquivo": "img-20-a-passarela",
+   "tipo": "cena",
+   "criacao": "8aRtR4rIrU"
+  },
+  {
+   "id": "img-21",
+   "arquivo": "img-21-o-expresso",
+   "tipo": "cena",
+   "criacao": "TdJMRvJVNR"
+  },
+  {
+   "id": "img-22",
+   "arquivo": "img-22-dr-hayashi",
+   "tipo": "cena",
+   "criacao": "eI9X9PtdqL"
+  },
+  {
+   "id": "mapa-06",
+   "arquivo": "mapa-06-estacao-do-cais",
+   "tipo": "mapa",
+   "criacao": "LwtlvroswO"
+  },
+  {
+   "id": "img-23",
+   "arquivo": "img-23-embaralhador",
+   "tipo": "cena",
+   "criacao": "ov3Ic5n829"
+  },
+  {
+   "id": "img-24",
+   "arquivo": "img-24-amostra-lote",
+   "tipo": "cena",
+   "criacao": "vQzfzY6a47"
+  },
+  {
+   "id": "img-25",
+   "arquivo": "img-25-doze-passagens",
+   "tipo": "cena",
+   "criacao": "KLd1aNCkqp"
+  },
+  {
+   "id": "ret-01",
+   "arquivo": "ret-01-torre",
+   "tipo": "retrato",
+   "criacao": "huGaGTEvqL"
+  },
+  {
+   "id": "ret-02",
+   "arquivo": "ret-02-cabo",
+   "tipo": "retrato",
+   "criacao": "Xm6o6nFBfo"
+  },
+  {
+   "id": "ret-03",
+   "arquivo": "ret-03-sutura",
+   "tipo": "retrato",
+   "criacao": "s7mgmq6l8e"
+  },
+  {
+   "id": "ret-04",
+   "arquivo": "ret-04-veu",
+   "tipo": "retrato",
+   "criacao": "3z1Z1JSREY"
+  },
+  {
+   "id": "ret-05",
+   "arquivo": "ret-05-coro",
+   "tipo": "retrato",
+   "criacao": "p84d4W3ehw"
+  },
+  {
+   "id": "ret-06",
+   "arquivo": "ret-06-rotor",
+   "tipo": "retrato",
+   "criacao": "3z1Z14JREY"
+  },
+  {
+   "id": "zaca",
+   "arquivo": "zaca",
+   "tipo": "retrato",
+   "criacao": "ov3bQ0Q829"
+  },
+  {
+   "id": "seu-altino",
+   "arquivo": "seu-altino",
+   "tipo": "retrato",
+   "criacao": "mEA1bdUhJQ"
+  },
+  {
+   "id": "ana-paz",
+   "arquivo": "ana-paz",
+   "tipo": "retrato",
+   "criacao": "9ZbTYOrNYZ"
+  },
+  {
+   "id": "antonio",
+   "arquivo": "antonio",
+   "tipo": "retrato",
+   "criacao": "cpwh8WG0eP"
+  },
+  {
+   "id": "luzia",
+   "arquivo": "luzia",
+   "tipo": "retrato",
+   "criacao": "O6QYG9Rynm"
+  },
+  {
+   "id": "caio",
+   "arquivo": "caio",
+   "tipo": "retrato",
+   "criacao": "JNunA6BOq4"
+  },
+  {
+   "id": "nzinga",
+   "arquivo": "nzinga",
+   "tipo": "retrato",
+   "criacao": "xS8NPJQjfW"
+  },
+  {
+   "id": "tembo",
+   "arquivo": "tembo",
+   "tipo": "retrato",
+   "criacao": "YMSto8dWeC"
+  },
+  {
+   "id": "graca",
+   "arquivo": "graca",
+   "tipo": "retrato",
+   "criacao": "4Rq0YTS9Aa"
+  },
+  {
+   "id": "samora",
+   "arquivo": "samora",
+   "tipo": "retrato",
+   "criacao": "IfZKK1wtvE"
+  },
+  {
+   "id": "atirador-gangue",
+   "arquivo": "atirador-gangue",
+   "tipo": "retrato",
+   "criacao": "JNunAp5Oq4"
+  },
+  {
+   "id": "android-seguranca",
+   "arquivo": "android-seguranca",
+   "tipo": "retrato",
+   "criacao": "vQzxkyma47"
+  },
+  {
+   "id": "enxame-ratos",
+   "arquivo": "enxame-ratos",
+   "tipo": "retrato",
+   "criacao": "5jeOwndKxe"
+  }
+ ],
+ "grades": {
+  "mapa-01": [
+   36,
+   24
+  ],
+  "mapa-02": [
+   30,
+   20
+  ],
+  "mapa-03": [
+   24,
+   16
+  ],
+  "mapa-04": [
+   36,
+   24
+  ],
+  "mapa-05": [
+   30,
+   20
+  ],
+  "mapa-06": [
+   30,
+   20
+  ]
+ },
+ "tokens": [
+  {
+   "id": "torre",
+   "de": "ret-01",
+   "cx": 0.54,
+   "cy": 0.26,
+   "lado": 0.6,
+   "anel": "red"
+  },
+  {
+   "id": "cabo",
+   "de": "ret-02",
+   "cx": 0.54,
+   "cy": 0.34,
+   "lado": 0.64,
+   "anel": "cyan"
+  },
+  {
+   "id": "sutura",
+   "de": "ret-03",
+   "cx": 0.5,
+   "cy": 0.28,
+   "lado": 0.6,
+   "anel": "green"
+  },
+  {
+   "id": "veu",
+   "de": "ret-04",
+   "cx": 0.48,
+   "cy": 0.33,
+   "lado": 0.6,
+   "anel": "violet"
+  },
+  {
+   "id": "coro",
+   "de": "ret-05",
+   "cx": 0.48,
+   "cy": 0.28,
+   "lado": 0.62,
+   "anel": "magenta"
+  },
+  {
+   "id": "rotor",
+   "de": "ret-06",
+   "cx": 0.41,
+   "cy": 0.27,
+   "lado": 0.6,
+   "anel": "orange"
+  },
+  {
+   "id": "beatriz",
+   "de": "img-07",
+   "cx": 0.5,
+   "cy": 0.28,
+   "lado": 0.66,
+   "anel": "magenta"
+  },
+  {
+   "id": "hayashi",
+   "de": "img-22",
+   "cx": 0.5,
+   "cy": 0.28,
+   "lado": 0.62,
+   "anel": "violet"
+  },
+  {
+   "id": "ruth",
+   "de": "img-05",
+   "cx": 0.285,
+   "cy": 0.45,
+   "lado": 0.185,
+   "anel": "cyan"
+  },
+  {
+   "id": "jonas",
+   "de": "img-12",
+   "cx": 0.572,
+   "cy": 0.235,
+   "lado": 0.185,
+   "anel": "orange"
+  },
+  {
+   "id": "clarice",
+   "de": "img-12",
+   "cx": 0.785,
+   "cy": 0.335,
+   "lado": 0.185,
+   "anel": "orange"
+  },
+  {
+   "id": "bia",
+   "de": "img-08",
+   "cx": 0.755,
+   "cy": 0.775,
+   "lado": 0.16,
+   "anel": "gold"
+  },
+  {
+   "id": "dona-nena",
+   "de": "img-08",
+   "cx": 0.165,
+   "cy": 0.55,
+   "lado": 0.125,
+   "anel": "gold"
+  },
+  {
+   "id": "iris",
+   "de": "img-17",
+   "cx": 0.452,
+   "cy": 0.495,
+   "lado": 0.14,
+   "anel": "cyan"
+  },
+  {
+   "id": "tomas",
+   "de": "img-17",
+   "cx": 0.635,
+   "cy": 0.545,
+   "lado": 0.14,
+   "anel": "cyan"
+  },
+  {
+   "id": "brandt",
+   "de": "img-16",
+   "cx": 0.66,
+   "cy": 0.365,
+   "lado": 0.14,
+   "anel": "green"
+  },
+  {
+   "id": "van-captura",
+   "de": "img-16",
+   "cx": 0.255,
+   "cy": 0.55,
+   "lado": 0.5,
+   "anel": "green"
+  },
+  {
+   "id": "seguranca-corporativa",
+   "de": "img-14",
+   "cx": 0.335,
+   "cy": 0.455,
+   "lado": 0.165,
+   "anel": "green"
+  },
+  {
+   "id": "cao-cibernetico",
+   "de": "img-14",
+   "cx": 0.455,
+   "cy": 0.7,
+   "lado": 0.19,
+   "anel": "green"
+  },
+  {
+   "id": "drone-combate",
+   "de": "img-14",
+   "cx": 0.775,
+   "cy": 0.235,
+   "lado": 0.19,
+   "anel": "green"
+  },
+  {
+   "id": "drone-vigilancia",
+   "de": "img-10",
+   "cx": 0.645,
+   "cy": 0.4,
+   "lado": 0.36,
+   "anel": "green"
+  },
+  {
+   "id": "coruja",
+   "de": "img-19",
+   "cx": 0.33,
+   "cy": 0.28,
+   "lado": 0.28,
+   "anel": "violet"
+  },
+  {
+   "id": "torreta",
+   "de": "img-04",
+   "cx": 0.375,
+   "cy": 0.33,
+   "lado": 0.22,
+   "anel": "red"
+  },
+  {
+   "id": "capanga",
+   "de": "img-09",
+   "cx": 0.355,
+   "cy": 0.5,
+   "lado": 0.16,
+   "anel": "red"
+  },
+  {
+   "id": "zaca",
+   "de": "zaca",
+   "cx": 0.53,
+   "cy": 0.23,
+   "lado": 0.58,
+   "anel": "amber"
+  },
+  {
+   "id": "seu-altino",
+   "de": "seu-altino",
+   "cx": 0.54,
+   "cy": 0.28,
+   "lado": 0.6,
+   "anel": "gold"
+  },
+  {
+   "id": "ana-paz",
+   "de": "ana-paz",
+   "cx": 0.47,
+   "cy": 0.25,
+   "lado": 0.6,
+   "anel": "magenta"
+  },
+  {
+   "id": "antonio",
+   "de": "antonio",
+   "cx": 0.58,
+   "cy": 0.28,
+   "lado": 0.58,
+   "anel": "gold"
+  },
+  {
+   "id": "luzia",
+   "de": "luzia",
+   "cx": 0.5,
+   "cy": 0.27,
+   "lado": 0.58,
+   "anel": "red"
+  },
+  {
+   "id": "caio",
+   "de": "caio",
+   "cx": 0.56,
+   "cy": 0.25,
+   "lado": 0.58,
+   "anel": "orange"
+  },
+  {
+   "id": "nzinga",
+   "de": "nzinga",
+   "cx": 0.45,
+   "cy": 0.28,
+   "lado": 0.6,
+   "anel": "red"
+  },
+  {
+   "id": "tembo",
+   "de": "tembo",
+   "cx": 0.49,
+   "cy": 0.18,
+   "lado": 0.52,
+   "anel": "cyan"
+  },
+  {
+   "id": "graca",
+   "de": "graca",
+   "cx": 0.49,
+   "cy": 0.3,
+   "lado": 0.64,
+   "anel": "violet"
+  },
+  {
+   "id": "samora",
+   "de": "samora",
+   "cx": 0.38,
+   "cy": 0.28,
+   "lado": 0.66,
+   "anel": "amber"
+  },
+  {
+   "id": "atirador-gangue",
+   "de": "atirador-gangue",
+   "cx": 0.5,
+   "cy": 0.29,
+   "lado": 0.62,
+   "anel": "red"
+  },
+  {
+   "id": "android-seguranca",
+   "de": "android-seguranca",
+   "cx": 0.46,
+   "cy": 0.19,
+   "lado": 0.62,
+   "anel": "green"
+  },
+  {
+   "id": "enxame-ratos",
+   "de": "enxame-ratos",
+   "cx": 0.5,
+   "cy": 0.78,
+   "lado": 0.94,
+   "anel": "red"
+  }
+ ],
+ "icones": [
+  {
+   "id": "item-embaralhador",
+   "de": "img-23",
+   "cx": 0.5,
+   "cy": 0.5,
+   "lado": 1.0
+  },
+  {
+   "id": "item-amostra-lote",
+   "de": "img-24",
+   "cx": 0.5,
+   "cy": 0.5,
+   "lado": 1.0
+  },
+  {
+   "id": "item-os-doze",
+   "de": "img-25",
+   "cx": 0.5,
+   "cy": 0.5,
+   "lado": 1.0
+  },
+  {
+   "id": "item-kit-rede",
+   "de": "img-04",
+   "cx": 0.5,
+   "cy": 0.5,
+   "lado": 0.66
+  }
+ ]
+}
